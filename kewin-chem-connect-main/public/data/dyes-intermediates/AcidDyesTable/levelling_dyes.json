@@ -1,0 +1,250 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 29.1",
+    "CAS no": "6359-91-7",
+    "Application": "-"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 36",
+    "CAS no": "65113-55-5",
+    "Application": "-"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 42",
+    "CAS no": "6375-55-9",
+    "Application": "-"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 79",
+    "CAS no": "12220-70-1",
+    "Application": "-"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 110",
+    "CAS no": "12220-74-5",
+    "Application": "-"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 127",
+    "CAS no": "73384-78-8",
+    "Application": "-"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Yellow 166",
+    "CAS no": "71033-19-7",
+    "Application": "-"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Orange 56",
+    "CAS no": "6470-20-8",
+    "Application": "-"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Orange 67",
+    "CAS no": "12220-06-3",
+    "Application": "-"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Orange 94",
+    "CAS no": "70161-18-1",
+    "Application": "-"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Orange 116",
+    "CAS no": "12220-10-9",
+    "Application": "-"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 18",
+    "CAS no": "2611-82-7",
+    "Application": "-"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 88",
+    "CAS no": "1658-56-6",
+    "Application": "-"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 97",
+    "CAS no": "10169-02-5",
+    "Application": "-"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 119",
+    "CAS no": "12220-20-1",
+    "Application": "-"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 131",
+    "CAS no": "70210-37-6",
+    "Application": "-"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 141",
+    "CAS no": "5850-93-1",
+    "Application": "-"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 151",
+    "CAS no": "6406-56-0",
+    "Application": "-"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 249",
+    "CAS no": "6416-66-6",
+    "Application": "-"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Red 337",
+    "CAS no": "67786-14-5",
+    "Application": "-"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Violet 17",
+    "CAS no": "4129-84-4",
+    "Application": "-"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Violet 54",
+    "CAS no": "70210-05-8",
+    "Application": "-"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Blue 15",
+    "CAS no": "5863-46-7",
+    "Application": "-"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Blue 113",
+    "CAS no": "01-05-3351",
+    "Application": "-"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Green 1",
+    "CAS no": "19381-50-1",
+    "Application": "-"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Green 20",
+    "CAS no": "5850-39-5",
+    "Application": "-"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Green 68",
+    "CAS no": "61901-32-4",
+    "Application": "-"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Black 210",
+    "CAS no": "99576-15-5",
+    "Application": "-"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Black 234",
+    "CAS no": "157577-99-6",
+    "Application": "-"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Brown 58",
+    "CAS no": "70210-34-3",
+    "Application": "-"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "Shade": "Color",
+    "C.I Name": "Acid Brown 75",
+    "CAS no": "8011-86-7",
+    "Application": "-"
+  }
+]

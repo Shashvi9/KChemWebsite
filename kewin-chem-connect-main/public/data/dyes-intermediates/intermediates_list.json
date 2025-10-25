@@ -1,0 +1,2109 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "2 Chloro Benzoic Acid",
+    "CAS no": "118-91-2"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "2 Chloro Benzoic Acid",
+    "CAS no": "118-91-2"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "2 Chloro Benzoic Acid",
+    "CAS no": "118-91-2"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "3,5 DI Amino Benzoic Acid",
+    "CAS no": "535-87-5"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "3,5 DI Nitro Benzoic Acid",
+    "CAS no": "99-34-3"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "3 Amino 4 Methoxy Benzoic Acid",
+    "CAS no": "2840-26-8"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "3 Amino 4 Methyl Benzoicacid",
+    "CAS no": "2458-12-0"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Compound": "Benzoic",
+    "ProductName": "4 Chloro 3 Nitro Benzoicacid",
+    "CAS no": "96-99-1"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Compound": "Anthranilic",
+    "ProductName": "5 Nitro Anthranilic Acid",
+    "CAS no": "616-79-5"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Compound": "Anthranilic",
+    "ProductName": "5 Sulfo Anthranilic Acid",
+    "CAS no": "3577-63-7"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Compound": "Anthranilic",
+    "ProductName": "Anthranilic Acid",
+    "CAS no": "118-92-3"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Compound": "Anthranilic",
+    "ProductName": "N Acetyl Anthranilic Acid(2 Acetamido Benzoic Acid)",
+    "CAS no": "89-52-1"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Compound": "Anthranilic",
+    "ProductName": "N Methyl Anthranilic Acid",
+    "CAS no": "119-68-6"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Compound": "Anisidine",
+    "ProductName": "5 Nitro Ortho Anisidine 4 Sulfonic Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Compound": "Anisidine",
+    "ProductName": "Ortho Anisidine Para Sulphonic Acid",
+    "CAS no": "98-42-0"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Compound": "Anisidine",
+    "ProductName": "Ortho Diansidine Base (O D Base)",
+    "CAS no": "119-90-4"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Compound": "Anisidine",
+    "ProductName": "Para Anisidine 2 Sulphonic Acid",
+    "CAS no": "6470-17-3"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Compound": "Anisidine",
+    "ProductName": "Para Anisidine 2,5 Disulphonic Acid",
+    "CAS no": "27327-48-6"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Compound": "Anisidine",
+    "ProductName": "Para Anisidine Meta Sulfonic Acid",
+    "CAS no": "6470-17-3"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Compound": "Cresidine",
+    "ProductName": "Para Cresidine 4 Methyl Sulphamide",
+    "CAS no": "--"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Compound": "Cresidine",
+    "ProductName": "Para Cresidine Ortho Sulfonic Acid",
+    "CAS no": "6471-78-9"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "2 Amino Benzenesulphone N-Ethyl Anilide - Use In Acid Red 57",
+    "CAS no": "--"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "2-Methyl 4 Amino 5 Methoxy Methyl Benzene Sulfonamide",
+    "CAS no": "49564-57-0"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "3,3’dichloro Benzedine",
+    "CAS no": "91-94-1"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "4 Amino 3 Methoxy Azo Benzene 3 Sulphonic Acid (Yellow Pg Base)",
+    "CAS no": "600-07-8"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "4-4’ Diamino Benzanilide (Daba)",
+    "CAS no": "785-30-8"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "4 Amino 2,5 Dimethoxy Methyl Benzene Sufonamide",
+    "CAS no": "49701-24-8"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Benzidine 2,2’ Disulfonic Acid (Bdsa)",
+    "CAS no": "117-61-3"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Meta Amino Benzene Sulfanilide (Mabsa Anilide)",
+    "CAS no": "98-18-0"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Metanilic Acid",
+    "CAS no": "121-47-1"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Ortho Nitro Chlorobenzene 4 Sulfonic Acid",
+    "CAS no": "121-18-6"
+  },
+  {
+    "Id": "32",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Para Amino Azo Benzene 3,4’ Disulfonic Acid (Paab 3,4 Dsa)",
+    "CAS no": "101-50-8"
+  },
+  {
+    "Id": "33",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Para Amino Azo Benzene 4 Sulphonic Acid (Paab4sa)",
+    "CAS no": "104-23-4"
+  },
+  {
+    "Id": "34",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Para Nitro Chloro Benzene Ortho Sulfonic Acid",
+    "CAS no": "946-30-5"
+  },
+  {
+    "Id": "35",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Resist Salt Granules And Powder",
+    "CAS no": "127-68-4"
+  },
+  {
+    "Id": "36",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Sulphanilic Acid Sodium Salt (As Technical)",
+    "CAS no": "515-74-2"
+  },
+  {
+    "Id": "37",
+    "Select": "",
+    "Compound": "Benzene",
+    "ProductName": "Sulphanilic Acid Technical",
+    "CAS no": "121-57-3"
+  },
+  {
+    "Id": "38",
+    "Select": "",
+    "Compound": "Toluene",
+    "ProductName": "2,5 Di Amino Toluene (As Sulfate)",
+    "CAS no": "95-70-5"
+  },
+  {
+    "Id": "39",
+    "Select": "",
+    "Compound": "Toluene",
+    "ProductName": "Mixture of 2,3 & 3,4 Toluene Diamine (Otd)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "40",
+    "Select": "",
+    "Compound": "Toluene",
+    "ProductName": "Mixture of 2,4 & 2,6 Toluene Diamine (Mtd)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "41",
+    "Select": "",
+    "Compound": "Toluene",
+    "ProductName": "Para Nitro Toluene Ortho Sulfonic Acid",
+    "CAS no": "600-07-8"
+  },
+  {
+    "Id": "42",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Dehydrothio P-Toluidine",
+    "CAS no": "92-36-4"
+  },
+  {
+    "Id": "43",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Dehydrothio P-Toluidine Sulfonic Acid",
+    "CAS no": "130-17-6"
+  },
+  {
+    "Id": "44",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Meta Toluidine",
+    "CAS no": "108-44-1"
+  },
+  {
+    "Id": "45",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Ortho Tolidine Base (O T Base)",
+    "CAS no": "119-93-7"
+  },
+  {
+    "Id": "46",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Ortho Toluidine",
+    "CAS no": "95-53-4"
+  },
+  {
+    "Id": "47",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Ortho Toluidine 4 Sulfonic Acid",
+    "CAS no": "618-03-1"
+  },
+  {
+    "Id": "48",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Ortho Toluidine 5 Sulfonic Acid",
+    "CAS no": "98-33-9"
+  },
+  {
+    "Id": "49",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Para Toludine Ortho Sulfonic Acid",
+    "CAS no": "104-15-4"
+  },
+  {
+    "Id": "50",
+    "Select": "",
+    "Compound": "Toluidine",
+    "ProductName": "Para Toluidine",
+    "CAS no": "106-49-0"
+  },
+  {
+    "Id": "51",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2 Chloro 4 Sulfophenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "52",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2 Chloro 5 Sulfo Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "88-76-6"
+  },
+  {
+    "Id": "53",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2 Chloro) Phenyl 3 Methyl 5 Pyrazolone",
+    "CAS no": "14580-2-9"
+  },
+  {
+    "Id": "54",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2 Methyl 4 Sulfo Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "118-07-0"
+  },
+  {
+    "Id": "55",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2 Methyl 5 Sulfo Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "56",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2,5 Dichloro 4 Sulfophenyl) 3 Carboxy 5 Pyrazolone",
+    "CAS no": "84-57-1"
+  },
+  {
+    "Id": "57",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2,5 Dichloro 4 Sulfophenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "84-57-1"
+  },
+  {
+    "Id": "58",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (2-Sulphophenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "58862-38-7"
+  },
+  {
+    "Id": "59",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (3 Chloro) Phenyl 3 Methyl 5 Pyrazolone",
+    "CAS no": "90-31-3"
+  },
+  {
+    "Id": "60",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (3 Sulfamido Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "61",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (3 Sulfo) Phenyl 3 Methyl 5 Pyrazolone",
+    "CAS no": "119-17-5"
+  },
+  {
+    "Id": "62",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (3 Sulfophenyl) 3 Methyl 5 Aminopyrazol",
+    "CAS no": "23646-86-8"
+  },
+  {
+    "Id": "63",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (4 Chloro Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "13024-90-3"
+  },
+  {
+    "Id": "64",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (4 Sulfamido Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "65",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (4 Sulfo) Phenyl 3 Carboxy 5 Pyrazolone",
+    "CAS no": "118-47-8"
+  },
+  {
+    "Id": "66",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (4 Sulfo) Phenyl 3 Methyl 5 Pyrazolone",
+    "CAS no": "89-36-1"
+  },
+  {
+    "Id": "67",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (4 Sulfophenyl) 3 Methyl 5 Aminopyrazol",
+    "CAS no": "89-36-2"
+  },
+  {
+    "Id": "68",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 (5 Amino Phenyl) 3 Methyl 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "69",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 Phenyl 3 Carbethoxy 5 Pyrazolone",
+    "CAS no": "89-33-8"
+  },
+  {
+    "Id": "70",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 Phenyl 3 Carboxamide 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "71",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 Phenyl 3 Carboxy 5 Pyrazolone",
+    "CAS no": "119-18-6"
+  },
+  {
+    "Id": "72",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 Phenyl 3 Methyl 5 Aminopyrazolone",
+    "CAS no": "1131-18-6"
+  },
+  {
+    "Id": "73",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 Phenyl 3 Methyl 5 Pyrazolone",
+    "CAS no": "89-25-8"
+  },
+  {
+    "Id": "74",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1(4 Tolyl)Phenyl 3 Methyl 5 Pyrazolone",
+    "CAS no": "86-92-0"
+  },
+  {
+    "Id": "75",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "1 [(2' Chloro 6 Methyl) Phenyl] 3 Methyl 5 Pyrazolone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "76",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "3 Methyl 5 Pyrazolone",
+    "CAS no": "108-26-9"
+  },
+  {
+    "Id": "77",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "3 Methyl Pyrazolone Vinyl Sulfone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "78",
+    "Select": "",
+    "Compound": "Pyrazolone",
+    "ProductName": "Vinyl Sulfone Pyrazolone (Ester)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "79",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "2 Chloro Aniline 5 Sulfonic Acid",
+    "CAS no": "98-36-2"
+  },
+  {
+    "Id": "80",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "2,5 Di Chloro Aniline",
+    "CAS no": "95-82-9"
+  },
+  {
+    "Id": "81",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "2,5 Dichloro Aniline 4 Sulfonic Acid",
+    "CAS no": "88-50-6"
+  },
+  {
+    "Id": "82",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "6 Bromo 2,4 Di Nitro Aniline",
+    "CAS no": "1817-73-8"
+  },
+  {
+    "Id": "83",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "6 Chloro 2,4 Di Nitro Aniline",
+    "CAS no": "3531-19-9"
+  },
+  {
+    "Id": "84",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Aniline 2,4 Disulphonic Acid",
+    "CAS no": "137-51-9"
+  },
+  {
+    "Id": "85",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Aniline 2,5 Disulphonic Acid",
+    "CAS no": "98-44-2"
+  },
+  {
+    "Id": "86",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Meta Uriedo Aniline Technical",
+    "CAS no": "59690-88-9"
+  },
+  {
+    "Id": "87",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "N,N’ Dimethyl Para Nitro Aniline",
+    "CAS no": "100-23-2"
+  },
+  {
+    "Id": "88",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "N Benzyl N Ethyl Aniline (Eba)",
+    "CAS no": "92-59-1"
+  },
+  {
+    "Id": "89",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "N Ethyl Aniline",
+    "CAS no": "103-69-5"
+  },
+  {
+    "Id": "90",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "N Ethyl N Benzyl Aniline Meta Sulfonic Acid (Ebamsa)",
+    "CAS no": "101-11-1"
+  },
+  {
+    "Id": "91",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "N Methyl Para Nitro Aniline",
+    "CAS no": "100-15-2"
+  },
+  {
+    "Id": "92",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Ortho Chloro Para Nitro Aniline",
+    "CAS no": "121-87-9"
+  },
+  {
+    "Id": "93",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Para Chloro Ortho Nitro Aniline",
+    "CAS no": "89-63-4"
+  },
+  {
+    "Id": "94",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Para Nitro Aniline (Pna) 99% Up",
+    "CAS no": "100-01-6"
+  },
+  {
+    "Id": "95",
+    "Select": "",
+    "Compound": "Aniline",
+    "ProductName": "Para Nitro Aniline Ortho Sulfonic Acid",
+    "CAS no": "96-75-3"
+  },
+  {
+    "Id": "96",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "2 Methyl Para Phenylene Di Amine",
+    "CAS no": "--"
+  },
+  {
+    "Id": "97",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "2 Nitro Para Phenylene Di Amine",
+    "CAS no": "5307-14-2"
+  },
+  {
+    "Id": "98",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "2 Nitro 4 Aminodiphenylamino 4 Sulfonic Acid (2 Nadapsa/ 3r Base)",
+    "CAS no": "135-11-5"
+  },
+  {
+    "Id": "99",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "2-Chloro Para Phenylene Di Amine",
+    "CAS no": "615-66-7"
+  },
+  {
+    "Id": "100",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "2 Nitro P Phenylene Diamine",
+    "CAS no": "5307-14-2"
+  },
+  {
+    "Id": "101",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Amino Diphenylamine 2 Sulfonic Acid (4 Adapsa)",
+    "CAS no": "91-30-5"
+  },
+  {
+    "Id": "102",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Nitro 4’ Amino Diphenylamine 2 Sulfonic Acid",
+    "CAS no": "91-29-2"
+  },
+  {
+    "Id": "103",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Nitro Ortho Phenylene Di Amine",
+    "CAS no": "99-56-9"
+  },
+  {
+    "Id": "104",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Nitro Para Phenylene Diamine",
+    "CAS no": "--"
+  },
+  {
+    "Id": "105",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4,4' Diamino 5,5' Dimethyl 1,1' Diphenyl 2,2' Disulphonic Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "106",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4,4' Diamino Diphenyl Sulphonamide (Dasa)",
+    "CAS no": "16803-97-7"
+  },
+  {
+    "Id": "107",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4,4' Diamino Diphenylamine 2 Sulfonic Acid (F. C. Acid)",
+    "CAS no": "119-70-0"
+  },
+  {
+    "Id": "108",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Acetamido 2 Aminobenzene Sulphonic Acid (Acetyl Mpdsa)",
+    "CAS no": "88-64-2"
+  },
+  {
+    "Id": "109",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Chloro O Phenylenediamine",
+    "CAS no": "95-83-0"
+  },
+  {
+    "Id": "110",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Chloro M Phenylene Diamine",
+    "CAS no": "5131-60-2"
+  },
+  {
+    "Id": "111",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Nitro M Phenylenediamine",
+    "CAS no": "5131-58-8"
+  },
+  {
+    "Id": "112",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "4 Phenyl Butyric Acid",
+    "CAS no": "1821-12-1"
+  },
+  {
+    "Id": "113",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "Meta Phenylene Diamine 2,5 Disulphonic Acid (Mpddsa)",
+    "CAS no": "137-50-8"
+  },
+  {
+    "Id": "114",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "Meta Phenylene Diamine 4 Sulphonic Acid (Free / Sodium Salt/ Acetyl)",
+    "CAS no": "88-63-1"
+  },
+  {
+    "Id": "115",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "Para Phenylene Diamine",
+    "CAS no": "106-50-3"
+  },
+  {
+    "Id": "116",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "Para Phenylene Diamine 2,5 Di Sulfonic Acid",
+    "CAS no": "7139-89-1"
+  },
+  {
+    "Id": "117",
+    "Select": "",
+    "Compound": "Phenylene",
+    "ProductName": "Para Phenylene Diamine Ortho Sulfonic Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "118",
+    "Select": "",
+    "Compound": "Vinyl Sulphone",
+    "ProductName": "Vinyl Sulphone Ester (2,5 Dimethoxy Aniline Base)",
+    "CAS no": "26672-24-2"
+  },
+  {
+    "Id": "119",
+    "Select": "",
+    "Compound": "Vinyl Sulphone",
+    "ProductName": "Vinyl Sulphone Ester (Acetanilide Base) or Para Base",
+    "CAS no": "2494-89-5"
+  },
+  {
+    "Id": "120",
+    "Select": "",
+    "Compound": "Vinyl Sulphone",
+    "ProductName": "Vinyl Sulphone Ester (Benzanilide Base)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "121",
+    "Select": "",
+    "Compound": "Vinyl Sulphone",
+    "ProductName": "Vinyl Sulphone Ester (Ortho Anisidine Base)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "122",
+    "Select": "",
+    "Compound": "Vinyl Sulphone",
+    "ProductName": "Vinyl Sulphone Ester (Para Anisidine Base)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "123",
+    "Select": "",
+    "Compound": "Vinyl Sulphone",
+    "ProductName": "Vinyl Sulphone Ester (Para Cresidine Base)",
+    "CAS no": "21635-619-8"
+  },
+  {
+    "Id": "124",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "2 Amino 2' Methyl Diphenyl Ether (Cresyl Ether) Use Acid Red 131",
+    "CAS no": "3840-18-4"
+  },
+  {
+    "Id": "125",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "2 Amino 2’,4' Dichloro Di-Phenyl Ether Use Acid Yellow 110",
+    "CAS no": "26306-64-9"
+  },
+  {
+    "Id": "126",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "2 Amino 2’,4 Dichloro Di-Phenyl Ether Use Dyes & Pharmaceuticals",
+    "CAS no": "56966-48-4"
+  },
+  {
+    "Id": "127",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "2 Amino 4 Chloro Diphenyl Ether Use Acid Red 249",
+    "CAS no": "93-67-4"
+  },
+  {
+    "Id": "128",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "2 Amino Diphenyl Ether",
+    "CAS no": "2688-84-8"
+  },
+  {
+    "Id": "129",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "2 Nitro Diphenyl Ether",
+    "CAS no": "--"
+  },
+  {
+    "Id": "130",
+    "Select": "",
+    "Compound": "Ether Compounds",
+    "ProductName": "Resorcin Ether (Amino Resorcin Ortho Di Cresyl Ether) Use A.V.54",
+    "CAS no": "--"
+  },
+  {
+    "Id": "131",
+    "Select": "",
+    "Compound": "Stilbene",
+    "ProductName": "4 Amino-4’ Nitrostilbene-2’2 Disulfonic Acid (Nasda)",
+    "CAS no": "119-72-2"
+  },
+  {
+    "Id": "132",
+    "Select": "",
+    "Compound": "Stilbene",
+    "ProductName": "4,4' Diamino Stilbene 2,2 Disulphonic Acid (Dasda)",
+    "CAS no": "81-11-8"
+  },
+  {
+    "Id": "133",
+    "Select": "",
+    "Compound": "Stilbene",
+    "ProductName": "4,4 Dinitro Stilbene 2,2 Disulphonic Acid (Dnsda)",
+    "CAS no": "3709-43-1"
+  },
+  {
+    "Id": "134",
+    "Select": "",
+    "Compound": "Pyridone",
+    "ProductName": "Butyl Carbamoyl Pyridone (3 Carbamoyl 4 Methyl 6 Hydroxy N Butyl 2 Pyridone)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "135",
+    "Select": "",
+    "Compound": "Pyridone",
+    "ProductName": "Carbamoyl Pyridone (3-Carbamoyl 4 Methyl 6 Hydroxy N Ethyl 2 Pyridone)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "136",
+    "Select": "",
+    "Compound": "Pyridone",
+    "ProductName": "Di Methyl Carbamoyl Pyridone (3 Carbamoyl 4 Methyl 6 Hydroxy N Methyl 2 Pyridone)",
+    "CAS no": "--"
+  },
+  {
+    "Id": "137",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "3 (2,4 Dimethyl 3 Pentyloxy) Phthalonitrile",
+    "CAS no": "--"
+  },
+  {
+    "Id": "138",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "3 Nitro Phthalic Acid",
+    "CAS no": "603-11-2"
+  },
+  {
+    "Id": "139",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "3 Nitro Phthalimide",
+    "CAS no": "603-62-3"
+  },
+  {
+    "Id": "140",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "3 Nitro Phthalonitrile",
+    "CAS no": "51762-67-5"
+  },
+  {
+    "Id": "141",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "N (Hydroxy Methyl) Phthalimide",
+    "CAS no": "118-29-6"
+  },
+  {
+    "Id": "142",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "N Chloro N Methyl Phthalimide",
+    "CAS no": "--"
+  },
+  {
+    "Id": "143",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "N Methyl Phthalimide",
+    "CAS no": "550-44-7"
+  },
+  {
+    "Id": "144",
+    "Select": "",
+    "Compound": "Phthalic",
+    "ProductName": "N-Hydroxy Phthalimide",
+    "CAS no": "524-38-9"
+  },
+  {
+    "Id": "145",
+    "Select": "",
+    "Compound": "Iodines",
+    "ProductName": "3 Iodo 4 Methyl Aniline",
+    "CAS no": "89-92-9"
+  },
+  {
+    "Id": "146",
+    "Select": "",
+    "Compound": "Iodines",
+    "ProductName": "3 Iodobenzylamine Hydrochloride",
+    "CAS no": "3718-88-5"
+  },
+  {
+    "Id": "147",
+    "Select": "",
+    "Compound": "Iodines",
+    "ProductName": "4,4 Di-Iodobiphenyl",
+    "CAS no": "3001-15-8"
+  },
+  {
+    "Id": "148",
+    "Select": "",
+    "Compound": "Iodines",
+    "ProductName": "4 Iodobenzylamine Hydrochloride",
+    "CAS no": "59528-27-7"
+  },
+  {
+    "Id": "149",
+    "Select": "",
+    "Compound": "Iodines",
+    "ProductName": "4 Iodotoluene",
+    "CAS no": "624-31-7"
+  },
+  {
+    "Id": "150",
+    "Select": "",
+    "Compound": "Indoles",
+    "ProductName": "(S)-(-) Indoline 2 Carboxylic Acid",
+    "CAS no": "79815-20-6"
+  },
+  {
+    "Id": "151",
+    "Select": "",
+    "Compound": "Indoles",
+    "ProductName": "5 Bromo Indole",
+    "CAS no": "10075-50-0"
+  },
+  {
+    "Id": "152",
+    "Select": "",
+    "Compound": "Indoles",
+    "ProductName": "Indole",
+    "CAS no": "120-72-9"
+  },
+  {
+    "Id": "153",
+    "Select": "",
+    "Compound": "Indoles",
+    "ProductName": "Indole 3 Acetic Acid",
+    "CAS no": "87-51-4"
+  },
+  {
+    "Id": "154",
+    "Select": "",
+    "Compound": "Indoles",
+    "ProductName": "Indole 3 Acetonitrile",
+    "CAS no": "771-51-7"
+  },
+  {
+    "Id": "155",
+    "Select": "",
+    "Compound": "Indoles",
+    "ProductName": "Indole 3 Butyric Acid",
+    "CAS no": "133-32-4"
+  },
+  {
+    "Id": "156",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Cobalt Phthalocyanine",
+    "CAS no": "3317-67-7"
+  },
+  {
+    "Id": "157",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Copper Phthalocyanine",
+    "CAS no": "147-14-8"
+  },
+  {
+    "Id": "158",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Iron Phthalocyanine",
+    "CAS no": "132-16-1"
+  },
+  {
+    "Id": "159",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Nickel Phthalocyanine",
+    "CAS no": "14055-02-8"
+  },
+  {
+    "Id": "160",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Phthalo Alfa Blue",
+    "CAS no": "147-14-8"
+  },
+  {
+    "Id": "161",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Phthalo Beta Blue",
+    "CAS no": "147-14-8"
+  },
+  {
+    "Id": "162",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Phthalo Green",
+    "CAS no": "1328-83-6"
+  },
+  {
+    "Id": "163",
+    "Select": "",
+    "Compound": "Phthalocyanines",
+    "ProductName": "Zinc Phthalocyanine",
+    "CAS no": "14320-04-8"
+  },
+  {
+    "Id": "164",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1 Naphthol 3,7 Disulfonic Acid",
+    "CAS no": "24402-46-8"
+  },
+  {
+    "Id": "165",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1 Naphthol 4,8 Disulfonic Acid",
+    "CAS no": "117-56-6"
+  },
+  {
+    "Id": "166",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1 Naphthol-8-Sulfonic Acid",
+    "CAS no": "117-22-6"
+  },
+  {
+    "Id": "167",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1,2 Diamino Naphthalene 5 Sulfonic Acid",
+    "CAS no": "84-92-4"
+  },
+  {
+    "Id": "168",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1,2 Diamino Naphthalene 5,7 Disulfonic Acid",
+    "CAS no": "85187-44-6"
+  },
+  {
+    "Id": "169",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1,5 Naphthalene Diol : 1,5 Dihydroxy Naphthalene",
+    "CAS no": "83-56-7"
+  },
+  {
+    "Id": "170",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1,6-Dihydroxy Naphthalene",
+    "CAS no": "575-44-0"
+  },
+  {
+    "Id": "171",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "1 : 2 : 4 Diazo Acid",
+    "CAS no": "887-76-3"
+  },
+  {
+    "Id": "172",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2 Naphtylamine 4 Sulfonic Acid",
+    "CAS no": "84-86-6"
+  },
+  {
+    "Id": "173",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2 R Acid (2-Amino 8-Naphthol 3:6 Disulfonic Acid or 2 Naphthalamine 8-Hydroxy 3:6 Disulphonic Acid)",
+    "CAS no": "90-40-4"
+  },
+  {
+    "Id": "174",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2,3 Di Hydroxy Naphthalene",
+    "CAS no": "92-44-4"
+  },
+  {
+    "Id": "175",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2,3 Dihydroxy Naphthalene 6 Sulfonic Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "176",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2,7 Di Hydroxy Naphthalene",
+    "CAS no": "582-17-2"
+  },
+  {
+    "Id": "177",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2,7 Di Methoxy Naphthalene",
+    "CAS no": "3469-26-9"
+  },
+  {
+    "Id": "178",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2,7 Dihydroxy Naphthalene 3,6 Disulfonic Acid",
+    "CAS no": "7153-21-1"
+  },
+  {
+    "Id": "179",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2,7 Dihydroxy Naphthalene",
+    "CAS no": "582-17-2"
+  },
+  {
+    "Id": "180",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2 Bromo Naphthalene",
+    "CAS no": "939-26-4"
+  },
+  {
+    "Id": "181",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2 Bromo 6 Naphthol",
+    "CAS no": "15231-91-1"
+  },
+  {
+    "Id": "182",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "2 Naphthol 5,7-Di Sulfonic Acid",
+    "CAS no": "575-05-3"
+  },
+  {
+    "Id": "183",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "4 (3,4-Dichlorophenyl) 1 Tetralone",
+    "CAS no": "79560-19-3"
+  },
+  {
+    "Id": "184",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "4,8 Diamino Naphthalene 2,6 Disulfonic Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "185",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "5 Methoxy 2 Tetralone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "186",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "6 Nitro-1:2:4 Diazo Acid",
+    "CAS no": "5366-84-7"
+  },
+  {
+    "Id": "187",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "7 Methoxy 1 Tetralone",
+    "CAS no": "6836-19-7"
+  },
+  {
+    "Id": "188",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "7 Methoxy 2 Tetralone",
+    "CAS no": "--"
+  },
+  {
+    "Id": "189",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Acetyl Broenners Acid",
+    "CAS no": "68189-32-2"
+  },
+  {
+    "Id": "190",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Acetyl Gamma Acid",
+    "CAS no": "6301-41-7"
+  },
+  {
+    "Id": "191",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Acetyl J Acid",
+    "CAS no": "6334-97-0"
+  },
+  {
+    "Id": "192",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Alpha Naphthylamine",
+    "CAS no": "134-32-7"
+  },
+  {
+    "Id": "193",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Alpha Tetralone",
+    "CAS no": "529-34-0"
+  },
+  {
+    "Id": "194",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Amido G Meta Amino Anilide",
+    "CAS no": "--"
+  },
+  {
+    "Id": "195",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Amino Epsilon Acid (1 Naphthyl Amine 3,8 Disulphonic Acid)",
+    "CAS no": "117-43-1"
+  },
+  {
+    "Id": "196",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Amino G Acid",
+    "CAS no": "86-65-7"
+  },
+  {
+    "Id": "197",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Armstrong Acid : 1,5 Naphthalene Di Sulfonic Acid",
+    "CAS no": "117-46-4"
+  },
+  {
+    "Id": "198",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Benzoyl H Acid",
+    "CAS no": "117-46-4"
+  },
+  {
+    "Id": "199",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Benzoyl J Acid",
+    "CAS no": "132-87-6"
+  },
+  {
+    "Id": "200",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Beta Naphthalene Sulfonate",
+    "CAS no": "532-02-5"
+  },
+  {
+    "Id": "201",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Broenners Acid Min 90%",
+    "CAS no": "93-00-5"
+  },
+  {
+    "Id": "202",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Cassella's Acid (2 Amino Naphthalene 4,8 Disulfonic Acid)",
+    "CAS no": "131-27-1"
+  },
+  {
+    "Id": "203",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Chicago Ss Acid (1 Amino 8 Naphthol 2,4 Disulfonic Acid)",
+    "CAS no": "82-47-3"
+  },
+  {
+    "Id": "204",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Chromotropic Acid",
+    "CAS no": "148-25-4"
+  },
+  {
+    "Id": "205",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Di J Acid",
+    "CAS no": "87-03-6"
+  },
+  {
+    "Id": "206",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Dioxy G Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "207",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Dioxy R Acid",
+    "CAS no": "61-73-4"
+  },
+  {
+    "Id": "208",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Epsilon Acid : 1 Naphthol 3,8 Disulfonic Acid",
+    "CAS no": "117-43-1"
+  },
+  {
+    "Id": "209",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "European K Acid",
+    "CAS no": "7447-40-7"
+  },
+  {
+    "Id": "210",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "G Salt",
+    "CAS no": "118-32-1"
+  },
+  {
+    "Id": "211",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Gamma Acid",
+    "CAS no": "90-51-7"
+  },
+  {
+    "Id": "212",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "H Acid (1-Amino 8-Naphthol 3,6-Disulphonic Acid)",
+    "CAS no": "90-20-0"
+  },
+  {
+    "Id": "213",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "J Acid Urea",
+    "CAS no": "134-47-4"
+  },
+  {
+    "Id": "214",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "K Acid Dipotassium Salt (2 Naphthylamine 3,6,8 Trisulphonic Acid)",
+    "CAS no": "118-03-6"
+  },
+  {
+    "Id": "215",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "K Acid Free Acid (2 Naphthylamine 3,6,8 Trisulphonic Acid)",
+    "CAS no": "118-03-6"
+  },
+  {
+    "Id": "216",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "K Acid Mono Sodium Salt (2 Naphthylamine 3,6,8 Trisulphonic Acid)",
+    "CAS no": "118-03-6"
+  },
+  {
+    "Id": "217",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Koch's Acid (1 Naphthylamine 3,6,8 Trisulphonic Acid)",
+    "CAS no": "5398-34-5"
+  },
+  {
+    "Id": "218",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Laurent Acid",
+    "CAS no": "84-89-9"
+  },
+  {
+    "Id": "219",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Meta Sulfo Phenyl Gamma Acid",
+    "CAS no": "25251-42-7"
+  },
+  {
+    "Id": "220",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Mixed Cleeves Acid",
+    "CAS no": "51548-48-2"
+  },
+  {
+    "Id": "221",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "N. W. Acid (1 Naphthol 4 Sulfonic Acid)",
+    "CAS no": "84-87-7"
+  },
+  {
+    "Id": "222",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Naphthalene 1,6 Di Sulfonic Acid",
+    "CAS no": "1655-45-4"
+  },
+  {
+    "Id": "223",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Naphthalene 2,6 Disulfonic Acid",
+    "CAS no": "1655-45-4"
+  },
+  {
+    "Id": "224",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Naphthalene 2,7 Disulfonic Acid",
+    "CAS no": "1655-35-2"
+  },
+  {
+    "Id": "225",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Naphthol Asd",
+    "CAS no": "135-61-5"
+  },
+  {
+    "Id": "226",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Naphthol Asg",
+    "CAS no": "91-96-3"
+  },
+  {
+    "Id": "227",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "N Methyl Gamma Acid",
+    "CAS no": "6259-53-6"
+  },
+  {
+    "Id": "228",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "N Methyl J Acid",
+    "CAS no": "22346-43-6"
+  },
+  {
+    "Id": "229",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "N Phenyl Gamma Acid",
+    "CAS no": "119-19-7"
+  },
+  {
+    "Id": "230",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "N Phenyl J Acid",
+    "CAS no": "119-40-4"
+  },
+  {
+    "Id": "231",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Oxy Koch Acid",
+    "CAS no": "517216"
+  },
+  {
+    "Id": "232",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Oxy L Acid (or L Acid): 1 Naphthol 5 Sulfonic Acid",
+    "CAS no": "117-59-9"
+  },
+  {
+    "Id": "233",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "P Carboxy Phenyl Gamma Acid",
+    "CAS no": "5855-84-5"
+  },
+  {
+    "Id": "234",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Peri Acid (1 Amino Naphthalene 8 Sulfonic Acid)",
+    "CAS no": "82-75-7"
+  },
+  {
+    "Id": "235",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "R Salt (2 Naphthol 3,6 Disulphonic Acid)",
+    "CAS no": "148-75-4"
+  },
+  {
+    "Id": "236",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Schaeffer’s Acid (Potassium Salt)",
+    "CAS no": "833-66-9"
+  },
+  {
+    "Id": "237",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Sodium Naphthionate",
+    "CAS no": "130-13-2"
+  },
+  {
+    "Id": "238",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Sulfo Broenners Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "239",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Sulfo Cassella’s Acid",
+    "CAS no": "083732-84-7"
+  },
+  {
+    "Id": "240",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Sulfo J Acid",
+    "CAS no": "6535-70-2"
+  },
+  {
+    "Id": "241",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Sulpho Tobias Acid",
+    "CAS no": "117-62-4"
+  },
+  {
+    "Id": "242",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Violet Acid : 1 Naphthol 3,6 Disulfonic Acid",
+    "CAS no": "578-85-8"
+  },
+  {
+    "Id": "243",
+    "Select": "",
+    "Compound": "Naphthalene",
+    "ProductName": "Violet Acid Amino : 1 Naphthol 3,6 Di Sulfonic Acid",
+    "CAS no": "1589358"
+  },
+  {
+    "Id": "244",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol As",
+    "CAS no": "92-77-3"
+  },
+  {
+    "Id": "245",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol As Irg (Acetoacet -2,5 Dimethoxy 4 Chloro Anilide",
+    "CAS no": "4433-79-8"
+  },
+  {
+    "Id": "246",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol As-Itr",
+    "CAS no": "92-72-8"
+  },
+  {
+    "Id": "247",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Astr",
+    "CAS no": "--"
+  },
+  {
+    "Id": "248",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Asd",
+    "CAS no": "135-61-5"
+  },
+  {
+    "Id": "249",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Asg",
+    "CAS no": "91-96-3"
+  },
+  {
+    "Id": "250",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Asbs",
+    "CAS no": "135-65-9"
+  },
+  {
+    "Id": "251",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Ase",
+    "CAS no": "92-78-4"
+  },
+  {
+    "Id": "252",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Asol",
+    "CAS no": "135-62-6"
+  },
+  {
+    "Id": "253",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Assw",
+    "CAS no": "--"
+  },
+  {
+    "Id": "254",
+    "Select": "",
+    "Compound": "Naphthols",
+    "ProductName": "Naphthol Asbo",
+    "CAS no": "132-68-3"
+  },
+  {
+    "Id": "255",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Black B Base (4-4' Diamino Diphenyl Amine)",
+    "CAS no": "53760-27-3"
+  },
+  {
+    "Id": "256",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Bordeaux Gp Base (Meta Nitro Pera Anicidine 4 Methoxy 2 Nitro Aniline)",
+    "CAS no": "96-96-8"
+  },
+  {
+    "Id": "257",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Brown V Base",
+    "CAS no": "--"
+  },
+  {
+    "Id": "258",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Red B Base (4 Nitro O Anisidine) or (5 Nitro 2 Aminoanisole)",
+    "CAS no": "97-52-9"
+  },
+  {
+    "Id": "259",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Red Itr Base (N,N’ Diethyl 4 Methoxy Metanilamide)",
+    "CAS no": "97-35-8"
+  },
+  {
+    "Id": "260",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Red Rl Base (2 Methyl 5 Nitro Aniline)",
+    "CAS no": "99-52-5"
+  },
+  {
+    "Id": "261",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Scarlet R Base/Salt (5 Nitro O-Anisidine) or (4 Nitro 2 Aminoanisole)",
+    "CAS no": "99-59-2"
+  },
+  {
+    "Id": "262",
+    "Select": "",
+    "Compound": "Fast Bases",
+    "ProductName": "Fast Scarlet Rc Base (5 Nitro 2 Anisidine Hydrochloride)",
+    "CAS no": "67827-72-9"
+  },
+  {
+    "Id": "263",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Amino 6 Chloro 4 Nitro Phenol",
+    "CAS no": "1628499"
+  },
+  {
+    "Id": "264",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Amino Phenol 4 Sulfonamide(Oapsamide)",
+    "CAS no": "98-32-8"
+  },
+  {
+    "Id": "265",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Amino Phenol 4 Sulphonic Acid (Oapsa)",
+    "CAS no": "98-37-3"
+  },
+  {
+    "Id": "266",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Amino Phenol N-Methyl Sulfonamide",
+    "CAS no": "--"
+  },
+  {
+    "Id": "267",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Amino 4 Methyl 6 Nitrophenol",
+    "CAS no": "1594468"
+  },
+  {
+    "Id": "268",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Chloro 4 Aminophenol",
+    "CAS no": "399964-52-1"
+  },
+  {
+    "Id": "269",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "2 Chloro 4 Nitrophenol",
+    "CAS no": "619-08-9"
+  },
+  {
+    "Id": "270",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Chloro 5 Nitro 2 Amino Phenol",
+    "CAS no": "--"
+  },
+  {
+    "Id": "271",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Chloro 2 Amino Phenol 6 Sulfonic Acid",
+    "CAS no": "88-23-3"
+  },
+  {
+    "Id": "272",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4,6 Dichloro 2 Amino Phenol (Dcap)",
+    "CAS no": "527-62-8"
+  },
+  {
+    "Id": "273",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Amino 3 Methylphenol",
+    "CAS no": "2835-99-6"
+  },
+  {
+    "Id": "274",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Bromo 3 Nitro Phenol",
+    "CAS no": "610-81-1"
+  },
+  {
+    "Id": "275",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Bromo Thiophenol",
+    "CAS no": "106-53-6"
+  },
+  {
+    "Id": "276",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Chloro Thiophenol",
+    "CAS no": "106-54-7"
+  },
+  {
+    "Id": "277",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "4 Nitro 2 Aminophenol (4-Nap)",
+    "CAS no": "99-57-0"
+  },
+  {
+    "Id": "278",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "5 Chloro 2 Amino 4 Nitro Phenol",
+    "CAS no": "--"
+  },
+  {
+    "Id": "279",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "5 Nitro 4 Chloro 2 Aminophenol",
+    "CAS no": "1628435"
+  },
+  {
+    "Id": "280",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "6 Acetylamine 2 Amino Phenol 4 Sulfonic Acid",
+    "CAS no": "40306-75-0"
+  },
+  {
+    "Id": "281",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "6 Chloro 2 Amino Phenol 4 Sulfonic Acid",
+    "CAS no": "--"
+  },
+  {
+    "Id": "282",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "6 Nitro 2 Amino Phenol 4 Sulfonic Acid (6 Napsa)",
+    "CAS no": "96-93-5"
+  },
+  {
+    "Id": "283",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "6 Chloro 4 Nitro 2 Aminophenol (Acnp)",
+    "CAS no": "1628499"
+  },
+  {
+    "Id": "284",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "6 Nitro 4 Chloro 2 Aminophenol(C-Nap)",
+    "CAS no": "1628467"
+  },
+  {
+    "Id": "285",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "Acetyl Ortho Amino Phenol",
+    "CAS no": "614-80-2"
+  },
+  {
+    "Id": "286",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "Diethyl Meta Amino Phenol",
+    "CAS no": "91-68-9"
+  },
+  {
+    "Id": "287",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "Ortho Amino Phenol (Oap)",
+    "CAS no": "95-55-6"
+  },
+  {
+    "Id": "288",
+    "Select": "",
+    "Compound": "Phenol",
+    "ProductName": "Ortho Nitro Phenol",
+    "CAS no": "88-75-5"
+  },
+  {
+    "Id": "289",
+    "Select": "",
+    "Compound": "Cresol",
+    "ProductName": "2 Amino P Cresol (2 Amino 4 Methylphenol)",
+    "CAS no": "95-84-1"
+  },
+  {
+    "Id": "290",
+    "Select": "",
+    "Compound": "Cresol",
+    "ProductName": "2 Acetamido P Cresol",
+    "CAS no": "6375-17-3"
+  },
+  {
+    "Id": "291",
+    "Select": "",
+    "Compound": "Cresol",
+    "ProductName": "2 Nitro P Cresol",
+    "CAS no": "119-33-5"
+  },
+  {
+    "Id": "292",
+    "Select": "",
+    "Compound": "Cresol",
+    "ProductName": "5 (2 Hydroxy Ethyl Amino)-O-Cresol",
+    "CAS no": "55302-96-0"
+  },
+  {
+    "Id": "293",
+    "Select": "",
+    "Compound": "Cresol",
+    "ProductName": "5 Amino 6 Chloro-O-Cresol or 3 Amino 2 Chloro 6 Methyl Phenol",
+    "CAS no": "84540-50-1"
+  },
+  {
+    "Id": "294",
+    "Select": "",
+    "Compound": "Cresol",
+    "ProductName": "5 Amino-O-Cresol",
+    "CAS no": "2835-95-2"
+  },
+  {
+    "Id": "295",
+    "Select": "",
+    "Compound": "Salicylic",
+    "ProductName": "5 Amino Salicylic Acid",
+    "CAS no": "89-57-6"
+  },
+  {
+    "Id": "296",
+    "Select": "",
+    "Compound": "Salicylic",
+    "ProductName": "5 Nitro Salicylic Acid",
+    "CAS no": "96-97-9"
+  },
+  {
+    "Id": "297",
+    "Select": "",
+    "Compound": "Salicylic",
+    "ProductName": "Papas Acid [Para Amino Para Azo Salisylic Acid (Sodium Salt)]",
+    "CAS no": "--"
+  },
+  {
+    "Id": "298",
+    "Select": "",
+    "Compound": "Salicylic",
+    "ProductName": "Salicylic Acid",
+    "CAS no": "69-72-7"
+  },
+  {
+    "Id": "299",
+    "Select": "",
+    "Compound": "Resorcinol",
+    "ProductName": "2 Chloro Resorcinol",
+    "CAS no": "6201-65-6"
+  },
+  {
+    "Id": "300",
+    "Select": "",
+    "Compound": "Resorcinol",
+    "ProductName": "2 Nitro Resorcinol",
+    "CAS no": "601-89-8"
+  },
+  {
+    "Id": "301",
+    "Select": "",
+    "Compound": "Resorcinol",
+    "ProductName": "4 Chloro Resorcinol",
+    "CAS no": "95-88-5"
+  }
+]

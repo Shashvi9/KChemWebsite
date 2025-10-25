@@ -1,0 +1,452 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Solvent Yellow 72",
+    "CAS no": "61812-98-7"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Solvent Yellow 62",
+    "CAS no": "61901-98-7/61910-95-9."
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Solvent Orange 45",
+    "CAS no": "75216-45-4"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Solvent Red 49",
+    "CAS no": "509-34-2"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Solvent Red 91",
+    "CAS no": "612-675-4."
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Solvent Red 89",
+    "CAS no": "61725-81-3"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Solvent Black 27",
+    "CAS no": "12237-22-8"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Solvent Black 29",
+    "CAS no": "61901-87-9"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Solvent Blue 67",
+    "CAS no": "12226-78-7"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "SOLVENT Yellow 146",
+    "CAS no": "109945-04-2/94279-65-9"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "SOLVENT Yellow 82",
+    "CAS no": "12227-67-7"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "SOLVENT Yellow 90",
+    "CAS no": "4702-90-3"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "SOLVENT Yellow 88",
+    "CAS no": "61931-55-3"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "SOLVENT Orange 11",
+    "CAS no": "61725-76-6"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "SOLVENT Orange 99",
+    "CAS no": "110342-29-5"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Product Name": "SOLVENT Orange 58",
+    "CAS no": "71775-93-4"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Product Name": "SOLVENT Red 119",
+    "CAS no": "12237-27-3"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Product Name": "SOLVENT Red 160",
+    "CAS no": "69899-68-9"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Product Name": "SOLVENT Red 132",
+    "CAS no": "61725-85-7"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Product Name": "SOLVENT Red 122",
+    "CAS no": "12227-55-3"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Product Name": "SOLVENT Red 125",
+    "CAS no": "12271-00-0"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "Product Name": "SOLVENT Red 127",
+    "CAS no": "61969-48-0"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "Product Name": "SOLVENT Blue 45",
+    "CAS no": "37229-23-5"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "Product Name": "SOLVENT Blue 67",
+    "CAS no": "12226-78-7"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "Product Name": "Solvent Blue 48",
+    "CAS no": "61711-30-6"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "Product Name": "SOLVENT Black 27",
+    "CAS no": "12237-22-8"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "Product Name": "Polymer Soluble Colorants",
+    "CAS no": "-"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "Product Name": "Solvent Yellow 157",
+    "CAS no": "27908-75-4"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "Product Name": "Solvent Yellow 33",
+    "CAS no": "8003-22-3"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "Product Name": "Solvent Yellow 93",
+    "CAS no": "4702-90-3, 61969-52-6"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "Product Name": "Solvent Yellow 114",
+    "CAS no": "7576-65-0, 75216-45-4, 12223-85-7"
+  },
+  {
+    "Id": "32",
+    "Select": "",
+    "Product Name": "Solvent Yellow 176",
+    "CAS no": "10319-14-9"
+  },
+  {
+    "Id": "33",
+    "Select": "",
+    "Product Name": "Pigment Yellow 147",
+    "CAS no": "4118-16-5"
+  },
+  {
+    "Id": "34",
+    "Select": "",
+    "Product Name": "Solvent Yellow 163",
+    "CAS no": "13676-91-0, 106768-99-4"
+  },
+  {
+    "Id": "35",
+    "Select": "",
+    "Product Name": "Pigment Yellow 196",
+    "CAS no": "-"
+  },
+  {
+    "Id": "36",
+    "Select": "",
+    "Product Name": "Solvent Orange 60",
+    "CAS no": "6925-69-5"
+  },
+  {
+    "Id": "37",
+    "Select": "",
+    "Product Name": "Solvent Orange 86",
+    "CAS no": "81-64-1"
+  },
+  {
+    "Id": "38",
+    "Select": "",
+    "Product Name": "Solvent Orange 107",
+    "CAS no": "185766-20-5"
+  },
+  {
+    "Id": "39",
+    "Select": "",
+    "Product Name": "Solvent Orange 105",
+    "CAS no": "31482-56-1"
+  },
+  {
+    "Id": "40",
+    "Select": "",
+    "Product Name": "Solvent Red 212",
+    "CAS no": "61300-98-9"
+  },
+  {
+    "Id": "41",
+    "Select": "",
+    "Product Name": "Pigment Orange 70",
+    "CAS no": "-"
+  },
+  {
+    "Id": "42",
+    "Select": "",
+    "Product Name": "Solvent Brown 53",
+    "CAS no": "64696-98-6"
+  },
+  {
+    "Id": "43",
+    "Select": "",
+    "Product Name": "Solvent Red 179",
+    "CAS no": "6829-22-7"
+  },
+  {
+    "Id": "44",
+    "Select": "",
+    "Product Name": "Solvent Red 135",
+    "CAS no": "71902-17-5/20749-68-2"
+  },
+  {
+    "Id": "45",
+    "Select": "",
+    "Product Name": "Solvent Red 111",
+    "CAS no": "82-38-2"
+  },
+  {
+    "Id": "46",
+    "Select": "",
+    "Product Name": "Solvent Red 168",
+    "CAS no": "71832-19-4"
+  },
+  {
+    "Id": "47",
+    "Select": "",
+    "Product Name": "Solvent Red 195",
+    "CAS no": "164251-88-1"
+  },
+  {
+    "Id": "48",
+    "Select": "",
+    "Product Name": "Solvent Red 207",
+    "CAS no": "15958-68-6"
+  },
+  {
+    "Id": "49",
+    "Select": "",
+    "Product Name": "Solvent Red 52",
+    "CAS no": "81-39-0"
+  },
+  {
+    "Id": "50",
+    "Select": "",
+    "Product Name": "Solvent Violet 59",
+    "CAS no": "6408-72-6"
+  },
+  {
+    "Id": "51",
+    "Select": "",
+    "Product Name": "Solvent Violet 49",
+    "CAS no": "205057-15-4"
+  },
+  {
+    "Id": "52",
+    "Select": "",
+    "Product Name": "Solvent Violet 14",
+    "CAS no": "8005-40-1,67577-84-8"
+  },
+  {
+    "Id": "53",
+    "Select": "",
+    "Product Name": "Disperse Violet 57",
+    "CAS no": "61968-60-3"
+  },
+  {
+    "Id": "54",
+    "Select": "",
+    "Product Name": "Solvent Violet 13",
+    "CAS no": "81-48-1"
+  },
+  {
+    "Id": "55",
+    "Select": "",
+    "Product Name": "Solvent Blue 122",
+    "CAS no": "67905-17-3"
+  },
+  {
+    "Id": "56",
+    "Select": "",
+    "Product Name": "Solvent Blue 128",
+    "CAS no": "18038-99-8"
+  },
+  {
+    "Id": "57",
+    "Select": "",
+    "Product Name": "Solvent Blue 63",
+    "CAS no": "6408-50-0"
+  },
+  {
+    "Id": "58",
+    "Select": "",
+    "Product Name": "Solvent Blue 36",
+    "CAS no": "14233-37-5"
+  },
+  {
+    "Id": "59",
+    "Select": "",
+    "Product Name": "Solvent Blue 104",
+    "CAS no": "116-75-6"
+  },
+  {
+    "Id": "60",
+    "Select": "",
+    "Product Name": "Solvent Blue 35",
+    "CAS no": "17354-14-2"
+  },
+  {
+    "Id": "61",
+    "Select": "",
+    "Product Name": "Solvent Blue 58",
+    "CAS no": "61814-09-3"
+  },
+  {
+    "Id": "62",
+    "Select": "",
+    "Product Name": "Solvent Blue 102",
+    "CAS no": "69766-79-6"
+  },
+  {
+    "Id": "63",
+    "Select": "",
+    "Product Name": "Solvent Green 3",
+    "CAS no": "128-80-3"
+  },
+  {
+    "Id": "64",
+    "Select": "",
+    "Product Name": "Solvent Green 28",
+    "CAS no": "28198-05-2"
+  },
+  {
+    "Id": "65",
+    "Select": "",
+    "Product Name": "Solvent Yellow 145",
+    "CAS no": "27425-55-4"
+  },
+  {
+    "Id": "66",
+    "Select": "",
+    "Product Name": "Solvent Orange 63",
+    "CAS no": "16294-75-0"
+  },
+  {
+    "Id": "67",
+    "Select": "",
+    "Product Name": "Industrial Solvent Dye",
+    "CAS no": "-"
+  },
+  {
+    "Id": "68",
+    "Select": "",
+    "Product Name": "SOLVENT Yellow 107",
+    "CAS no": "67990-27-6"
+  },
+  {
+    "Id": "69",
+    "Select": "",
+    "Product Name": "SOLVENT Yellow 124",
+    "CAS no": "34432-92-3"
+  },
+  {
+    "Id": "70",
+    "Select": "",
+    "Product Name": "SOLVENT Orange 98",
+    "CAS no": "29196-28-1"
+  },
+  {
+    "Id": "71",
+    "Select": "",
+    "Product Name": "SOLVENT Red 175",
+    "CAS no": "215313-36-3"
+  },
+  {
+    "Id": "72",
+    "Select": "",
+    "Product Name": "SOLVENT Red 19",
+    "CAS no": "6368-72-5"
+  },
+  {
+    "Id": "73",
+    "Select": "",
+    "Product Name": "SOLVENT Red 164",
+    "CAS no": "71819-51-7"
+  },
+  {
+    "Id": "74",
+    "Select": "",
+    "Product Name": "SOLVENT Blue 79",
+    "CAS no": "74499-36-8"
+  },
+  {
+    "Id": "75",
+    "Select": "",
+    "Product Name": "SOLVENT Green 33",
+    "CAS no": "10671-57-8"
+  }
+]

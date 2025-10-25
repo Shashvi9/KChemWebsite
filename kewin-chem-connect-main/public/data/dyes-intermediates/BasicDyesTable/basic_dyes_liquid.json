@@ -1,0 +1,135 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Name": "Basic Violet 1",
+    "CAS no": "8004-87-3",
+    "Compound": "Methyl Violet 2B"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Name": "Basic Violet 2",
+    "CAS no": "3248-91-7",
+    "Compound": "New Fuchsin"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Name": "Basic Violet 3",
+    "CAS no": "548-62-9",
+    "Compound": "Crystal Violet"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Name": "Basic Violet 10",
+    "CAS no": "81-88-9",
+    "Compound": "Rhodamine B 540%"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Name": "Basic Green 1",
+    "CAS no": "76994-37-1",
+    "Compound": "Brilliant Green"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Name": "Basic Green 4",
+    "CAS no": "41272-40-6",
+    "Compound": "Malachite Green"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Name": "Basic Blue 1",
+    "CAS no": "3521-06-0",
+    "Compound": "-"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Name": "Basic Blue 9",
+    "CAS no": "61-73-4",
+    "Compound": "Methylene Blue"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Name": "Basic Blue 140",
+    "CAS no": "61724-62-7",
+    "Compound": "Turquise Blue 140"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Name": "Basic Red 12",
+    "CAS no": "6320-14-5",
+    "Compound": "Astraphoxine"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Name": "Basic Blue 26",
+    "CAS no": "2580-56-5",
+    "Compound": "Victoria Blue"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Name": "Basic Brown 1",
+    "CAS no": "10114-58-6",
+    "Compound": "Bismark Brown Y/G"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Name": "Basic Brown 4",
+    "CAS no": "5421-66-9",
+    "Compound": "Bismark Brown R"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Name": "Basic Orange 1",
+    "CAS no": "4438-16-8",
+    "Compound": "Chrysodine R"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Name": "Basic Orange 2",
+    "CAS no": "532-82-1",
+    "Compound": "Chrysodine Y"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Name": "Basic Yellow 2",
+    "CAS no": "2465-27-2",
+    "Compound": "Auromine 'O"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Name": "Basic Yellow 40",
+    "CAS no": "35869-60-4",
+    "Compound": "-"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Name": "Basic Yellow 57",
+    "CAS no": "68391-31-1",
+    "Compound": "-"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Name": "nan",
+    "CAS no": "nan",
+    "Compound": "nan"
+  }
+]

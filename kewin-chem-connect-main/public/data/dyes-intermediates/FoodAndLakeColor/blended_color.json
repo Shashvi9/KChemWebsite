@@ -1,0 +1,128 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Name": "Egg Yellow",
+    "CAS no": "BO 3090"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Name": "Yolk Yellow",
+    "CAS no": "BO 4590"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Name": "Orange Red",
+    "CAS no": "BO 3890"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Name": "Straberry Red",
+    "CAS no": "BO 4290"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Name": "Rose Pink",
+    "CAS no": "BO 4190"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Name": "Raspeberry Red",
+    "CAS no": "BO 4090"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Name": "Grape",
+    "CAS no": "BO 3290"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Name": "Violet",
+    "CAS no": "BO 4490"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Name": "Coffee Brown",
+    "CAS no": "BO 2690"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Name": "Chocolate Brown",
+    "CAS no": "BO 2490"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Name": "Dark Chocolate",
+    "CAS no": "BO 2890"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Name": "Lime Green",
+    "CAS no": "BO 3690"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Name": "Apple Green",
+    "CAS no": "BO 2190"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Name": "Pea Green",
+    "CAS no": "BO 3990"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Name": "Black Current",
+    "CAS no": "BO 2290"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Name": "Kesar Supra",
+    "CAS no": "BO 3190"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Name": "Falsa",
+    "CAS no": "BO 4790"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Name": "Khala Khatta",
+    "CAS no": "BO 1290"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Name": "Dark Orange",
+    "CAS no": "BO 5290"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Name": "Purple",
+    "CAS no": "BO 3790"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Name": "Black",
+    "CAS no": "BO 5390"
+  }
+]

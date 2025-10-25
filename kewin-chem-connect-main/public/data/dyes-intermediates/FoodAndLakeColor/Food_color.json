@@ -1,0 +1,142 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "TARTRAZINE",
+    "CI No": "19140",
+    "FD & C Color": "Yellow 5",
+    "CI Refrence": "Yellow 4",
+    "EC No": "E-102",
+    "CAS no": "53026-69-9"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "SUNSET YELLOW FCF",
+    "CI No": "15985",
+    "FD & C Color": "Yellow 6",
+    "CI Refrence": "Yellow 3",
+    "EC No": "E-110",
+    "CAS no": "2783-94-0"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "CARMOISINE",
+    "CI No": "14720",
+    "FD & C Color": "-",
+    "CI Refrence": "Red 3",
+    "EC No": "E-122",
+    "CAS no": "53026-69-9"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "PONCEAU 4R",
+    "CI No": "16255",
+    "FD & C Color": "-",
+    "CI Refrence": "Red 7",
+    "EC No": "E-124",
+    "CAS no": "1611-82-7"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "AMARANTH",
+    "CI No": "16185",
+    "FD & C Color": "Red 2",
+    "CI Refrence": "Red 9",
+    "EC No": "E-123",
+    "CAS no": "115-67-3"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "ALLURA RED",
+    "CI No": "16035",
+    "FD & C Color": "Red 40",
+    "CI Refrence": "Red 17",
+    "EC No": "E-129",
+    "CAS no": "25956-17-6"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "CHOCOLATE BROWN HT",
+    "CI No": "20285",
+    "FD & C Color": "-",
+    "CI Refrence": "Brown 3",
+    "EC No": "E-155",
+    "CAS no": "4553-89-3"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "QUINOLINE YELLOW WS",
+    "CI No": "47005",
+    "FD & C Color": "Yellow 10",
+    "CI Refrence": "Yellow 13",
+    "EC No": "E-104",
+    "CAS no": "100208-62-6"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "BRILLIANT BLUE FCF",
+    "CI No": "42090",
+    "FD & C Color": "Blue 1",
+    "CI Refrence": "Blue 2",
+    "EC No": "E-133",
+    "CAS no": "3844-45-9"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "INDIGI CARMINE",
+    "CI No": "73015",
+    "FD & C Color": "Blue 2",
+    "CI Refrence": "Blue 1",
+    "EC No": "E-132",
+    "CAS no": "860-22-0"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "ERYTHORSINE",
+    "CI No": "45430",
+    "FD & C Color": "red 3",
+    "CI Refrence": "red 14",
+    "EC No": "E-127",
+    "CAS no": "16432-68-0"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "PATENT BLUE V",
+    "CI No": "42051",
+    "FD & C Color": "Blue 3",
+    "CI Refrence": "Blue 5",
+    "EC No": "E-131",
+    "CAS no": "20262-76-4"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "RED 2G S",
+    "CI No": "18050",
+    "FD & C Color": "-",
+    "CI Refrence": "Red 10",
+    "EC No": "E-128",
+    "CAS no": "3734-67-6"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "BLACK PN",
+    "CI No": "28440",
+    "FD & C Color": "-",
+    "CI Refrence": "Black 1",
+    "EC No": "E-151",
+    "CAS no": "28440"
+  }
+]

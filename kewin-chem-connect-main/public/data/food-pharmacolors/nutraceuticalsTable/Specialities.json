@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Alphalipoic Acid Pellets",
+    "Strength": "57%, 70% 80% w/w"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Alphalipoic Acid Granules",
+    "Strength": "80% w/w"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Vitamin B12 Granules",
+    "Strength": "1.25% w/w"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Vitamin C Granules",
+    "Strength": "45% w/w"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Vitamin D3 Granules",
+    "Strength": "57% w/w"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Gammalinolenic Acid Pellets",
+    "Strength": "10% w/w"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Benfotiamine Pellets",
+    "Strength": "55% w/w"
+  }
+]

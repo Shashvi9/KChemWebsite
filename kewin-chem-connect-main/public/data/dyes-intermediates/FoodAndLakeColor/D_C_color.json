@@ -1,0 +1,226 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "CI_Name": "Acid Green 25",
+    "D C No": "D&C Green 5",
+    "CI Name": "61570"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "CI_Name": "Solvent Green 3",
+    "D C No": "D&C Green 6",
+    "CI Name": "61565"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "CI_Name": "Solvent Green 7",
+    "D C No": "D&C Green 8",
+    "CI Name": "59040"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "CI_Name": "Acid Orange 7",
+    "D C No": "D&C Orange 4",
+    "CI Name": "15510"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "CI_Name": "Pigment Red 57",
+    "D C No": "D&C Red 6",
+    "CI Name": "15850"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "CI_Name": "Pigment Red 57:1",
+    "D C No": "D&C Red 7",
+    "CI Name": "15850:1"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "CI_Name": "Solvent Red 23",
+    "D C No": "D&C Red 17",
+    "CI Name": "26100"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "CI_Name": "Solvent Red 43",
+    "D C No": "D&C Red 21",
+    "CI Name": "45380:2"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "CI_Name": "Acid Red 87",
+    "D C No": "D&C Red 22",
+    "CI Name": "45380"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "CI_Name": "Acid Red 33",
+    "D C No": "D&C Red 33",
+    "CI Name": "17200"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "CI_Name": "Solvent Violet 13",
+    "D C No": "D&C Violet 2",
+    "CI Name": "60725"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "CI_Name": "Acid Violet 43",
+    "D C No": "D&C Ext. Violet 2",
+    "CI Name": "60730"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "CI_Name": "Solvent Yellow 94",
+    "D C No": "D&C Yellow 7",
+    "CI Name": "45350:1"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "CI_Name": "Acid Yellow 73",
+    "D C No": "D&C Yellow 8",
+    "CI Name": "45350"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "CI_Name": "Acid Yellow 3",
+    "D C No": "D&C Yellow 10",
+    "CI Name": "47005"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "CI_Name": "Solvent Yellow 33",
+    "D C No": "D&C Yellow 11",
+    "CI Name": "47000"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "CI_Name": "Acid Green 25",
+    "D C No": "D&C Green 5",
+    "CI Name": "61570"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "CI_Name": "Solvent Green 3",
+    "D C No": "D&C Green 6",
+    "CI Name": "61565"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "CI_Name": "Solvent Green 7",
+    "D C No": "D&C Green 8",
+    "CI Name": "59040"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "CI_Name": "Acid Orange 7",
+    "D C No": "D&C Orange 4",
+    "CI Name": "15510"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "CI_Name": "Pigment Red 57",
+    "D C No": "D&C Red 6",
+    "CI Name": "15850"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "CI_Name": "Pigment Red 57:1",
+    "D C No": "D&C Red 7",
+    "CI Name": "15850:1"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "CI_Name": "Solvent Red 23",
+    "D C No": "D&C Red 17",
+    "CI Name": "26100"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "CI_Name": "Solvent Red 43",
+    "D C No": "D&C Red 21",
+    "CI Name": "45380:2"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "CI_Name": "Acid Red 87",
+    "D C No": "D&C Red 22",
+    "CI Name": "45380"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "CI_Name": "Acid Red 33",
+    "D C No": "D&C Red 33",
+    "CI Name": "17200"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "CI_Name": "Solvent Violet 13",
+    "D C No": "D&C Violet 2",
+    "CI Name": "60725"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "CI_Name": "Acid Violet 43",
+    "D C No": "D&C Ext. Violet 2",
+    "CI Name": "60730"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "CI_Name": "Solvent Yellow 94",
+    "D C No": "D&C Yellow 7",
+    "CI Name": "45350:1"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "CI_Name": "Acid Yellow 73",
+    "D C No": "D&C Yellow 8",
+    "CI Name": "45350"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "CI_Name": "Acid Yellow 3",
+    "D C No": "D&C Yellow 10",
+    "CI Name": "47005"
+  },
+  {
+    "Id": "32",
+    "Select": "",
+    "CI_Name": "Solvent Yellow 33",
+    "D C No": "D&C Yellow 11",
+    "CI Name": "47000"
+  }
+]

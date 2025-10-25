@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "FD & C Color": "FD & C Yellow 5",
+    "Common Name": "Tartrazine",
+    "Hue": "Lemon yellow"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "FD & C Color": "FD & C Yellow 6",
+    "Common Name": "Sunset Yellow",
+    "Hue": "Orange"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "FD & C Color": "FD & C Blue 1",
+    "Common Name": "Brilliant Blue FCF",
+    "Hue": "Bright Blue"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "FD & C Color": "FD & C Blue 2",
+    "Common Name": "Indigotine",
+    "Hue": "Royal Blue"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "FD & C Color": "FD & C Red 3",
+    "Common Name": "Erythrosine",
+    "Hue": "cherry Red"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "FD & C Color": "FD & C Red 40",
+    "Common Name": "Allura Red",
+    "Hue": "Orange red"
+  }
+]

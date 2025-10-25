@@ -1,0 +1,362 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Product Name",
+    "Strength": "Strength"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Artemether",
+    "Strength": "80 mg/ml"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Ascorbic Acid",
+    "Strength": "-"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Bupivacaine Hydrochloride in Dextrose",
+    "Strength": "100 mg/ml, 250 mg/ml"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Cefazolin",
+    "Strength": "-"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Cefepime",
+    "Strength": "1 gm"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Cefotaxime",
+    "Strength": "1000 mg"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Ceftazidime",
+    "Strength": "1 gm"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Ceftriaxone + Salbactum",
+    "Strength": "1.5 g"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "Ceftriaxone",
+    "Strength": "1 g, 500 mg, 750 mg"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Ciprofloxacin Ophthalmic Solution",
+    "Strength": "0.3% w/v"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Citicoline",
+    "Strength": "250 mg/ml"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "Clarithromycin Lyophilized",
+    "Strength": "500 mg"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "Diazepam",
+    "Strength": "10 mg/2 ml"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "Diclofenac Sodium",
+    "Strength": "75 mg/ml"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Product Name": "Drotaverine Hydrochloride",
+    "Strength": "40 mg/2 ml"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Product Name": "Ergometrine",
+    "Strength": "0.5 mg/ml"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Product Name": "Fosphenytoin Sodium",
+    "Strength": "75 mg/ml"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Product Name": "Furosemide",
+    "Strength": "20 mg/ml"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Product Name": "Gentamicin",
+    "Strength": "80 mg/2ml"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Product Name": "Granisetron Hydrochloride",
+    "Strength": "1 mg/ml"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "Product Name": "Hyoscine Butylbromide",
+    "Strength": "20 mg/ml"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "Product Name": "Ketamine",
+    "Strength": "50 mg/ml"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "Product Name": "Ketorolac",
+    "Strength": "30 mg"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "Product Name": "Lidocaine Hydrochloride",
+    "Strength": "1%, 2% w/v"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "Product Name": "Menadione Sodium Bisulfite",
+    "Strength": "1 mg/0.5 ml"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "Product Name": "Methylergonovine Maleate",
+    "Strength": "0.2 mg/ml, 0.5 mg/ml"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "Product Name": "Metoclopramide",
+    "Strength": "10 mg/2ml"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "Product Name": "Midazolam",
+    "Strength": "5 mg/ml"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "Product Name": "Moxifloxacin Ophthalmic Solution",
+    "Strength": "0.5% w/v"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "Product Name": "Multivitamin Infusion",
+    "Strength": "-"
+  },
+  {
+    "Id": "32",
+    "Select": "",
+    "Product Name": "Nimodipine Intravenous Infusion",
+    "Strength": "-"
+  },
+  {
+    "Id": "33",
+    "Select": "",
+    "Product Name": "Ondansetron",
+    "Strength": "2 mg/ml"
+  },
+  {
+    "Id": "34",
+    "Select": "",
+    "Product Name": "Oxymetazole Hydrochloride Nasal Solution",
+    "Strength": "0.05% w/v"
+  },
+  {
+    "Id": "35",
+    "Select": "",
+    "Product Name": "Oxytocin",
+    "Strength": "5 IU/ml"
+  },
+  {
+    "Id": "36",
+    "Select": "",
+    "Product Name": "Paracetamol",
+    "Strength": "125 mg/ml"
+  },
+  {
+    "Id": "37",
+    "Select": "",
+    "Product Name": "Phenytoin",
+    "Strength": "50 mg/ml"
+  },
+  {
+    "Id": "38",
+    "Select": "",
+    "Product Name": "Potassium Chloride for Injection Concentrate",
+    "Strength": "10% w/v"
+  },
+  {
+    "Id": "39",
+    "Select": "",
+    "Product Name": "Quinine Dihydrochloride",
+    "Strength": "300 mg/ml"
+  },
+  {
+    "Id": "40",
+    "Select": "",
+    "Product Name": "Sterile Tissue Adhesive C Seal",
+    "Strength": "0.15ml, 0.25ml, 0.50ml"
+  },
+  {
+    "Id": "41",
+    "Select": "",
+    "Product Name": "Tramadol Hydrochloride",
+    "Strength": "50 mg/ml"
+  },
+  {
+    "Id": "42",
+    "Select": "",
+    "Product Name": "Product Name",
+    "Strength": "Strength"
+  },
+  {
+    "Id": "43",
+    "Select": "",
+    "Product Name": "Aceclofenac Gel",
+    "Strength": "1% w/w"
+  },
+  {
+    "Id": "44",
+    "Select": "",
+    "Product Name": "Clotrimazole Cream",
+    "Strength": "1% w/w"
+  },
+  {
+    "Id": "45",
+    "Select": "",
+    "Product Name": "Diclofenac Gel",
+    "Strength": "1% w/w"
+  },
+  {
+    "Id": "46",
+    "Select": "",
+    "Product Name": "Diclofenac Diethylamine + Methyl Salicylate + Menthol Gel",
+    "Strength": "-"
+  },
+  {
+    "Id": "47",
+    "Select": "",
+    "Product Name": "Clobetasol + Salicylic Acid Ointment",
+    "Strength": "0.05% + 6%"
+  },
+  {
+    "Id": "48",
+    "Select": "",
+    "Product Name": "Clobetasol + Gentamycin + Miconacole Ointment",
+    "Strength": "0.05% + 0.10% + 2.00%"
+  },
+  {
+    "Id": "49",
+    "Select": "",
+    "Product Name": "Clotrimazole + Betamethasone Dipropriate Ointment",
+    "Strength": "1% + 0.025%"
+  },
+  {
+    "Id": "50",
+    "Select": "",
+    "Product Name": "Clotrimazole + Betamethasone + Neomycin Sulphate Cream",
+    "Strength": "1% + 0.05% + 0.5%"
+  },
+  {
+    "Id": "51",
+    "Select": "",
+    "Product Name": "Ketoprofen Gel",
+    "Strength": "2.50%"
+  },
+  {
+    "Id": "52",
+    "Select": "",
+    "Product Name": "Ketoconazole + Clobetasol Propionate + Neomycin Sulphate Cream",
+    "Strength": "1% + 0.05% + 0.5%"
+  },
+  {
+    "Id": "53",
+    "Select": "",
+    "Product Name": "Metronidazole Ointment for Dental Use",
+    "Strength": "1.5% w/w"
+  },
+  {
+    "Id": "54",
+    "Select": "",
+    "Product Name": "Silver Sulphadiazine Cream",
+    "Strength": "1% w/w"
+  },
+  {
+    "Id": "55",
+    "Select": "",
+    "Product Name": "Betamethasone Dipropionate Salicylic Acid Ointment",
+    "Strength": "0.05 % w/w + 3.00 % w/w"
+  },
+  {
+    "Id": "56",
+    "Select": "",
+    "Product Name": "Salicylic Acid Ointment",
+    "Strength": "5.00 % w/w"
+  },
+  {
+    "Id": "57",
+    "Select": "",
+    "Product Name": "Betamethasone Dipropionate Ointment",
+    "Strength": "0.05 % w/w"
+  },
+  {
+    "Id": "58",
+    "Select": "",
+    "Product Name": "Aceclofenac Gel",
+    "Strength": "1.5% w/w"
+  },
+  {
+    "Id": "59",
+    "Select": "",
+    "Product Name": "Mentholated Balm",
+    "Strength": "18 % w/w"
+  },
+  {
+    "Id": "60",
+    "Select": "",
+    "Product Name": "Piroxicam Gel",
+    "Strength": "0.5 mg"
+  }
+]

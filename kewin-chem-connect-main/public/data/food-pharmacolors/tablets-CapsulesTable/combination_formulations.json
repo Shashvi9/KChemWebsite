@@ -1,0 +1,116 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Artemether + Lumefantrine Dry Syrup",
+    "Strength": "180 mg+ 1080 mg, 360 mg + 2160 mg"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Artemether + Lumefantrine Tablets",
+    "Strength": "20 mg + 120 mg, 40 mg + 240 mg, 80 mg + 480 mg"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Calcium, Phosphorus With Vitamin D3 125 Iu Tablets, Calcium, Phosphorus With Vitamin D3 250 Iu Tablets Ciprofloxacin + Tinidazole Tablets",
+    "Strength": "500 mg + 600 mg"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Diclofenac Sodium + Paracetamol Tablets",
+    "Strength": "50 mg + 325 mg"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Dihydroartemisinin + Piperaquine Phosphate Tablets",
+    "Strength": "40 mg + 320 mg"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Gestodene + Ethinylestradiol Tablets",
+    "Strength": "75 mcg + 20 mcg, 75 mcg + 30 mcg"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Glyburide + Metformin Tablets",
+    "Strength": "5 mg + 500 mg"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Ibuprofen + Paracetamol Tablets",
+    "Strength": "400 mg + 325 mg"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Levonorgestrel + Ethinylestradiol Tablets",
+    "Strength": "0.10 mg + 0.02 mg, 0.15 mg + 0.03 mg, 0.20 + 0.04 mg, 0.25 mg + 0.05 mg"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "Losartan + HCTZ Tablets",
+    "Strength": "50 mg + 12.5 mg"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Losartan Potassium + Besylate Tablets",
+    "Strength": "50 mg + 5,10 mg"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Metformin + Gliclazide Tablets",
+    "Strength": "500 mg + 80 mg"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "Ofloxacin And Ornidazole Tablets",
+    "Strength": "200 mg + 500 mg"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "Pantoprazole + Domperidone Capsules",
+    "Strength": "40 mg + 30 mg"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "Paracetamol + Aceclofenac Tablets",
+    "Strength": "500 mg + 100 mg"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Product Name": "Paracetamol + Ibuprofen + Caffeine Capsules",
+    "Strength": "325 mg + 400 mg + 40 mg"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Product Name": "Paracetamol Caffeine Tablets",
+    "Strength": "500 mg + 30 mg"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Product Name": "Sulfadoxine + Pyrimethamine Tablets",
+    "Strength": "500 mg + 25 mg"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Product Name": "Tramadol + Paracetamol Tablets",
+    "Strength": "37.5 mg + 325 mg"
+  }
+]

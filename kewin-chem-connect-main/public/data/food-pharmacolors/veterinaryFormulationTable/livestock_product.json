@@ -1,0 +1,2394 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Albendazole 2.5%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Albendazole 5%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Albendazole 10 %",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Albendazole 12.5 %",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Albendazole 150 Mg",
+    "Presentation": "50 Boli",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Albendazole 150 Mg",
+    "Presentation": "15 X 4 Boli",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Albendazole 300 Mg",
+    "Presentation": "-",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Albendazole 600 Mg",
+    "Presentation": "20 X1 Boli",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Albendazole 2500 Mg",
+    "Presentation": "20 X1 Boli",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "Albendazole 2500 Mg",
+    "Presentation": "15 X 4 Boli",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Albendazole 3 Gm",
+    "Presentation": "1 X 1",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Closan",
+    "Presentation": "1000 Mg",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "Niclosamide",
+    "Presentation": "-",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "Tetramisole HCl",
+    "Presentation": "400 Mg",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "Levamisole Hydrochloride, Oxyclozanide",
+    "Presentation": "-",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Product Name": "Oxyclozanide",
+    "Presentation": "1 Gm",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Product Name": "Rafoxanide + Levamisole",
+    "Presentation": "15 Mg, 15 Mg",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Product Name": "Fenbendazole 2.5%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Product Name": "Fenbendazole 5%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Product Name": "Fenbendazole 10%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Product Name": "Fenbendazole 12.5%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "Product Name": "Oxyclozanide 3.4%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "Product Name": "Oxyclozanide 3.4%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "Product Name": "Oxyclozanide 3.4%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "Product Name": "Oxyclozanide 3.4%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "Product Name": "Oxfendazole 2.265%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "Product Name": "Oxfendazole 2.265%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "Product Name": "Oxfendazole 2.265%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "Product Name": "Oxfendazole 2.265%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%+Cobalt Sulphate 0.382%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%+Cobalt Sulphate 0.382%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "32",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%+Cobalt Sulphate 0.382%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "33",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%+Cobalt Sulphate 0.382%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "34",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "35",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "36",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "37",
+    "Select": "",
+    "Product Name": "Levamisole 1.5% + Oxyclozanide 3%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "38",
+    "Select": "",
+    "Product Name": "Levamisole 3% + Oxyclozanide 6%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "39",
+    "Select": "",
+    "Product Name": "Levamisole 3% + Oxyclozanide 6%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "40",
+    "Select": "",
+    "Product Name": "Levamisole 3% + Oxyclozanide 6%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "41",
+    "Select": "",
+    "Product Name": "Levamisole 3% + Oxyclozanide 6%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "42",
+    "Select": "",
+    "Product Name": "Levamisole HCl 1.5% + Rafoxanide 2.25%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "43",
+    "Select": "",
+    "Product Name": "Levamisole HCl 1.5% + Rafoxanide 2.25%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "44",
+    "Select": "",
+    "Product Name": "Levamisole HCl 1.5% + Rafoxanide 2.25%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "45",
+    "Select": "",
+    "Product Name": "Levamisole HCl 1.5% + Rafoxanide 2.25%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "46",
+    "Select": "",
+    "Product Name": "Levamisole HCl 3% + Rafoxanide 4.5%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "47",
+    "Select": "",
+    "Product Name": "Levamisole HCl 3% + Rafoxanide 4.5%",
+    "Presentation": "250 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "48",
+    "Select": "",
+    "Product Name": "Levamisole HCl 3% + Rafoxanide 4.5%",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "49",
+    "Select": "",
+    "Product Name": "Levamisole HCl 3% + Rafoxanide 4.5%",
+    "Presentation": "1000 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "50",
+    "Select": "",
+    "Product Name": "Ivermectin 1%",
+    "Presentation": "10 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "51",
+    "Select": "",
+    "Product Name": "Ivermectin 1%",
+    "Presentation": "20 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "52",
+    "Select": "",
+    "Product Name": "Ivermectin 1%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "53",
+    "Select": "",
+    "Product Name": "Ivermectin 1%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Anthelmentics"
+  },
+  {
+    "Id": "54",
+    "Select": "",
+    "Product Name": "Diminazene Diaceturate 2.36 Gm",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Granules For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "55",
+    "Select": "",
+    "Product Name": "Diminazene Diaceturate 23.6 Gm",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Granules For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "56",
+    "Select": "",
+    "Product Name": "Dimiazene Diaceturate + Vitamin B12 + Antypyrine 2.36 Gm",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Granules For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "57",
+    "Select": "",
+    "Product Name": "Dimiazene Diaceturate + Vitamin b12 + Antypyrine 2.36 Gm",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Granules For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "58",
+    "Select": "",
+    "Product Name": "Dimiazene Diaceturate + Vitamin B12 + B6 + Antypyrine 2.36",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Granules For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "59",
+    "Select": "",
+    "Product Name": "Dimiazene Diaceturate + Vitamin B12 + B6 + Antypyrine 23.6",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Granules For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "60",
+    "Select": "",
+    "Product Name": "Diminazene Diaceturate 7% Rtu",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "61",
+    "Select": "",
+    "Product Name": "Diminazene Diaceturate 7% Rtu",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "62",
+    "Select": "",
+    "Product Name": "Diminazene Diaceturate 7% Rtu",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "63",
+    "Select": "",
+    "Product Name": "Isometamidium Chloride Hydrchloride 125 Mg",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Powder For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "64",
+    "Select": "",
+    "Product Name": "Isometamidium Chloride Hydrchloride 1000 Mg",
+    "Presentation": "10 X 1 Sachet",
+    "Dosage Form": "Powder For Injection",
+    "Therapeutic Segments": "Antiprotozoal"
+  },
+  {
+    "Id": "65",
+    "Select": "",
+    "Product Name": "Furazolidone + Metronidazole",
+    "Presentation": "500 Mg, 300 Mg",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Antibacterial"
+  },
+  {
+    "Id": "66",
+    "Select": "",
+    "Product Name": "Sulphadiazine + Trimethoprim",
+    "Presentation": "1000 Mg, 200 Mg",
+    "Dosage Form": "Tablet",
+    "Therapeutic Segments": "Antibacterial"
+  },
+  {
+    "Id": "67",
+    "Select": "",
+    "Product Name": "Flunixine Meglumine 5%",
+    "Presentation": "20 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antiinflammatory"
+  },
+  {
+    "Id": "68",
+    "Select": "",
+    "Product Name": "Nimesulide + Paracetamol",
+    "Presentation": "400 Mg, 1500 Mg",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Analgesic-Antipyretic"
+  },
+  {
+    "Id": "69",
+    "Select": "",
+    "Product Name": "Paracetamol + Trimethoprim",
+    "Presentation": "1.5 G, 1.5 G",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Analgesic-Antipyretic"
+  },
+  {
+    "Id": "70",
+    "Select": "",
+    "Product Name": "Oxytetracycline 5%",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "71",
+    "Select": "",
+    "Product Name": "Oxytetracycline 5%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "72",
+    "Select": "",
+    "Product Name": "Oxytetracycline 5%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "73",
+    "Select": "",
+    "Product Name": "Oxytetracycline 10%",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "74",
+    "Select": "",
+    "Product Name": "Oxytetracycline 10%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "75",
+    "Select": "",
+    "Product Name": "Oxytetracycline 10%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "76",
+    "Select": "",
+    "Product Name": "Oxytetrcycline 20%",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "77",
+    "Select": "",
+    "Product Name": "Oxytetrcycline 20%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "78",
+    "Select": "",
+    "Product Name": "Oxytetrcycline 20%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "79",
+    "Select": "",
+    "Product Name": "Enrofloxacin 10%",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "80",
+    "Select": "",
+    "Product Name": "Enrofloxacin 10%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "81",
+    "Select": "",
+    "Product Name": "Enrofloxacin 10%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "82",
+    "Select": "",
+    "Product Name": "Tylosine Tartrate 20%",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "83",
+    "Select": "",
+    "Product Name": "Tylosine Tartrate 20%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "84",
+    "Select": "",
+    "Product Name": "Tylosine Tartrate 20%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "85",
+    "Select": "",
+    "Product Name": "Ceftiofur 1gm Sterile",
+    "Presentation": "1gm",
+    "Dosage Form": "Sterile Powder For Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "86",
+    "Select": "",
+    "Product Name": "Ceftriaxone 3 Gm Sterile",
+    "Presentation": "3gm Vial With Wfi",
+    "Dosage Form": "Sterile Powder For Injection",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "87",
+    "Select": "",
+    "Product Name": "Oxytetracycline + Gentian Violet Spray",
+    "Presentation": "200 Ml",
+    "Dosage Form": "Topical Spray",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "88",
+    "Select": "",
+    "Product Name": "Each Ml Contains Levofloxacin Hemihydrate Ip Eq To",
+    "Presentation": "60ml",
+    "Dosage Form": "Intrauterine",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "89",
+    "Select": "",
+    "Product Name": "Levofloxacin…...20 Mg.",
+    "Presentation": "60ml",
+    "Dosage Form": "Intrauterine",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "90",
+    "Select": "",
+    "Product Name": "Ornidazole Ip……………25 Mg.",
+    "Presentation": "60ml",
+    "Dosage Form": "Intrauterine",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "91",
+    "Select": "",
+    "Product Name": "Alpha Tocopherol Actetate Ip..5mg.",
+    "Presentation": "60ml",
+    "Dosage Form": "Intrauterine",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "92",
+    "Select": "",
+    "Product Name": "Aqueous Base………….Q.S.",
+    "Presentation": "60ml",
+    "Dosage Form": "Intrauterine",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "93",
+    "Select": "",
+    "Product Name": "Trimethoprim + Sulphamethoxazole",
+    "Presentation": "0.4 Gm, 2 Gm",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "94",
+    "Select": "",
+    "Product Name": "Tetracycline HCl",
+    "Presentation": "500 Mg/1gm",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "95",
+    "Select": "",
+    "Product Name": "Oxytetracycline HCl",
+    "Presentation": "500 Mg",
+    "Dosage Form": "Tablet",
+    "Therapeutic Segments": "Antibiotics"
+  },
+  {
+    "Id": "96",
+    "Select": "",
+    "Product Name": "Each Ml Contain Vitamin A B.P.…….4000 Iu",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "97",
+    "Select": "",
+    "Product Name": "Vitamin D3 B.P. …………800 Iu",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "98",
+    "Select": "",
+    "Product Name": "Vitamin E B.P …….10 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "99",
+    "Select": "",
+    "Product Name": "Thiamin Hcl B.P (Vitamin B1)……10Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "100",
+    "Select": "",
+    "Product Name": "Riboflavin B.P (Vitamin B2)…2Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "101",
+    "Select": "",
+    "Product Name": "Pyridoxin Hcl B.P (Vitamin B6)………10 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "102",
+    "Select": "",
+    "Product Name": "Folic Acid B.P …………..0.1 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "103",
+    "Select": "",
+    "Product Name": "Vitamin K3 B.P ………….1 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "104",
+    "Select": "",
+    "Product Name": "Niacinamide B.P …………20 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "105",
+    "Select": "",
+    "Product Name": "Cholin Chloride…………..50 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "106",
+    "Select": "",
+    "Product Name": "Biotin Usp………..…….0.15 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "107",
+    "Select": "",
+    "Product Name": "D –Penthanol Usp……………….10 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "108",
+    "Select": "",
+    "Product Name": "Taurin……………….10 Mg",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "109",
+    "Select": "",
+    "Product Name": "Each Ml Contain Vitamin A B.P.…….4000 Iu",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "110",
+    "Select": "",
+    "Product Name": "Vitamin D3 B.P. …………800 Iu",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "111",
+    "Select": "",
+    "Product Name": "Vitamin E B.P …….10 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "112",
+    "Select": "",
+    "Product Name": "Thiamin Hcl B.P (Vitamin B1)……10Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "113",
+    "Select": "",
+    "Product Name": "Riboflavin B.P (Vitamin B2)…2Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "114",
+    "Select": "",
+    "Product Name": "Pyridoxin Hcl B.P (Vitamin B6)………10 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "115",
+    "Select": "",
+    "Product Name": "Folic Acid B.P …………..0.1 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "116",
+    "Select": "",
+    "Product Name": "Vitamin K3 B.P ………….1 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "117",
+    "Select": "",
+    "Product Name": "Niacinamide B.P …………20 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "118",
+    "Select": "",
+    "Product Name": "Cholin Chloride…………..50 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "119",
+    "Select": "",
+    "Product Name": "Biotin Usp………..…….0.15 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "120",
+    "Select": "",
+    "Product Name": "D –Penthanol Usp……………….10 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "121",
+    "Select": "",
+    "Product Name": "Taurin……………….10 Mg",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "122",
+    "Select": "",
+    "Product Name": "Each Ml Contain Vitamin A B.P.…….4000 Iu",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "123",
+    "Select": "",
+    "Product Name": "Vitamin D3 B.P. …………800 Iu",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "124",
+    "Select": "",
+    "Product Name": "Vitamin E B.P …….10 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "125",
+    "Select": "",
+    "Product Name": "Thiamin Hcl B.P (Vitamin B1)……10Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "126",
+    "Select": "",
+    "Product Name": "Riboflavin B.P (Vitamin B2)…2Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "127",
+    "Select": "",
+    "Product Name": "Pyridoxin Hcl B.P (Vitamin B6)………10 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "128",
+    "Select": "",
+    "Product Name": "Folic Acid B.P …………..0.1 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "129",
+    "Select": "",
+    "Product Name": "Vitamin K3 B.P ………….1 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "130",
+    "Select": "",
+    "Product Name": "Niacinamide B.P …………20 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "131",
+    "Select": "",
+    "Product Name": "Cholin Chloride…………..50 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "132",
+    "Select": "",
+    "Product Name": "Biotin Usp………..…….0.15 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "133",
+    "Select": "",
+    "Product Name": "D –Penthanol Usp……………….10 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "134",
+    "Select": "",
+    "Product Name": "Taurin……………….10 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "135",
+    "Select": "",
+    "Product Name": "Butaphosphan 10% +Cyanocobalmin 0.5%",
+    "Presentation": "30 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "136",
+    "Select": "",
+    "Product Name": "Butaphosphan 10% +Cyanocobalmin 0.5%",
+    "Presentation": "50 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "137",
+    "Select": "",
+    "Product Name": "Butaphosphan 10% +Cyanocobalmin 0.5%",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "138",
+    "Select": "",
+    "Product Name": "Calvit -P",
+    "Presentation": "20 Ml",
+    "Dosage Form": "Suspension",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "139",
+    "Select": "",
+    "Product Name": "Each Ml Contains Choline Chloride Ip….15 Mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "140",
+    "Select": "",
+    "Product Name": "Cynocobalamin Ip……20 Mcg.",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "141",
+    "Select": "",
+    "Product Name": "Glycine Ip………………..30 Mg.",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "142",
+    "Select": "",
+    "Product Name": "(Equi. To Nitrogen 0.48 %)",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "143",
+    "Select": "",
+    "Product Name": "Chlorbutol Ip………….0.3 %",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "144",
+    "Select": "",
+    "Product Name": "W/V. Water For Injection Ip…..Q.S.",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Injection",
+    "Therapeutic Segments": "Multivitamin"
+  },
+  {
+    "Id": "145",
+    "Select": "",
+    "Product Name": "Salt Lick For Animal Each 1 Kg",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "146",
+    "Select": "",
+    "Product Name": "Contains: Calcium: 2.60%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "147",
+    "Select": "",
+    "Product Name": "Phosphorus: 1.40%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "148",
+    "Select": "",
+    "Product Name": "Sodium: 31.93%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "149",
+    "Select": "",
+    "Product Name": "Chloride: 49.28%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "150",
+    "Select": "",
+    "Product Name": "Mg: 1.80%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "151",
+    "Select": "",
+    "Product Name": "Cu: 0.32%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "152",
+    "Select": "",
+    "Product Name": "Co: 0.04%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "153",
+    "Select": "",
+    "Product Name": "Fe: 0.50%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "154",
+    "Select": "",
+    "Product Name": "K: 0.006%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "155",
+    "Select": "",
+    "Product Name": "I: 0.02%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "156",
+    "Select": "",
+    "Product Name": "Zn: 0.36%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "157",
+    "Select": "",
+    "Product Name": "Mn: 0.28%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "158",
+    "Select": "",
+    "Product Name": "S: 0.36%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "159",
+    "Select": "",
+    "Product Name": "Cao: 3.64%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "160",
+    "Select": "",
+    "Product Name": "P205:3.21%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "161",
+    "Select": "",
+    "Product Name": "Nacl: 81.21%",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "162",
+    "Select": "",
+    "Product Name": "Ca/P Ratio: 1.8 To 1.",
+    "Presentation": "1kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "163",
+    "Select": "",
+    "Product Name": "Salt Lick For Animal Each 1 Kg",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "164",
+    "Select": "",
+    "Product Name": "Contains: Calcium: 2.60%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "165",
+    "Select": "",
+    "Product Name": "Phosphorus: 1.40%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "166",
+    "Select": "",
+    "Product Name": "Sodium: 31.93%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "167",
+    "Select": "",
+    "Product Name": "Chloride: 49.28%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "168",
+    "Select": "",
+    "Product Name": "Mg: 1.80%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "169",
+    "Select": "",
+    "Product Name": "Cu: 0.32%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "170",
+    "Select": "",
+    "Product Name": "Co: 0.04%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "171",
+    "Select": "",
+    "Product Name": "Fe: 0.50%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "172",
+    "Select": "",
+    "Product Name": "K: 0.006%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "173",
+    "Select": "",
+    "Product Name": "I: 0.02%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "174",
+    "Select": "",
+    "Product Name": "Zn: 0.36%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "175",
+    "Select": "",
+    "Product Name": "Mn: 0.28%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "176",
+    "Select": "",
+    "Product Name": "S: 0.36%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "177",
+    "Select": "",
+    "Product Name": "Cao: 3.64%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "178",
+    "Select": "",
+    "Product Name": "P205:3.21%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "179",
+    "Select": "",
+    "Product Name": "Nacl: 81.21%",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "180",
+    "Select": "",
+    "Product Name": "Ca/P Ratio: 1.8 To 1.",
+    "Presentation": "2Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "181",
+    "Select": "",
+    "Product Name": "Salt Lick For Animal Each 1 Kg",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "182",
+    "Select": "",
+    "Product Name": "Contains: Calcium: 2.60%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "183",
+    "Select": "",
+    "Product Name": "Phosphorus: 1.40%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "184",
+    "Select": "",
+    "Product Name": "Sodium: 31.93%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "185",
+    "Select": "",
+    "Product Name": "Chloride: 49.28%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "186",
+    "Select": "",
+    "Product Name": "Mg: 1.80%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "187",
+    "Select": "",
+    "Product Name": "Cu: 0.32%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "188",
+    "Select": "",
+    "Product Name": "Co: 0.04%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "189",
+    "Select": "",
+    "Product Name": "Fe: 0.50%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "190",
+    "Select": "",
+    "Product Name": "K: 0.006%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "191",
+    "Select": "",
+    "Product Name": "I: 0.02%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "192",
+    "Select": "",
+    "Product Name": "Zn: 0.36%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "193",
+    "Select": "",
+    "Product Name": "Mn: 0.28%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "194",
+    "Select": "",
+    "Product Name": "S: 0.36%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "195",
+    "Select": "",
+    "Product Name": "Cao: 3.64%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "196",
+    "Select": "",
+    "Product Name": "P205:3.21%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "197",
+    "Select": "",
+    "Product Name": "Nacl: 81.21%",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "198",
+    "Select": "",
+    "Product Name": "Ca/P Ratio: 1.8 To 1.",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "199",
+    "Select": "",
+    "Product Name": "Salt Lick For Animal Each 1 Kg",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "200",
+    "Select": "",
+    "Product Name": "Contains: Calcium: 2.60%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "201",
+    "Select": "",
+    "Product Name": "Phosphorus: 1.40%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "202",
+    "Select": "",
+    "Product Name": "Sodium: 31.93%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "203",
+    "Select": "",
+    "Product Name": "Chloride: 49.28%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "204",
+    "Select": "",
+    "Product Name": "Mg: 1.80%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "205",
+    "Select": "",
+    "Product Name": "Cu: 0.32%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "206",
+    "Select": "",
+    "Product Name": "Co: 0.04%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "207",
+    "Select": "",
+    "Product Name": "Fe: 0.50%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "208",
+    "Select": "",
+    "Product Name": "K: 0.006%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "209",
+    "Select": "",
+    "Product Name": "I: 0.02%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "210",
+    "Select": "",
+    "Product Name": "Zn: 0.36%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "211",
+    "Select": "",
+    "Product Name": "Mn: 0.28%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "212",
+    "Select": "",
+    "Product Name": "S: 0.36%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "213",
+    "Select": "",
+    "Product Name": "Cao: 3.64%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "214",
+    "Select": "",
+    "Product Name": "P205:3.21%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "215",
+    "Select": "",
+    "Product Name": "Nacl: 81.21%",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "216",
+    "Select": "",
+    "Product Name": "Ca/P Ratio: 1.8 To 1.",
+    "Presentation": "10 Kg",
+    "Dosage Form": "Salt Lick",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "217",
+    "Select": "",
+    "Product Name": "Each Kg Contain",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "218",
+    "Select": "",
+    "Product Name": "Copper 312 Mg",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "219",
+    "Select": "",
+    "Product Name": "Cobalt 45 Mg",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "220",
+    "Select": "",
+    "Product Name": "Magnesium 2.114 Gm",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "221",
+    "Select": "",
+    "Product Name": "Iron 979 Mg",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "222",
+    "Select": "",
+    "Product Name": "Zinc 2.13 Gm",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "223",
+    "Select": "",
+    "Product Name": "Iodine 156 Mg",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "224",
+    "Select": "",
+    "Product Name": "Bioactive Chromium 65 Mg",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "225",
+    "Select": "",
+    "Product Name": "Dl-Methionine 1.92 Gm",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "226",
+    "Select": "",
+    "Product Name": "L-Lysine Mono Hcl 4.4 Gm",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "227",
+    "Select": "",
+    "Product Name": "Calcium 240 Gm",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "228",
+    "Select": "",
+    "Product Name": "Phosphorus 120 Gm",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "229",
+    "Select": "",
+    "Product Name": "Each Kg Contain",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "230",
+    "Select": "",
+    "Product Name": "Copper 312 Mg",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "231",
+    "Select": "",
+    "Product Name": "Cobalt 45 Mg",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "232",
+    "Select": "",
+    "Product Name": "Magnesium 2.114 Gm",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "233",
+    "Select": "",
+    "Product Name": "Iron 979 Mg",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "234",
+    "Select": "",
+    "Product Name": "Zinc 2.13 Gm",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "235",
+    "Select": "",
+    "Product Name": "Iodine 156 Mg",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "236",
+    "Select": "",
+    "Product Name": "Bioactive Chromium 65 Mg",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "237",
+    "Select": "",
+    "Product Name": "Dl-Methionine 1.92 Gm",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "238",
+    "Select": "",
+    "Product Name": "L-Lysine Mono Hcl 4.4 Gm",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "239",
+    "Select": "",
+    "Product Name": "Calcium 240 Gm",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "240",
+    "Select": "",
+    "Product Name": "Phosphorus 120 Gm",
+    "Presentation": "5 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "241",
+    "Select": "",
+    "Product Name": "Each Bolus Contains",
+    "Presentation": "4 Bolus X 1 Strip",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "242",
+    "Select": "",
+    "Product Name": "Saccharomyces Cerevisiae ….10 Billion",
+    "Presentation": "4 Bolus X 1 Strip",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "243",
+    "Select": "",
+    "Product Name": "Cfu Saccharomyces Boulardii ……2.5 Billion",
+    "Presentation": "4 Bolus X 1 Strip",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "244",
+    "Select": "",
+    "Product Name": "Cfu Bacillus Amyloliquefaciens …2.5 Billion",
+    "Presentation": "4 Bolus X 1 Strip",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "245",
+    "Select": "",
+    "Product Name": "Cfu Prebiotics (Mos Betaglucan)…..1 Gm.",
+    "Presentation": "4 Bolus X 1 Strip",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "246",
+    "Select": "",
+    "Product Name": "Each Bolus Contain",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "247",
+    "Select": "",
+    "Product Name": "Saccharomyces Cerevisiae25 X 109 Cfu",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "248",
+    "Select": "",
+    "Product Name": "Lactobacillus Sporogenes 20 X 109 Cfu",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "249",
+    "Select": "",
+    "Product Name": "Aspergillus Oryzae 20 X 109 Cfu",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "250",
+    "Select": "",
+    "Product Name": "Biotin 10 Mg",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "251",
+    "Select": "",
+    "Product Name": "Dl-Methionine 1 Gm",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "252",
+    "Select": "",
+    "Product Name": "Zinc Sulphate 200 Mg",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "253",
+    "Select": "",
+    "Product Name": "Cobalt Sulphate 40 Mg",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "254",
+    "Select": "",
+    "Product Name": "Fructo-Oligisaccharide 250 Mg",
+    "Presentation": "1 X 8's Boli Pack",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "255",
+    "Select": "",
+    "Product Name": "Composition: Each 100 Ml Contains:",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "256",
+    "Select": "",
+    "Product Name": "Calcium…………………..1650 Mg",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "257",
+    "Select": "",
+    "Product Name": "Phosphorus........….....850 Mg.",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "258",
+    "Select": "",
+    "Product Name": "Vitamin D3…....................8000 I.U.",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "259",
+    "Select": "",
+    "Product Name": "Vitamin B12.……..…100 Mcg.",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "260",
+    "Select": "",
+    "Product Name": "Carbohydrate…..................40000 Mg",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "261",
+    "Select": "",
+    "Product Name": "Energy Value Kilocalories…………160",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "262",
+    "Select": "",
+    "Product Name": "Kilojoules……………670.",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "263",
+    "Select": "",
+    "Product Name": "Composition: Each 100 Ml Contains:",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "264",
+    "Select": "",
+    "Product Name": "Calcium…………………..1650 Mg",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "265",
+    "Select": "",
+    "Product Name": "Phosphorus........….....850 Mg.",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "266",
+    "Select": "",
+    "Product Name": "Vitamin D3…....................8000 I.U.",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "267",
+    "Select": "",
+    "Product Name": "Vitamin B12.……..…100 Mcg.",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "268",
+    "Select": "",
+    "Product Name": "Carbohydrate…..................40000 Mg",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "269",
+    "Select": "",
+    "Product Name": "Energy Value Kilocalories…………160",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "270",
+    "Select": "",
+    "Product Name": "Kilojoules……………670.",
+    "Presentation": "5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "271",
+    "Select": "",
+    "Product Name": "Short Chain Saturated",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "272",
+    "Select": "",
+    "Product Name": "C12:0 Lauric 0.2%-0.5",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "273",
+    "Select": "",
+    "Product Name": "C14:0 Myristic 1.0 -1.4%",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "274",
+    "Select": "",
+    "Product Name": "Long Chain Saturated",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "275",
+    "Select": "",
+    "Product Name": "C16:0 Palmitic 43% - 47%",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "276",
+    "Select": "",
+    "Product Name": "C18:0 Stearic 3% - 5%",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "277",
+    "Select": "",
+    "Product Name": "Long Chain Unsaturated",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "278",
+    "Select": "",
+    "Product Name": "C18:1 Oleic - 35%- 40%",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "279",
+    "Select": "",
+    "Product Name": "C18:2 Linoleic - 8%-10%",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "280",
+    "Select": "",
+    "Product Name": "Short Chain Saturated",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "281",
+    "Select": "",
+    "Product Name": "C12:0 Lauric 0.2%-0.5",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "282",
+    "Select": "",
+    "Product Name": "C14:0 Myristic 1.0 -1.4%",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "283",
+    "Select": "",
+    "Product Name": "Long Chain Saturated",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "284",
+    "Select": "",
+    "Product Name": "C16:0 Palmitic 43% - 47%",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "285",
+    "Select": "",
+    "Product Name": "C18:0 Stearic 3% - 5%",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "286",
+    "Select": "",
+    "Product Name": "Long Chain Unsaturated",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "287",
+    "Select": "",
+    "Product Name": "C18:1 Oleic - 35%- 40%",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "288",
+    "Select": "",
+    "Product Name": "C18:2 Linoleic - 8%-10%",
+    "Presentation": "25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "289",
+    "Select": "",
+    "Product Name": "Each 60 Gm Contains",
+    "Presentation": "60 Gm",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "290",
+    "Select": "",
+    "Product Name": "Vitamin A………………..3000 Iu",
+    "Presentation": "60 Gm",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "291",
+    "Select": "",
+    "Product Name": "Lactobacillus Acidophilus …60mio.",
+    "Presentation": "60 Gm",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "292",
+    "Select": "",
+    "Product Name": "Cfu Trisodium Citrate ….5 Gm",
+    "Presentation": "60 Gm",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "293",
+    "Select": "",
+    "Product Name": "Aminonitrogen ……100 Mg",
+    "Presentation": "60 Gm",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "294",
+    "Select": "",
+    "Product Name": "Base…………………….Q.S.",
+    "Presentation": "60 Gm",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "295",
+    "Select": "",
+    "Product Name": "Fenezole Bolus",
+    "Presentation": "1500 Mg",
+    "Dosage Form": "Bolus",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "296",
+    "Select": "",
+    "Product Name": "Each 5 Ml Contains Simethicone……….50mg",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antiflatulent"
+  },
+  {
+    "Id": "297",
+    "Select": "",
+    "Product Name": "(As Simethicone Suspension Usp)",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antiflatulent"
+  },
+  {
+    "Id": "298",
+    "Select": "",
+    "Product Name": "Dil Oil Bp……………25 Mg.",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antiflatulent"
+  },
+  {
+    "Id": "299",
+    "Select": "",
+    "Product Name": "Excipients………..Q.S.",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antiflatulent"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Product Name",
+    "Strength": "Strength"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Fluticasone Propionate",
+    "Strength": "27.5 mcg, 44 mcg, 50 mcg, 110 mcg, 220 mcg"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Mometasone Furoate",
+    "Strength": "50 mcg"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Desmopressin Acetate",
+    "Strength": "10 mcg"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Olopatadine Hydrochloride",
+    "Strength": "665 mcg"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Zolmitriptan",
+    "Strength": "2.5 mg"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Ipratropium Bromide Monohydrate",
+    "Strength": "21 mcg, 42 mcg"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Azelastine Hydrochloride",
+    "Strength": "137 mcg"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Azelstine HCl + Fluticasone Propionate",
+    "Strength": "137 mcg + 50 mcg"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "Beclomethasone Dipropionate",
+    "Strength": "80 mcg"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Budesonide",
+    "Strength": "32 mcg"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Ciclesonide",
+    "Strength": "37 mcg"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "Fluticasone Furoate",
+    "Strength": "50 mcg, 55 mcg"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "Mometasone",
+    "Strength": "50 mcg"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "Flunisolide",
+    "Strength": "0.03%"
+  }
+]

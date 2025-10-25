@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Carbonyl Iron",
+    "Strength": "25% w/w"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Zinc Sulphate Mononitrate",
+    "Strength": "60% w/w"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Boron",
+    "Strength": "30% w/w"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Chromium",
+    "Strength": "40% w/w"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Dried Ferrous Sulphate",
+    "Strength": "65% w/w"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Ferrous Fumarate",
+    "Strength": "65% w/w"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Ferrous Ascorbate",
+    "Strength": "70% w/w"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Ferrous Gluconate",
+    "Strength": "60% w/w"
+  }
+]

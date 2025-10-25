@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Vitamin B1 (Thiamin Mononitrite)",
+    "Strength": "20% w/w"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Vitamin B2 (Riboflavin)",
+    "Strength": "10% w/w"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Vitamin B3 (Nicotinamide)",
+    "Strength": "50% w/w"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Vitamin B5 (Calcium Pantothinate)",
+    "Strength": "10% w/w"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Vitamin B6 ( Pyridoxol 5 Phosphate)",
+    "Strength": "10% w/w"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Vitamin B7 (Biotin)",
+    "Strength": "1% w/w"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Vitamin B9 (Folic Acid)",
+    "Strength": "3% w/w"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Vitamin B12 (Cobalamins)",
+    "Strength": "1.2% w/w"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Vitamin C (Ascorbic Acid)",
+    "Strength": "45% w/w"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "Vitamin E (Alpha Tocoferol)",
+    "Strength": "50% w/w"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Vitamin D3 (Colicalciferol)",
+    "Strength": "500 IU/MG"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Vitamin K (Phylloquinone)",
+    "Strength": "0.1% w/w"
+  }
+]

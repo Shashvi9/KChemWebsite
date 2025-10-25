@@ -1,0 +1,1650 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "Levamisole 30% Wsp",
+    "Presentation": "100 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Anthelmintics"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "Levamisole 30% Wsp",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Anthelmintics"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "Amprolium 200 Mg +Sulphaquinazoline 200 Mg +Vitamin K3 2 Mg Wsp",
+    "Presentation": "100 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Anticoccidial"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "Amprolium 200 Mg +Sulphaquinazoline 200 Mg +Vitamin K3 2 Mg Wsp",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Anticoccidial"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "Clopidol",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Anticoccidial"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "Oxytetracycline 20% Wsp",
+    "Presentation": "100 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "Oxytetracycline 20% Wsp",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "Neomycine 10% +Doxycycline 10% Wsp",
+    "Presentation": "100 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "Neomycine 10% +Doxycycline 10% Wsp",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "Tylosine Tartrate 20% +Doxycycline 15% Wsp",
+    "Presentation": "100 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Tylosine Tartrate 20% +Doxycycline 15% Wsp",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Ciprofloxacine 10% Wsp",
+    "Presentation": "100 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "Ciprofloxacine 10% Wsp",
+    "Presentation": "250 Gm",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "Ciprofloxacine 10% Wsp",
+    "Presentation": "1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Antibiotics (Water Soluble Powder)"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "Enrofloxacine 10% 20% Oral",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Product Name": "Enrofloxacine 10% 20% Oral",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Product Name": "Enrofloxacine 10% 20% Oral",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Product Name": "Enrofloxacine 10% + Bromhexine 0.75% Oral",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Product Name": "Enrofloxacine 10% + Bromhexine 0.75% Oral",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Product Name": "Enrofloxacine 10% + Bromhexine 0.75% Oral",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "21",
+    "Select": "",
+    "Product Name": "Levofloxacine 10%20% Oral",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "22",
+    "Select": "",
+    "Product Name": "Levofloxacine 10%20% Oral",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "23",
+    "Select": "",
+    "Product Name": "Levofloxacine 10%20% Oral",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "24",
+    "Select": "",
+    "Product Name": "Levofloxacine 10% + Bromhexine 0.75% Oral",
+    "Presentation": "100 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "25",
+    "Select": "",
+    "Product Name": "Levofloxacine 10% + Bromhexine 0.75% Oral",
+    "Presentation": "500 Ml",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "26",
+    "Select": "",
+    "Product Name": "Levofloxacine 10% + Bromhexine 0.75% Oral",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Antibiotics (Oral Solution)"
+  },
+  {
+    "Id": "27",
+    "Select": "",
+    "Product Name": "Each 100 Gm Contains",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "28",
+    "Select": "",
+    "Product Name": "Neomycin Sulphate…. …….5.506 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "29",
+    "Select": "",
+    "Product Name": "Oxytetracycline Hcl……...5.507 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "30",
+    "Select": "",
+    "Product Name": "Vitamin A ………...............110000 Iu",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "31",
+    "Select": "",
+    "Product Name": "Vitamin B12........................440 Mcg",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "32",
+    "Select": "",
+    "Product Name": "Aminonitrogen............ .....10000 Ppm",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "33",
+    "Select": "",
+    "Product Name": "Calcium Pantothenate....... 0.359 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "34",
+    "Select": "",
+    "Product Name": "Vitamin B2 .......................0.176 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "35",
+    "Select": "",
+    "Product Name": "Vitamin E .........................33 Iu",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "36",
+    "Select": "",
+    "Product Name": "Vitamin B1 ......................0.881 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "37",
+    "Select": "",
+    "Product Name": "Vitamin D3 .....................22000 Iu",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "38",
+    "Select": "",
+    "Product Name": "Excipients .......................Qs.",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "39",
+    "Select": "",
+    "Product Name": "Each 100 Gm Contains",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "40",
+    "Select": "",
+    "Product Name": "Oxytetracycline Hydrochloride.... 55g",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "41",
+    "Select": "",
+    "Product Name": "Vitamin D3.........396000 I.U",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "42",
+    "Select": "",
+    "Product Name": "Vitamin E..........600 I.U",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "43",
+    "Select": "",
+    "Product Name": "Vitamin K................0.792 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "44",
+    "Select": "",
+    "Product Name": "Vitamin B12............2200 Mcg",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "45",
+    "Select": "",
+    "Product Name": "Panthothenic Acid................4.62 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "46",
+    "Select": "",
+    "Product Name": "Niacin Amide...........13.2 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "47",
+    "Select": "",
+    "Product Name": "Riboflavin ..............2.86 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "48",
+    "Select": "",
+    "Product Name": "Each Kg Contains:",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "49",
+    "Select": "",
+    "Product Name": "Oxytetracycline Hydrochloride.........55 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "50",
+    "Select": "",
+    "Product Name": "Vitamin A...............2400000 I.U.",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "51",
+    "Select": "",
+    "Product Name": "Vitamin",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "52",
+    "Select": "",
+    "Product Name": "D3.................415000 I.U",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "53",
+    "Select": "",
+    "Product Name": "Vitamin E............660 I.U",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "54",
+    "Select": "",
+    "Product Name": "Vitamin K................0.792 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "55",
+    "Select": "",
+    "Product Name": "Vitamin B12................2400 Mcg",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "56",
+    "Select": "",
+    "Product Name": "Panthothenic Acid..............4.62 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "57",
+    "Select": "",
+    "Product Name": "Niacin Amide..........13.2 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "58",
+    "Select": "",
+    "Product Name": "Riboflavin .................................2.86 G",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "59",
+    "Select": "",
+    "Product Name": "Each 250 Gm Contains",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "60",
+    "Select": "",
+    "Product Name": "Lysine............3.75 G Dl",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "61",
+    "Select": "",
+    "Product Name": "Methionine.........3.75 G",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "62",
+    "Select": "",
+    "Product Name": "Choline Chloride......3.75 G",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "63",
+    "Select": "",
+    "Product Name": "Vitamin B12.............650 Mcg",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "64",
+    "Select": "",
+    "Product Name": "Vitamin B1...............3.00 G",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "65",
+    "Select": "",
+    "Product Name": "Vitamin B2...............2.00 G",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "66",
+    "Select": "",
+    "Product Name": "Vitamin B6...............650 Mcg",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "67",
+    "Select": "",
+    "Product Name": "Vitamin C.................3.00 G",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "68",
+    "Select": "",
+    "Product Name": "Vitamin E.................600 Mg",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "69",
+    "Select": "",
+    "Product Name": "Iron...........................300 Ppm",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "70",
+    "Select": "",
+    "Product Name": "Copper......................2 Ppm",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "71",
+    "Select": "",
+    "Product Name": "Cobalt.......................3 Ppm",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "72",
+    "Select": "",
+    "Product Name": "Magnesium...............30 Ppm",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "73",
+    "Select": "",
+    "Product Name": "Zinc .........................40 Ppm",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "74",
+    "Select": "",
+    "Product Name": "Selenium..................600 Ppm",
+    "Presentation": "150 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "75",
+    "Select": "",
+    "Product Name": "Each 50 Ml Contains",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "76",
+    "Select": "",
+    "Product Name": "Soluble Calcium Salts……….100 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "77",
+    "Select": "",
+    "Product Name": "Phosphorus………………….225 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "78",
+    "Select": "",
+    "Product Name": "Vitamin D3……………….....2500 Iu",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "79",
+    "Select": "",
+    "Product Name": "Vitamin B12………………...10 Mcg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "80",
+    "Select": "",
+    "Product Name": "Vitamin C…………………...10.33 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "81",
+    "Select": "",
+    "Product Name": "Manganese…………………...4.5 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "82",
+    "Select": "",
+    "Product Name": "Zinc………………………….1000 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "83",
+    "Select": "",
+    "Product Name": "Cobalt………………………..900 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "84",
+    "Select": "",
+    "Product Name": "Iron…………………………..1.9 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "85",
+    "Select": "",
+    "Product Name": "Each 100 Gm Contains",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "86",
+    "Select": "",
+    "Product Name": "Sodium Chloride..........1500 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "87",
+    "Select": "",
+    "Product Name": "Potassium Chloride......5000 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "88",
+    "Select": "",
+    "Product Name": "Glycine........................3500 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "89",
+    "Select": "",
+    "Product Name": "Manganese Sulphate....6500 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "90",
+    "Select": "",
+    "Product Name": "Magnesium Sulphate...700 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "91",
+    "Select": "",
+    "Product Name": "Calcium Lactate...........1500 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "92",
+    "Select": "",
+    "Product Name": "Sodium Bicarbonate....1000 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "93",
+    "Select": "",
+    "Product Name": "Sodium Citrate.............2500 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "94",
+    "Select": "",
+    "Product Name": "Vitamin C...................1200 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "95",
+    "Select": "",
+    "Product Name": "Calcium Hypophosphate..800 Mg",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "96",
+    "Select": "",
+    "Product Name": "Lactic Acid Bacillus Spores...3500 Million",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "97",
+    "Select": "",
+    "Product Name": "In An Instant Energy Base.",
+    "Presentation": "100 Gm, 250 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "98",
+    "Select": "",
+    "Product Name": "Each 100 Ml/Gm Contains",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "99",
+    "Select": "",
+    "Product Name": "Vitamin B1..........40 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "100",
+    "Select": "",
+    "Product Name": "Vitamin B12.........35 Mcg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "101",
+    "Select": "",
+    "Product Name": "Liver Extract.........1750 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "102",
+    "Select": "",
+    "Product Name": "Yeast Extract.........600 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "103",
+    "Select": "",
+    "Product Name": "Choline Chloride......30 G",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "104",
+    "Select": "",
+    "Product Name": "Ascorbic Acid...........100 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "105",
+    "Select": "",
+    "Product Name": "Saccharomyces Cerevisiae.. 250000 Million Cfu",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "106",
+    "Select": "",
+    "Product Name": "Alpha Amylase.......15000 Mcg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "107",
+    "Select": "",
+    "Product Name": "Papain..................5000 Mcg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "108",
+    "Select": "",
+    "Product Name": "Protein Hydrolysate...500 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "109",
+    "Select": "",
+    "Product Name": "Inositol........................300 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "110",
+    "Select": "",
+    "Product Name": "Biotin..........................25 Mcg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "111",
+    "Select": "",
+    "Product Name": "Niacin.........................300 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "112",
+    "Select": "",
+    "Product Name": "D Panthenol................30 Mg",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "113",
+    "Select": "",
+    "Product Name": "Base Enriched With Milk Protein, Detoxifiers And Amino Nitrogen.",
+    "Presentation": "500 Ml 1000 Ml",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "114",
+    "Select": "",
+    "Product Name": "Each Kg Contain",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "115",
+    "Select": "",
+    "Product Name": "Saccharomyces Cerevisiae 25 X 109cfu",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "116",
+    "Select": "",
+    "Product Name": "Each Kg Contain",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "117",
+    "Select": "",
+    "Product Name": "Saccharomyces Cerevisiae 25 X 109cfu",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "118",
+    "Select": "",
+    "Product Name": "Lactobacillus Sporogenes 20 X 109cfu",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "119",
+    "Select": "",
+    "Product Name": "Aspergillus Oryzae 20 X 109 Cfu",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "120",
+    "Select": "",
+    "Product Name": "Biotin 10 Mg",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "121",
+    "Select": "",
+    "Product Name": "Dl-Methionine 1 Gm",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "122",
+    "Select": "",
+    "Product Name": "Zinc Sulphate 200 Mg",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "123",
+    "Select": "",
+    "Product Name": "Cobalt Sulphate 40 Mg",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "124",
+    "Select": "",
+    "Product Name": "Fructo-Oligisaccharide 250 Mg",
+    "Presentation": "500 Gm 1 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "125",
+    "Select": "",
+    "Product Name": "Each Kg Contains:",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "126",
+    "Select": "",
+    "Product Name": "Vitamin A........4800000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "127",
+    "Select": "",
+    "Product Name": "Vitamin D3.......1600000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "128",
+    "Select": "",
+    "Product Name": "Vitamin E..........12000",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "129",
+    "Select": "",
+    "Product Name": "Iu Vitamin K...........800 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "130",
+    "Select": "",
+    "Product Name": "Vitamin B1..........400 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "131",
+    "Select": "",
+    "Product Name": "Vitamin B2...........2000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "132",
+    "Select": "",
+    "Product Name": "Vitamin B6.............800 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "133",
+    "Select": "",
+    "Product Name": "Vitmain B12............4000 Mcg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "134",
+    "Select": "",
+    "Product Name": "Pantothenic Acid.....6000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "135",
+    "Select": "",
+    "Product Name": "Niacin.....................16000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "136",
+    "Select": "",
+    "Product Name": "Folic Acid................400 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "137",
+    "Select": "",
+    "Product Name": "Biotin....................60000 Mcg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "138",
+    "Select": "",
+    "Product Name": "Choline..................80000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "139",
+    "Select": "",
+    "Product Name": "Manganesse..........32000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "140",
+    "Select": "",
+    "Product Name": "Zinc........................32000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "141",
+    "Select": "",
+    "Product Name": "Cobalt.....................100 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "142",
+    "Select": "",
+    "Product Name": "Iron........................16000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "143",
+    "Select": "",
+    "Product Name": "Copper..................4000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "144",
+    "Select": "",
+    "Product Name": "Iodine....................400 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "145",
+    "Select": "",
+    "Product Name": "Selenium.............60 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "146",
+    "Select": "",
+    "Product Name": "Molybdenum.......200 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "147",
+    "Select": "",
+    "Product Name": "Antioxident Bha Bht Ethoxyquin",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "148",
+    "Select": "",
+    "Product Name": "Each Kg Contains:",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "149",
+    "Select": "",
+    "Product Name": "Vitamin A.......3500000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "150",
+    "Select": "",
+    "Product Name": "Vitamin D3.......1000000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "151",
+    "Select": "",
+    "Product Name": "Vitamin E ........2000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "152",
+    "Select": "",
+    "Product Name": "Vitamin K........800 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "153",
+    "Select": "",
+    "Product Name": "Vitamin B2.......800 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "154",
+    "Select": "",
+    "Product Name": "Vitamin B6.......400 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "155",
+    "Select": "",
+    "Product Name": "Vitmain B12......2000 Mcg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "156",
+    "Select": "",
+    "Product Name": "Pantothenic Acid....1800 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "157",
+    "Select": "",
+    "Product Name": "Selenium.............40 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "158",
+    "Select": "",
+    "Product Name": "Nicotinic Acid.......6000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "159",
+    "Select": "",
+    "Product Name": "Choline................20000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "160",
+    "Select": "",
+    "Product Name": "Manganesse.........40000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "161",
+    "Select": "",
+    "Product Name": "Zinc.....................30000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "162",
+    "Select": "",
+    "Product Name": "Iron.....................16000 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "163",
+    "Select": "",
+    "Product Name": "Copper...............2400 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "164",
+    "Select": "",
+    "Product Name": "Iodine.................200 Mg",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "165",
+    "Select": "",
+    "Product Name": "Antioxident Bha Bht Ethoxyquin",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "166",
+    "Select": "",
+    "Product Name": "Each Kg Contain",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "167",
+    "Select": "",
+    "Product Name": "Cellulase …….100000000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "168",
+    "Select": "",
+    "Product Name": "Xylanase……300000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "169",
+    "Select": "",
+    "Product Name": "Beta Glucosidase ……….10000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "170",
+    "Select": "",
+    "Product Name": "Arabinase………….7000",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "171",
+    "Select": "",
+    "Product Name": "Iu Pectnase ………….30000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "172",
+    "Select": "",
+    "Product Name": "Phytase……………..1500000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "173",
+    "Select": "",
+    "Product Name": "Protease…………….50000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "174",
+    "Select": "",
+    "Product Name": "Lipase……………….28000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "175",
+    "Select": "",
+    "Product Name": "Alpha Galactosidase ……10000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Water Soluble Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "176",
+    "Select": "",
+    "Product Name": "Cyromazine 1% Powder",
+    "Presentation": "100 Gm 1 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "177",
+    "Select": "",
+    "Product Name": "Each Kg Contain",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "178",
+    "Select": "",
+    "Product Name": "Cellulase …….100000000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "179",
+    "Select": "",
+    "Product Name": "Xylanase……300000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "180",
+    "Select": "",
+    "Product Name": "Beta Glucosidase ……….10000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "181",
+    "Select": "",
+    "Product Name": "Arabinase………….7000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "182",
+    "Select": "",
+    "Product Name": "Pectnase ………….30000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "183",
+    "Select": "",
+    "Product Name": "Phytase……………..1500000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "184",
+    "Select": "",
+    "Product Name": "Protease…………….50000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "185",
+    "Select": "",
+    "Product Name": "Lipase……………….28000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "186",
+    "Select": "",
+    "Product Name": "Alpha Galactosidase ……10000 Iu",
+    "Presentation": "1 Kg 25 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "187",
+    "Select": "",
+    "Product Name": "Each Lit Contain",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "188",
+    "Select": "",
+    "Product Name": "Cellulase …….100000000 Iu",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "189",
+    "Select": "",
+    "Product Name": "Amylase………250000 Iu",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "190",
+    "Select": "",
+    "Product Name": "Pectinase……. 30000 Iu",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "191",
+    "Select": "",
+    "Product Name": "Protease……… 400000 Iu",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "192",
+    "Select": "",
+    "Product Name": "Lipase…………..6500",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "193",
+    "Select": "",
+    "Product Name": "Iu Xylanase……… 1500000 Iu",
+    "Presentation": "1 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "194",
+    "Select": "",
+    "Product Name": "Composition",
+    "Presentation": "Powder : 25 Kg Bag",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "195",
+    "Select": "",
+    "Product Name": "Acid Alkali Protease Consortium…….700000 Unit/G",
+    "Presentation": "Powder : 25 Kg Bag",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "196",
+    "Select": "",
+    "Product Name": "Mannanase ….600 Unit/G",
+    "Presentation": "Powder : 25 Kg Bag",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "197",
+    "Select": "",
+    "Product Name": "Protein Enhancing Factor (Pef)…20 %.",
+    "Presentation": "Powder : 25 Kg Bag",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "198",
+    "Select": "",
+    "Product Name": "Each Kg Contains",
+    "Presentation": "Powder : 25 Kg Bag",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "199",
+    "Select": "",
+    "Product Name": "3-Nitro-4-Hydroxy Phenyl Arsonic Acid 200 Gm (20%)",
+    "Presentation": "Powder : 25 Kg Bag",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "200",
+    "Select": "",
+    "Product Name": "Composition :",
+    "Presentation": "Powder : 20 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "201",
+    "Select": "",
+    "Product Name": "Hydrolysed Lecithin : - Lyso-Phospholipids - Phosphatidyl Choline -",
+    "Presentation": "Powder : 20 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "202",
+    "Select": "",
+    "Product Name": "Organic Phosphorus Gut Stabilizer",
+    "Presentation": "Powder : 20 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "203",
+    "Select": "",
+    "Product Name": "In Fortified Activated Base",
+    "Presentation": "Powder : 20 Kg",
+    "Dosage Form": "Powder",
+    "Therapeutic Segments": "Feed Supplement"
+  },
+  {
+    "Id": "204",
+    "Select": "",
+    "Product Name": "Glutaraldehyde (50%) :7.1% W/V,",
+    "Presentation": "1 Lit 5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Disinfectant"
+  },
+  {
+    "Id": "205",
+    "Select": "",
+    "Product Name": "Alkyl Benzyl Dimethyl Ammonium Chloride: 25.7% W/V,",
+    "Presentation": "2 Lit 5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Disinfectant"
+  },
+  {
+    "Id": "206",
+    "Select": "",
+    "Product Name": "Ethoxylate (12) Nonyl Phenol: 7.5% W/V",
+    "Presentation": "3 Lit 5 Lit",
+    "Dosage Form": "Solution",
+    "Therapeutic Segments": "Disinfectant"
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "Id": "1",
+    "Select": "",
+    "Product Name": "L - Phenyl Alanine",
+    "Strength": "30% w/w"
+  },
+  {
+    "Id": "2",
+    "Select": "",
+    "Product Name": "L – Threonine",
+    "Strength": "25% w/w"
+  },
+  {
+    "Id": "3",
+    "Select": "",
+    "Product Name": "L - Tryptophan",
+    "Strength": "30% w/w"
+  },
+  {
+    "Id": "4",
+    "Select": "",
+    "Product Name": "DL - Metheonine",
+    "Strength": "55.2% w/w"
+  },
+  {
+    "Id": "5",
+    "Select": "",
+    "Product Name": "L - Glycine",
+    "Strength": "25% w/w"
+  },
+  {
+    "Id": "6",
+    "Select": "",
+    "Product Name": "L – Leucine",
+    "Strength": "54% w/w"
+  },
+  {
+    "Id": "7",
+    "Select": "",
+    "Product Name": "L- Lysine HCL",
+    "Strength": "37.5% w/w"
+  },
+  {
+    "Id": "8",
+    "Select": "",
+    "Product Name": "L – Proline",
+    "Strength": "19% w/w"
+  },
+  {
+    "Id": "9",
+    "Select": "",
+    "Product Name": "L- Tyrosine",
+    "Strength": "37% w/w"
+  },
+  {
+    "Id": "10",
+    "Select": "",
+    "Product Name": "L – Valine",
+    "Strength": "40% w/w"
+  },
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "L- ISO Leucine",
+    "Strength": "17.7% w/w"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "11",
+    "Select": "",
+    "Product Name": "Lake Tartrazine",
+    "CI No": "19140:1",
+    "EEC No": "E-102",
+    "CAS no": "1934-94-D"
+  },
+  {
+    "Id": "12",
+    "Select": "",
+    "Product Name": "Lake Allura Red",
+    "CI No": "16035:1",
+    "EEC No": "E-129",
+    "CAS no": "1934-94-D"
+  },
+  {
+    "Id": "13",
+    "Select": "",
+    "Product Name": "Lake Brilliant Blue FCF",
+    "CI No": "42090:1",
+    "EEC No": "E-133",
+    "CAS no": "2783-94-0"
+  },
+  {
+    "Id": "14",
+    "Select": "",
+    "Product Name": "Lake Ponceau 4R",
+    "CI No": "16255:1",
+    "EEC No": "E-124",
+    "CAS no": "2611-82-7"
+  },
+  {
+    "Id": "15",
+    "Select": "",
+    "Product Name": "Lake Erythrosine",
+    "CI No": "45430:1",
+    "EEC No": "E-127",
+    "CAS no": "2611-82-7"
+  },
+  {
+    "Id": "16",
+    "Select": "",
+    "Product Name": "Lake Indigo Carmine",
+    "CI No": "73015:1",
+    "EEC No": "E-132",
+    "CAS no": "3567-69-9"
+  },
+  {
+    "Id": "17",
+    "Select": "",
+    "Product Name": "Lake Amaranth",
+    "CI No": "16185:1",
+    "EEC No": "E-123",
+    "CAS no": "915-67-3"
+  },
+  {
+    "Id": "18",
+    "Select": "",
+    "Product Name": "Lake Quinoline Yellow",
+    "CI No": "47005:1",
+    "EEC No": "E-104",
+    "CAS no": "915-67-3"
+  },
+  {
+    "Id": "19",
+    "Select": "",
+    "Product Name": "Lake Carmoisine",
+    "CI No": "14720:1",
+    "EEC No": "E-122",
+    "CAS no": "3567-69-9"
+  },
+  {
+    "Id": "20",
+    "Select": "",
+    "Product Name": "Lake Sunset Yellow FCF",
+    "CI No": "15985:1",
+    "EEC No": "E-110",
+    "CAS no": "2783-94-0"
+  }
+]

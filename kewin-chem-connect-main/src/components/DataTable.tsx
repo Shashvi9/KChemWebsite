@@ -59,7 +59,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form }) => 
           params.append("form", form);
         }
 
-        const response = await fetch(`http://127.0.0.1:8000/api/v1/products?${params.toString()}`);
+        const response = await fetch(`/api/v1/products?${params.toString()}`);
         if (!response.ok) {
           throw new Error(`HTTP error ${response.status}`);
         }

@@ -1,24 +1,42 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ChevronRight, Droplet, Layers, Sliders, Activity, Hexagon, Sun, Wind, Box, TrendingUp, Pin } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import { getIconForSlug } from '@/utils/icon-map';
 
-const subSections = [
-  { name: 'Waterbase Inkjet Int', icon: Droplet, color: 'from-blue-500 to-blue-600' },
-  { name: 'Universal Stainer', icon: Sliders, color: 'from-green-500 to-green-600' },
-  { name: 'Paints', icon: Pin, color: 'from-purple-500 to-purple-600' },
-  { name: 'Organic Pigment', icon: Sun, color: 'from-indigo-500 to-indigo-600' },
-  { name: 'Machine Coating Colorant', icon: Layers, color: 'from-pink-500 to-pink-600' },
-  { name: 'Inorganic Pigment', icon: Hexagon, color: 'from-yellow-400 to-yellow-500' },
-  { name: 'Industrial Coating', icon: TrendingUp, color: 'from-red-500 to-red-600' },
-  { name: 'Cement Architecture Dispersion', icon: Box, color: 'from-teal-500 to-teal-600' },
-  { name: 'Architecture Paints', icon: Wind, color: 'from-cyan-500 to-cyan-600' },
-  { name: '13 Waterbase Flexo Ink', icon: Droplet, color: 'from-orange-500 to-orange-600' },
-  { name: '11 Mixed Metal Oxides', icon: Activity, color: 'from-lime-500 to-lime-600' },
-  { name: '08 + 12 PVC and PVC Master Batches', icon: Layers, color: 'from-fuchsia-500 to-fuchsia-600' },
-];
+type Subcategory = {
+  id: number;
+  name: string;
+  slug: string;
+  category_id: number;
+};
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
 
 const ShadesPigments = () => {
   const navigate = useNavigate();
+  const [subs, setSubs] = useState<Subcategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        setLoading(true);
+        const res = await fetch(`${API_BASE}/categories/shades-pigments/subcategories`);
+        if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
+        const data: Subcategory[] = await res.json();
+        if (!cancelled) setSubs(data);
+      } catch (e: any) {
+        if (!cancelled) setError(e?.message || 'Failed to load subcategories');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => { cancelled = true; };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
@@ -33,47 +51,51 @@ const ShadesPigments = () => {
         </div>
 
         {/* Sub-sections Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
-          {subSections.map((section, index) => (
-            <Card
-              key={section.name}
-              onClick={() =>
-                navigate(
-                  `/shades-pigments/${section.name
-                    .toLowerCase()
-                    .replace(/\s+/g, '-')
-                    .replace(/&/g, 'and')
-                    .replace(/\+/g, 'plus')}`
-                )
-              }
-              className="group hover:shadow-hover transition-all duration-300 border-0 shadow-card animate-slide-up cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader className="pb-4">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${section.color} shadow-lg`}>
-                    <section.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
-                      {section.name}
-                    </CardTitle>
-                  </div>
-                </div>
-                <CardDescription className="text-sm text-muted-foreground">
-                  High-quality {section.name.toLowerCase()} solutions for professional coating and coloration applications.
-                </CardDescription>
-              </CardHeader>
+        {loading && (
+          <div className="text-center text-muted-foreground">Loading subcategories...</div>
+        )}
+        {error && (
+          <div className="text-center text-red-600">{error}</div>
+        )}
+        {!loading && !error && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+            {subs.map((sub, index) => {
+              const href = `/shades-pigments/${sub.slug}`;
+              const Icon = getIconForSlug(sub.slug);
+              return (
+                <Card
+                  key={sub.id}
+                  onClick={() => navigate(href)}
+                  className="group hover:shadow-hover transition-all duration-300 border-0 shadow-card animate-slide-up cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`p-3 rounded-lg bg-gradient-to-r from-primary to-primary/80 shadow-lg`}>
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
+                          {sub.name}
+                        </CardTitle>
+                      </div>
+                    </div>
+                    <CardDescription className="text-sm text-muted-foreground">
+                      High-quality {sub.name.toLowerCase()} solutions for professional coating and coloration applications.
+                    </CardDescription>
+                  </CardHeader>
 
-              <CardContent className="pt-0">
-                <div className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium text-sm">
-                  View Products
-                  <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <CardContent className="pt-0">
+                    <div className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium text-sm">
+                      View Products
+                      <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center animate-fade-in">

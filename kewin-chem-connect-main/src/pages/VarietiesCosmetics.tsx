@@ -1,15 +1,40 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ChevronRight, Sparkles, Droplet, Heart } from 'lucide-react';
+import { ChevronRight } from 'lucide-react'; // Removed Sparkles, Droplet, Heart
 
-const subSections = [
-  { name: 'D & C Color', icon: Sparkles, color: 'from-pink-500 to-pink-600' },
-  { name: 'Essential Oil', icon: Droplet, color: 'from-green-500 to-green-600' },
-  { name: 'Lake Color', icon: Heart, color: 'from-blue-500 to-blue-600' },
-];
+interface Subcategory {
+  id: number;
+  name: string;
+  slug: string;
+  category_id: number;
+}
 
 const VarietiesCosmetics = () => {
   const navigate = useNavigate();
+  const [subSections, setSubSections] = useState<Subcategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchSubcategories = async () => {
+      try {
+        // Assuming your backend is running on localhost:8000
+        const response = await fetch('http://localhost:8000/api/v1/categories/varieties-cosmetics/subcategories');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data: Subcategory[] = await response.json();
+        setSubSections(data);
+      } catch (e: any) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubcategories();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
@@ -26,25 +51,27 @@ const VarietiesCosmetics = () => {
         </div>
 
         {/* Sub-sections Grid */}
+        {loading && <p className="text-center text-lg text-muted-foreground">Loading subcategories...</p>}
+        {error && <p className="text-center text-lg text-destructive">Error: {error}</p>}
+        {!loading && !error && subSections.length === 0 && (
+          <p className="text-center text-lg text-muted-foreground">No subcategories found.</p>
+        )}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
           {subSections.map((section, index) => (
             <Card
-              key={section.name}
-              onClick={() =>
-                navigate(
-                  `/varieties-cosmetics/${section.name
-                    .toLowerCase()
-                    .replace(/\s+/g, '-')
-                    .replace(/&/g, 'and')}`
-                )
-              }
+              key={section.slug} // Use slug for key
+              onClick={() => navigate(`/varieties-cosmetics/${section.slug}`)} // Use slug for navigation
               className="group hover:shadow-hover transition-all duration-300 border-0 shadow-card animate-slide-up cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${section.color} shadow-lg`}>
-                    <section.icon className="h-6 w-6 text-white" />
+                  {/* Removed icon and color for now */}
+                  <div className="p-3 rounded-lg bg-gradient-to-r from-gray-400 to-gray-500 shadow-lg">
+                    {/* Placeholder icon or initial */}
+                    <span className="h-6 w-6 text-white flex items-center justify-center text-lg font-bold">
+                      {section.name.charAt(0)}
+                    </span>
                   </div>
                   <div>
                     <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">

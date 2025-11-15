@@ -125,11 +125,11 @@ export const Header = () => {
                 +91 9879563306
               </a>
               <a
-                href="mailto:miteshshah@kewinchem.com"
+                href="mailto:kctl96@gmail.com"
                 className="flex items-center gap-2 text-primary-dark hover:text-primary transition-colors"
               >
                 <Mail className="h-3 w-3" />
-                miteshshah@kewinchem.com
+                kctl96@gmail.com
               </a>
             </div>
             <div className="hidden md:block text-primary-dark">

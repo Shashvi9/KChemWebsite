@@ -1,23 +1,43 @@
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ChevronRight, Heart, Beaker, Activity, Award, TestTube2, Box, ShieldCheck, Coffee } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import { getIconForSlug } from '@/utils/icon-map';
 
-const subSections = [
-  { name: 'Veterinary Formulation', icon: Beaker, color: 'from-blue-500 to-blue-600' },
-  { name: 'Veterinary APIs', icon: TestTube2, color: 'from-green-500 to-green-600' },
-  { name: 'Tablets & Capsules', icon: Coffee, color: 'from-purple-500 to-purple-600' },
-  { name: 'Reference Standards & Impurities', icon: ShieldCheck, color: 'from-indigo-500 to-indigo-600' },
-  { name: 'Pellets', icon: Activity, color: 'from-pink-500 to-pink-600' },
-  { name: 'Patented Impurity Product', icon: Award, color: 'from-yellow-400 to-yellow-500' },
-  { name: 'Nutraceuticals', icon: Heart, color: 'from-red-500 to-red-600' },
-  { name: 'Nasal Drops & Oral Suspensions', icon: Beaker, color: 'from-teal-500 to-teal-600' },
-  { name: 'Medical Supplies & Equipment', icon: Box, color: 'from-cyan-500 to-cyan-600' },
-  { name: 'Injectables & Ointments', icon: TestTube2, color: 'from-orange-500 to-orange-600' },
-];
+type Subcategory = {
+  id: number;
+  name: string;
+  slug: string;
+  category_id: number;
+};
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
 
 const FoodPharma = () => {
   const navigate = useNavigate();
+  const [subs, setSubs] = useState<Subcategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        setLoading(true);
+        const res = await fetch(`${API_BASE}/categories/food-pharma-colors/subcategories`);
+        if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
+        const data: Subcategory[] = await res.json();
+        if (!cancelled) setSubs(data);
+      } catch (e: any) {
+        if (!cancelled) setError(e?.message || 'Failed to load subcategories');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => { cancelled = true; };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
@@ -34,43 +54,51 @@ const FoodPharma = () => {
         </div>
 
         {/* Sub-sections Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
-          {subSections.map((section, index) => {
-            const href = `/food-pharma/${section.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`;
-
-            return (
-              <Card
-                key={section.name}
-                onClick={() => navigate(href)} // Make the entire card clickable
-                className="group hover:shadow-hover transition-all duration-300 border-0 shadow-card animate-slide-up cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${section.color} shadow-lg`}>
-                      <section.icon className="h-6 w-6 text-white" />
+        {loading && (
+          <div className="text-center text-muted-foreground">Loading subcategories...</div>
+        )}
+        {error && (
+          <div className="text-center text-red-600">{error}</div>
+        )}
+        {!loading && !error && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+            {subs.map((sub, index) => {
+              const href = `/food-pharma/${sub.slug}`;
+              const Icon = getIconForSlug(sub.slug);
+              return (
+                <Card
+                  key={sub.id}
+                  onClick={() => navigate(href)}
+                  className="group hover:shadow-hover transition-all duration-300 border-0 shadow-card animate-slide-up cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`p-3 rounded-lg bg-gradient-to-r from-primary to-primary/80 shadow-lg`}>
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
+                          {sub.name}
+                        </CardTitle>
+                      </div>
                     </div>
-                    <div>
-                      <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
-                        {section.name}
-                      </CardTitle>
-                    </div>
-                  </div>
-                  <CardDescription className="text-sm text-muted-foreground">
-                    Professional grade {section.name.toLowerCase()} solutions meeting pharmaceutical and food industry standards.
-                  </CardDescription>
-                </CardHeader>
+                    <CardDescription className="text-sm text-muted-foreground">
+                      Professional grade {sub.name.toLowerCase()} solutions meeting pharmaceutical and food industry standards.
+                    </CardDescription>
+                  </CardHeader>
 
-                <CardContent className="pt-0">
-                  <div className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium text-sm">
-                    View Products
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                  <CardContent className="pt-0">
+                    <div className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium text-sm">
+                      View Products
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center animate-fade-in">

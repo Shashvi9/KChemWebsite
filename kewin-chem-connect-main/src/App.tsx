@@ -97,6 +97,9 @@ import OralSuspensionDetail from "./pages/food-pharma/tables/fetch-nasalDrops-Or
 
 import InjectablesDetail from "./pages/food-pharma/tables/fetch-Injectables-OintmentsData/InjectablesDetail";
 import OintmentsDetail from "./pages/food-pharma/tables/fetch-Injectables-OintmentsData/OintmentsDetails";
+import SubcategoryDetail from "./pages/SubcategoryDetail";
+import AdminLogin from "@/pages/admin/AdminLogin";
+import AdminRequests from "@/pages/admin/AdminRequests";
 
 const queryClient = new QueryClient();
 
@@ -202,6 +205,13 @@ const App = () => (
             <Route path="/food-pharma/injectable-ointments/ointments" element={<OintmentsDetail />} />
 
 
+
+            {/* Dynamic subcategory route - keep after specific routes to avoid conflicts */}
+            <Route path=":categorySlug/:subcategorySlug" element={<SubcategoryDetail />} />
+
+            {/* Admin */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/requests" element={<AdminRequests />} />
 
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />

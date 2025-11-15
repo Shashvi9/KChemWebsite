@@ -1,19 +1,44 @@
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronRight, Beaker, Palette, Droplet, TestTube, Zap, Atom } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import { getIconForSlug } from '@/utils/icon-map';
 
-const subSections = [
-  { name: 'Intermediates', icon: Beaker, color: 'from-blue-500 to-blue-600' },
-  { name: 'Acid Dyes', icon: Droplet, color: 'from-red-500 to-red-600' },
-  { name: 'Basic Dyes', icon: Palette, color: 'from-green-500 to-green-600' },
-  { name: 'Direct Dyes', icon: Atom, color: 'from-purple-500 to-purple-600' },
-  { name: 'Food & Lake Color', icon: TestTube, color: 'from-yellow-400 to-yellow-500' },
-  { name: 'Solvent Dyes', icon: Zap, color: 'from-pink-500 to-pink-600' },
-  { name: 'Reactive Dyes', icon: Droplet, color: 'from-indigo-500 to-indigo-600' },
-];
+type Subcategory = {
+  id: number;
+  name: string;
+  slug: string;
+  category_id: number;
+};
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
 
 const DyesIntermediates = () => {
   const navigate = useNavigate();
+  const [subs, setSubs] = useState<Subcategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        setLoading(true);
+        const res = await fetch(`${API_BASE}/categories/dyes-intermediates/subcategories`);
+        if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
+        const data: Subcategory[] = await res.json();
+        if (!cancelled) setSubs(data);
+      } catch (e: any) {
+        if (!cancelled) setError(e?.message || 'Failed to load subcategories');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 py-12">
@@ -30,39 +55,47 @@ const DyesIntermediates = () => {
         </div>
 
         {/* Sub-sections Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {subSections.map((section, index) => {
-            const href = `/dyes-intermediates/${section.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`;
+        {loading && (
+          <div className="text-center text-muted-foreground">Loading subcategories...</div>
+        )}
+        {error && (
+          <div className="text-center text-red-600">{error}</div>
+        )}
+        {!loading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {subs.map((sub, index) => {
+              const href = `/dyes-intermediates/${sub.slug}`;
+              const Icon = getIconForSlug(sub.slug);
+              return (
+                <Card
+                  key={sub.id}
+                  onClick={() => navigate(href)}
+                  className="group hover:shadow-hover transition-all duration-300 hover:-translate-y-1 animate-slide-up cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader className="pb-3 flex items-center gap-4">
+                    <div className={`p-3 rounded-lg bg-gradient-to-r from-primary to-primary/80 shadow-lg flex items-center justify-center`}>
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors">
+                      {sub.name}
+                    </CardTitle>
+                  </CardHeader>
 
-            return (
-              <Card
-                key={section.name}
-                onClick={() => navigate(href)} // Make the whole card clickable
-                className="group hover:shadow-hover transition-all duration-300 hover:-translate-y-1 animate-slide-up cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader className="pb-3 flex items-center gap-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${section.color} shadow-lg flex items-center justify-center`}>
-                    <section.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors">
-                    {section.name}
-                  </CardTitle>
-                </CardHeader>
-
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Explore our range of {section.name.toLowerCase()} products designed for optimal performance and quality.
-                  </p>
-                  <div className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium text-sm">
-                    View Products
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Explore our range of {sub.name.toLowerCase()} products designed for optimal performance and quality.
+                    </p>
+                    <div className="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium text-sm">
+                      View Products
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="mt-16 text-center animate-fade-in">

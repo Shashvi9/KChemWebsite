@@ -31,10 +31,10 @@
 
 //       {/* Email */}
 //       <a
-//         href="mailto:KEWINCHEMICALS@GMAIL.COM"
+//         href="mailto:kewinchemicals@gmail.com"
 //         className="text-blue-700 font-medium hover:underline block"
 //       >
-//         KEWINCHEMICALS@GMAIL.COM
+//         kewinchemicals@gmail.com
 //       </a>
 //     </div>
 //   ),
@@ -196,9 +196,9 @@ const offices = [
     icon: MapPin,
     content: (
       <>
-        <p className="font-medium text-blue-900">C308, The First</p>
-        <p className="text-blue-700">Vastrapur, Ahmedabad</p>
-        <p className="text-blue-700">PIN 380015</p>
+        <p className="font-medium text-blue-900">C - 308, The First</p>
+        <p className="text-blue-700">Nyay Marg, IIM, Vastrapur,</p>
+        <p className="text-blue-700">Ahmedabad - 380015</p>
       </>
     ),
   },
@@ -219,10 +219,10 @@ const offices = [
 
         {/* Email */}
         <a
-          href="mailto:KEWINCHEMICALS@GMAIL.COM"
+          href="mailto:kewinchemicals@gmail.com"
           className="text-blue-700 font-medium hover:underline block"
         >
-          KEWINCHEMICALS@GMAIL.COM
+          kewinchemicals@gmail.com
         </a>
       </div>
     ),
@@ -265,16 +265,39 @@ const Contact = () => {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData); // Replace with API call if needed
-    setSubmitted(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/v1/inquiries/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.detail || 'Failed to submit inquiry');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -299,6 +322,11 @@ const Contact = () => {
             {submitted && (
               <p className="text-green-600 text-center mb-4">
                 Your inquiry has been submitted successfully!
+              </p>
+            )}
+            {error && (
+              <p className="text-red-600 text-center mb-4">
+                {error}
               </p>
             )}
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
@@ -343,8 +371,9 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8"
+                  disabled={loading}
                 >
-                  Submit Inquiry
+                  {loading ? 'Submitting...' : 'Submit Inquiry'}
                 </Button>
               </div>
             </form>

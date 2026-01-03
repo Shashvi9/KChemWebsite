@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Award, Users, Globe, Zap, BookOpen, Eye, Target, Star } from "lucide-react";
 
 const stats = [
@@ -75,7 +74,7 @@ const About = () => {
               className="animate-slide-up"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 mb-3 animate-bounce">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 mb-3">
                 <stat.icon className="h-6 w-6 text-blue-600" />
               </div>
               <div className="text-2xl md:text-3xl font-bold text-blue-900 mb-1">{stat.value}</div>
@@ -93,7 +92,7 @@ const About = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center animate-pulse">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
                   <section.icon className="w-6 h-6" />
                 </div>
                 <h2 className="text-2xl font-bold text-blue-900">{section.title}</h2>
@@ -101,21 +100,6 @@ const About = () => {
               <p className="text-blue-700 text-lg leading-relaxed whitespace-pre-line">{section.content}</p>
             </div>
           ))}
-        </div>
-
-        {/* Call To Action */}
-        <div className="mt-16 text-center animate-fade-in">
-          <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 md:p-12 shadow-lg hover:shadow-xl transition-shadow">
-            <h3 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-              Want to Collaborate With Us?
-            </h3>
-            <p className="text-lg text-blue-700/90 mb-6 max-w-3xl mx-auto">
-              Reach out to our experts to discuss custom chemical solutions tailored to your business.
-            </p>
-            <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-              Contact Our Experts
-            </Button>
-          </div>
         </div>
       </div>
 

@@ -95,7 +95,6 @@ export const Footer = () => {
                   { name: 'About Us', href: '/about' },
                   { name: 'Our Products', href: '/products' },
                   { name: 'Quality & Certifications', href: '/quality' },
-                  { name: 'News & Updates', href: '/news' },
                   { name: 'Contact Us', href: '/contact' },
                   { name: 'Request Sample', href: '/sample' },
                 ].map((link) => (
@@ -116,12 +115,10 @@ export const Footer = () => {
               <h4 className="text-lg font-semibold mb-6">Product Categories</h4>
               <ul className="space-y-3">
                 {[
-                  { name: 'Dyes & Intermediates', href: '/products/dyes-intermediates' },
-                  { name: 'Food & Pharma Colors', href: '/products/food-pharma' },
-                  { name: 'Shades & Pigments', href: '/products/shades-pigments' },
-                  { name: 'Cosmetic Varieties', href: '/products/varieties-cosmetics' },
-                  // { name: 'Acid Dyes', href: '/products/dyes-intermediates/acid-dyes' },
-                  // { name: 'Reactive Dyes', href: '/products/dyes-intermediates/reactive-dyes' },
+                  { name: 'Dyes & Intermediates', href: '/category/dyes-intermediates' },
+                  { name: 'Food & Pharma Colors', href: '/category/food-pharma-colors' },
+                  { name: 'Shades & Pigments', href: '/category/shades-pigments' },
+                  { name: 'Cosmetic Varieties', href: '/category/varieties-cosmetics' },
                 ].map((link) => (
                   <li key={link.name}>
                     <Link

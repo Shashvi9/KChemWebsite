@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Globe, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const stats = [
   { icon: Award, label: 'Years of Excellence', value: '25+' },
@@ -36,12 +37,19 @@ export const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button variant="hero" size="lg" className="group">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="group"
+                onClick={() => {
+                  document.getElementById('product-categories')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
                 Explore Products
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                Request Sample
               </Button>
             </div>
             

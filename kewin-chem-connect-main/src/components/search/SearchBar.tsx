@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 
 export const SearchBar = () => {
@@ -18,22 +17,17 @@ export const SearchBar = () => {
 
   return (
     <form onSubmit={handleSearch} className="hidden lg:flex items-center">
-      <div className="relative">
+      <div className="relative w-64">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <Search className="h-4 w-4 text-gray-400" />
+        </div>
         <Input
           type="text"
-          placeholder="Search products..."
+          placeholder="Search by name or CAS..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-64 pr-10"
+          className="pl-10 pr-4 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
         />
-        <Button
-          type="submit"
-          size="sm"
-          variant="ghost"
-          className="absolute right-0 top-0 h-full px-3"
-        >
-          <Search className="h-4 w-4" />
-        </Button>
       </div>
     </form>
   );

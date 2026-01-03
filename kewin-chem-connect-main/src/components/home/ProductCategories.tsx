@@ -9,16 +9,16 @@ const categories = [
     title: 'Dyes & Intermediates',
     description: 'Comprehensive range of acid dyes, basic dyes, reactive dyes, and chemical intermediates for textile and industrial applications.',
     icon: Palette,
-    href: '/products/dyes-intermediates',
+    href: '/category/dyes-intermediates',
     color: 'from-blue-500 to-blue-600',
     products: ['Acid Dyes', 'Basic Dyes', 'Reactive Dyes', 'Direct Dyes', 'Solvent Dyes'],
   },
   {
-    id: 'food-pharma',
+    id: 'food-pharma-colors',
     title: 'Food & Pharma Colors',
     description: 'FDA-approved food colors, pharmaceutical grades, and lake colors meeting international safety standards.',
     icon: Heart,
-    href: '/products/food-pharma',
+    href: '/category/food-pharma-colors',
     color: 'from-green-500 to-green-600',
     products: ['Food Colors', 'Lake Colors', 'Pharma Grade', 'Natural Colors'],
   },
@@ -27,7 +27,7 @@ const categories = [
     title: 'Shades & Pigments',
     description: 'High-performance pigments and colorants for paints, coatings, plastics, and printing applications.',
     icon: Beaker,
-    href: '/products/shades-pigments',
+    href: '/category/shades-pigments',
     color: 'from-purple-500 to-purple-600',
     products: ['Organic Pigments', 'Inorganic Pigments', 'Special Effects', 'Dispersions'],
   },
@@ -36,7 +36,7 @@ const categories = [
     title: 'Cosmetic Varieties',
     description: 'Safe and vibrant colors for cosmetics, personal care products, and beauty applications.',
     icon: Sparkles,
-    href: '/products/varieties-cosmetics',
+    href: '/category/varieties-cosmetics',
     color: 'from-pink-500 to-pink-600',
     products: ['Cosmetic Colors', 'Mica', 'Pearl Pigments', 'Special Effects'],
   },
@@ -46,7 +46,7 @@ export const ProductCategories = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 bg-gradient-light">
+    <section id="product-categories" className="py-20 bg-gradient-light">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

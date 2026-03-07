@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://kewinchem-backend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/:path((?!api).*)*",
+      "destination": "/index.html"
     }
   ],
   "headers": [

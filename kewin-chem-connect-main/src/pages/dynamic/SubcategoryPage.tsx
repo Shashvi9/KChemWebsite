@@ -72,9 +72,12 @@ const SubcategoryPage = () => {
 
         {/* Loading State */}
         {loading && (
-          <div className="flex items-center justify-center py-16">
+          <div className="flex flex-col items-center justify-center py-16 space-y-4">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <span className="ml-3 text-muted-foreground">Loading...</span>
+            <div className="text-center">
+              <p className="text-muted-foreground">Loading products...</p>
+              <p className="text-sm text-muted-foreground/70 mt-2">First load may take 30 seconds as server wakes up</p>
+            </div>
           </div>
         )}
 

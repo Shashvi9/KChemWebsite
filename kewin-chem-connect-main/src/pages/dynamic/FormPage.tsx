@@ -23,7 +23,7 @@ const FormPage = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            {formTitle} - Product List
+            {formTitle}
           </h1>
           <p className="text-muted-foreground">
             Browse our comprehensive database of {formTitle} with technical

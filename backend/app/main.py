@@ -14,6 +14,9 @@ import os
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://kchemicalwebsite-git-main-shashvishah99-gmailcoms-projects.vercel.app",
+    "https://www.kewinchem.com",
+    "https://kewinchem.com",
 ]
 
 # Add production frontend URL if set

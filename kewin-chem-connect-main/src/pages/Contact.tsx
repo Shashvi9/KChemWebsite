@@ -278,7 +278,8 @@ const Contact = () => {
     setError(null);
 
     try {
-      const response = await fetch('/api/v1/inquiries/', {
+      const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+      const response = await fetch(`${API_BASE}/inquiries/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

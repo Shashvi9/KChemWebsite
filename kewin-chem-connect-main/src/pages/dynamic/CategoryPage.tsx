@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChevronRight, Loader2, Palette } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+
 type Subcategory = {
   id: number;
   name: string;
@@ -33,7 +35,7 @@ const CategoryPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/v1/categories/${categorySlug}/subcategories`);
+        const response = await fetch(`${API_BASE}/categories/${categorySlug}/subcategories`);
         if (!response.ok) throw new Error('Failed to fetch subcategories');
         const data: Subcategory[] = await response.json();
         setSubcategories(data);

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChevronRight, Loader2, Palette } from 'lucide-react';
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 import DataTable from '@/components/DataTable';
 
 const colorGradients = [
@@ -28,7 +30,7 @@ const SubcategoryPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/v1/products/forms/?category_slug=${categorySlug}&subcategory_slug=${subcategorySlug}`);
+        const response = await fetch(`${API_BASE}/products/forms/?category_slug=${categorySlug}&subcategory_slug=${subcategorySlug}`);
         if (!response.ok) throw new Error('Failed to fetch forms');
         const data: string[] = await response.json();
         setForms(data);

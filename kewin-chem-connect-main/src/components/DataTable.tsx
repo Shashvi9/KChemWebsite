@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import RequestSampleDialog from "@/components/RequestSampleDialog";
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+
 interface Props {
   categorySlug?: string;
   subcategorySlug?: string;
@@ -47,7 +49,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
           params.append("form", form);
         }
 
-        const response = await fetch(`/api/v1/products/?${params.toString()}`);
+        const response = await fetch(`${API_BASE}/products/?${params.toString()}`);
         if (!response.ok) {
           throw new Error(`HTTP error ${response.status}`);
         }

@@ -1,13 +1,8 @@
 {
-  "headers": [
+  "rewrites": [
     {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
+      "source": "/api/v1/:path*",
+      "destination": "https://kewinchem-backend.onrender.com/api/v1/:path*"
     }
   ]
 }

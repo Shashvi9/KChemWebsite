@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RequestSampleDialog from '@/components/RequestSampleDialog';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+import { API_BASE } from '@/lib/apiConfig';
 
 interface Product {
   id: number;

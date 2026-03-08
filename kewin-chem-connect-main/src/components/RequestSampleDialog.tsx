@@ -16,7 +16,7 @@ export type SampleContext = {
   } | null;
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
+import { API_BASE } from '@/lib/apiConfig';
 
 export default function RequestSampleDialog(props: {
   trigger: React.ReactNode;

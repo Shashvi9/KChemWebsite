@@ -189,6 +189,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Factory } from "lucide-react";
+import { API_BASE } from '@/lib/apiConfig';
 
 const offices = [
   {
@@ -278,7 +279,6 @@ const Contact = () => {
     setError(null);
 
     try {
-      const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
       const response = await fetch(`${API_BASE}/inquiries/`, {
         method: 'POST',
         headers: {

@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
+import { API_BASE } from '@/lib/apiConfig';
 
 export function getAdminToken(): string | null {
   return localStorage.getItem('kc_admin_token');

@@ -27,10 +27,16 @@ class Product(Base):
     __tablename__ = "products"
 
     id = Column(Integer, primary_key=True, index=True)
-    subcategory_id = Column(Integer, ForeignKey("subcategories.id"), nullable=False)
     name = Column(String(255), nullable=False)
-    form = Column(String(100))
-    attributes = Column(JSON)
+    slug = Column(String(255))
+    cas_number = Column(String(255))
+    molecular_formula = Column(String(255))
+    molecular_weight = Column(String(255))
+    appearance = Column(String(255))
+    color = Column(String(255))
+    description = Column(Text)
+    category_id = Column(Integer, ForeignKey("categories.id"))
+    subcategory_id = Column(Integer, ForeignKey("subcategories.id"), nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
 

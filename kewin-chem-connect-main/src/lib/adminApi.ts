@@ -46,7 +46,6 @@ export type AdminSampleRequest = {
   category_slug: string;
   subcategory_slug: string;
   product_name?: string | null;
-  form?: string | null;
   quantity?: string | null;
   assigned_to?: string | null;
 };

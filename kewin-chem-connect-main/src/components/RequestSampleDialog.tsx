@@ -11,7 +11,6 @@ export type SampleContext = {
   product?: {
     id?: number;
     name?: string;
-    form?: string | null;
     attributes?: Record<string, any> | null;
   } | null;
 };
@@ -38,7 +37,6 @@ export default function RequestSampleDialog(props: {
   const [sendCopy, setSendCopy] = useState(true);
 
   const productName = context.product?.name || '';
-  const productForm = context.product?.form || '';
   const productAttrs = useMemo(() => context.product?.attributes || {}, [context]);
 
   useEffect(() => {
@@ -61,7 +59,6 @@ export default function RequestSampleDialog(props: {
         subcategory_slug: context.subcategorySlug,
         product_id: context.product?.id,
         product_name: productName || undefined,
-        form: productForm || undefined,
         attributes: productAttrs && Object.keys(productAttrs).length ? productAttrs : undefined,
         quantity: quantity || undefined,
         use_case: useCase || undefined,

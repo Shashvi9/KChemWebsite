@@ -36,7 +36,6 @@ const FormPage = () => {
           <DataTable 
             categorySlug={categorySlug} 
             subcategorySlug={subcategorySlug} 
-            form={formTitle}
             title={formTitle}
           />
         )}

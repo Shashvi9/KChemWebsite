@@ -8,7 +8,6 @@ import { API_BASE } from '@/lib/apiConfig';
 interface Props {
   categorySlug?: string;
   subcategorySlug?: string;
-  form?: string;
   initialData?: Product[];
   title?: string;
 }
@@ -16,24 +15,21 @@ interface Props {
 type Product = {
   id: number;
   name: string;
-  form: string | null;
   attributes: Record<string, any> | null;
 };
 
-const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initialData, title }) => {
+const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData, title }) => {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(!initialData);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // If initialData is provided, use it directly
     if (initialData) {
       setData(initialData);
       setLoading(false);
       return;
     }
 
-    // Otherwise fetch from API
     if (!categorySlug || !subcategorySlug) return;
 
     const fetchData = async () => {
@@ -44,10 +40,6 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
           category_slug: categorySlug,
           subcategory_slug: subcategorySlug,
         });
-
-        if (form) {
-          params.append("form", form);
-        }
 
         const response = await fetch(`${API_BASE}/products/?${params.toString()}`);
         if (!response.ok) {
@@ -64,9 +56,8 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
     };
 
     fetchData();
-  }, [categorySlug, subcategorySlug, form, initialData]);
+  }, [categorySlug, subcategorySlug, initialData]);
 
-  // Determine dynamic columns from attributes union
   const attributeKeys = useMemo(() => {
     const keys = new Set<string>();
     data.forEach(p => {
@@ -79,7 +70,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
   return (
     <Card className="shadow-card">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>{title || form || 'Products'}</CardTitle>
+        <CardTitle>{title || 'Products'}</CardTitle>
         <RequestSampleDialog
           trigger={<Button>Request Sample</Button>}
           context={{ categorySlug: categorySlug || '', subcategorySlug: subcategorySlug || '', product: null }}
@@ -97,7 +88,6 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
                 <thead className="bg-muted/40 sticky top-0 z-10">
                   <tr>
                     <th className="px-3 py-2 text-left font-medium bg-muted/40">Name</th>
-                    <th className="px-3 py-2 text-left font-medium bg-muted/40">Form</th>
                     {attributeKeys.map(key => (
                       <th key={key} className="px-3 py-2 text-left font-medium capitalize bg-muted/40">{key.replace(/_/g, ' ')}</th>
                     ))}
@@ -108,7 +98,6 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
                   {data.map((p) => (
                     <tr key={p.id} className="border-t">
                       <td className="px-3 py-2 whitespace-nowrap">{p.name}</td>
-                      <td className="px-3 py-2 whitespace-nowrap">{p.form || '-'}</td>
                       {attributeKeys.map(key => (
                         <td key={key} className="px-3 py-2">
                           {String((p.attributes || {})[key] ?? '-')}
@@ -120,7 +109,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, form, initi
                           context={{
                             categorySlug: categorySlug || '',
                             subcategorySlug: subcategorySlug || '',
-                            product: { id: p.id, name: p.name, form: p.form, attributes: p.attributes || {} },
+                            product: { id: p.id, name: p.name, attributes: p.attributes || {} },
                           }}
                         />
                       </td>

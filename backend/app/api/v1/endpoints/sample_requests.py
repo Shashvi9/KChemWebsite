@@ -17,7 +17,6 @@ class SampleRequest(BaseModel):
     subcategory_slug: str = Field(..., min_length=1)
     product_id: Optional[int] = None
     product_name: Optional[str] = None
-    form: Optional[str] = None
     attributes: Optional[Dict[str, Any]] = None
 
     quantity: Optional[str] = None
@@ -43,8 +42,6 @@ def _build_email(req: SampleRequest) -> EmailMessage:
         lines.append(f"Product ID: {req.product_id}")
     if req.product_name:
         lines.append(f"Product: {req.product_name}")
-    if req.form:
-        lines.append(f"Form: {req.form}")
     if req.attributes:
         attr_str = "; ".join(f"{k}={v}" for k, v in req.attributes.items())
         lines.append(f"Attributes: {attr_str}")
@@ -101,7 +98,6 @@ def _build_email(req: SampleRequest) -> EmailMessage:
             {row('Subcategory slug', req.subcategory_slug)}
             {row('Product ID', str(req.product_id)) if req.product_id is not None else ''}
             {row('Product', req.product_name) if req.product_name else ''}
-            {row('Form', req.form) if req.form else ''}
             {row('Attributes', ' ') if attrs_html else ''}
           </table>
           {attrs_block}
@@ -182,7 +178,6 @@ async def create_sample_request(req: SampleRequest, tasks: BackgroundTasks, db: 
         subcategory_slug=req.subcategory_slug,
         product_id=req.product_id,
         product_name=req.product_name,
-        form=req.form,
         attributes=req.attributes,
         quantity=req.quantity,
         use_case=req.use_case,

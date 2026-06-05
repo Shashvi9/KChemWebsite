@@ -28,7 +28,6 @@ class SampleRequestItem(BaseModel):
     category_slug: str
     subcategory_slug: str
     product_name: Optional[str] = None
-    form: Optional[str] = None
     quantity: Optional[str] = None
     assigned_to: Optional[str] = None
 
@@ -63,7 +62,6 @@ def _apply_filters(qs, q: Optional[str], status: Optional[str], date_from: Optio
                 (SampleRequest.country.ilike(like)) |
                 (SampleRequest.category_slug.ilike(like)) |
                 (SampleRequest.subcategory_slug.ilike(like)) |
-                (SampleRequest.form.ilike(like)) |
                 (SampleRequest.quantity.ilike(like)) |
                 (cast(SampleRequest.product_id, String).ilike(like))
             )
@@ -176,14 +174,14 @@ def export_sample_requests(
     writer = csv.writer(sio)
     headers = [
         "id","created_at","status","name","company","email","phone","country",
-        "category_slug","subcategory_slug","product_name","form","quantity","assigned_to"
+        "category_slug","subcategory_slug","product_name","quantity","assigned_to"
     ]
     writer.writerow(headers)
     for r in qs.all():
         writer.writerow([
             r.id or '', r.created_at or '', r.status or '', r.name or '', r.company or '', r.email or '',
             r.phone or '', r.country or '', r.category_slug or '', r.subcategory_slug or '', r.product_name or '',
-            r.form or '', r.quantity or '', r.assigned_to or ''
+            r.quantity or '', r.assigned_to or ''
         ])
 
     sio.seek(0)

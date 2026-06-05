@@ -10,7 +10,6 @@ import { API_BASE } from '@/lib/apiConfig';
 interface Product {
   id: number;
   name: string;
-  form: string | null;
   attributes: Record<string, any> | null;
   subcategory_id: number;
 }
@@ -101,7 +100,6 @@ const SearchResults = () => {
                   <thead className="bg-muted/40 sticky top-0 z-10">
                     <tr>
                       <th className="px-3 py-2 text-left font-medium bg-muted/40">Name</th>
-                      <th className="px-3 py-2 text-left font-medium bg-muted/40">Form</th>
                       {attributeKeys.map(key => (
                         <th key={key} className="px-3 py-2 text-left font-medium capitalize bg-muted/40">{key.replace(/_/g, ' ')}</th>
                       ))}
@@ -112,7 +110,6 @@ const SearchResults = () => {
                     {products.map((p) => (
                       <tr key={p.id} className="border-t">
                         <td className="px-3 py-2 whitespace-nowrap">{p.name}</td>
-                        <td className="px-3 py-2 whitespace-nowrap">{p.form || '-'}</td>
                         {attributeKeys.map(key => (
                           <td key={key} className="px-3 py-2">
                             {String((p.attributes || {})[key] ?? '-')}
@@ -124,7 +121,7 @@ const SearchResults = () => {
                             context={{
                               categorySlug: '',
                               subcategorySlug: '',
-                              product: { id: p.id, name: p.name, form: p.form, attributes: p.attributes || {} },
+                              product: { id: p.id, name: p.name, attributes: p.attributes || {} },
                             }}
                           />
                         </td>

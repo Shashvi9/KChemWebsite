@@ -30,7 +30,6 @@ class Subcategory(SubcategoryBase):
 
 class ProductBase(BaseModel):
     name: str
-    form: Optional[str] = None
     attributes: Optional[Dict[str, Any]] = None
 
 class ProductCreate(ProductBase):

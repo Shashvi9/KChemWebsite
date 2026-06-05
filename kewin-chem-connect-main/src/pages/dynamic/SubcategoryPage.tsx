@@ -126,7 +126,6 @@ const SubcategoryPage = () => {
           <DataTable 
             categorySlug={categorySlug} 
             subcategorySlug={subcategorySlug} 
-            form={forms.length === 1 ? forms[0] : undefined}
             title={subcategoryTitle}
           />
         )}

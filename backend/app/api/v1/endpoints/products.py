@@ -21,15 +21,12 @@ def _product_to_api(product: Product) -> schemas.Product:
         attributes["molecular_weight"] = product.molecular_weight
     if product.appearance:
         attributes["appearance"] = product.appearance
-    if product.color:
-        attributes["color"] = product.color
     if product.description:
         attributes["description"] = product.description
 
     return schemas.Product(
         id=product.id,
         name=product.name,
-        form=None,
         attributes=attributes or None,
         subcategory_id=product.subcategory_id,
     )
@@ -91,7 +88,6 @@ def read_products(
     limit: int = 100,
     category_slug: Optional[str] = None,
     subcategory_slug: Optional[str] = None,
-    form: Optional[str] = None,
 ):
     query = db.query(Product)
     query = _apply_category_filters(query, category_slug, subcategory_slug)

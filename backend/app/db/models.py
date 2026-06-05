@@ -33,7 +33,6 @@ class Product(Base):
     molecular_formula = Column(String(255))
     molecular_weight = Column(String(255))
     appearance = Column(String(255))
-    color = Column(String(255))
     description = Column(Text)
     category_id = Column(Integer, ForeignKey("categories.id"))
     subcategory_id = Column(Integer, ForeignKey("subcategories.id"), nullable=False)
@@ -51,7 +50,6 @@ class SampleRequest(Base):
     subcategory_slug = Column(String(255), nullable=False)
     product_id = Column(Integer, nullable=True)
     product_name = Column(String(255), nullable=True)
-    form = Column(String(100), nullable=True)
     attributes = Column(JSON, nullable=True)
 
     quantity = Column(String(255), nullable=True)

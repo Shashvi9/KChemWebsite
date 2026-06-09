@@ -70,7 +70,7 @@ export default function RequestSampleDialog(props: {
         send_copy_to_requester: !!sendCopy,
       };
 
-      const res = await fetch(`${API_BASE}/sample-requests`, {
+      const res = await fetch(`${API_BASE}/sample-requests/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

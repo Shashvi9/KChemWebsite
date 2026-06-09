@@ -98,7 +98,6 @@ export default function RequestSampleDialog(props: {
         {productName && (
           <div className="text-sm text-muted-foreground mb-2">
             Product: <span className="text-foreground font-medium">{productName}</span>
-            {productForm ? <span> · Form: {productForm}</span> : null}
           </div>
         )}
 

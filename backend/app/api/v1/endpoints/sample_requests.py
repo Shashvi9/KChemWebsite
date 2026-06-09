@@ -173,24 +173,29 @@ async def create_sample_request(req: SampleRequest, tasks: BackgroundTasks, db: 
         raise HTTPException(status_code=400, detail=f"Invalid request: {e}")
 
     # Persist to DB
-    record = SampleRequestModel(
-        category_slug=req.category_slug,
-        subcategory_slug=req.subcategory_slug,
-        product_id=req.product_id,
-        product_name=req.product_name,
-        attributes=req.attributes,
-        quantity=req.quantity,
-        use_case=req.use_case,
-        name=req.name,
-        company=req.company,
-        email=str(req.email),
-        phone=req.phone,
-        country=req.country,
-        send_copy_to_requester=req.send_copy_to_requester,
-    )
-    db.add(record)
-    db.commit()
+    try:
+        record = SampleRequestModel(
+            category_slug=req.category_slug,
+            subcategory_slug=req.subcategory_slug,
+            product_id=req.product_id,
+            product_name=req.product_name,
+            attributes=req.attributes,
+            quantity=req.quantity,
+            use_case=req.use_case,
+            name=req.name,
+            company=req.company,
+            email=str(req.email),
+            phone=req.phone,
+            country=req.country,
+            send_copy_to_requester=req.send_copy_to_requester,
+        )
+        db.add(record)
+        db.commit()
+        record_id = record.id
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Database error: {e}")
 
     # send in background
     tasks.add_task(_send_email, msg)
-    return {"status": "ok", "id": record.id}
+    return {"status": "ok", "id": record_id}

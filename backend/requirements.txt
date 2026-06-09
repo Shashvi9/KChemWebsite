@@ -6,3 +6,4 @@ python-dotenv
 pydantic[email]
 email-validator
 python-jose[cryptography]
+resend

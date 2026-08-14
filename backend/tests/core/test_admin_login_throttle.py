@@ -1,5 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
 
+import pytest
 from starlette.requests import Request
 
 from app.core.admin_login_throttle import (
@@ -98,6 +99,26 @@ def test_concurrent_failure_recording_keeps_all_increments() -> None:
 
     assert decision.failure_count == 8
     assert decision.retry_after_seconds >= 0
+
+
+def test_max_bucket_limit_evicts_oldest_inactive_bucket() -> None:
+    policy = AdminLoginThrottlePolicy(1, 300, 900, max_buckets=2)
+    policy.record_failure("203.0.113.10", "Admin", now_monotonic=10.0)
+    policy.record_failure("203.0.113.11", "Admin", now_monotonic=11.0)
+
+    refreshed = policy.check_allowed("203.0.113.10", "Admin", now_monotonic=11.5)
+    new_bucket = policy.record_failure("203.0.113.12", "Admin", now_monotonic=12.0)
+    evicted = policy.check_allowed("203.0.113.11", "Admin", now_monotonic=12.0)
+
+    assert refreshed.failure_count == 1
+    assert new_bucket.failure_count == 1
+    assert evicted.allowed is True
+    assert evicted.failure_count == 0
+
+
+def test_invalid_delay_configuration_is_rejected() -> None:
+    with pytest.raises(ValueError, match="max_delay_seconds"):
+        AdminLoginThrottlePolicy(5, 4, 900)
 
 
 def test_client_ip_falls_back_to_unknown() -> None:

@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "assumptions": [
+    {
+      "confidence": "medium",
+      "note": "Dataset tiers scale the repository catalog data by deterministic duplication because production cardinalities are not documented in this repo."
+    },
+    {
+      "confidence": "medium",
+      "note": "Synthetic sample requests are production-shaped from current SampleRequest columns, but they are not derived from production customer data."
+    },
+    {
+      "confidence": "low",
+      "note": "Resource budgets are placeholders for pre-limit measurement: p95 under 1000 ms and peak traced Python allocation under 256 MiB on a local developer machine."
+    }
+  ],
+  "environment_policy": {
+    "database": "Isolated SQLite benchmark database created by the harness; never use a production DATABASE_URL.",
+    "warmup_runs": 1,
+    "measured_repetitions": 5,
+    "metrics": [
+      "first_latency_ms",
+      "total_latency_ms",
+      "p50_latency_ms",
+      "p95_latency_ms",
+      "peak_memory_bytes",
+      "matched_rows",
+      "returned_rows",
+      "response_bytes",
+      "dataset_cardinalities"
+    ],
+    "resource_budget_assumptions": {
+      "p95_latency_ms": 1000,
+      "peak_memory_bytes": 268435456
+    }
+  },
+  "tiers": {
+    "small": {
+      "catalog_multiplier": 1,
+      "sample_requests": 250,
+      "description": "Baseline repository catalog and a small synthetic admin export set."
+    },
+    "median": {
+      "catalog_multiplier": 10,
+      "sample_requests": 2500,
+      "description": "Moderate catalog duplication and common operational export volume."
+    },
+    "worst": {
+      "catalog_multiplier": 50,
+      "sample_requests": 15000,
+      "description": "Stress tier for broad catalog reads and unfiltered CSV export."
+    }
+  },
+  "workloads": [
+    {
+      "name": "catalog_filtered_small",
+      "kind": "catalog_read",
+      "case": "small",
+      "tier": "small",
+      "params": {
+        "category_slug": "dyes-intermediates",
+        "subcategory_slug": "acid-dyes",
+        "skip": 0,
+        "limit": 25
+      }
+    },
+    {
+      "name": "catalog_filtered_median",
+      "kind": "catalog_read",
+      "case": "median",
+      "tier": "median",
+      "params": {
+        "category_slug": "dyes-intermediates",
+        "subcategory_slug": "reactive-dyes",
+        "skip": 0,
+        "limit": 100
+      }
+    },
+    {
+      "name": "catalog_filtered_worst",
+      "kind": "catalog_read",
+      "case": "worst",
+      "tier": "worst",
+      "params": {
+        "category_slug": "food-pharmacolors",
+        "subcategory_slug": null,
+        "skip": 0,
+        "limit": 1000
+      }
+    },
+    {
+      "name": "catalog_broad_small",
+      "kind": "catalog_read",
+      "case": "small",
+      "tier": "small",
+      "params": {
+        "category_slug": null,
+        "subcategory_slug": null,
+        "skip": 0,
+        "limit": 100
+      }
+    },
+    {
+      "name": "catalog_broad_median",
+      "kind": "catalog_read",
+      "case": "median",
+      "tier": "median",
+      "params": {
+        "category_slug": null,
+        "subcategory_slug": null,
+        "skip": 0,
+        "limit": 1000
+      }
+    },
+    {
+      "name": "catalog_broad_worst",
+      "kind": "catalog_read",
+      "case": "worst",
+      "tier": "worst",
+      "params": {
+        "category_slug": null,
+        "subcategory_slug": null,
+        "skip": 0,
+        "limit": 10000
+      }
+    },
+    {
+      "name": "search_selective_small",
+      "kind": "search",
+      "case": "small",
+      "tier": "small",
+      "params": {
+        "q": "Tartrazine",
+        "limit": 25
+      }
+    },
+    {
+      "name": "search_common_median",
+      "kind": "search",
+      "case": "median",
+      "tier": "median",
+      "params": {
+        "q": "Blue",
+        "limit": 200
+      }
+    },
+    {
+      "name": "search_no_hit_worst",
+      "kind": "search",
+      "case": "worst",
+      "tier": "worst",
+      "params": {
+        "q": "zz-no-hit-benchmark-token",
+        "limit": 200
+      }
+    },
+    {
+      "name": "export_filtered_small",
+      "kind": "csv_export",
+      "case": "small",
+      "tier": "small",
+      "params": {
+        "status": "pending",
+        "q": "Acme",
+        "date_from": null,
+        "date_to": null,
+        "sort": "-created_at"
+      }
+    },
+    {
+      "name": "export_filtered_median",
+      "kind": "csv_export",
+      "case": "median",
+      "tier": "median",
+      "params": {
+        "status": "approved",
+        "q": "Color",
+        "date_from": null,
+        "date_to": null,
+        "sort": "-created_at"
+      }
+    },
+    {
+      "name": "export_unfiltered_worst",
+      "kind": "csv_export",
+      "case": "worst",
+      "tier": "worst",
+      "params": {
+        "status": null,
+        "q": null,
+        "date_from": null,
+        "date_to": null,
+        "sort": "-created_at"
+      }
+    }
+  ]
+}

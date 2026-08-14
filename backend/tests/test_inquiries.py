@@ -3,6 +3,7 @@ import os
 import sys
 import types
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
 
@@ -24,6 +25,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from app.api.v1.endpoints import inquiries as inquiries_endpoint
+from app.core.auth import create_access_token
 from app.db.base import Base
 from app.db.models import Inquiry
 from app.db.session import get_db
@@ -113,6 +115,9 @@ class InquiryPersistenceTests(unittest.TestCase):
 
     def tearDown(self):
         app.dependency_overrides.clear()
+
+    def _admin_headers(self):
+        return {"Authorization": f"Bearer {create_access_token(sub='admin-user')}"}
 
     def test_inquiry_model_persists_default_state(self):
         db = TestingSessionLocal()
@@ -221,6 +226,91 @@ class InquiryPersistenceTests(unittest.TestCase):
         self.assertIs(tasks.calls[0][0], inquiries_endpoint._send_inquiry_email)
         self.assertEqual(tasks.calls[0][1], (records[0].id,))
         self.assertEqual(tasks.calls[0][2], {})
+
+    def test_admin_inquiry_listing_rejects_unauthenticated_requests(self):
+        response = self.client.get("/api/v1/admin/inquiries/")
+
+        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.json()["detail"], "Not authenticated")
+
+    def test_admin_inquiry_listing_returns_newest_first_paginated_results_with_status_fields(self):
+        db = TestingSessionLocal()
+        base_time = datetime(2026, 8, 14, 9, 30, tzinfo=timezone.utc)
+        try:
+            records = [
+                Inquiry(
+                    name="First Contact",
+                    email="first@example.com",
+                    subject="First subject",
+                    message="First inquiry message body for pagination coverage.",
+                    status="pending",
+                    created_at=base_time,
+                    updated_at=base_time,
+                ),
+                Inquiry(
+                    name="Second Contact",
+                    email="second@example.com",
+                    subject="Second subject",
+                    message="Second inquiry message body for pagination coverage.",
+                    status="failed",
+                    delivery_error="Mailbox rejected delivery",
+                    created_at=base_time + timedelta(minutes=1),
+                    updated_at=base_time + timedelta(minutes=2),
+                ),
+                Inquiry(
+                    name="Third Contact",
+                    email="third@example.com",
+                    subject="Third subject",
+                    message="Third inquiry message body for pagination coverage.",
+                    status="sent",
+                    delivered_at=base_time + timedelta(minutes=4),
+                    created_at=base_time + timedelta(minutes=3),
+                    updated_at=base_time + timedelta(minutes=4),
+                ),
+            ]
+            db.add_all(records)
+            db.commit()
+        finally:
+            db.close()
+
+        response = self.client.get(
+            "/api/v1/admin/inquiries/?page=1&page_size=2",
+            headers=self._admin_headers(),
+        )
+
+        self.assertEqual(response.status_code, 200)
+        body = response.json()
+        self.assertEqual(body["total"], 3)
+        self.assertEqual(body["page"], 1)
+        self.assertEqual(body["page_size"], 2)
+        self.assertEqual([item["subject"] for item in body["items"]], ["Third subject", "Second subject"])
+
+        newest = body["items"][0]
+        self.assertEqual(newest["status"], "sent")
+        self.assertIsNone(newest["delivery_error"])
+        self.assertIsNotNone(newest["delivered_at"])
+        self.assertIn("updated_at", newest)
+
+        failed = body["items"][1]
+        self.assertEqual(failed["status"], "failed")
+        self.assertEqual(failed["delivery_error"], "Mailbox rejected delivery")
+        self.assertIsNone(failed["delivered_at"])
+
+        page_two = self.client.get(
+            "/api/v1/admin/inquiries/?page=2&page_size=2",
+            headers=self._admin_headers(),
+        )
+
+        self.assertEqual(page_two.status_code, 200)
+        page_two_body = page_two.json()
+        self.assertEqual(page_two_body["total"], 3)
+        self.assertEqual(page_two_body["page"], 2)
+        self.assertEqual(page_two_body["page_size"], 2)
+        self.assertEqual(len(page_two_body["items"]), 1)
+        self.assertEqual(page_two_body["items"][0]["subject"], "First subject")
+        self.assertEqual(page_two_body["items"][0]["status"], "pending")
+        self.assertIsNone(page_two_body["items"][0]["delivery_error"])
+        self.assertIsNone(page_two_body["items"][0]["delivered_at"])
 
     def test_send_inquiry_email_marks_record_sent(self):
         db = TestingSessionLocal()

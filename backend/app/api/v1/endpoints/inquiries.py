@@ -1,7 +1,11 @@
-from fastapi import APIRouter, BackgroundTasks, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from pydantic import BaseModel, EmailStr, Field
 import os
 import resend
+from sqlalchemy.orm import Session
+
+from app.db.models import Inquiry as InquiryModel
+from app.db.session import get_db
 
 router = APIRouter()
 
@@ -53,11 +57,23 @@ def _send_inquiry_email(req: InquiryRequest):
 
 
 @router.post("/", status_code=200)
-async def create_inquiry(req: InquiryRequest, tasks: BackgroundTasks):
+async def create_inquiry(
+    req: InquiryRequest,
+    tasks: BackgroundTasks,
+    db: Session = Depends(get_db),
+):
     try:
-        pass  # validate only
+        record = InquiryModel(
+            name=req.name,
+            email=str(req.email),
+            subject=req.subject,
+            message=req.message,
+        )
+        db.add(record)
+        db.commit()
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Invalid request: {e}")
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Database error: {e}")
 
     tasks.add_task(_send_inquiry_email, req)
     return {"status": "ok", "message": "Inquiry submitted successfully"}

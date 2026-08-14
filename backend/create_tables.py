@@ -5,7 +5,7 @@ Run this once to set up the schema in your Neon database
 import os
 from sqlalchemy import create_engine
 from app.db.base import Base
-from app.db.models import Category, Subcategory, Product, SampleRequest
+from app.db.models import Category, Subcategory, Product, SampleRequest, Inquiry
 
 # Your Neon database URL
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://neondb_owner:npg_G2nC4JzgSHOE@ep-red-flower-a4n86t9b-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
@@ -24,6 +24,7 @@ def create_tables():
     print("  - subcategories")
     print("  - products")
     print("  - sample_requests")
+    print("  - inquiries")
     
     engine.dispose()
 

@@ -87,7 +87,13 @@ In Render dashboard → Environment:
 ```
 DATABASE_URL = <paste your Neon connection string>
 FRONTEND_URL = https://your-app.vercel.app  (you'll update this after Vercel deploy)
+APP_ENV = production
+JWT_SECRET = <generate and store a strong random signing secret>
 ```
+
+`APP_ENV=production` makes the backend refuse to start unless `JWT_SECRET` is set to a
+non-development value. Keep `APP_ENV=development` for local development if `JWT_SECRET`
+is not configured.
 
 ### 2.5 Deploy
 1. Click **Create Web Service**

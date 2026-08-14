@@ -1,21 +1,25 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { adminFetch, exportSampleRequests, listSampleRequests, updateSampleRequest, AdminSampleRequest, getAdminToken } from '@/lib/adminApi';
+import {
+  adminLogout,
+  exportSampleRequests,
+  isAdminAuthError,
+  listSampleRequests,
+  updateSampleRequest,
+  AdminSampleRequest,
+} from '@/lib/adminApi';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-function useAuthGuard() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!getAdminToken()) navigate('/admin/login');
-  }, [navigate]);
+function getErrorMessage(error: unknown, fallback: string) {
+  return error instanceof Error ? error.message : fallback;
 }
 
 export default function AdminRequests() {
-  useAuthGuard();
+  const navigate = useNavigate();
   const [q, setQ] = useState('');
   const [status, setStatus] = useState<string | undefined>(undefined);
   const [page, setPage] = useState(1);
@@ -25,28 +29,67 @@ export default function AdminRequests() {
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<{ items: AdminSampleRequest[]; total: number } | null>(null);
 
-  async function load() {
+  const handleAuthExpired = useCallback(() => {
+    setData(null);
+    setError(null);
+    setLoading(false);
+    navigate('/admin/login', { replace: true });
+  }, [navigate]);
+
+  const load = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const res = await listSampleRequests({ q, status, page, page_size: pageSize, sort });
       setData(res);
-    } catch (e: any) {
-      if (e?.message === 'unauthorized') {
-        window.location.href = '/admin/login';
+    } catch (e: unknown) {
+      if (isAdminAuthError(e)) {
+        handleAuthExpired();
         return;
       }
-      setError(e?.message || 'Failed to load');
+      setError(getErrorMessage(e, 'Failed to load'));
     } finally {
       setLoading(false);
     }
-  }
+  }, [handleAuthExpired, page, pageSize, q, sort, status]);
 
-  useEffect(() => { load(); /* eslint-disable-next-line */ }, [q, status, page, pageSize, sort]);
+  useEffect(() => { load(); }, [load]);
 
   async function updateRow(row: AdminSampleRequest, patch: Partial<AdminSampleRequest> & { internal_notes?: string }) {
-    await updateSampleRequest(row.id, patch);
-    load();
+    setError(null);
+    try {
+      await updateSampleRequest(row.id, patch);
+      load();
+    } catch (e: unknown) {
+      if (isAdminAuthError(e)) {
+        handleAuthExpired();
+        return;
+      }
+      setError(getErrorMessage(e, 'Failed to update'));
+    }
+  }
+
+  async function exportCsv() {
+    setError(null);
+    try {
+      await exportSampleRequests({ q, status, sort });
+    } catch (e: unknown) {
+      if (isAdminAuthError(e)) {
+        handleAuthExpired();
+        return;
+      }
+      setError(getErrorMessage(e, 'Export failed'));
+    }
+  }
+
+  async function logout() {
+    try {
+      await adminLogout();
+    } catch {
+      // Logout always ends the client-side admin session, even if the server already rejected it.
+    } finally {
+      handleAuthExpired();
+    }
   }
 
   return (
@@ -87,8 +130,9 @@ export default function AdminRequests() {
               </Select>
             </div>
             <div className="ml-auto flex gap-2">
-              <Button variant="outline" onClick={() => exportSampleRequests({ q, status, sort })}>Export CSV</Button>
+              <Button variant="outline" onClick={exportCsv}>Export CSV</Button>
               <Button onClick={load} disabled={loading}>{loading ? 'Loading...' : 'Refresh'}</Button>
+              <Button variant="outline" onClick={logout}>Logout</Button>
             </div>
           </div>
 

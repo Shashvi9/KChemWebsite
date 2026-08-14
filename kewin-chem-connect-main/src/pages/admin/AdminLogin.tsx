@@ -6,6 +6,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
+function getErrorMessage(error: unknown, fallback: string) {
+  return error instanceof Error ? error.message : fallback;
+}
+
 export default function AdminLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,9 +23,9 @@ export default function AdminLogin() {
     setError(null);
     try {
       await adminLogin(username, password);
-      navigate('/admin/requests');
-    } catch (err: any) {
-      setError(err?.message || 'Login failed');
+      navigate('/admin/requests', { replace: true });
+    } catch (err: unknown) {
+      setError(getErrorMessage(err, 'Login failed'));
     } finally {
       setLoading(false);
     }

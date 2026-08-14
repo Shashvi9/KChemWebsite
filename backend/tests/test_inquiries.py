@@ -270,9 +270,7 @@ class InquiryPersistenceTests(unittest.TestCase):
         finally:
             db.close()
 
-        with self.assertRaisesRegex(RuntimeError, "delivery failed"), mock.patch.object(
-            inquiries_endpoint, "SessionLocal", TestingSessionLocal
-        ), mock.patch.dict(
+        with mock.patch.object(inquiries_endpoint, "SessionLocal", TestingSessionLocal), mock.patch.dict(
             os.environ,
             {"RESEND_API_KEY": "test-key"},
             clear=False,

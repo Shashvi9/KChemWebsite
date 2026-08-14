@@ -103,6 +103,20 @@ describe('adminApi cookie-backed session requests', () => {
     await expect(adminLogout()).rejects.toBeInstanceOf(AdminAuthError);
   });
 
+  it('logs out with included browser credentials and no bearer header', async () => {
+    fetchMock.mockResolvedValueOnce(new Response(null, { status: 204 }));
+
+    await adminLogout();
+
+    const [url, init] = lastFetch();
+    expect(url).toBe('/api/v1/admin/auth/logout');
+    expect(init).toMatchObject({
+      method: 'POST',
+      credentials: 'include',
+    });
+    expect(headersFrom(init).get('Authorization')).toBeNull();
+  });
+
   it('does not read or write the removed admin credential storage key', async () => {
     const key = ['kc', 'admin', 'token'].join('_');
     const getItem = vi.spyOn(Storage.prototype, 'getItem');

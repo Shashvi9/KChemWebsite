@@ -1,23 +1,36 @@
 import { API_BASE } from '@/lib/apiConfig';
 
-export function getAdminToken(): string | null {
-  return localStorage.getItem('kc_admin_token');
+export class AdminAuthError extends Error {
+  constructor(message = 'Admin session expired') {
+    super(message);
+    this.name = 'AdminAuthError';
+  }
 }
 
-export function setAdminToken(token: string) {
-  localStorage.setItem('kc_admin_token', token);
+export function isAdminAuthError(error: unknown): error is AdminAuthError {
+  return error instanceof AdminAuthError;
+}
+
+function isAuthRejected(res: Response) {
+  return res.status === 401 || res.status === 403;
+}
+
+function mergeJsonHeaders(headers?: HeadersInit): Headers {
+  const merged = new Headers(headers);
+  if (!merged.has('Content-Type')) {
+    merged.set('Content-Type', 'application/json');
+  }
+  return merged;
 }
 
 export async function adminFetch(path: string, init: RequestInit = {}) {
-  const token = getAdminToken();
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    ...(init.headers as Record<string, string> | undefined),
-  };
-  if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
-  if (res.status === 401 || res.status === 403) {
-    throw new Error('unauthorized');
+  const res = await fetch(`${API_BASE}${path}`, {
+    ...init,
+    headers: mergeJsonHeaders(init.headers),
+    credentials: 'include',
+  });
+  if (isAuthRejected(res)) {
+    throw new AdminAuthError();
   }
   return res;
 }
@@ -26,12 +39,36 @@ export async function adminLogin(username: string, password: string) {
   const res = await fetch(`${API_BASE}/admin/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
     body: JSON.stringify({ username, password }),
   });
-  if (!res.ok) throw new Error('Login failed');
-  const data = await res.json();
-  setAdminToken(data.access_token);
-  return data;
+  if (!res.ok) {
+    let message = 'Login failed';
+    try {
+      const data = await res.json();
+      message = data?.detail || data?.message || message;
+    } catch {
+      // Empty or non-JSON login failures use the generic message.
+    }
+    throw new Error(message);
+  }
+  if (res.status === 204) return null;
+  try {
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+export async function adminLogout() {
+  const res = await fetch(`${API_BASE}/admin/auth/logout`, {
+    method: 'POST',
+    credentials: 'include',
+  });
+  if (isAuthRejected(res)) {
+    throw new AdminAuthError();
+  }
+  if (!res.ok) throw new Error('Logout failed');
 }
 
 export type AdminSampleRequest = {
@@ -50,7 +87,7 @@ export type AdminSampleRequest = {
   assigned_to?: string | null;
 };
 
-export async function listSampleRequests(params: Record<string, any> = {}) {
+export async function listSampleRequests(params: Record<string, unknown> = {}) {
   const cleaned: Record<string, string> = {};
   Object.entries(params).forEach(([k, v]) => {
     if (v !== undefined && v !== null && v !== '') cleaned[k] = String(v);
@@ -71,15 +108,17 @@ export async function updateSampleRequest(id: number, body: Partial<AdminSampleR
   return res.json();
 }
 
-export async function exportSampleRequests(params: Record<string, any> = {}) {
+export async function exportSampleRequests(params: Record<string, unknown> = {}) {
   const cleaned: Record<string, string> = {};
   Object.entries(params).forEach(([k, v]) => {
     if (v !== undefined && v !== null && v !== '') cleaned[k] = String(v);
   });
   const query = new URLSearchParams(cleaned).toString();
-  const token = getAdminToken();
   const url = `${API_BASE}/admin/sample-requests/export${query ? `?${query}` : ''}`;
-  const res = await fetch(url, { headers: token ? { Authorization: `Bearer ${token}` } : undefined });
+  const res = await fetch(url, { credentials: 'include' });
+  if (isAuthRejected(res)) {
+    throw new AdminAuthError();
+  }
   if (!res.ok) throw new Error('Export failed');
   const blob = await res.blob();
   const a = document.createElement('a');

@@ -48,9 +48,24 @@ export default function RequestSampleDialog(props: {
   }, [open]);
 
   async function submit() {
-    setSubmitting(true);
     setSuccess(null);
     setError(null);
+
+    const trimmedName = name.trim();
+    const trimmedCompany = company.trim();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedName || !trimmedCompany || !trimmedEmail) {
+      setError('Name, company, and work email are required.');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      setError('Enter a valid work email.');
+      return;
+    }
+
+    setSubmitting(true);
     try {
       // Map UI category to backend slug where needed
       const mappedCategory = (context.categorySlug === 'food-pharma') ? 'food-pharma-colors' : context.categorySlug;
@@ -60,13 +75,13 @@ export default function RequestSampleDialog(props: {
         product_id: context.product?.id,
         product_name: productName || undefined,
         attributes: productAttrs && Object.keys(productAttrs).length ? productAttrs : undefined,
-        quantity: quantity || undefined,
-        use_case: useCase || undefined,
-        name,
-        company,
-        email,
-        phone: phone || undefined,
-        country: country || undefined,
+        quantity: quantity.trim() || undefined,
+        use_case: useCase.trim() || undefined,
+        name: trimmedName,
+        company: trimmedCompany,
+        email: trimmedEmail,
+        phone: phone.trim() || undefined,
+        country: country.trim() || undefined,
         send_copy_to_requester: !!sendCopy,
       };
 

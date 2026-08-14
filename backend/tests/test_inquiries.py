@@ -1,3 +1,4 @@
+import asyncio
 import os
 import sys
 import types
@@ -57,6 +58,14 @@ class BrokenSession:
 
     def rollback(self):
         self.rollback_called = True
+
+
+class FakeBackgroundTasks:
+    def __init__(self):
+        self.calls = []
+
+    def add_task(self, func, *args, **kwargs):
+        self.calls.append((func, args, kwargs))
 
 
 class FakeMigrationConnection:
@@ -134,9 +143,9 @@ class InquiryPersistenceTests(unittest.TestCase):
         )
 
     def test_create_inquiry_persists_record_and_keeps_response_shape(self):
-        sent_subjects = []
+        sent_ids = []
         original_sender = inquiries_endpoint._send_inquiry_email
-        inquiries_endpoint._send_inquiry_email = lambda req: sent_subjects.append(req.subject)
+        inquiries_endpoint._send_inquiry_email = lambda inquiry_id: sent_ids.append(inquiry_id)
 
         try:
             response = self.client.post(
@@ -156,7 +165,7 @@ class InquiryPersistenceTests(unittest.TestCase):
             response.json(),
             {"status": "ok", "message": "Inquiry submitted successfully"},
         )
-        self.assertEqual(sent_subjects, ["Bulk order"])
+        self.assertEqual(sent_ids, [1])
 
         db = TestingSessionLocal()
         try:
@@ -178,16 +187,123 @@ class InquiryPersistenceTests(unittest.TestCase):
         self.assertIsNotNone(records[0].created_at)
         self.assertIsNotNone(records[0].updated_at)
 
+    def test_create_inquiry_persists_pending_record_before_background_delivery_runs(self):
+        db = TestingSessionLocal()
+        tasks = FakeBackgroundTasks()
+
+        try:
+            response = asyncio.run(
+                inquiries_endpoint.create_inquiry(
+                    inquiries_endpoint.InquiryRequest(
+                        name="Grace Hopper",
+                        email="grace@example.com",
+                        subject="Bulk order",
+                        message="Need pricing and lead time for a recurring bulk order.",
+                    ),
+                    tasks=tasks,
+                    db=db,
+                )
+            )
+
+            records = db.query(Inquiry).all()
+        finally:
+            db.close()
+
+        self.assertEqual(
+            response,
+            {"status": "ok", "message": "Inquiry submitted successfully"},
+        )
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0].status, "pending")
+        self.assertIsNone(records[0].delivery_error)
+        self.assertIsNone(records[0].delivered_at)
+        self.assertEqual(len(tasks.calls), 1)
+        self.assertIs(tasks.calls[0][0], inquiries_endpoint._send_inquiry_email)
+        self.assertEqual(tasks.calls[0][1], (records[0].id,))
+        self.assertEqual(tasks.calls[0][2], {})
+
+    def test_send_inquiry_email_marks_record_sent(self):
+        db = TestingSessionLocal()
+        try:
+            record = Inquiry(
+                name="Ada Lovelace",
+                email="ada@example.com",
+                subject="Catalyst inquiry",
+                message="Please share the current product specifications.",
+            )
+            db.add(record)
+            db.commit()
+            inquiry_id = record.id
+        finally:
+            db.close()
+
+        with mock.patch.object(inquiries_endpoint, "SessionLocal", TestingSessionLocal), mock.patch.dict(
+            os.environ,
+            {"RESEND_API_KEY": "test-key"},
+            clear=False,
+        ), mock.patch.object(inquiries_endpoint.resend.Emails, "send", return_value=None):
+            inquiries_endpoint._send_inquiry_email(inquiry_id)
+
+        db = TestingSessionLocal()
+        try:
+            record = db.get(Inquiry, inquiry_id)
+        finally:
+            db.close()
+
+        self.assertIsNotNone(record)
+        self.assertEqual(record.status, "sent")
+        self.assertIsNone(record.delivery_error)
+        self.assertIsNotNone(record.delivered_at)
+
+    def test_send_inquiry_email_marks_record_failed_and_keeps_it_queryable(self):
+        db = TestingSessionLocal()
+        try:
+            record = Inquiry(
+                name="Linus Pauling",
+                email="linus@example.com",
+                subject="Support",
+                message="Need a safety data sheet for a product inquiry.",
+            )
+            db.add(record)
+            db.commit()
+            inquiry_id = record.id
+        finally:
+            db.close()
+
+        with self.assertRaisesRegex(RuntimeError, "delivery failed"), mock.patch.object(
+            inquiries_endpoint, "SessionLocal", TestingSessionLocal
+        ), mock.patch.dict(
+            os.environ,
+            {"RESEND_API_KEY": "test-key"},
+            clear=False,
+        ), mock.patch.object(
+            inquiries_endpoint.resend.Emails,
+            "send",
+            side_effect=RuntimeError("delivery failed"),
+        ):
+            inquiries_endpoint._send_inquiry_email(inquiry_id)
+
+        db = TestingSessionLocal()
+        try:
+            record = db.get(Inquiry, inquiry_id)
+        finally:
+            db.close()
+
+        self.assertIsNotNone(record)
+        self.assertEqual(record.status, "failed")
+        self.assertEqual(record.delivery_error, "delivery failed")
+        self.assertIsNone(record.delivered_at)
+
     def test_create_inquiry_returns_500_and_skips_background_task_on_db_failure(self):
         broken_session = BrokenSession()
-        sent_subjects = []
+        sent_ids = []
         original_sender = inquiries_endpoint._send_inquiry_email
 
         def broken_get_db():
             yield broken_session
 
         app.dependency_overrides[get_db] = broken_get_db
-        inquiries_endpoint._send_inquiry_email = lambda req: sent_subjects.append(req.subject)
+        inquiries_endpoint._send_inquiry_email = lambda inquiry_id: sent_ids.append(inquiry_id)
 
         try:
             response = self.client.post(
@@ -205,7 +321,7 @@ class InquiryPersistenceTests(unittest.TestCase):
         self.assertEqual(response.status_code, 500)
         self.assertIn("Database error", response.json()["detail"])
         self.assertTrue(broken_session.rollback_called)
-        self.assertEqual(sent_subjects, [])
+        self.assertEqual(sent_ids, [])
 
         db = TestingSessionLocal()
         try:

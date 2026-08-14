@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time
 from io import StringIO
 import csv
 from typing import List, Optional
@@ -7,13 +7,27 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from sqlalchemy import or_, desc, asc, cast, String
+from sqlalchemy import desc, asc, cast, String
 
 from app.core.auth import get_current_admin
 from app.db.session import get_db
 from app.db.models import SampleRequest
 
 router = APIRouter(dependencies=[Depends(get_current_admin)])
+
+SORT_COLUMNS = {
+    "created_at": SampleRequest.created_at,
+    "status": SampleRequest.status,
+    "name": SampleRequest.name,
+    "company": SampleRequest.company,
+    "email": SampleRequest.email,
+    "product_name": SampleRequest.product_name,
+    "category_slug": SampleRequest.category_slug,
+    "subcategory_slug": SampleRequest.subcategory_slug,
+    "quantity": SampleRequest.quantity,
+    "country": SampleRequest.country,
+    "id": SampleRequest.id,
+}
 
 
 class SampleRequestItem(BaseModel):
@@ -72,14 +86,30 @@ def _apply_filters(qs, q: Optional[str], status: Optional[str], date_from: Optio
             dt_from = datetime.strptime(date_from, "%Y-%m-%d")
             qs = qs.filter(SampleRequest.created_at >= dt_from)
         except ValueError:
-            pass
+            raise HTTPException(status_code=422, detail="date_from must be YYYY-MM-DD")
     if date_to:
         try:
-            dt_to = datetime.strptime(date_to, "%Y-%m-%d")
+            dt_to = datetime.combine(datetime.strptime(date_to, "%Y-%m-%d").date(), time.max)
             qs = qs.filter(SampleRequest.created_at <= dt_to)
         except ValueError:
-            pass
+            raise HTTPException(status_code=422, detail="date_to must be YYYY-MM-DD")
     return qs
+
+
+def _apply_sort(qs, sort: Optional[str]):
+    sort_value = sort or "-created_at"
+    descending = sort_value.startswith("-")
+    sort_key = sort_value[1:] if descending else sort_value
+    order = desc if descending else asc
+
+    order_col = SORT_COLUMNS.get(sort_key)
+    if order_col is None:
+        raise HTTPException(status_code=422, detail="Unsupported sort field")
+
+    id_order = desc if descending else asc
+    if sort_key == "id":
+        return qs.order_by(order(order_col))
+    return qs.order_by(order(order_col), id_order(SampleRequest.id))
 
 
 @router.get("/", response_model=SampleRequestListResponse)
@@ -98,19 +128,7 @@ def list_sample_requests(
 
     total = qs.count()
 
-    # Sorting
-    order_col = SampleRequest.created_at
-    order = desc
-    if sort:
-        s = sort
-        if s.startswith("-"):
-            s = s[1:]
-            order = desc
-        else:
-            order = asc
-        if hasattr(SampleRequest, s):
-            order_col = getattr(SampleRequest, s)
-    qs = qs.order_by(order(order_col))
+    qs = _apply_sort(qs, sort)
 
     # Pagination
     items = qs.offset((page - 1) * page_size).limit(page_size).all()
@@ -161,13 +179,7 @@ def export_sample_requests(
 ):
     qs = db.query(SampleRequest)
     qs = _apply_filters(qs, q, status, date_from, date_to)
-    # Sorting
-    order_col = SampleRequest.created_at
-    order = desc if (not sort or sort.startswith("-")) else asc
-    key = sort[1:] if (sort and sort.startswith("-")) else (sort or "created_at")
-    if hasattr(SampleRequest, key):
-        order_col = getattr(SampleRequest, key)
-    qs = qs.order_by(order(order_col))
+    qs = _apply_sort(qs, sort)
 
     # CSV build
     sio = StringIO()

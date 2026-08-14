@@ -65,19 +65,21 @@ def _send_inquiry_email(inquiry_id: int):
         if inquiry is None:
             raise RuntimeError(f"Inquiry {inquiry_id} not found")
 
-        resend.Emails.send(_build_inquiry_email_payload(inquiry))
-        inquiry.status = "sent"
-        inquiry.delivery_error = None
-        inquiry.delivered_at = datetime.now(timezone.utc)
-        db.commit()
-    except Exception as exc:
-        if "inquiry" in locals() and inquiry is not None:
+        try:
+            resend.Emails.send(_build_inquiry_email_payload(inquiry))
+        except Exception as exc:
             inquiry.status = "failed"
             inquiry.delivery_error = str(exc) or exc.__class__.__name__
             inquiry.delivered_at = None
             db.commit()
-        else:
-            db.rollback()
+            return
+
+        inquiry.status = "sent"
+        inquiry.delivery_error = None
+        inquiry.delivered_at = datetime.now(timezone.utc)
+        db.commit()
+    except Exception:
+        db.rollback()
         raise
     finally:
         db.close()

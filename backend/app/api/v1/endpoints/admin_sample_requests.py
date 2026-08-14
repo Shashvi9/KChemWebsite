@@ -46,6 +46,7 @@ class SampleRequestItem(BaseModel):
     assigned_to: Optional[str] = None
 
     class Config:
+        orm_mode = True
         from_attributes = True
 
 
@@ -137,6 +138,50 @@ def list_sample_requests(
     )
 
 
+def _export_sample_requests_response(
+    db: Session,
+    q: Optional[str],
+    status: Optional[str],
+    date_from: Optional[str],
+    date_to: Optional[str],
+    sort: Optional[str],
+):
+    qs = db.query(SampleRequest)
+    qs = _apply_filters(qs, q, status, date_from, date_to)
+    qs = _apply_sort(qs, sort)
+
+    sio = StringIO()
+    writer = csv.writer(sio)
+    headers = [
+        "id","created_at","status","name","company","email","phone","country",
+        "category_slug","subcategory_slug","product_name","quantity","assigned_to"
+    ]
+    writer.writerow(headers)
+    for r in qs.all():
+        writer.writerow([
+            r.id or '', r.created_at or '', r.status or '', r.name or '', r.company or '', r.email or '',
+            r.phone or '', r.country or '', r.category_slug or '', r.subcategory_slug or '', r.product_name or '',
+            r.quantity or '', r.assigned_to or ''
+        ])
+
+    sio.seek(0)
+    return StreamingResponse(sio, media_type="text/csv", headers={
+        "Content-Disposition": "attachment; filename=sample_requests.csv"
+    })
+
+
+@router.get("/export")
+def export_sample_requests_get(
+    db: Session = Depends(get_db),
+    q: Optional[str] = Query(None),
+    status: Optional[str] = Query(None),
+    date_from: Optional[str] = Query(None),
+    date_to: Optional[str] = Query(None),
+    sort: Optional[str] = Query("-created_at"),
+):
+    return _export_sample_requests_response(db, q, status, date_from, date_to, sort)
+
+
 @router.get("/{req_id}", response_model=SampleRequestDetail)
 def get_sample_request(req_id: int, db: Session = Depends(get_db)):
     obj = db.query(SampleRequest).get(req_id)
@@ -177,26 +222,4 @@ def export_sample_requests(
     date_to: Optional[str] = Query(None),
     sort: Optional[str] = Query("-created_at"),
 ):
-    qs = db.query(SampleRequest)
-    qs = _apply_filters(qs, q, status, date_from, date_to)
-    qs = _apply_sort(qs, sort)
-
-    # CSV build
-    sio = StringIO()
-    writer = csv.writer(sio)
-    headers = [
-        "id","created_at","status","name","company","email","phone","country",
-        "category_slug","subcategory_slug","product_name","quantity","assigned_to"
-    ]
-    writer.writerow(headers)
-    for r in qs.all():
-        writer.writerow([
-            r.id or '', r.created_at or '', r.status or '', r.name or '', r.company or '', r.email or '',
-            r.phone or '', r.country or '', r.category_slug or '', r.subcategory_slug or '', r.product_name or '',
-            r.quantity or '', r.assigned_to or ''
-        ])
-
-    sio.seek(0)
-    return StreamingResponse(sio, media_type="text/csv", headers={
-        "Content-Disposition": "attachment; filename=sample_requests.csv"
-    })
+    return _export_sample_requests_response(db, q, status, date_from, date_to, sort)

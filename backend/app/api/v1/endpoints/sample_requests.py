@@ -1,6 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional, Dict, Any
+import logging
 import os
 import resend
 from sqlalchemy.orm import Session
@@ -9,6 +10,7 @@ from app.db.session import get_db
 from app.db.models import SampleRequest as SampleRequestModel
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 class SampleRequest(BaseModel):
     category_slug: str = Field(..., min_length=1)
@@ -91,6 +93,13 @@ def _send_sample_email(req: SampleRequest):
     })
 
 
+def _send_sample_email_safely(req: SampleRequest):
+    try:
+        _send_sample_email(req)
+    except Exception:
+        logger.exception("Failed to send sample request email")
+
+
 @router.post("/", status_code=200)
 async def create_sample_request(req: SampleRequest, tasks: BackgroundTasks, db: Session = Depends(get_db)):
 
@@ -119,5 +128,5 @@ async def create_sample_request(req: SampleRequest, tasks: BackgroundTasks, db: 
         raise HTTPException(status_code=500, detail=f"Database error: {e}")
 
     # send in background
-    tasks.add_task(_send_sample_email, req)
+    tasks.add_task(_send_sample_email_safely, req)
     return {"status": "ok", "id": record_id}

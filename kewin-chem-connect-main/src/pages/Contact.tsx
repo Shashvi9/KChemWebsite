@@ -275,6 +275,25 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
+    };
+
+    if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+      setSubmitted(false);
+      setError('All inquiry fields are required.');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+      setSubmitted(false);
+      setError('Enter a valid email address.');
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -284,7 +303,7 @@ const Contact = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
@@ -330,7 +349,7 @@ const Contact = () => {
                 {error}
               </p>
             )}
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
+            <form onSubmit={handleSubmit} noValidate className="grid grid-cols-1 gap-4">
               <input
                 type="text"
                 name="name"

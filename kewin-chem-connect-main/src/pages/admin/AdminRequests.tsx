@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { adminFetch, exportSampleRequests, listSampleRequests, updateSampleRequest, AdminSampleRequest, getAdminToken } from '@/lib/adminApi';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,21 +24,28 @@ export default function AdminRequests() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<{ items: AdminSampleRequest[]; total: number } | null>(null);
+  const latestLoadId = useRef(0);
 
   async function load() {
+    const loadId = latestLoadId.current + 1;
+    latestLoadId.current = loadId;
     setLoading(true);
     setError(null);
     try {
       const res = await listSampleRequests({ q, status, page, page_size: pageSize, sort });
+      if (loadId !== latestLoadId.current) return;
       setData(res);
     } catch (e: any) {
+      if (loadId !== latestLoadId.current) return;
       if (e?.message === 'unauthorized') {
         window.location.href = '/admin/login';
         return;
       }
       setError(e?.message || 'Failed to load');
     } finally {
-      setLoading(false);
+      if (loadId === latestLoadId.current) {
+        setLoading(false);
+      }
     }
   }
 

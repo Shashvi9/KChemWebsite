@@ -275,3 +275,20 @@ def test_export_uses_same_filters_and_sort_order(client, admin_headers, seed_sam
     assert beta_index < echo_index
     assert "Sunset Yellow" in csv_body
     assert "Vitamin D" in csv_body
+
+
+def test_export_supports_frontend_get_route(client, admin_headers, seed_sample_request):
+    _alpha, beta, _gamma, _delta, echo = _seed_queue(seed_sample_request)
+
+    response = client.get(
+        "/api/v1/admin/sample-requests/export",
+        headers=admin_headers,
+        params={"q": "food", "status": "approved", "sort": "created_at"},
+    )
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/csv")
+    csv_body = response.text
+    beta_index = csv_body.index(str(beta.id))
+    echo_index = csv_body.index(str(echo.id))
+    assert beta_index < echo_index

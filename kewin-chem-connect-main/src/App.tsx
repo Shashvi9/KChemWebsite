@@ -7,6 +7,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { warmUpApi } from "@/lib/apiConfig";
 
 // Main pages
 import Index from "./pages/Index";
@@ -18,13 +20,15 @@ import Contact from "./pages/Contact";
 // Dynamic pages for fully dynamic routing
 import CategoryPage from "./pages/dynamic/CategoryPage";
 import SubcategoryPage from "./pages/dynamic/SubcategoryPage";
-import FormPage from "./pages/dynamic/FormPage";
 
 // Admin pages
 import AdminLogin from "@/pages/admin/AdminLogin";
 import AdminRequests from "@/pages/admin/AdminRequests";
 
 const queryClient = new QueryClient();
+
+// Start waking the Render backend the moment the site opens, before the user reaches a product page.
+warmUpApi();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -45,14 +49,18 @@ const App = () => (
             {/* Fully dynamic routes - 3 level hierarchy */}
             <Route path="/category/:categorySlug" element={<CategoryPage />} />
             <Route path="/category/:categorySlug/:subcategorySlug" element={<SubcategoryPage />} />
-            <Route path="/category/:categorySlug/:subcategorySlug/:formSlug" element={<FormPage />} />
+            {/* Forms (powder/liquid) are separate subcategories now; old form URLs go up a level */}
+            <Route path="/category/:categorySlug/:subcategorySlug/:formSlug" element={<Navigate to=".." relative="path" replace />} />
 
             {/* Redirects from old paths to new dynamic routes */}
             <Route path="/products" element={<Navigate to="/" replace />} />
             <Route path="/dyes-intermediates" element={<Navigate to="/category/dyes-intermediates" replace />} />
             <Route path="/food-pharma" element={<Navigate to="/category/food-pharma-colors" replace />} />
-            <Route path="/shades-pigments" element={<Navigate to="/category/shades-pigments" replace />} />
-            <Route path="/varieties-cosmetics" element={<Navigate to="/category/varieties-cosmetics" replace />} />
+            <Route path="/shades-pigments" element={<Navigate to="/category/pigments" replace />} />
+            <Route path="/category/shades-pigments" element={<Navigate to="/category/pigments" replace />} />
+            {/* No cosmetics catalog in the DB yet: send buyers to an inquiry instead of an error */}
+            <Route path="/varieties-cosmetics" element={<Navigate to="/contact?subject=Cosmetic%20colors" replace />} />
+            <Route path="/category/varieties-cosmetics" element={<Navigate to="/contact?subject=Cosmetic%20colors" replace />} />
 
             {/* Admin */}
             <Route path="/admin/login" element={<AdminLogin />} />
@@ -63,6 +71,7 @@ const App = () => (
           </Routes>
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </TooltipProvider>
   </QueryClientProvider>

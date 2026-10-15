@@ -1,195 +1,9 @@
-// import React, { useState } from "react";
-// import { Button } from "@/components/ui/button";
-// import { Phone, Mail, MapPin, Factory } from "lucide-react";
-
-// const offices = [
-//   {
-//     title: "Head Office",
-//     icon: MapPin,
-//     content: (
-//       <>
-//         <p className="font-medium text-blue-900">C308, The First</p>
-//         <p className="text-blue-700">Vastrapur, Ahmedabad</p>
-//         <p className="text-blue-700">PIN 380015</p>
-//       </>
-//     ),
-//   },
-//  {
-//   title: "Contact",
-//   icon: Phone,
-//   content: (
-//     <div className="space-y-1">
-//       {/* WhatsApp / Phone */}
-//       <a
-//         href="https://wa.me/919879563306"
-//         target="_blank"
-//         rel="noopener noreferrer"
-//         className="text-blue-700 font-medium hover:underline block"
-//       >
-//         +91 9879563306
-//       </a>
-
-//       {/* Email */}
-//       <a
-//         href="mailto:kewinchemicals@gmail.com"
-//         className="text-blue-700 font-medium hover:underline block"
-//       >
-//         kewinchemicals@gmail.com
-//       </a>
-//     </div>
-//   ),
-  
-
-// },
-
-//   {
-//     title: "Factory 1",
-//     icon: Factory,
-//     content: (
-//       <>
-//         <p className="text-blue-700 font-medium">
-//           214, Phase - 2 G.I.D.C Vatva, Ahmedabad, Gujarat
-//         </p>
-//         <p className="text-blue-700">(India)</p>
-//       </>
-//     ),
-//   },
-//   {
-//     title: "Factory 2",
-//     icon: Factory,
-//     content: (
-//       <>
-//         <p className="text-blue-700 font-medium">136, A.K.V.N Jhabua, Madhya Pradesh</p>
-//         <p className="text-blue-700">(India)</p>
-//       </>
-//     ),
-//   },
-// ];
-
-// const Contact = () => {
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     subject: "",
-//     message: "",
-//   });
-//   const [submitted, setSubmitted] = useState(false);
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     console.log(formData); // Replace with API call if needed
-//     setSubmitted(true);
-//     setFormData({ name: "", email: "", subject: "", message: "" });
-//   };
-
-//   return (
-//     <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen py-16">
-//       <div className="container mx-auto px-4">
-//         <div className="text-center mb-12 animate-fade-in">
-//           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-2">
-//             Contact <span className="text-blue-600">Us</span>
-//           </h1>
-//           <p className="text-lg text-blue-700 max-w-2xl mx-auto">
-//             Reach out to Kewin Chemicals for product inquiries, support, or custom chemical solutions.
-//           </p>
-//         </div>
-
-//         {/* Two-Column Layout */}
-//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-//           {/* Left Column - Inquiry Form */}
-//           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 animate-slide-left">
-//             <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center md:text-left">
-//               Send an Inquiry
-//             </h2>
-//             {submitted && (
-//               <p className="text-green-600 text-center mb-4">
-//                 Your inquiry has been submitted successfully!
-//               </p>
-//             )}
-//             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
-//               <input
-//                 type="text"
-//                 name="name"
-//                 value={formData.name}
-//                 onChange={handleChange}
-//                 placeholder="Your Name"
-//                 required
-//                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-//               />
-//               <input
-//                 type="email"
-//                 name="email"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 placeholder="Your Email"
-//                 required
-//                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-//               />
-//               <input
-//                 type="text"
-//                 name="subject"
-//                 value={formData.subject}
-//                 onChange={handleChange}
-//                 placeholder="Subject"
-//                 required
-//                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-//               />
-//               <textarea
-//                 name="message"
-//                 value={formData.message}
-//                 onChange={handleChange}
-//                 placeholder="Your Message"
-//                 rows={5}
-//                 required
-//                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
-//               />
-//               <div className="text-center md:text-right">
-//                 <Button
-//                   type="submit"
-//                   size="lg"
-//                   className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8"
-//                 >
-//                   Submit Inquiry
-//                 </Button>
-//               </div>
-//             </form>
-//           </div>
-
-//           {/* Right Column - Contact Info */}
-//           <div className="space-y-6 animate-slide-right">
-//             {offices.map((office, idx) => (
-//               <div
-//                 key={office.title}
-//                 className="bg-white rounded-xl shadow-lg p-6 flex items-start gap-4 hover:shadow-2xl transition-shadow"
-//                 style={{ animationDelay: `${idx * 0.1}s` }}
-//               >
-//                 <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mt-1">
-//                   <office.icon className="w-5 h-5" />
-//                 </div>
-//                 <div>
-//                   <h3 className="text-lg font-semibold text-blue-900 mb-1">{office.title}</h3>
-//                   <div className="text-blue-700 text-sm leading-snug">{office.content}</div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Contact;
-
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Factory } from "lucide-react";
 import { API_BASE } from '@/lib/apiConfig';
+import { CONTACT_EMAIL, CONTACT_PHONE, COUNTRIES, WHATSAPP_URL, errorMessage } from '@/lib/contact';
 
 const offices = [
   {
@@ -210,20 +24,20 @@ const offices = [
       <div className="space-y-1">
         {/* WhatsApp / Phone */}
         <a
-          href="https://wa.me/919879563306"
+          href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-700 font-medium hover:underline block"
         >
-          +91 9879563306
+          {CONTACT_PHONE} (WhatsApp)
         </a>
 
         {/* Email */}
         <a
-          href="mailto:kewinchemicals@gmail.com"
+          href={`mailto:${CONTACT_EMAIL}`}
           className="text-blue-700 font-medium hover:underline block"
         >
-          kewinchemicals@gmail.com
+          {CONTACT_EMAIL}
         </a>
       </div>
     ),
@@ -258,13 +72,17 @@ const offices = [
   },
 ];
 
+const EMPTY = { name: "", email: "", company: "", country: "", phone: "", subject: "", message: "", website: "" };
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [searchParams] = useSearchParams();
+  const [formData, setFormData] = useState({ ...EMPTY, subject: searchParams.get("subject") || "" });
+
+  // Links like /contact?subject=Cosmetic%20colors prefill the subject, also when already on this page.
+  useEffect(() => {
+    const subject = searchParams.get("subject");
+    if (subject) setFormData((f) => ({ ...f, subject }));
+  }, [searchParams]);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -277,6 +95,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    setSubmitted(false);
 
     try {
       const response = await fetch(`${API_BASE}/inquiries/`, {
@@ -287,15 +106,12 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.detail || 'Failed to submit inquiry');
-      }
+      if (!response.ok) throw new Error(await errorMessage(response));
 
       setSubmitted(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData(EMPTY);
     } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.');
+      setError(err?.name === 'TypeError' ? 'Network error. Please check your connection and try again.' : err?.message);
     } finally {
       setLoading(false);
     }
@@ -321,12 +137,12 @@ const Contact = () => {
               Send an Inquiry
             </h2>
             {submitted && (
-              <p className="text-green-600 text-center mb-4">
-                Your inquiry has been submitted successfully!
+              <p role="status" className="text-green-700 text-center mb-4">
+                Thank you. Our export team will reply within one working day.
               </p>
             )}
             {error && (
-              <p className="text-red-600 text-center mb-4">
+              <p role="alert" className="text-red-600 text-center mb-4">
                 {error}
               </p>
             )}
@@ -336,7 +152,11 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name"
+                placeholder="Your Name *"
+                aria-label="Your name"
+                autoComplete="name"
+                minLength={2}
+                maxLength={255}
                 required
                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
               />
@@ -345,16 +165,61 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email"
+                placeholder="Your Email *"
+                aria-label="Your email"
+                autoComplete="email"
                 required
                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
               />
               <input
                 type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Company"
+                aria-label="Company"
+                autoComplete="organization"
+                maxLength={255}
+                className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="country"
+                  list="contact-countries"
+                  value={formData.country}
+                  onChange={handleChange}
+                  placeholder="Country *"
+                  aria-label="Country"
+                  autoComplete="country-name"
+                  required
+                  maxLength={255}
+                  className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                />
+                <datalist id="contact-countries">{COUNTRIES.map((c) => <option key={c} value={c} />)}</datalist>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone / WhatsApp"
+                  aria-label="Phone or WhatsApp"
+                  autoComplete="tel"
+                  maxLength={64}
+                  className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                />
+              </div>
+              {/* Honeypot: hidden from people, filled by bots */}
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" value={formData.website} onChange={handleChange} />
+              <input
+                type="text"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="Subject"
+                placeholder="Subject *"
+                aria-label="Subject"
+                minLength={2}
+                maxLength={255}
                 required
                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
               />
@@ -362,7 +227,10 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message"
+                placeholder="Your Message *"
+                aria-label="Your message"
+                minLength={10}
+                maxLength={5000}
                 rows={5}
                 required
                 className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"

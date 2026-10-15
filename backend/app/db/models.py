@@ -70,3 +70,19 @@ class SampleRequest(Base):
 
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
+
+
+class Inquiry(Base):
+    """Contact-form inquiries. Saved before emailing so a failed email never loses a lead."""
+    __tablename__ = "inquiries"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False)
+    company = Column(String(255), nullable=True)
+    country = Column(String(255), nullable=True)
+    phone = Column(String(64), nullable=True)
+    subject = Column(String(255), nullable=False)
+    message = Column(Text, nullable=False)
+    email_sent = Column(Boolean, nullable=False, default=False)
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())

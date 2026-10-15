@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import RequestSampleDialog from "@/components/RequestSampleDialog";
 
-import { API_BASE } from '@/lib/apiConfig';
+import { Loader2 } from 'lucide-react';
+import { apiGet } from '@/lib/apiConfig';
+import LoadError from '@/components/LoadError';
 
 interface Props {
   categorySlug?: string;
@@ -22,6 +24,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(!initialData);
   const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (initialData) {
@@ -41,12 +44,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData
           subcategory_slug: subcategorySlug,
         });
 
-        const response = await fetch(`${API_BASE}/products/?${params.toString()}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error ${response.status}`);
-        }
-        const result: Product[] = await response.json();
-        setData(result);
+        setData(await apiGet<Product[]>(`/products/?${params.toString()}`));
       } catch (err: any) {
         console.error("Error loading data:", err);
         setError(err.message || "Failed to load products");
@@ -56,7 +54,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData
     };
 
     fetchData();
-  }, [categorySlug, subcategorySlug, initialData]);
+  }, [categorySlug, subcategorySlug, initialData, attempt]);
 
   const attributeKeys = useMemo(() => {
     const keys = new Set<string>();
@@ -69,7 +67,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData
 
   return (
     <Card className="shadow-card">
-      <CardHeader className="flex flex-row items-center justify-between">
+      <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-3">
         <CardTitle>{title || 'Products'}</CardTitle>
         <RequestSampleDialog
           trigger={<Button>Request Sample</Button>}
@@ -77,8 +75,14 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData
         />
       </CardHeader>
       <CardContent>
-        {loading && <div className="text-muted-foreground">Loading products...</div>}
-        {error && <div className="text-red-600">{error}</div>}
+        {loading && (
+          <div role="status" className="flex flex-col items-center py-12 gap-3 text-muted-foreground">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" aria-hidden="true" />
+            <p>Loading products...</p>
+            <p className="text-sm">This can take up to 30 seconds the first time.</p>
+          </div>
+        )}
+        {error && <LoadError onRetry={() => setAttempt((n) => n + 1)} />}
         {!loading && !error && (
           data.length === 0 ? (
             <div className="text-muted-foreground">No products found.</div>
@@ -99,7 +103,7 @@ const DataTable: React.FC<Props> = ({ categorySlug, subcategorySlug, initialData
                     <tr key={p.id} className="border-t">
                       <td className="px-3 py-2 whitespace-nowrap">{p.name}</td>
                       {attributeKeys.map(key => (
-                        <td key={key} className="px-3 py-2">
+                        <td key={key} className="px-3 py-2 whitespace-nowrap">
                           {String((p.attributes || {})[key] ?? '-')}
                         </td>
                       ))}

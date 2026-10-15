@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChevronRight, Loader2, Palette } from 'lucide-react';
 
-import { API_BASE } from '@/lib/apiConfig';
+import { apiGet } from '@/lib/apiConfig';
+import LoadError from '@/components/LoadError';
 
 type Subcategory = {
   id: number;
@@ -27,6 +28,7 @@ const CategoryPage = () => {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!categorySlug) return;
@@ -35,10 +37,7 @@ const CategoryPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`${API_BASE}/categories/${categorySlug}/subcategories`);
-        if (!response.ok) throw new Error('Failed to fetch subcategories');
-        const data: Subcategory[] = await response.json();
-        setSubcategories(data);
+        setSubcategories(await apiGet<Subcategory[]>(`/categories/${categorySlug}/subcategories`));
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -46,7 +45,7 @@ const CategoryPage = () => {
       }
     };
     fetchSubcategories();
-  }, [categorySlug]);
+  }, [categorySlug, attempt]);
 
   // Convert slug to title case for display
   const toTitle = (slug: string) =>
@@ -55,7 +54,11 @@ const CategoryPage = () => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
 
-  const categoryTitle = categorySlug ? toTitle(categorySlug) : '';
+  const knownTitles: Record<string, string> = {
+    'dyes-intermediates': 'Dyes & Intermediates',
+    'food-pharma-colors': 'Food & Pharma Colors',
+  };
+  const categoryTitle = categorySlug ? knownTitles[categorySlug] ?? toTitle(categorySlug) : '';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 py-12">
@@ -75,16 +78,14 @@ const CategoryPage = () => {
           <div className="flex flex-col items-center justify-center py-16 space-y-4">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
             <div className="text-center">
-              <p className="text-muted-foreground">Loading subcategories...</p>
-              <p className="text-sm text-muted-foreground/70 mt-2">First load may take 30 seconds as server wakes up</p>
+              <p className="text-muted-foreground">Loading products...</p>
+              <p className="text-sm text-muted-foreground/70 mt-2">This can take up to 30 seconds the first time.</p>
             </div>
           </div>
         )}
 
         {/* Error State */}
-        {error && (
-          <div className="text-center py-16 text-red-600">{error}</div>
-        )}
+        {error && <LoadError onRetry={() => setAttempt((n) => n + 1)} />}
 
         {/* Subcategories Grid */}
         {!loading && !error && (

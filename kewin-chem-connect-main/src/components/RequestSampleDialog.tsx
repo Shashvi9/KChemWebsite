@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { COUNTRIES, WHATSAPP_URL, errorMessage } from '@/lib/contact';
 
 export type SampleContext = {
   categorySlug: string;
@@ -35,6 +36,7 @@ export default function RequestSampleDialog(props: {
   const [quantity, setQuantity] = useState('');
   const [useCase, setUseCase] = useState('');
   const [sendCopy, setSendCopy] = useState(true);
+  const [website, setWebsite] = useState(''); // honeypot
 
   const productName = context.product?.name || '';
   const productAttrs = useMemo(() => context.product?.attributes || {}, [context]);
@@ -47,16 +49,15 @@ export default function RequestSampleDialog(props: {
     }
   }, [open]);
 
-  async function submit() {
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
     setSubmitting(true);
     setSuccess(null);
     setError(null);
     try {
-      // Map UI category to backend slug where needed
-      const mappedCategory = (context.categorySlug === 'food-pharma') ? 'food-pharma-colors' : context.categorySlug;
       const body = {
-        category_slug: mappedCategory,
-        subcategory_slug: context.subcategorySlug,
+        category_slug: context.categorySlug || 'search',
+        subcategory_slug: context.subcategorySlug || context.categorySlug || 'search',
         product_id: context.product?.id,
         product_name: productName || undefined,
         attributes: productAttrs && Object.keys(productAttrs).length ? productAttrs : undefined,
@@ -66,7 +67,8 @@ export default function RequestSampleDialog(props: {
         company,
         email,
         phone: phone || undefined,
-        country: country || undefined,
+        country,
+        website: website || undefined,
         send_copy_to_requester: !!sendCopy,
       };
 
@@ -75,13 +77,12 @@ export default function RequestSampleDialog(props: {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
-      setSuccess('Request sent. We will contact you shortly.');
-      // simple reset
+      if (!res.ok) throw new Error(await errorMessage(res));
+      setSuccess('Thank you. Our export team will reply within one working day.');
       setQuantity('');
       setUseCase('');
-    } catch (e: any) {
-      setError(e?.message || 'Failed to send request');
+    } catch (err: any) {
+      setError(err?.name === 'TypeError' ? 'Network error. Please check your connection and try again.' : err?.message);
     } finally {
       setSubmitting(false);
     }
@@ -101,56 +102,70 @@ export default function RequestSampleDialog(props: {
           </div>
         )}
 
-        <div className="grid gap-3">
-          <div className="grid grid-cols-2 gap-3">
+        {success ? (
+          <div role="status" className="py-6 text-center space-y-4">
+            <p className="text-lg font-medium text-green-700">{success}</p>
+            <p className="text-sm text-muted-foreground">
+              Need it faster?{' '}
+              <a className="text-primary underline" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>.
+            </p>
+            <Button onClick={() => setOpen(false)}>Close</Button>
+          </div>
+        ) : (
+        <form onSubmit={submit} className="grid gap-3">
+          <p className="text-xs text-muted-foreground">Fields marked * are required.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+              <Label htmlFor="name">Name *</Label>
+              <Input id="name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} required minLength={2} maxLength={255} />
             </div>
             <div>
-              <Label htmlFor="company">Company</Label>
-              <Input id="company" value={company} onChange={(e) => setCompany(e.target.value)} required />
+              <Label htmlFor="company">Company *</Label>
+              <Input id="company" autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} required minLength={2} maxLength={255} />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <Label htmlFor="email">Work email</Label>
-              <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <Label htmlFor="email">Work email *</Label>
+              <Input id="email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255} />
             </div>
             <div>
-              <Label htmlFor="phone">Phone (optional)</Label>
-              <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              <Label htmlFor="phone">Phone / WhatsApp</Label>
+              <Input id="phone" type="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={64} />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <Label htmlFor="country">Country</Label>
-              <Input id="country" value={country} onChange={(e) => setCountry(e.target.value)} />
+              <Label htmlFor="country">Country *</Label>
+              <Input id="country" list="sample-countries" autoComplete="country-name" value={country} onChange={(e) => setCountry(e.target.value)} required maxLength={255} />
+              <datalist id="sample-countries">{COUNTRIES.map((c) => <option key={c} value={c} />)}</datalist>
             </div>
             <div>
               <Label htmlFor="quantity">Quantity needed</Label>
-              <Input id="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="e.g., 500 g" />
+              <Input id="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="e.g., 500 g sample, 2 MT/month" maxLength={255} />
             </div>
           </div>
           <div>
-            <Label htmlFor="usecase">Intended application (optional)</Label>
-            <Textarea id="usecase" rows={3} value={useCase} onChange={(e) => setUseCase(e.target.value)} />
+            <Label htmlFor="usecase">Intended application</Label>
+            <Textarea id="usecase" rows={3} value={useCase} onChange={(e) => setUseCase(e.target.value)} maxLength={2000} />
           </div>
+          {/* Honeypot: hidden from people, filled by bots */}
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" value={website} onChange={(e) => setWebsite(e.target.value)} />
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" checked={sendCopy} onChange={(e) => setSendCopy(e.target.checked)} />
             Email me a copy of this request
           </label>
-        </div>
 
-        {error && <div className="text-sm text-red-600 mt-2">{error}</div>}
-        {success && <div className="text-sm text-green-600 mt-2">{success}</div>}
+          {error && <div role="alert" className="text-sm text-red-600">{error}</div>}
 
-        <div className="flex justify-end gap-2 mt-4">
-          <Button variant="outline" onClick={() => setOpen(false)} disabled={submitting}>Close</Button>
-          <Button onClick={submit} disabled={submitting || !name || !company || !email}>
-            {submitting ? 'Sending...' : 'Send request'}
-          </Button>
-        </div>
+          <div className="flex justify-end gap-2 mt-2">
+            <Button type="button" variant="outline" onClick={() => setOpen(false)} disabled={submitting}>Cancel</Button>
+            <Button type="submit" disabled={submitting}>
+              {submitting ? 'Sending...' : 'Send request'}
+            </Button>
+          </div>
+        </form>
+        )}
       </DialogContent>
     </Dialog>
   );

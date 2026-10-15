@@ -27,7 +27,7 @@ const categories = [
     title: 'Shades & Pigments',
     description: 'High-performance pigments and colorants for paints, coatings, plastics, and printing applications.',
     icon: Beaker,
-    href: '/category/shades-pigments',
+    href: '/category/pigments',
     color: 'from-purple-500 to-purple-600',
     products: ['Organic Pigments', 'Inorganic Pigments', 'Special Effects', 'Dispersions'],
   },
@@ -36,7 +36,8 @@ const categories = [
     title: 'Cosmetic Varieties',
     description: 'Safe and vibrant colors for cosmetics, personal care products, and beauty applications.',
     icon: Sparkles,
-    href: '/category/varieties-cosmetics',
+    // no cosmetics catalog in the DB yet
+    href: '/contact?subject=Cosmetic%20colors',
     color: 'from-pink-500 to-pink-600',
     products: ['Cosmetic Colors', 'Mica', 'Pearl Pigments', 'Special Effects'],
   },
@@ -115,7 +116,7 @@ export const ProductCategories = () => {
                       size="sm"
                       onClick={(e) => {
                         e.stopPropagation(); // prevent card click
-                        navigate('/contact'); // navigate to Contact page
+                        navigate(`/contact?subject=${encodeURIComponent(`Sample request: ${category.title}`)}`);
                       }}
                     >
                       Request Sample

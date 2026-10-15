@@ -1,5 +1,5 @@
-from sqlalchemy import (Column, Integer, String, ForeignKey, JSON, TIMESTAMP, Boolean, Text, Table,
-                        UniqueConstraint, Index, text)
+from sqlalchemy import (Column, Integer, String, ForeignKey, JSON, TIMESTAMP, Boolean, Text, Table, Date,
+                        UniqueConstraint, Index, CheckConstraint, text)
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -101,6 +101,7 @@ class ProductFile(Base):
 
 
 class SampleRequest(Base):
+    """Legacy: no longer written (see Lead). Kept with its data intact."""
     __tablename__ = "sample_requests"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -131,7 +132,7 @@ class SampleRequest(Base):
 
 
 class Inquiry(Base):
-    """Contact-form inquiries. Saved before emailing so a failed email never loses a lead."""
+    """Legacy: no longer written (see Lead). Kept with its data intact."""
     __tablename__ = "inquiries"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -144,3 +145,54 @@ class Inquiry(Base):
     message = Column(Text, nullable=False)
     email_sent = Column(Boolean, nullable=False, default=False)
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
+
+
+LEAD_TYPES = ("sample", "inquiry", "whatsapp", "email", "phone", "marketplace", "trade_fair", "other")
+LEAD_SOURCES = ("website", "whatsapp", "email", "phone", "alibaba", "indiamart", "tradeindia", "echemi",
+                "trade_fair", "referral", "other")
+LEAD_STATUSES = ("new", "contacted", "quoted", "sample_sent", "negotiating", "won", "lost", "spam")
+
+
+def _in(col, values):
+    return f"{col} IN ({', '.join(repr(v) for v in values)})"
+
+
+class Lead(Base):
+    """Every enquiry in one place. Website forms write here; WhatsApp/marketplace leads are added in admin.
+    sample_requests and inquiries are the old tables, kept as-is; their rows were copied in by migration 0003."""
+    __tablename__ = "leads"
+    __table_args__ = (
+        CheckConstraint(_in("type", LEAD_TYPES), name="ck_leads_type"),
+        CheckConstraint(_in("source", LEAD_SOURCES), name="ck_leads_source"),
+        CheckConstraint(_in("status", LEAD_STATUSES), name="ck_leads_status"),
+        CheckConstraint("email IS NOT NULL OR phone IS NOT NULL", name="ck_leads_contact"),
+        UniqueConstraint("legacy_table", "legacy_id", name="uq_leads_legacy"),
+        Index("ix_leads_status_created", "status", "created_at"),
+    )
+
+    id = Column(Integer, primary_key=True)
+    type = Column(String(16), nullable=False)
+    source = Column(String(16), nullable=False, server_default="website")
+    status = Column(String(16), nullable=False, server_default="new")
+    product_id = Column(Integer, ForeignKey("products.id", ondelete="SET NULL"), index=True)
+    product_name = Column(String(255))
+    category_slug = Column(String(255))
+    subcategory_slug = Column(String(255))
+    product_attributes = Column(JSONB)
+    name = Column(String(255), nullable=False)
+    company = Column(String(255))
+    email = Column(String(255))
+    phone = Column(String(64))
+    country = Column(String(255))
+    quantity = Column(String(255))
+    subject = Column(String(255))
+    message = Column(Text)
+    assigned_to = Column(String(255))
+    notes = Column(Text)
+    follow_up_on = Column(Date, index=True)
+    send_copy_to_requester = Column(Boolean, nullable=False, server_default=text("false"))
+    email_sent = Column(Boolean, server_default=text("false"))  # NULL = unknown (older rows)
+    legacy_table = Column(String(32))
+    legacy_id = Column(Integer)
+    created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now(), index=True)
+    updated_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())

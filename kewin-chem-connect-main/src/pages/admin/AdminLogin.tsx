@@ -19,9 +19,9 @@ export default function AdminLogin() {
     setError(null);
     try {
       await adminLogin(username, password);
-      navigate('/admin/requests');
-    } catch (err: any) {
-      setError(err?.message || 'Login failed');
+      navigate('/admin/leads');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -37,11 +37,11 @@ export default function AdminLogin() {
           <form className="grid gap-4" onSubmit={submit}>
             <div>
               <Label htmlFor="username">Username</Label>
-              <Input id="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+              <Input id="username" autoComplete="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
             </div>
             <div>
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <Input id="password" type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
             {error && <div className="text-sm text-red-600">{error}</div>}
             <Button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Sign in'}</Button>

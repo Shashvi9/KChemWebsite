@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -21,16 +22,18 @@ import Contact from "./pages/Contact";
 import CategoryPage from "./pages/dynamic/CategoryPage";
 import SubcategoryPage from "./pages/dynamic/SubcategoryPage";
 
-// Admin pages
-import AdminLogin from "@/pages/admin/AdminLogin";
-import AdminRequests from "@/pages/admin/AdminRequests";
+// Admin pages: loaded only when visited, so public visitors don't download them
+const AdminLogin = lazy(() => import("@/pages/admin/AdminLogin"));
+const AdminLeads = lazy(() => import("@/pages/admin/AdminLeads"));
 
 const queryClient = new QueryClient();
 
 // Start waking the Render backend the moment the site opens, before the user reaches a product page.
 warmUpApi();
 
-const App = () => (
+const App = () => {
+  const isAdmin = useLocation().pathname.startsWith("/admin");
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -63,18 +66,21 @@ const App = () => (
             <Route path="/category/varieties-cosmetics" element={<Navigate to="/contact?subject=Cosmetic%20colors" replace />} />
 
             {/* Admin */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/requests" element={<AdminRequests />} />
+            <Route path="/admin/login" element={<Suspense fallback={null}><AdminLogin /></Suspense>} />
+            <Route path="/admin/leads" element={<Suspense fallback={null}><AdminLeads /></Suspense>} />
+            <Route path="/admin/requests" element={<Navigate to="/admin/leads" replace />} />
+            <Route path="/admin" element={<Navigate to="/admin/leads" replace />} />
 
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        <Footer />
-        <WhatsAppButton />
+        {!isAdmin && <Footer />}
+        {!isAdmin && <WhatsAppButton />}
       </div>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

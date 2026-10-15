@@ -9,7 +9,8 @@ from app.core import email
 from app.core.ratelimit import limit
 
 from app.db.session import get_db
-from app.db.models import SampleRequest as SampleRequestModel
+from app.db.models import Lead, Product
+from app.db.session import SessionLocal
 
 router = APIRouter()
 log = logging.getLogger("kewin.sample_requests")
@@ -34,7 +35,7 @@ class SampleRequest(BaseModel):
     website: Optional[str] = None  # honeypot: hidden field, bots fill it
 
 
-def _send_sample_email(req: SampleRequest):
+def _send_sample_email(lead_id: int, req: SampleRequest):
     to_email = os.environ.get("SAMPLE_REQUEST_TO", email.DEFAULT_TO)
     subject = f"[Sample Request] {req.product_name or req.subcategory_slug} – {req.company} ({req.country or '-'})"
 
@@ -78,6 +79,9 @@ def _send_sample_email(req: SampleRequest):
 
     if not email.send(to_email, subject, html, reply_to=str(req.email)):
         return
+    with SessionLocal() as db:
+        db.query(Lead).filter(Lead.id == lead_id).update({"email_sent": True})
+        db.commit()
     # Separate message so the requester never sees the internal inbox address.
     if req.send_copy_to_requester and email.can_email_outsiders():
         email.send(str(req.email), f"Your sample request: {req.product_name or req.subcategory_slug}", html)
@@ -91,19 +95,22 @@ def create_sample_request(req: SampleRequest, request: Request, tasks: Backgroun
 
     # Persist to DB
     try:
-        record = SampleRequestModel(
+        record = Lead(
+            type="sample",
+            source="website",
             category_slug=req.category_slug,
             subcategory_slug=req.subcategory_slug,
-            product_id=req.product_id,
+            # Unknown ids (stale page, tampered request) must not lose the lead on the FK.
+            product_id=req.product_id if req.product_id and db.get(Product, req.product_id) else None,
             product_name=req.product_name,
-            attributes=req.attributes,
-            quantity=req.quantity,
-            use_case=req.use_case,
+            product_attributes=req.attributes,
+            quantity=req.quantity or None,
+            message=req.use_case or None,
             name=req.name,
             company=req.company,
             email=str(req.email),
-            phone=req.phone,
-            country=req.country,
+            phone=req.phone or None,
+            country=req.country or None,
             send_copy_to_requester=req.send_copy_to_requester,
         )
         db.add(record)
@@ -115,5 +122,5 @@ def create_sample_request(req: SampleRequest, request: Request, tasks: Backgroun
         raise HTTPException(status_code=500, detail="Could not submit right now. Please email or WhatsApp us.")
 
     # send in background
-    tasks.add_task(_send_sample_email, req)
+    tasks.add_task(_send_sample_email, record_id, req)
     return {"status": "ok", "id": record_id}

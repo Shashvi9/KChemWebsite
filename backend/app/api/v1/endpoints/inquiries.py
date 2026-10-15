@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.core import email
 from app.core.ratelimit import limit
-from app.db.models import Inquiry
+from app.db.models import Lead
 from app.db.session import SessionLocal, get_db
 
 router = APIRouter()
@@ -49,7 +49,7 @@ def _notify(inquiry_id: int, req: InquiryRequest):
     sent = email.send(to, f"[Website Inquiry] {req.subject} – from {req.name} ({req.country or '-'})", html, str(req.email))
     if sent:
         with SessionLocal() as db:
-            db.query(Inquiry).filter(Inquiry.id == inquiry_id).update({"email_sent": True})
+            db.query(Lead).filter(Lead.id == inquiry_id).update({"email_sent": True})
             db.commit()
 
 
@@ -59,7 +59,8 @@ def create_inquiry(req: InquiryRequest, request: Request, tasks: BackgroundTasks
         return {"status": "ok", "message": "Inquiry submitted successfully"}
     limit(request, "inquiry")
     try:
-        record = Inquiry(**req.model_dump(exclude={"website"}, mode="json"))
+        data = req.model_dump(exclude={"website"}, mode="json")
+        record = Lead(type="inquiry", source="website", **{k: (v or None) for k, v in data.items()})
         db.add(record)
         db.commit()
     except Exception:

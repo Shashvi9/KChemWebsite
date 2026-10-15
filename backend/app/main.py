@@ -5,7 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from app.api.v1.api import api_router
-from app.db.models import Inquiry
 from app.db.session import engine
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -43,13 +42,6 @@ app.add_middleware(
 @app.get("/", tags=["Root"])
 async def read_root():
     return {"message": "Welcome to the Kewin Chem Connect API!"}
-
-@app.on_event("startup")
-def ensure_new_tables():
-    # Additive only: creates the inquiries table if missing, never alters existing tables.
-    # ponytail: replace with Alembic migrations (Week 2).
-    Inquiry.__table__.create(bind=engine, checkfirst=True)
-
 
 @app.get("/health", tags=["Root"])
 def health():

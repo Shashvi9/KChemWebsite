@@ -37,6 +37,7 @@ class ProductCreate(ProductBase):
 
 class Product(ProductBase):
     id: int
+    slug: Optional[str] = None
     subcategory_id: int
 
     class Config:

@@ -20,7 +20,7 @@ This guide walks you through deploying the KChem website stack on free tiers:
 1. In your Neon dashboard, go to **Connection Details**
 2. Copy the **Connection String** (it looks like):
    ```
-   postgresql://username:password@ep-xxx.region.aws.neon.tech/dbname?sslmode=require
+   <your Neon DATABASE_URL — set it in the Render dashboard, never in git>
    ```
 3. **Save this** - you'll need it for Render
 
@@ -33,13 +33,13 @@ You have two options:
 pg_dump -h your-current-host -U your-user -d your-db --schema-only > schema.sql
 
 # Import to Neon
-psql "postgresql://username:password@ep-xxx.region.aws.neon.tech/dbname?sslmode=require" < schema.sql
+psql "<your Neon DATABASE_URL — set it in the Render dashboard, never in git>" < schema.sql
 ```
 
 **Option B: Using SQLAlchemy migrations (if you have them)**
 ```bash
 # Set DATABASE_URL to your Neon connection string
-export DATABASE_URL="postgresql://username:password@ep-xxx.region.aws.neon.tech/dbname?sslmode=require"
+export DATABASE_URL="<your Neon DATABASE_URL — set it in the Render dashboard, never in git>"
 
 # Run migrations
 cd backend
@@ -52,7 +52,7 @@ python -m alembic upgrade head
 pg_dump -h your-current-host -U your-user -d your-db --data-only > data.sql
 
 # Import to Neon
-psql "postgresql://username:password@ep-xxx.region.aws.neon.tech/dbname?sslmode=require" < data.sql
+psql "<your Neon DATABASE_URL — set it in the Render dashboard, never in git>" < data.sql
 ```
 
 ---

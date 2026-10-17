@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import RequestSampleDialog from '@/components/RequestSampleDialog';
 
-import { API_BASE } from '@/lib/apiConfig';
+import { apiGet } from '@/lib/apiConfig';
+import LoadError from '@/components/LoadError';
 
 interface Product {
   id: number;
@@ -20,6 +21,7 @@ const SearchResults = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     const searchProducts = async () => {
@@ -32,12 +34,7 @@ const SearchResults = () => {
       setError(null);
 
       try {
-        const response = await fetch(`${API_BASE}/products/search?q=${encodeURIComponent(query.trim())}`);
-        if (!response.ok) {
-          throw new Error(`Search failed: ${response.status}`);
-        }
-        const result: Product[] = await response.json();
-        setProducts(result);
+        setProducts(await apiGet<Product[]>(`/products/search?q=${encodeURIComponent(query.trim())}`));
       } catch (e: any) {
         setError(e.message);
         setProducts([]);
@@ -47,7 +44,7 @@ const SearchResults = () => {
     };
 
     searchProducts();
-  }, [query]);
+  }, [query, attempt]);
 
   // Determine dynamic columns from attributes union
   const attributeKeys = useMemo(() => {
@@ -78,11 +75,7 @@ const SearchResults = () => {
         )}
 
         {/* Error State */}
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-            <p className="text-red-600">{error}</p>
-          </div>
-        )}
+        {error && <LoadError onRetry={() => setAttempt((n) => n + 1)} />}
 
         {/* Results */}
         {!loading && !error && products.length > 0 && (
@@ -91,7 +84,7 @@ const SearchResults = () => {
               <CardTitle>{query ? `Results for "${query}"` : 'Search Results'}</CardTitle>
               <RequestSampleDialog
                 trigger={<Button>Request Sample</Button>}
-                context={{ categorySlug: '', subcategorySlug: '', product: null }}
+                context={{ categorySlug: 'search', subcategorySlug: 'search', product: null }}
               />
             </CardHeader>
             <CardContent>
@@ -119,8 +112,8 @@ const SearchResults = () => {
                           <RequestSampleDialog
                             trigger={<Button size="sm" variant="outline">Request sample</Button>}
                             context={{
-                              categorySlug: '',
-                              subcategorySlug: '',
+                              categorySlug: 'search',
+                              subcategorySlug: 'search',
                               product: { id: p.id, name: p.name, attributes: p.attributes || {} },
                             }}
                           />

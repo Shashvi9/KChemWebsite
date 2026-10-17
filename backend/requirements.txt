@@ -7,3 +7,4 @@ pydantic[email]
 email-validator
 python-jose[cryptography]
 resend
+alembic

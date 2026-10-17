@@ -1,46 +1,45 @@
-from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Depends, Request
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional, Dict, Any
+import logging
 import os
-import resend
 from sqlalchemy.orm import Session
 
+from app.core import email
+from app.core.ratelimit import limit
+
 from app.db.session import get_db
-from app.db.models import SampleRequest as SampleRequestModel
+from app.db.models import Lead, Product
+from app.db.session import SessionLocal
 
 router = APIRouter()
+log = logging.getLogger("kewin.sample_requests")
 
 class SampleRequest(BaseModel):
-    category_slug: str = Field(..., min_length=1)
-    subcategory_slug: str = Field(..., min_length=1)
+    category_slug: str = Field("search", max_length=255)
+    subcategory_slug: str = Field("search", max_length=255)
     product_id: Optional[int] = None
-    product_name: Optional[str] = None
+    product_name: Optional[str] = Field(None, max_length=255)
     attributes: Optional[Dict[str, Any]] = None
 
-    quantity: Optional[str] = None
-    use_case: Optional[str] = None
+    quantity: Optional[str] = Field(None, max_length=255)
+    use_case: Optional[str] = Field(None, max_length=2000)
 
-    name: str = Field(..., min_length=2)
-    company: str = Field(..., min_length=2)
+    name: str = Field(..., min_length=2, max_length=255)
+    company: str = Field(..., min_length=2, max_length=255)
     email: EmailStr
-    phone: Optional[str] = None
-    country: Optional[str] = None
+    phone: Optional[str] = Field(None, max_length=64)
+    country: Optional[str] = Field(None, max_length=255)
 
     send_copy_to_requester: bool = False
+    website: Optional[str] = None  # honeypot: hidden field, bots fill it
 
 
-def _send_sample_email(req: SampleRequest):
-    api_key = os.environ.get("RESEND_API_KEY")
-    if not api_key:
-        raise RuntimeError("RESEND_API_KEY is not configured")
-
-    resend.api_key = api_key
-    to_email = os.environ.get("SAMPLE_REQUEST_TO", "kctl96@gmail.com")
-    from_email = os.environ.get("RESEND_FROM", "Kewin Chemicals <onboarding@resend.dev>")
+def _send_sample_email(lead_id: int, req: SampleRequest):
+    to_email = os.environ.get("SAMPLE_REQUEST_TO", email.DEFAULT_TO)
     subject = f"[Sample Request] {req.product_name or req.subcategory_slug} – {req.company} ({req.country or '-'})"
 
-    def esc(s: str) -> str:
-        return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    esc = email.esc
 
     def row(label: str, value: str) -> str:
         return f'<tr><td style="padding:6px 10px;color:#555;white-space:nowrap;"><strong>{esc(label)}</strong></td><td style="padding:6px 10px;color:#111;">{esc(value)}</td></tr>'
@@ -78,46 +77,50 @@ def _send_sample_email(req: SampleRequest):
     </div>
     """
 
-    to_list = [to_email]
-    if req.send_copy_to_requester:
-        to_list.append(str(req.email))
-
-    resend.Emails.send({
-        "from": from_email,
-        "to": to_list,
-        "reply_to": str(req.email),
-        "subject": subject,
-        "html": html,
-    })
+    if not email.send(to_email, subject, html, reply_to=str(req.email)):
+        return
+    with SessionLocal() as db:
+        db.query(Lead).filter(Lead.id == lead_id).update({"email_sent": True})
+        db.commit()
+    # Separate message so the requester never sees the internal inbox address.
+    if req.send_copy_to_requester and email.can_email_outsiders():
+        email.send(str(req.email), f"Your sample request: {req.product_name or req.subcategory_slug}", html)
 
 
 @router.post("/", status_code=200)
-async def create_sample_request(req: SampleRequest, tasks: BackgroundTasks, db: Session = Depends(get_db)):
+def create_sample_request(req: SampleRequest, request: Request, tasks: BackgroundTasks, db: Session = Depends(get_db)):
+    if req.website:  # bot; pretend success
+        return {"status": "ok", "id": None}
+    limit(request, "sample")
 
     # Persist to DB
     try:
-        record = SampleRequestModel(
+        record = Lead(
+            type="sample",
+            source="website",
             category_slug=req.category_slug,
             subcategory_slug=req.subcategory_slug,
-            product_id=req.product_id,
+            # Unknown ids (stale page, tampered request) must not lose the lead on the FK.
+            product_id=req.product_id if req.product_id and db.get(Product, req.product_id) else None,
             product_name=req.product_name,
-            attributes=req.attributes,
-            quantity=req.quantity,
-            use_case=req.use_case,
+            product_attributes=req.attributes,
+            quantity=req.quantity or None,
+            message=req.use_case or None,
             name=req.name,
             company=req.company,
             email=str(req.email),
-            phone=req.phone,
-            country=req.country,
+            phone=req.phone or None,
+            country=req.country or None,
             send_copy_to_requester=req.send_copy_to_requester,
         )
         db.add(record)
         db.commit()
         record_id = record.id
-    except Exception as e:
+    except Exception:
         db.rollback()
-        raise HTTPException(status_code=500, detail=f"Database error: {e}")
+        log.exception("Failed to save sample request")
+        raise HTTPException(status_code=500, detail="Could not submit right now. Please email or WhatsApp us.")
 
     # send in background
-    tasks.add_task(_send_sample_email, req)
+    tasks.add_task(_send_sample_email, record_id, req)
     return {"status": "ok", "id": record_id}

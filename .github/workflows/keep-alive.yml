@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Ping Render backend
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://kewinchem-backend.onrender.com/ --max-time 60)
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://kewinchem-backend.onrender.com/health --max-time 60)
           echo "Backend status: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "Warning: backend returned $STATUS"

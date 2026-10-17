@@ -1,7 +1,13 @@
-from fastapi import FastAPI
+import logging
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 
 from app.api.v1.api import api_router
+from app.db.session import engine
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
 app = FastAPI(
     title="Kewin Chem Connect API",
@@ -27,7 +33,7 @@ if frontend_url:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_origin_regex=r"https://.*\.vercel\.app",  # Allow all Vercel deployments
+    allow_origin_regex=r"https://kchemicalwebsite-[a-z0-9-]+\.vercel\.app",  # this project's preview deployments only
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -36,6 +42,17 @@ app.add_middleware(
 @app.get("/", tags=["Root"])
 async def read_root():
     return {"message": "Welcome to the Kewin Chem Connect API!"}
+
+@app.get("/health", tags=["Root"])
+def health():
+    """Touches the DB so uptime pings keep both Render and Neon awake."""
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception:
+        raise HTTPException(status_code=503, detail="database unavailable")
+    return {"status": "ok"}
+
 
 app.include_router(api_router, prefix="/api/v1")
 

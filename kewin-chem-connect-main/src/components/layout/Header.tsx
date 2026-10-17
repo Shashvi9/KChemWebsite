@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Phone, Mail, ChevronDown, Search } from 'lucide-react';
+import { Menu, Phone, Mail, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import logoWhite from '@/assets/logoWhite.png';
 import { SearchBar } from '@/components/search/SearchBar';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '@/lib/contact';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -15,8 +16,8 @@ const navigation = [
     children: [
       { name: 'Dyes & Intermediates', href: '/category/dyes-intermediates' },
       { name: 'Food & Pharma', href: '/category/food-pharma-colors' },
-      { name: 'Shades & Pigments', href: '/category/shades-pigments' },
-      { name: 'Varieties in Cosmetics', href: '/category/varieties-cosmetics' },
+      { name: 'Shades & Pigments', href: '/category/pigments' },
+      { name: 'Varieties in Cosmetics', href: '/contact?subject=Cosmetic%20colors' },
     ],
   },
   { name: 'About Us', href: '/about' },
@@ -82,16 +83,21 @@ const DesktopNavigation = () => {
 const MobileNavigation = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const [open, setOpen] = useState(false);
+
+  // Close the menu once the user navigates (link tap or search).
+  useEffect(() => setOpen(false), [location.pathname, location.search]);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="sm" className="lg:hidden">
+        <Button variant="ghost" size="sm" className="lg:hidden" aria-label="Open menu">
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-80">
         <div className="flex flex-col space-y-4 mt-8">
+          <SearchBar className="flex" onSearch={() => setOpen(false)} />
           {navigation.map((item) => {
             const isActive = item.href === currentPath ||
               (item.children && item.children.some(child => child.href === currentPath));
@@ -141,18 +147,18 @@ export const Header = () => {
           <div className="flex items-center justify-between py-2 text-sm">
             <div className="flex items-center space-x-6">
               <a
-                href="tel:+919879563306"
+                href={`tel:${CONTACT_PHONE_TEL}`}
                 className="flex items-center gap-2 text-primary-dark hover:text-primary transition-colors"
               >
                 <Phone className="h-3 w-3" />
-                +91 9879563306
+                {CONTACT_PHONE}
               </a>
               <a
-                href="mailto:kctl96@gmail.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="flex items-center gap-2 text-primary-dark hover:text-primary transition-colors"
               >
                 <Mail className="h-3 w-3" />
-                kctl96@gmail.com
+                <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
               </a>
             </div>
             <div className="hidden md:block text-primary-dark">

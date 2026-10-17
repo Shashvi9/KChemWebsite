@@ -26,7 +26,8 @@ import SubcategoryPage from "./pages/dynamic/SubcategoryPage";
 const AdminLogin = lazy(() => import("@/pages/admin/AdminLogin"));
 const AdminLeads = lazy(() => import("@/pages/admin/AdminLeads"));
 
-const queryClient = new QueryClient();
+// apiGet already retries with timeouts (cold starts); don't multiply that here.
+const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } });
 
 // Start waking the Render backend the moment the site opens, before the user reaches a product page.
 warmUpApi();

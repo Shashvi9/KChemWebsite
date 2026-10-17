@@ -28,6 +28,15 @@ class Subcategory(SubcategoryBase):
     class Config:
         orm_mode = True
 
+
+class SubcategoryWithCount(Subcategory):
+    product_count: int = 0
+
+
+class CategoryOverview(Category):
+    product_count: int = 0
+    subcategories: List[SubcategoryWithCount] = []
+
 class ProductBase(BaseModel):
     name: str
     attributes: Optional[Dict[str, Any]] = None

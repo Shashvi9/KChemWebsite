@@ -11,9 +11,9 @@ const offices = [
     icon: MapPin,
     content: (
       <>
-        <p className="font-medium text-blue-900">C - 308, The First</p>
-        <p className="text-blue-700">Nyay Marg, IIM, Vastrapur,</p>
-        <p className="text-blue-700">Ahmedabad - 380015</p>
+        <p className="font-medium text-foreground">C - 308, The First</p>
+        <p className="text-muted-foreground">Nyay Marg, IIM, Vastrapur,</p>
+        <p className="text-muted-foreground">Ahmedabad - 380015</p>
       </>
     ),
   },
@@ -27,7 +27,7 @@ const offices = [
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-700 font-medium hover:underline block"
+          className="text-muted-foreground font-medium hover:underline block"
         >
           {CONTACT_PHONE} (WhatsApp)
         </a>
@@ -35,7 +35,7 @@ const offices = [
         {/* Email */}
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="text-blue-700 font-medium hover:underline block"
+          className="text-muted-foreground font-medium hover:underline block"
         >
           {CONTACT_EMAIL}
         </a>
@@ -50,7 +50,7 @@ const offices = [
         href="https://www.google.com/maps/place/Kewin+Chemicals+Pvt+Ltd/@22.9638752,72.6403775,16.74z/data=!4m15!1m8!3m7!1s0x395e848aa5155555:0xb8730d1b59be389f!2sKewin+Chemicals+Pvt+Ltd!8m2!3d22.9639535!4d72.6407919!10e5!16s%2Fg%2F1thhhxfq!3m5!1s0x395e848aa5155555:0xb8730d1b59be389f!8m2!3d22.9639535!4d72.6407919!16s%2Fg%2F1thhhxfq?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-700 font-medium hover:underline block"
+        className="text-muted-foreground font-medium hover:underline block"
       >
         214, Phase - 2 G.I.D.C Vatva, Ahmedabad, Gujarat (India)
       </a>
@@ -64,7 +64,7 @@ const offices = [
         href="https://www.google.com/maps/place/Kewin+chemicals+Pvt+Ltd+saykha+unit+1/@21.7939325,70.6977081,8z/data=!4m10!1m2!2m1!1sKewin+Chemicals+Pvt+Ltd+Madhya+Pradesh+!3m6!1s0x395f875a8713e20f:0x83515f38b0b5907a!8m2!3d21.7938945!4d72.8069544!15sCiZLZXdpbiBDaGVtaWNhbHMgUHZ0IEx0ZCBNYWRoeWEgUHJhZGVzaJIBDG1hbnVmYWN0dXJlcqoBbBABKhsiF2tld2luIGNoZW1pY2FscyBwdnQgbHRkKAAyHxABIhtNzCDzeS0vpsqjWU-xWGCmvWb7lFAe6h8ItTMyKhACIiZrZXdpbiBjaGVtaWNhbHMgcHZ0IGx0ZCBtYWRoeWEgcHJhZGVzaOABAA!16s%2Fg%2F11ry58ms9l?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-700 font-medium hover:underline block"
+        className="text-muted-foreground font-medium hover:underline block"
       >
         136, A.K.V.N Jhabua, Madhya Pradesh (India)
       </a>
@@ -118,13 +118,13 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen py-16">
+    <div className="bg-gradient-to-b from-background to-white min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-2">
-            Contact <span className="text-blue-600">Us</span>
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-2">
+            Contact us
           </h1>
-          <p className="text-lg text-blue-700 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Reach out to Kewin Chemicals for product inquiries, support, or custom chemical solutions.
           </p>
         </div>
@@ -132,8 +132,8 @@ const Contact = () => {
         {/* Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Inquiry Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 animate-slide-left">
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6 text-center md:text-left">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center md:text-left">
               Send an Inquiry
             </h2>
             {submitted && (
@@ -158,7 +158,7 @@ const Contact = () => {
                 minLength={2}
                 maxLength={255}
                 required
-                className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
               />
               <input
                 type="email"
@@ -169,7 +169,7 @@ const Contact = () => {
                 aria-label="Your email"
                 autoComplete="email"
                 required
-                className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
               />
               <input
                 type="text"
@@ -180,7 +180,7 @@ const Contact = () => {
                 aria-label="Company"
                 autoComplete="organization"
                 maxLength={255}
-                className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
               />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
@@ -194,7 +194,7 @@ const Contact = () => {
                   autoComplete="country-name"
                   required
                   maxLength={255}
-                  className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                  className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
                 />
                 <datalist id="contact-countries">{COUNTRIES.map((c) => <option key={c} value={c} />)}</datalist>
                 <input
@@ -206,7 +206,7 @@ const Contact = () => {
                   aria-label="Phone or WhatsApp"
                   autoComplete="tel"
                   maxLength={64}
-                  className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                  className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
                 />
               </div>
               {/* Honeypot: hidden from people, filled by bots */}
@@ -221,7 +221,7 @@ const Contact = () => {
                 minLength={2}
                 maxLength={255}
                 required
-                className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
               />
               <textarea
                 name="message"
@@ -233,13 +233,13 @@ const Contact = () => {
                 maxLength={5000}
                 rows={5}
                 required
-                className="p-3 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                className="p-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
               />
               <div className="text-center md:text-right">
                 <Button
                   type="submit"
                   size="lg"
-                  className="bg-blue-600 text-white hover:bg-blue-700 font-semibold px-8"
+                  className="bg-primary text-white hover:bg-primary/90 font-semibold px-8"
                   disabled={loading}
                 >
                   {loading ? 'Submitting...' : 'Submit Inquiry'}
@@ -249,19 +249,19 @@ const Contact = () => {
           </div>
 
           {/* Right Column - Contact Info */}
-          <div className="space-y-6 animate-slide-right">
+          <div className="space-y-6">
             {offices.map((office, idx) => (
               <div
                 key={office.title}
                 className="bg-white rounded-xl shadow-lg p-6 flex items-start gap-4 hover:shadow-2xl transition-shadow"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mt-1">
+                <div className="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mt-1">
                   <office.icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-900 mb-1">{office.title}</h3>
-                  <div className="text-blue-700 text-sm leading-snug">{office.content}</div>
+                  <h3 className="text-lg font-semibold text-foreground mb-1">{office.title}</h3>
+                  <div className="text-muted-foreground text-sm leading-snug">{office.content}</div>
                 </div>
               </div>
             ))}

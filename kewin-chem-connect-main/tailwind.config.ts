@@ -7,13 +7,19 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: { DEFAULT: "1rem", md: "2rem" },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1216px",
       },
     },
     extend: {
       colors: {
+        brand: {
+          orange: "hsl(var(--brand-orange))",
+          green: "hsl(var(--brand-green))",
+          red: "hsl(var(--brand-red))",
+          yellow: "hsl(var(--brand-yellow))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -66,13 +72,15 @@ export default {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-light': 'var(--gradient-light)',
       },
+      maxWidth: { site: '76rem' },
       boxShadow: {
         'corporate': 'var(--shadow-corporate)',
         'card': 'var(--shadow-card)',
         'hover': 'var(--shadow-hover)',
       },
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",

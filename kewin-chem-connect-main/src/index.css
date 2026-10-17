@@ -1,75 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Kewin Chemical Corporate Design System
-Primary Blue: #0B63D6, Dark Blue: #073A7A, Accent Blue: #2F8BFF, Light Blue: #EAF2FF 
-All colors MUST be HSL.
-*/
-
-
+/* Kewin design tokens. Colours come from the logo (hexagons + wordmark).
+   Use these tokens (bg-primary, text-muted-foreground, border-border...), never raw palette classes. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 216 32% 17%;
+    --background: 36 45% 97%;        /* warm paper #FBF8F3 */
+    --foreground: 30 8% 11%;         /* ink #1D1B19 */
 
     --card: 0 0% 100%;
-    --card-foreground: 216 32% 17%;
-
+    --card-foreground: 30 8% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 216 32% 17%;
+    --popover-foreground: 30 8% 11%;
 
-    /* Kewin Chemical Brand Colors */
-    --primary: 213 94% 44%; /* #0B63D6 */
+    --primary: 23 86% 41%;           /* burnt orange #C2530F: buttons, links (AA on white) */
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 213 94% 25%; /* #073A7A */
-    --primary-accent: 213 100% 59%; /* #2F8BFF */
-    --primary-light: 213 100% 96%; /* #EAF2FF */
+    --secondary: 36 33% 92%;         /* sand #F2ECE3: quiet surfaces */
+    --secondary-foreground: 30 8% 11%;
+    --muted: 36 33% 92%;
+    --muted-foreground: 31 9% 38%;   /* #6B635A, AA on paper */
+    --accent: 36 33% 92%;
+    --accent-foreground: 30 8% 11%;
 
-    --secondary: 213 100% 96%; /* Light blue background */
-    --secondary-foreground: 213 94% 25%;
-
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 213 100% 59%; /* Accent blue */
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
+    --border: 37 23% 86%;            /* #E5DED3 */
+    --input: 37 23% 80%;
+    --ring: 23 86% 41%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 213 94% 44%;
+    /* Logo colours, for small brand moments only */
+    --brand-orange: 28 87% 53%;      /* K */
+    --brand-green: 73 67% 46%;       /* ewin #A4C427 */
+    --brand-red: 358 77% 51%;        /* #E32027 */
+    --brand-yellow: 48 95% 74%;      /* #FCE47C */
 
-    /* Corporate Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-accent)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)));
-    --gradient-light: linear-gradient(135deg, hsl(var(--primary-light)), hsl(var(--secondary)));
+    /* Legacy names still used by pages not yet redesigned, mapped onto the new palette */
+    --primary-dark: 30 8% 11%;
+    --primary-accent: 28 87% 53%;
+    --primary-light: 36 33% 92%;
+    --gradient-primary: hsl(var(--primary));
+    --gradient-hero: hsl(var(--foreground));
+    --gradient-light: hsl(var(--background));
+    --shadow-corporate: 0 1px 2px hsl(30 8% 11% / 0.06), 0 1px 3px hsl(30 8% 11% / 0.04);
+    --shadow-card: var(--shadow-corporate);
+    --shadow-hover: 0 4px 12px hsl(30 8% 11% / 0.08);
 
-    /* Corporate Shadows */
-    --shadow-corporate: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 2px 8px -1px hsl(var(--primary) / 0.08);
-    --shadow-hover: 0 8px 32px -4px hsl(var(--primary) / 0.15);
-
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -119,7 +105,8 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* Corporate Animations */

@@ -1,130 +1,44 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronRight, Loader2, Palette } from 'lucide-react';
-
-import { apiGet } from '@/lib/apiConfig';
-import LoadError from '@/components/LoadError';
-
-type Subcategory = {
-  id: number;
-  name: string;
-  slug: string;
-};
-
-const colorGradients = [
-  'from-blue-500 to-blue-600',
-  'from-green-500 to-green-600',
-  'from-purple-500 to-purple-600',
-  'from-pink-500 to-pink-600',
-  'from-yellow-400 to-yellow-500',
-  'from-red-500 to-red-600',
-  'from-indigo-500 to-indigo-600',
-  'from-teal-500 to-teal-600',
-];
+import { Link, useParams } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
+import { findCategory, plural, slugTitle, useCatalogOverview } from '@/lib/catalog';
 
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
-  const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [attempt, setAttempt] = useState(0);
-
-  useEffect(() => {
-    if (!categorySlug) return;
-
-    const fetchSubcategories = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        setSubcategories(await apiGet<Subcategory[]>(`/categories/${categorySlug}/subcategories`));
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchSubcategories();
-  }, [categorySlug, attempt]);
-
-  // Convert slug to title case for display
-  const toTitle = (slug: string) =>
-    slug
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-
-  const knownTitles: Record<string, string> = {
-    'dyes-intermediates': 'Dyes & Intermediates',
-    'food-pharma-colors': 'Food & Pharma Colors',
-  };
-  const categoryTitle = categorySlug ? knownTitles[categorySlug] ?? toTitle(categorySlug) : '';
+  const { data, isLoading, error, refetch } = useCatalogOverview();
+  const category = findCategory(data, categorySlug);
+  const title = category?.name ?? slugTitle(categorySlug);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 py-12">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            {categoryTitle}
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Explore our range of {categoryTitle.toLowerCase()} products.
-          </p>
-        </div>
+    <div className="container py-10 md:py-14">
+      <Breadcrumbs items={[{ label: title }]} />
+      <header className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
+        {category && <p className="font-mono text-sm text-muted-foreground">{plural(category.product_count, 'product')} · {plural(category.subcategories.length, 'range')}</p>}
+      </header>
 
-        {/* Loading State */}
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-16 space-y-4">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <div className="text-center">
-              <p className="text-muted-foreground">Loading products...</p>
-              <p className="text-sm text-muted-foreground/70 mt-2">This can take up to 30 seconds the first time.</p>
-            </div>
-          </div>
-        )}
+      <CatalogStatus loading={isLoading} error={error} onRetry={() => refetch()} />
+      {data && !category && (
+        <p className="rounded-md border bg-card p-8 text-center text-muted-foreground">
+          This range isn't available. <Link to="/" className="font-medium text-primary hover:underline">See all products</Link>
+        </p>
+      )}
 
-        {/* Error State */}
-        {error && <LoadError onRetry={() => setAttempt((n) => n + 1)} />}
-
-        {/* Subcategories Grid */}
-        {!loading && !error && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
-            {subcategories.map((sub, index) => (
-              <Link
-                key={sub.id}
-                to={`/category/${categorySlug}/${sub.slug}`}
-                className="group hover:shadow-hover transition-all duration-300 hover:-translate-y-1 animate-slide-up block w-full md:w-72"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <Card className="border-0 shadow-card h-full w-full">
-                  <CardHeader className="pb-3 flex items-center gap-4">
-                    <div className={`p-3 rounded-lg bg-gradient-to-r ${colorGradients[index % colorGradients.length]} shadow-lg flex items-center justify-center`}>
-                      <Palette className="h-6 w-6 text-white" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors">
-                      {sub.name}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Explore our {sub.name.toLowerCase()} products.
-                    </p>
-                    <div className="inline-flex items-center text-primary font-medium text-sm">
-                      View Products <ChevronRight className="h-4 w-4 ml-1" />
-                    </div>
-                  </CardContent>
-                </Card>
+      {category && (
+        <ul className="divide-y overflow-hidden rounded-md border bg-card">
+          {category.subcategories.map((s) => (
+            <li key={s.id}>
+              <Link to={`/category/${category.slug}/${s.slug}`} className="group flex items-center justify-between gap-4 px-5 py-4 hover:bg-secondary/40">
+                <span className="font-medium group-hover:text-primary">{s.name}</span>
+                <span className="flex items-center gap-4">
+                  <span className="font-mono text-sm text-muted-foreground">{s.product_count}</span>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary" aria-hidden />
+                </span>
               </Link>
-            ))}
-          </div>
-        )}
-
-        {/* No Subcategories Found */}
-        {!loading && !error && subcategories.length === 0 && (
-          <div className="text-center py-16 text-muted-foreground">No subcategories found.</div>
-        )}
-      </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

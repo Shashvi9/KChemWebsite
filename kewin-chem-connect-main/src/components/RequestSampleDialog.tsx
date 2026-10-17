@@ -14,6 +14,8 @@ export type SampleContext = {
     name?: string;
     attributes?: Record<string, any> | null;
   } | null;
+  /** Several products in one request (catalogue multi-select). */
+  products?: { id: number; name: string }[];
 };
 
 import { API_BASE } from '@/lib/apiConfig';
@@ -38,8 +40,13 @@ export default function RequestSampleDialog(props: {
   const [sendCopy, setSendCopy] = useState(true);
   const [website, setWebsite] = useState(''); // honeypot
 
-  const productName = context.product?.name || '';
-  const productAttrs = useMemo(() => context.product?.attributes || {}, [context]);
+  const many = context.products && context.products.length > 1 ? context.products : null;
+  const productName = many ? `${many.length} products: ${many.map((p) => p.name).join(', ')}`.slice(0, 255)
+    : context.products?.[0]?.name || context.product?.name || '';
+  const productAttrs = useMemo(
+    () => (many ? { products: many.map((p) => p.name).join('; ') } : context.product?.attributes || {}),
+    [context, many]);
+  const productId = many ? undefined : context.products?.[0]?.id ?? context.product?.id;
 
   useEffect(() => {
     if (!open) {
@@ -58,7 +65,7 @@ export default function RequestSampleDialog(props: {
       const body = {
         category_slug: context.categorySlug || 'search',
         subcategory_slug: context.subcategorySlug || context.categorySlug || 'search',
-        product_id: context.product?.id,
+        product_id: productId,
         product_name: productName || undefined,
         attributes: productAttrs && Object.keys(productAttrs).length ? productAttrs : undefined,
         quantity: quantity || undefined,
@@ -93,10 +100,17 @@ export default function RequestSampleDialog(props: {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Request Sample</DialogTitle>
+          <DialogTitle>{many ? 'Request a quote or samples' : 'Request a sample'}</DialogTitle>
         </DialogHeader>
 
-        {productName && (
+        {many ? (
+          <div className="mb-2 text-sm">
+            <p className="text-muted-foreground">{many.length} products selected</p>
+            <ul className="mt-1 max-h-24 overflow-y-auto rounded-sm border bg-secondary/50 px-3 py-2">
+              {many.map((p) => <li key={p.id} className="truncate">{p.name}</li>)}
+            </ul>
+          </div>
+        ) : productName && (
           <div className="text-sm text-muted-foreground mb-2">
             Product: <span className="text-foreground font-medium">{productName}</span>
           </div>

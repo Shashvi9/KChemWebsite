@@ -22,3 +22,9 @@ export async function errorMessage(res: Response): Promise<string> {
     ? 'Too many requests. Please try again later or contact us on WhatsApp.'
     : 'Could not send right now. Please try again, or email or WhatsApp us.';
 }
+
+export const HEAD_OFFICE = 'C-308, The First, Nyay Marg, near IIM, Vastrapur, Ahmedabad 380015, Gujarat, India';
+export const FACILITIES = [
+  { name: 'Unit 1 · Vatva', address: '214, Phase 2, GIDC Vatva, Ahmedabad, Gujarat', map: 'https://maps.google.com/?q=Kewin+Chemicals+Pvt+Ltd+GIDC+Vatva' },
+  { name: 'Unit 2 · Jhabua', address: '136, A.K.V.N., Jhabua, Madhya Pradesh', map: 'https://maps.google.com/?q=Kewin+Chemicals+Jhabua' },
+];

@@ -1,197 +1,148 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { ChevronDown, Mail, Menu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Phone, Mail, ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import logoWhite from '@/assets/logoWhite.png';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { SearchBar } from '@/components/search/SearchBar';
-import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from '@/lib/contact';
+import { useCatalogOverview } from '@/lib/catalog';
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, WHATSAPP_URL } from '@/lib/contact';
+import { cn } from '@/lib/utils';
+import logo from '@/assets/logo.png';
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  {
-    name: 'Product Segment',
-    href: '/products',
-    children: [
-      { name: 'Dyes & Intermediates', href: '/category/dyes-intermediates' },
-      { name: 'Food & Pharma', href: '/category/food-pharma-colors' },
-      { name: 'Shades & Pigments', href: '/category/pigments' },
-      { name: 'Varieties in Cosmetics', href: '/contact?subject=Cosmetic%20colors' },
-    ],
-  },
-  { name: 'About Us', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-];
+const QUOTE_URL = '/contact?subject=Quote%20request';
 
-// Desktop Navigation
-const DesktopNavigation = () => {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+const navLink = ({ isActive }: { isActive: boolean }) =>
+  cn('text-sm font-medium transition-colors hover:text-primary', isActive ? 'text-primary' : 'text-foreground');
+
+function ProductsMenu() {
+  const { data } = useCatalogOverview();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const currentPath = location.pathname;
+
+  useEffect(() => setOpen(false), [location.pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: MouseEvent | KeyboardEvent) => {
+      if (e instanceof KeyboardEvent ? e.key === 'Escape' : !ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', close);
+    document.addEventListener('keydown', close);
+    return () => {
+      document.removeEventListener('mousedown', close);
+      document.removeEventListener('keydown', close);
+    };
+  }, [open]);
 
   return (
-    <nav className="hidden lg:flex items-center space-x-8">
-      {navigation.map((item) => {
-        const isActive = item.href === currentPath ||
-          (item.children && item.children.some(child => child.href === currentPath));
-
-        return (
-          <div
-            key={item.name}
-            className="relative"
-            onMouseEnter={() => item.children && setActiveDropdown(item.name)}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <Link
-              to={item.href}
-              className={cn(
-                'flex items-center text-foreground hover:text-primary transition-colors font-medium',
-                item.children && 'gap-1',
-                isActive && 'text-primary'
-              )}
-            >
-              {item.name}
-              {item.children && <ChevronDown className="h-4 w-4" />}
-            </Link>
-
-          {item.children && activeDropdown === item.name && (
-            <div className="absolute top-full left-0 w-64 pt-2 z-50">
-              <div className="bg-card border border-border rounded-lg shadow-corporate">
-                <div className="p-2">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.name}
-                      to={child.href}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-secondary rounded-md transition-colors"
-                    >
-                      {child.name}
-                    </Link>
+    <div ref={ref} className="relative" onMouseLeave={() => setOpen(false)}>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen(true)} /* hover already opens it; a toggle here would close it on the same gesture */
+        onMouseEnter={() => setOpen(true)}
+        className={cn('flex items-center gap-1 text-sm font-medium hover:text-primary',
+          location.pathname.startsWith('/category') ? 'text-primary' : 'text-foreground')}
+      >
+        Products <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} aria-hidden />
+      </button>
+      {open && (
+        <div className="absolute -left-6 top-full z-50 pt-3">
+          <div className="grid w-[44rem] grid-cols-2 gap-x-8 gap-y-6 rounded-md border bg-card p-6 shadow-hover">
+            {(data ?? []).map((c) => (
+              <div key={c.id}>
+                <Link to={`/category/${c.slug}`} className="flex items-baseline justify-between border-b pb-2 font-semibold hover:text-primary">
+                  {c.name} <span className="font-mono text-xs font-normal text-muted-foreground">{c.product_count}</span>
+                </Link>
+                <ul className="mt-2 space-y-1">
+                  {c.subcategories.slice(0, 6).map((s) => (
+                    <li key={s.id}>
+                      <Link to={`/category/${c.slug}/${s.slug}`} className="text-sm text-muted-foreground hover:text-primary">{s.name}</Link>
+                    </li>
                   ))}
-                </div>
+                  {c.subcategories.length > 6 && (
+                    <li><Link to={`/category/${c.slug}`} className="text-sm font-medium text-primary">All {c.subcategories.length} ranges →</Link></li>
+                  )}
+                </ul>
               </div>
-            </div>
-          )}
+            ))}
+            {!data && <p className="col-span-2 text-sm text-muted-foreground">Loading product ranges…</p>}
+          </div>
         </div>
-      );
-      })}
-    </nav>
+      )}
+    </div>
   );
-};
+}
 
-// Mobile Navigation
-const MobileNavigation = () => {
-  const location = useLocation();
-  const currentPath = location.pathname;
+function MobileMenu() {
+  const { data } = useCatalogOverview();
   const [open, setOpen] = useState(false);
-
-  // Close the menu once the user navigates (link tap or search).
+  const location = useLocation();
   useEffect(() => setOpen(false), [location.pathname, location.search]);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="sm" className="lg:hidden" aria-label="Open menu">
+        <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-80">
-        <div className="flex flex-col space-y-4 mt-8">
+      <SheetContent side="right" className="w-[88vw] max-w-sm overflow-y-auto">
+        <SheetTitle className="sr-only">Menu</SheetTitle>
+        <div className="mt-6 space-y-6">
           <SearchBar className="flex" onSearch={() => setOpen(false)} />
-          {navigation.map((item) => {
-            const isActive = item.href === currentPath ||
-              (item.children && item.children.some(child => child.href === currentPath));
-
-            return (
-              <div key={item.name} className="space-y-2">
-                <Link
-                  to={item.href}
-                  className={cn(
-                    "block text-lg font-medium text-foreground hover:text-primary transition-colors",
-                    isActive && "text-primary"
-                  )}
-                >
-                  {item.name}
-                </Link>
-                {item.children && (
-                  <div className="ml-4 space-y-2">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.name}
-                        to={child.href}
-                        className={cn(
-                          "block text-sm text-muted-foreground hover:text-primary transition-colors",
-                          child.href === currentPath && "text-primary"
-                        )}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          <nav className="space-y-5">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Products</p>
+              <ul className="space-y-2">
+                {(data ?? []).map((c) => (
+                  <li key={c.id}>
+                    <Link to={`/category/${c.slug}`} className="flex justify-between font-medium">
+                      {c.name} <span className="font-mono text-sm text-muted-foreground">{c.product_count}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-2 border-t pt-5">
+              <Link to="/about" className="block font-medium">About</Link>
+              <Link to="/contact" className="block font-medium">Contact</Link>
+            </div>
+          </nav>
+          <Button asChild className="w-full"><Link to={QUOTE_URL}>Request a quote</Link></Button>
         </div>
       </SheetContent>
     </Sheet>
   );
-};
+}
 
-export const Header = () => {
-  return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      {/* Top Bar */}
-      <div className="bg-primary-light border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-2 text-sm">
-            <div className="flex items-center space-x-6">
-              <a
-                href={`tel:${CONTACT_PHONE_TEL}`}
-                className="flex items-center gap-2 text-primary-dark hover:text-primary transition-colors"
-              >
-                <Phone className="h-3 w-3" />
-                {CONTACT_PHONE}
-              </a>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="flex items-center gap-2 text-primary-dark hover:text-primary transition-colors"
-              >
-                <Mail className="h-3 w-3" />
-                <span className="hidden sm:inline">{CONTACT_EMAIL}</span>
-              </a>
-            </div>
-            <div className="hidden md:block text-primary-dark">
-              Since 1999 - Leading Chemical Solutions
-            </div>
-          </div>
+export const Header = () => (
+  <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
+    <div className="hidden border-b bg-secondary/60 text-xs text-muted-foreground md:block">
+      <div className="container flex h-8 items-center justify-between">
+        <span>Export enquiries welcome · replies by email and WhatsApp</span>
+        <div className="flex items-center gap-5">
+          <a href={`tel:${CONTACT_PHONE_TEL}`} className="flex items-center gap-1.5 hover:text-foreground"><Phone className="h-3 w-3" aria-hidden />{CONTACT_PHONE}</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">WhatsApp</a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-1.5 hover:text-foreground"><Mail className="h-3 w-3" aria-hidden />{CONTACT_EMAIL}</a>
         </div>
       </div>
-
-      {/* Main Header */}
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
-            <img
-              src={logoWhite}
-              alt="Kewin Chemicals Pvt. Ltd."
-              className="h-8 w-auto md:h-10 object-contain"
-            />
-          </Link>
-
-          {/* Desktop Navigation + Buttons */}
-          <div className="flex items-center space-x-4">
-            <DesktopNavigation />
-
-            <div className="flex items-center space-x-2">
-              <SearchBar />
-
-              <MobileNavigation />
-            </div>
-          </div>
-        </div>
+    </div>
+    <div className="container flex h-16 items-center gap-8">
+      <Link to="/" className="shrink-0" aria-label="Kewin Chemicals home">
+        <img src={logo} alt="Kewin Chemicals Pvt. Ltd." width={134} height={48} className="h-10 w-auto md:h-12" />
+      </Link>
+      <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
+        <ProductsMenu />
+        <NavLink to="/about" className={navLink}>About</NavLink>
+        <NavLink to="/contact" className={navLink}>Contact</NavLink>
+      </nav>
+      <div className="ml-auto flex items-center gap-3">
+        <SearchBar />
+        <Button asChild className="hidden sm:inline-flex"><Link to={QUOTE_URL}>Request a quote</Link></Button>
+        <MobileMenu />
       </div>
-    </header>
-  );
-};
+    </div>
+  </header>
+);

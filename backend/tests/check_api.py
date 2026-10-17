@@ -54,8 +54,10 @@ api = "/api/v1"
 
 # Catalog
 assert cl.get("/health").json() == {"status": "ok"}
-subs = [s["slug"] for s in cl.get(f"{api}/categories/dyes-intermediates/subcategories").json()]
-assert subs == ["acid-dyes", "levelling-dyes"], subs  # empty subcategory hidden, not deleted
+subs = cl.get(f"{api}/categories/dyes-intermediates/subcategories").json()
+assert [(x["slug"], x["product_count"]) for x in subs] == [("acid-dyes", 149), ("levelling-dyes", 1)], subs  # empty hidden
+ov = cl.get(f"{api}/categories/overview").json()
+assert [(c["slug"], c["product_count"], len(c["subcategories"])) for c in ov] == [("dyes-intermediates", 149, 2)], ov
 acid = cl.get(f"{api}/products/?category_slug=dyes-intermediates&subcategory_slug=acid-dyes").json()
 assert len(acid) == 149, len(acid)  # no 100 cap; inactive product hidden
 lev = cl.get(f"{api}/products/?category_slug=dyes-intermediates&subcategory_slug=levelling-dyes").json()

@@ -41,13 +41,13 @@ const sections = [
 
 const About = () => {
   return (
-    <div className="relative bg-gradient-to-b from-blue-50 via-white to-blue-50 min-h-screen overflow-hidden">
+    <div className="relative bg-gradient-to-b from-background via-white to-background min-h-screen overflow-hidden">
       {/* Background Waves */}
       <div className="absolute top-0 left-0 right-0 -z-10">
         <svg
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
-          className="w-full h-32 text-blue-100"
+          className="w-full h-32 text-primary-foreground/80"
           fill="currentColor"
         >
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
@@ -56,11 +56,11 @@ const About = () => {
 
       <div className="container mx-auto px-4 py-20 md:py-32">
         {/* Hero Section */}
-        <div className="text-center md:text-left animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-blue-900 mb-4 leading-tight">
-            About <span className="text-blue-600">Kewin Chemicals</span>
+        <div className="text-center md:text-left">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-4">
+            About Kewin Chemicals
           </h1>
-          <p className="text-lg md:text-xl text-blue-700 max-w-3xl mx-auto md:mx-0 mb-12">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto md:mx-0 mb-12">
             Discover our history, vision, mission, and values that drive our commitment to providing
             premium chemical solutions across industries worldwide.
           </p>
@@ -71,14 +71,14 @@ const About = () => {
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="animate-slide-up"
+              className=""
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 mb-3">
-                <stat.icon className="h-6 w-6 text-blue-600" />
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary mb-3">
+                <stat.icon className="h-6 w-6 text-primary" />
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-blue-900 mb-1">{stat.value}</div>
-              <div className="text-sm text-blue-700/80">{stat.label}</div>
+              <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">{stat.value}</div>
+              <div className="text-sm text-muted-foreground/80">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -88,16 +88,16 @@ const About = () => {
           {sections.map((section, index) => (
             <div
               key={section.title}
-              className="bg-white shadow-xl rounded-2xl p-8 hover:shadow-2xl transition-shadow animate-slide-up"
+              className="bg-white shadow-xl rounded-2xl p-8 hover:shadow-2xl transition-shadow"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-secondary text-primary rounded-full flex items-center justify-center">
                   <section.icon className="w-6 h-6" />
                 </div>
-                <h2 className="text-2xl font-bold text-blue-900">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-foreground">{section.title}</h2>
               </div>
-              <p className="text-blue-700 text-lg leading-relaxed whitespace-pre-line">{section.content}</p>
+              <p className="text-muted-foreground text-lg leading-relaxed whitespace-pre-line">{section.content}</p>
             </div>
           ))}
         </div>
@@ -108,7 +108,7 @@ const About = () => {
         <svg
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
-          className="w-full h-32 text-blue-100"
+          className="w-full h-32 text-primary-foreground/80"
           fill="currentColor"
         >
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>

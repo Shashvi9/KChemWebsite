@@ -1,27 +1,29 @@
 import { useParams } from 'react-router-dom';
-import DataTable from '@/components/DataTable';
-
-const toTitle = (slug: string) =>
-  slug
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
+import { ProductTable } from '@/components/catalog/ProductTable';
+import { findCategory, slugTitle, useCatalogOverview, useProducts } from '@/lib/catalog';
 
 const SubcategoryPage = () => {
-  const { categorySlug, subcategorySlug } = useParams<{ categorySlug: string; subcategorySlug: string }>();
-  const subcategoryTitle = subcategorySlug ? toTitle(subcategorySlug) : '';
+  const { categorySlug = '', subcategorySlug = '' } = useParams<{ categorySlug: string; subcategorySlug: string }>();
+  const { data: overview } = useCatalogOverview();
+  const products = useProducts(categorySlug, subcategorySlug);
+  const category = findCategory(overview, categorySlug);
+  const sub = category?.subcategories.find((s) => s.slug === subcategorySlug);
+  const title = sub?.name ?? slugTitle(subcategorySlug);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{subcategoryTitle}</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Explore our range of {subcategoryTitle.toLowerCase()} products.
-          </p>
-        </div>
-        <DataTable categorySlug={categorySlug} subcategorySlug={subcategorySlug} title={subcategoryTitle} />
-      </div>
+    <div className="container py-10 md:py-14">
+      <Breadcrumbs items={[{ label: category?.name ?? slugTitle(categorySlug), to: `/category/${categorySlug}` }, { label: title }]} />
+      <header className="mb-6">
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
+        <p className="mt-2 max-w-2xl text-muted-foreground">
+          Select products to request a quote or samples together, or use “Sample” on any row.
+        </p>
+      </header>
+      <CatalogStatus loading={products.isLoading} error={products.error} onRetry={() => products.refetch()} />
+      {products.data && (
+        <ProductTable products={products.data} categorySlug={categorySlug} subcategorySlug={subcategorySlug} />
+      )}
     </div>
   );
 };

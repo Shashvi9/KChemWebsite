@@ -20,7 +20,7 @@ export const SearchBar = ({ className = 'hidden lg:flex', onSearch }: { classNam
     <form onSubmit={handleSearch} role="search" className={`${className} items-center`}>
       <div className="relative w-full lg:w-64">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <Search className="h-4 w-4 text-gray-400" />
+          <Search className="h-4 w-4 text-muted-foreground" />
         </div>
         <Input
           type="search"
@@ -28,7 +28,7 @@ export const SearchBar = ({ className = 'hidden lg:flex', onSearch }: { classNam
           placeholder="Search by name or CAS..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="pl-10 pr-4 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+          className="pl-10 pr-4 border-input focus:border-ring focus:ring-ring"
         />
       </div>
     </form>

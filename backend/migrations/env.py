@@ -1,4 +1,3 @@
-import os
 import sys
 from pathlib import Path
 
@@ -12,9 +11,9 @@ load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 from app.db.base import Base  # noqa: E402
 from app.db import models  # noqa: E402,F401  (registers tables for autogenerate)
 
-url = os.environ.get("DATABASE_URL")
-if not url:
-    raise SystemExit("DATABASE_URL is not set")
+from app.db.session import database_url  # noqa: E402
+
+url = database_url()
 
 target_metadata = Base.metadata
 

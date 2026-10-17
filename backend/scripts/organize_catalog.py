@@ -70,9 +70,10 @@ SOURCES = {
 
 NAME_KEYS = ["C.I Name", "CI_Name", "Product Name", "ProductName", "Name", "FD & C Color"]
 CAS_KEYS = ["CAS no", "case_no"]
-APPLICATION_FLAGS = {"Wool": "wool", "Polyamide": "nylon", "Wood Stain": "wood stain", "Leathe": "leather",
-                     "Cotton": "cotton", "Paper": "paper", "Alluminium Anodize": "aluminium anodizing",
-                     "SILK": "silk", "INK": "ink"}
+# source sheet flag column -> existing applications.slug in production
+APPLICATION_FLAGS = {"Wool": "wool-dyeing", "Polyamide": "polyamide-dyeing", "Wood Stain": "wood-stain",
+                     "Leathe": "leather-dyeing", "Cotton": "cotton-dyeing", "Paper": "paper-dyeing",
+                     "Alluminium Anodize": "aluminium-anodizing", "SILK": "silk-dyeing", "INK": "ink-manufacturing"}
 SPEC_KEYS = {"Strength": "strength", "Dosage Form": "dosage_form", "Presentation": "presentation",
              "Therapeutic Segments": "therapeutic_segment", "Hue": "hue"}
 CI_NAME = re.compile(r"^(acid|basic|direct|reactive|solvent|disperse|pigment|vat|mordant|food)\s+[a-z]+\s*-?\s*\d", re.I)
@@ -129,23 +130,29 @@ def merge_list(cur, new):
 
 def main(apply: bool):
     url = os.environ.get("DATABASE_URL") or sys.exit("DATABASE_URL is not set")
-    engine = create_engine(url)
+    from app.db.session import database_url
+    engine = create_engine(database_url())
     report, unmatched = Counter(), defaultdict(list)
     with Session(engine) as db:
         subs = {(r.cslug, r.sslug): r.id for r in db.execute(text(
             "SELECT s.id, s.slug AS sslug, c.slug AS cslug FROM subcategories s JOIN categories c ON c.id = s.category_id"))}
         products = db.execute(text(
-            "SELECT p.id, p.name, p.cas_numbers, p.ci_name, p.ci_number, p.e_number, p.synonyms, p.applications, "
-            "p.specs, c.slug AS cslug FROM products p JOIN categories c ON c.id = p.category_id")).mappings().all()
+            "SELECT p.id, p.name, p.cas_number, p.ci_name, p.ci_number, p.e_number, p.synonyms, p.specs, "
+            "c.slug AS cslug, COALESCE(array_agg(a.cas_number) FILTER (WHERE a.cas_number IS NOT NULL), '{}') AS aliases "
+            "FROM products p JOIN categories c ON c.id = p.category_id LEFT JOIN cas_aliases a ON a.product_id = p.id "
+            "GROUP BY p.id, c.slug")).mappings().all()
+        apps = {r.slug: r.id for r in db.execute(text("SELECT id, slug FROM applications"))}
+        app_links = {tuple(r) for r in db.execute(text("SELECT product_id, application_id FROM product_applications"))}
         by_name = defaultdict(list)
         by_cas = defaultdict(list)
         for p in products:
             by_name[(p["cslug"], key(p["name"]))].append(p)
-            for c in p["cas_numbers"]:
+            for c in set(cas.normalize(p["cas_number"])) | set(p["aliases"]):
                 by_cas[(p["cslug"], c)].append(p)
         links = {tuple(r) for r in db.execute(text("SELECT product_id, subcategory_id FROM product_subcategories"))}
         pending = {p["id"]: dict(p) for p in products}
         changed = set()
+        new_links, new_app_links = [], []  # written in one statement each (DB is far away: avoid round trips)
 
         for rel, (cslug, sslug) in SOURCES.items():
             sub_id = subs.get((cslug, sslug))
@@ -170,8 +177,7 @@ def main(apply: bool):
                 report["source rows matched"] += 1
                 if (pid, sub_id) not in links:
                     links.add((pid, sub_id))
-                    db.execute(text("INSERT INTO product_subcategories (product_id, subcategory_id) VALUES (:p, :s)"),
-                               {"p": pid, "s": sub_id})
+                    new_links.append((pid, sub_id))
                     report["subcategory links added"] += 1
                 cur = pending[pid]
                 for col in ["ci_name", "ci_number", "e_number"]:
@@ -179,12 +185,19 @@ def main(apply: bool):
                         cur[col] = f[col]
                         changed.add(pid)
                         report[f"{col} filled"] += 1
-                for col in ["synonyms", "applications"]:
-                    merged = merge_list(list(cur[col]), f[col])
-                    if merged != list(cur[col]):
-                        cur[col] = merged
-                        changed.add(pid)
-                        report[f"{col} added to"] += 1
+                merged = merge_list(list(cur["synonyms"]), f["synonyms"])
+                if merged != list(cur["synonyms"]):
+                    cur["synonyms"] = merged
+                    changed.add(pid)
+                    report["synonyms added to"] += 1
+                for slug in f["applications"]:
+                    app_id = apps.get(slug)
+                    if app_id is None:
+                        report[f"application '{slug}' missing in DB (skipped)"] += 1
+                    elif (pid, app_id) not in app_links:
+                        app_links.add((pid, app_id))
+                        new_app_links.append((pid, app_id))
+                        report["application links added"] += 1
                 specs = dict(cur["specs"])
                 for k, v in f["specs"].items():
                     old = specs.get(k)
@@ -197,13 +210,24 @@ def main(apply: bool):
                     changed.add(pid)
                     report["specs filled"] += 1
 
-        for pid in changed:
-            c = pending[pid]
-            db.execute(text("UPDATE products SET ci_name = :ci_name, ci_number = :ci_number, e_number = :e_number, "
-                            "synonyms = :synonyms, applications = :applications, specs = CAST(:specs AS jsonb) "
-                            "WHERE id = :id"),
-                       {**{k: c[k] for k in ["ci_name", "ci_number", "e_number", "synonyms", "applications"]},
-                        "specs": json.dumps(c["specs"]), "id": pid})
+        if new_links:
+            db.execute(text("INSERT INTO product_subcategories (product_id, subcategory_id) "
+                            "SELECT * FROM unnest(CAST(:p AS int[]), CAST(:s AS int[])) ON CONFLICT DO NOTHING"),
+                       {"p": [a for a, _ in new_links], "s": [b for _, b in new_links]})
+        if new_app_links:
+            db.execute(text("INSERT INTO product_applications (product_id, application_id) "
+                            "SELECT * FROM unnest(CAST(:p AS int[]), CAST(:a AS int[])) "
+                            "ON CONFLICT (product_id, application_id) DO NOTHING"),
+                       {"p": [a for a, _ in new_app_links], "a": [b for _, b in new_app_links]})
+        if changed:
+            rows = [{"id": pid, **{k: pending[pid][k] for k in ["ci_name", "ci_number", "e_number", "synonyms", "specs"]}}
+                    for pid in changed]
+            db.execute(text("""
+                UPDATE products p SET ci_name = r.ci_name, ci_number = r.ci_number, e_number = r.e_number,
+                                      synonyms = r.synonyms, specs = r.specs
+                FROM jsonb_to_recordset(CAST(:rows AS jsonb))
+                     AS r(id int, ci_name text, ci_number text, e_number text, synonyms text[], specs jsonb)
+                WHERE p.id = r.id"""), {"rows": json.dumps(rows)})
         report["products updated"] = len(changed)
 
         print("\n".join(f"{v:6}  {k}" for k, v in sorted(report.items())))

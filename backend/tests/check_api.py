@@ -22,7 +22,9 @@ sys.path.insert(0, str(ROOT))
 
 from sqlalchemy import create_engine, text  # noqa: E402
 
-eng = create_engine(url)
+from app.db.session import database_url  # noqa: E402
+
+eng = create_engine(database_url())
 with eng.begin() as c:
     c.execute(text("DROP SCHEMA public CASCADE; CREATE SCHEMA public"))
 subprocess.run([sys.executable, "-m", "alembic", "upgrade", "head"], cwd=ROOT, check=True, capture_output=True)
@@ -35,11 +37,14 @@ with eng.begin() as c:
     c.execute(text("INSERT INTO categories (id, name, slug) VALUES (1, 'Dyes & Intermediates', 'dyes-intermediates')"))
     c.execute(text("INSERT INTO subcategories (id, category_id, name, slug) VALUES "
                    "(10, 1, 'Acid Dyes', 'acid-dyes'), (11, 1, 'Levelling Dyes', 'levelling-dyes'), (12, 1, 'Empty', 'empty')"))
-    c.execute(text("INSERT INTO products (id, name, subcategory_id, category_id) "
-                   "SELECT g, 'Acid Test ' || g, 10, 1 FROM generate_series(1, 150) g"))
-    c.execute(text("UPDATE products SET name = 'Acid Red 18', cas_number = '2611-82-7', cas_numbers = '{2611-82-7}', "
+    c.execute(text("INSERT INTO products (id, name, slug, subcategory_id, category_id) "
+                   "SELECT g, 'Acid Test ' || g, 'acid-test-' || g, 10, 1 FROM generate_series(1, 150) g"))
+    c.execute(text("UPDATE products SET name = 'Acid Red 18', cas_number = '2611-82-7', "
                    "ci_name = 'Acid Red 18', synonyms = '{Ponceau 4R}', specs = '{\"strength\": [\"100%\", \"150%\"]}' "
                    "WHERE id = 1"))
+    c.execute(text("INSERT INTO cas_aliases (product_id, cas_number) VALUES (1, '12345-67-8')"))
+    c.execute(text("INSERT INTO applications (id, name, slug) VALUES (1, 'Wool Dyeing', 'wool-dyeing')"))
+    c.execute(text("INSERT INTO product_applications (product_id, application_id) VALUES (1, 1)"))
     c.execute(text("UPDATE products SET is_active = false WHERE id = 2"))
     c.execute(text("INSERT INTO product_subcategories (product_id, subcategory_id) SELECT id, 10 FROM products"))
     c.execute(text("INSERT INTO product_subcategories (product_id, subcategory_id) VALUES (1, 11)"))
@@ -55,8 +60,9 @@ acid = cl.get(f"{api}/products/?category_slug=dyes-intermediates&subcategory_slu
 assert len(acid) == 149, len(acid)  # no 100 cap; inactive product hidden
 lev = cl.get(f"{api}/products/?category_slug=dyes-intermediates&subcategory_slug=levelling-dyes").json()
 assert [p["name"] for p in lev] == ["Acid Red 18"]  # same product listed under a second grade
-assert lev[0]["attributes"] == {"cas": "2611-82-7", "also_known_as": "Ponceau 4R", "strength": "100%, 150%"}, lev[0]
-for q in ["ponceau", "2611-82-7", "acid red 18", "red 18"]:
+assert lev[0]["attributes"] == {"cas": "2611-82-7 / 12345-67-8", "also_known_as": "Ponceau 4R",
+                                "applications": "Wool Dyeing", "strength": "100%, 150%"}, lev[0]
+for q in ["ponceau", "2611-82-7", "12345-67-8", "acid red 18", "red 18"]:
     assert [p["id"] for p in cl.get(f"{api}/products/search", params={"q": q}).json()] == [1], q
 assert cl.get(f"{api}/products/search", params={"q": "%_"}).json() == []  # LIKE wildcards are escaped
 

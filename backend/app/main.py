@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -42,6 +43,24 @@ app.add_middleware(
 @app.get("/", tags=["Root"])
 async def read_root():
     return {"message": "Welcome to the Kewin Chem Connect API!"}
+
+@app.on_event("startup")
+def run_migrations():
+    """Bring the schema up to date before serving. Render's start command (set in the dashboard)
+    only runs uvicorn, so migrations can't rely on render.yaml. Migrations are additive and
+    idempotent; a Postgres advisory lock keeps two starting instances from running them at once."""
+    from alembic import command
+    from alembic.config import Config
+
+    cfg = Config(str(Path(__file__).resolve().parent.parent / "alembic.ini"))
+    cfg.set_main_option("script_location", str(Path(__file__).resolve().parent.parent / "migrations"))
+    with engine.connect() as conn:
+        conn.execute(text("SELECT pg_advisory_lock(727001)"))
+        try:
+            command.upgrade(cfg, "head")
+        finally:
+            conn.execute(text("SELECT pg_advisory_unlock(727001)"))
+
 
 @app.get("/health", tags=["Root"])
 def health():

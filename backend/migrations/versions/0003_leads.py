@@ -34,13 +34,13 @@ def upgrade():
         sa.Column("source", sa.String(16), nullable=False, server_default="website"),
         sa.Column("status", sa.String(16), nullable=False, server_default="new"),
         sa.Column("product_id", sa.Integer, sa.ForeignKey("products.id", ondelete="SET NULL")),
-        sa.Column("product_name", sa.String(255)),
+        sa.Column("product_name", sa.String(500)),
         sa.Column("category_slug", sa.String(255)),
         sa.Column("subcategory_slug", sa.String(255)),
         sa.Column("product_attributes", JSONB),
         sa.Column("name", sa.String(255), nullable=False),
         sa.Column("company", sa.String(255)),
-        sa.Column("email", sa.String(255)),
+        sa.Column("email", sa.String(320)),
         sa.Column("phone", sa.String(64)),
         sa.Column("country", sa.String(255)),
         sa.Column("quantity", sa.String(255)),
@@ -59,8 +59,8 @@ def upgrade():
         sa.CheckConstraint(_in("source", SOURCES), name="ck_leads_source"),
         sa.CheckConstraint(_in("status", STATUSES), name="ck_leads_status"),
         sa.CheckConstraint("email IS NOT NULL OR phone IS NOT NULL", name="ck_leads_contact"),
-        sa.UniqueConstraint("legacy_table", "legacy_id", name="uq_leads_legacy"),
     )
+    op.create_index("uq_leads_legacy", "leads", ["legacy_table", "legacy_id"], unique=True)
     op.create_index("ix_leads_status_created", "leads", ["status", "created_at"])
     op.create_index("ix_leads_created_at", "leads", ["created_at"])
     op.create_index("ix_leads_follow_up_on", "leads", ["follow_up_on"])
@@ -74,21 +74,21 @@ def upgrade():
         SELECT 'sample', 'website',
                CASE status WHEN 'in_progress' THEN 'contacted' WHEN 'completed' THEN 'sample_sent'
                            WHEN 'rejected' THEN 'lost' ELSE 'new' END,
-               (SELECT p.id FROM products p WHERE p.id = s.product_id),
+               (SELECT p.id FROM products p WHERE p.id = s.product_id),  -- no FK on the old table
                product_name, category_slug, subcategory_slug, attributes::jsonb,
                name, company, email, LEFT(phone, 64), country, quantity, use_case,
                assigned_to, internal_notes, COALESCE(send_copy_to_requester, false), NULL,
                'sample_requests', id, COALESCE(created_at, now()), COALESCE(updated_at, created_at, now())
         FROM sample_requests s
-        ON CONFLICT ON CONSTRAINT uq_leads_legacy DO NOTHING
+        ON CONFLICT (legacy_table, legacy_id) DO NOTHING
     """)
     op.execute("""
-        INSERT INTO leads (type, source, name, company, email, phone, country, subject, message, email_sent,
-                           legacy_table, legacy_id, created_at, updated_at)
-        SELECT 'inquiry', 'website', name, company, email, phone, country, subject, message, email_sent,
-               'inquiries', id, COALESCE(created_at, now()), COALESCE(created_at, now())
-        FROM inquiries
-        ON CONFLICT ON CONSTRAINT uq_leads_legacy DO NOTHING
+        INSERT INTO leads (type, source, product_id, product_name, name, company, email, phone, country,
+                           quantity, message, email_sent, legacy_table, legacy_id, created_at, updated_at)
+        SELECT 'inquiry', 'website', i.product_id, p.name, i.name, i.company, i.email, i.phone, i.country,
+               i.quantity, i.message, NULL, 'inquiries', i.id, i.created_at, i.created_at
+        FROM inquiries i LEFT JOIN products p ON p.id = i.product_id
+        ON CONFLICT (legacy_table, legacy_id) DO NOTHING
     """)
 
 

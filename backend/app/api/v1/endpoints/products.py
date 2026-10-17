@@ -2,14 +2,16 @@ import re
 
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
-from sqlalchemy import func, or_
+from sqlalchemy import exists, func, or_
+from sqlalchemy.orm import selectinload
 from typing import List, Optional
 
 from app.db.session import get_db
-from app.db.models import Product, Category, Subcategory, product_subcategories
+from app.db.models import CasAlias, Product, Category, Subcategory, product_subcategories
 from app.schemas import schemas
 
 router = APIRouter()
+_LOAD = (selectinload(Product.cas_aliases), selectinload(Product.applications))  # avoid N+1 per product row
 
 
 def _same(a: str, b: str) -> bool:
@@ -20,9 +22,10 @@ def _same(a: str, b: str) -> bool:
 def _product_to_api(product: Product) -> schemas.Product:
     """Flatten a product into the attribute columns the product table shows."""
     attributes: dict = {}
-    cas_display = " / ".join(product.cas_numbers) or product.cas_number
-    if cas_display:
-        attributes["cas"] = cas_display
+    cas_all = [product.cas_number.strip()] if product.cas_number and product.cas_number.strip() else []
+    cas_all += [a.cas_number for a in product.cas_aliases if a.cas_number not in cas_all]
+    if cas_all:
+        attributes["cas"] = " / ".join(cas_all)
     if product.ci_name and not _same(product.ci_name, product.name):
         attributes["ci_name"] = product.ci_name
     if product.ci_number:
@@ -32,12 +35,12 @@ def _product_to_api(product: Product) -> schemas.Product:
     if product.synonyms:
         attributes["also_known_as"] = ", ".join(product.synonyms)
     if product.applications:
-        attributes["applications"] = ", ".join(product.applications)
+        attributes["applications"] = ", ".join(a.name for a in product.applications)
     for k, v in (product.specs or {}).items():
         attributes[k] = ", ".join(map(str, v)) if isinstance(v, list) else v
     for col in ["molecular_formula", "molecular_weight", "appearance", "description"]:
-        if getattr(product, col):
-            attributes[col] = getattr(product, col)
+        if getattr(product, col) is not None and getattr(product, col) != "":
+            attributes[col] = str(getattr(product, col))
 
     return schemas.Product(
         id=product.id,
@@ -74,13 +77,14 @@ def search_products(
     like = "%" + term.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_") + "%"
     products = (
         db.query(Product)
+        .options(*_LOAD)
         .filter(Product.is_active.is_(True))
         .filter(
             or_(
                 Product.name.ilike(like),
                 Product.ci_name.ilike(like),
                 Product.cas_number.ilike(like),
-                Product.cas_numbers.any(term),
+                exists().where(CasAlias.product_id == Product.id, CasAlias.cas_number == term),
                 func.array_to_string(Product.synonyms, " ").ilike(like),
             )
         )
@@ -110,10 +114,11 @@ def read_products(
     category_slug: Optional[str] = None,
     subcategory_slug: Optional[str] = None,
 ):
-    query = db.query(Product).filter(Product.is_active.is_(True))
+    query = db.query(Product).options(*_LOAD).filter(Product.is_active.is_(True))
     query = _apply_category_filters(query, category_slug, subcategory_slug)
     if category_slug or subcategory_slug:
-        query = query.order_by(product_subcategories.c.sort_order, Product.name, Product.id)
+        # Source-sheet order (ids follow it: e.g. acid dyes grouped by shade), unless sort_order is set.
+        query = query.order_by(product_subcategories.c.sort_order, Product.id)
     else:
         query = query.order_by(Product.id)
 

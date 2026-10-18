@@ -30,5 +30,6 @@ export async function apiGet<T>(path: string, { tries = 3, timeoutMs = 25000 } =
 
 /** Fire-and-forget ping so the backend starts waking as soon as the site opens. */
 export function warmUpApi() {
+  if (typeof window === 'undefined') return; // not during pre-rendering
   fetch(`${API_BASE.replace(/\/api\/v1$/, '')}/health`).catch(() => {});
 }

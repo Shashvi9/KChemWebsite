@@ -1,12 +1,13 @@
 import re
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from sqlalchemy import exists, func, or_
 from sqlalchemy.orm import selectinload
 from typing import List, Optional
 
 from app.db.session import get_db
+from app.core import cas
 from app.db.models import CasAlias, Product, Category, Subcategory, product_subcategories
 from app.schemas import schemas
 
@@ -37,6 +38,8 @@ def _product_to_api(product: Product) -> schemas.Product:
     if product.applications:
         attributes["applications"] = ", ".join(a.name for a in product.applications)
     for k, v in (product.specs or {}).items():
+        if k.startswith("_"):  # internal bookkeeping such as _sources
+            continue
         attributes[k] = ", ".join(map(str, v)) if isinstance(v, list) else v
     for col in ["molecular_formula", "molecular_weight", "appearance", "description"]:
         if getattr(product, col) is not None and getattr(product, col) != "":
@@ -124,3 +127,83 @@ def read_products(
 
     products = query.offset(skip).limit(limit).all()
     return [_product_to_api(p) for p in products]
+
+
+# ---- Product pages (one URL per product) -------------------------------------------------------
+
+_JUNK_NAMES = re.compile(r"^(product name|name|each ml contain)", re.I)
+
+
+def is_indexable(p: Product) -> bool:
+    """Search engines only see rows we trust: no header/notes rows, no CAS that fails its check digit.
+    The rows stay on the site and in the DB; they are just marked noindex until reviewed."""
+    if _JUNK_NAMES.match(p.name.strip()):
+        return False
+    raw = (p.cas_number or "").strip().strip("-")
+    return not raw or bool(cas.normalize(p.cas_number))
+
+
+def _detail(p: Product, ranges: list[schemas.RangeRef], related: list[Product]) -> schemas.ProductDetail:
+    base = _product_to_api(p)
+    return schemas.ProductDetail(
+        **base.model_dump(),
+        product_type=p.product_type,
+        ranges=ranges,
+        related=[schemas.ProductRef(name=r.name, slug=r.slug, cas=r.cas_number) for r in related],
+        documents=[schemas.ProductDocumentOut(type=d.document_type, url=d.file_url) for d in p.documents],
+        indexable=is_indexable(p),
+        updated_at=p.updated_at.isoformat() if p.updated_at else None,
+    )
+
+
+def _ranges_by_product(db: Session, product_ids: list[int] | None = None) -> dict[int, list[schemas.RangeRef]]:
+    q = (db.query(product_subcategories.c.product_id, Subcategory, Category)
+         .join(Subcategory, Subcategory.id == product_subcategories.c.subcategory_id)
+         .join(Category, Category.id == Subcategory.category_id)
+         .filter(Subcategory.is_active.is_(True)))
+    if product_ids is not None:
+        q = q.filter(product_subcategories.c.product_id.in_(product_ids))
+    out: dict[int, list[schemas.RangeRef]] = {}
+    for pid, sub, cat in q.order_by(Subcategory.sort_order, Subcategory.id).all():
+        out.setdefault(pid, []).append(schemas.RangeRef(name=sub.name, slug=sub.slug, category_slug=cat.slug,
+                                                        category_name=cat.name))
+    return out
+
+
+def _with_primary_first(ranges: list[schemas.RangeRef], primary_sub: Subcategory | None):
+    if primary_sub is None:
+        return ranges
+    return sorted(ranges, key=lambda r: r.slug != primary_sub.slug)
+
+
+def _related(siblings: list[Product], p: Product, n: int = 12) -> list[Product]:
+    """Neighbours in the same range by catalogue order (source sheets group shades together)."""
+    others = [s for s in siblings if s.id != p.id]
+    return sorted(others, key=lambda s: abs(s.id - p.id))[:n]
+
+
+_DETAIL_LOAD = _LOAD + (selectinload(Product.documents), selectinload(Product.subcategory))
+
+
+@router.get("/by-slug/{slug}", response_model=schemas.ProductDetail)
+def product_by_slug(slug: str, db: Session = Depends(get_db)):
+    p = db.query(Product).options(*_DETAIL_LOAD).filter(Product.slug == slug, Product.is_active.is_(True)).first()
+    if not p:
+        raise HTTPException(status_code=404, detail="Product not found")
+    siblings = (db.query(Product).filter(Product.subcategory_id == p.subcategory_id, Product.is_active.is_(True))
+                .all() if p.subcategory_id else [])
+    ranges = _with_primary_first(_ranges_by_product(db, [p.id]).get(p.id, []), p.subcategory)
+    return _detail(p, ranges, _related(siblings, p))
+
+
+@router.get("/static-export", response_model=List[schemas.ProductDetail])
+def static_export(db: Session = Depends(get_db)):
+    """All active products with page data, in one response, for pre-rendering and the sitemap."""
+    products = db.query(Product).options(*_DETAIL_LOAD).filter(Product.is_active.is_(True)).order_by(Product.id).all()
+    by_sub: dict[int, list[Product]] = {}
+    for p in products:
+        if p.subcategory_id:
+            by_sub.setdefault(p.subcategory_id, []).append(p)
+    ranges = _ranges_by_product(db)
+    return [_detail(p, _with_primary_first(ranges.get(p.id, []), p.subcategory), _related(by_sub.get(p.subcategory_id, []), p))
+            for p in products]

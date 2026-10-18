@@ -1,5 +1,6 @@
 import React from "react";
 import { Award, Users, Globe, Zap, BookOpen, Eye, Target, Star } from "lucide-react";
+import { staticSeo, useSeo } from '@/lib/seo';
 
 const stats = [
   { icon: Award, label: "Years of Excellence", value: "25+" },
@@ -40,6 +41,7 @@ const sections = [
 ];
 
 const About = () => {
+  useSeo(staticSeo['/about']);
   return (
     <div className="relative bg-gradient-to-b from-background via-white to-background min-h-screen overflow-hidden">
       {/* Background Waves */}

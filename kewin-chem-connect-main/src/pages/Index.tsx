@@ -4,6 +4,7 @@ import { ArrowRight, MapPin, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { plural, useCatalogOverview } from '@/lib/catalog';
 import { FACILITIES, HEAD_OFFICE, WHATSAPP_URL } from '@/lib/contact';
+import { homeSeo, useSeo } from '@/lib/seo';
 
 const YEAR_FOUNDED = 1999;
 
@@ -238,6 +239,7 @@ function ClosingCta() {
 
 const Index = () => {
   const { data } = useCatalogOverview();
+  useSeo(homeSeo());
   return (
     <>
       <Hero />

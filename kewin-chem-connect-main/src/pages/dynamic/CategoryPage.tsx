@@ -2,12 +2,14 @@ import { Link, useParams } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { findCategory, plural, slugTitle, useCatalogOverview } from '@/lib/catalog';
+import { categorySeo, useSeo } from '@/lib/seo';
 
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
   const { data, isLoading, error, refetch } = useCatalogOverview();
   const category = findCategory(data, categorySlug);
   const title = category?.name ?? slugTitle(categorySlug);
+  useSeo(category ? categorySeo(category) : null);
 
   return (
     <div className="container py-10 md:py-14">

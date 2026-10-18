@@ -51,3 +51,31 @@ class Product(ProductBase):
 
     class Config:
         orm_mode = True
+
+
+class RangeRef(BaseModel):
+    name: str
+    slug: str
+    category_slug: str
+    category_name: str
+
+
+class ProductRef(BaseModel):
+    name: str
+    slug: str
+    cas: Optional[str] = None
+
+
+class ProductDocumentOut(BaseModel):
+    type: str
+    url: str
+
+
+class ProductDetail(Product):
+    """Everything a product page needs in one response."""
+    product_type: Optional[str] = None
+    ranges: List[RangeRef] = []        # primary range first
+    related: List[ProductRef] = []
+    documents: List[ProductDocumentOut] = []
+    indexable: bool = True             # False: kept on the site but out of search until reviewed
+    updated_at: Optional[str] = None

@@ -21,18 +21,21 @@ import Contact from "./pages/Contact";
 // Dynamic pages for fully dynamic routing
 import CategoryPage from "./pages/dynamic/CategoryPage";
 import SubcategoryPage from "./pages/dynamic/SubcategoryPage";
+import ProductPage from "./pages/ProductPage";
 
 // Admin pages: loaded only when visited, so public visitors don't download them
 const AdminLogin = lazy(() => import("@/pages/admin/AdminLogin"));
 const AdminLeads = lazy(() => import("@/pages/admin/AdminLeads"));
 
 // apiGet already retries with timeouts (cold starts); don't multiply that here.
-const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } });
+export const createQueryClient = () =>
+  new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false, staleTime: 60 * 60 * 1000 } } });
 
 // Start waking the Render backend the moment the site opens, before the user reaches a product page.
 warmUpApi();
 
-const App = () => {
+/** The query client is passed in so the pre-renderer can seed it and the browser can hydrate it. */
+const App = ({ queryClient }: { queryClient: QueryClient }) => {
   const isAdmin = useLocation().pathname.startsWith("/admin");
   return (
   <QueryClientProvider client={queryClient}>
@@ -53,6 +56,7 @@ const App = () => {
             {/* Fully dynamic routes - 3 level hierarchy */}
             <Route path="/category/:categorySlug" element={<CategoryPage />} />
             <Route path="/category/:categorySlug/:subcategorySlug" element={<SubcategoryPage />} />
+            <Route path="/products/:slug" element={<ProductPage />} />
             {/* Forms (powder/liquid) are separate subcategories now; old form URLs go up a level */}
             <Route path="/category/:categorySlug/:subcategorySlug/:formSlug" element={<Navigate to=".." relative="path" replace />} />
 

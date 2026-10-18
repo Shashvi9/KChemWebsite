@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import RequestSampleDialog from '@/components/RequestSampleDialog';
-import { columnLabel, displayName, isCodeColumn, orderColumns, type Product } from '@/lib/catalog';
+import { columnLabel, DETAIL_ONLY, displayName, isCodeColumn, orderColumns, productPath, type Product } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
 type Props = {
@@ -22,7 +23,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
 
   const columns = useMemo(() => {
     const keys = new Set<string>();
-    products.forEach((p) => Object.keys(p.attributes ?? {}).forEach((k) => keys.add(k)));
+    products.forEach((p) => Object.keys(p.attributes ?? {}).forEach((k) => !DETAIL_ONLY.has(k) && keys.add(k)));
     return orderColumns([...keys]);
   }, [products]);
 
@@ -40,9 +41,12 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
     return products.filter((p) => {
       if (app && !String(p.attributes?.applications ?? '').includes(app)) return false;
       if (!q) return true;
-      return [p.name, ...Object.values(p.attributes ?? {})].some((v) => String(v).toLowerCase().includes(q));
+      // Only what's visible in the table: matching hidden data-sheet fields (e.g. "brownish black" hue)
+      // made unrelated products appear.
+      return [p.name, displayName(p.name), ...columns.map((k) => p.attributes?.[k])]
+        .some((v) => v !== undefined && String(v).toLowerCase().includes(q));
     });
-  }, [products, filter, app]);
+  }, [products, filter, app, columns]);
 
   const toggle = (id: number) =>
     setSelected((s) => {
@@ -119,7 +123,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
                     <input type="checkbox" aria-label={`Select ${displayName(p.name)}`} checked={on} onChange={() => toggle(p.id)} className="h-4 w-4 accent-[hsl(var(--primary))]" />
                   </td>
                   <th scope="row" className={cn('sticky left-10 min-w-[11rem] max-w-[20rem] px-3 py-2.5 text-left font-medium', on ? 'bg-[hsl(23_86%_97%)]' : 'bg-card')}>
-                    {displayName(p.name)}
+                    {p.slug ? <Link to={productPath(p.slug)!} className="hover:text-primary hover:underline">{displayName(p.name)}</Link> : displayName(p.name)}
                   </th>
                   {extraColumn && <td className="whitespace-nowrap px-3 py-2.5 text-muted-foreground">{extraColumn.value(p)}</td>}
                   {columns.map((k) => (
@@ -149,7 +153,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
               <div className="flex items-start gap-3">
                 <input type="checkbox" aria-label={`Select ${displayName(p.name)}`} checked={on} onChange={() => toggle(p.id)} className="mt-1 h-4 w-4 shrink-0 accent-[hsl(var(--primary))]" />
                 <div className="min-w-0 flex-1">
-                  <p className="font-medium">{displayName(p.name)}</p>
+                  <p className="font-medium">{p.slug ? <Link to={productPath(p.slug)!} className="hover:text-primary">{displayName(p.name)}</Link> : displayName(p.name)}</p>
                   <dl className="mt-1.5 grid grid-cols-[auto,1fr] gap-x-3 gap-y-0.5 text-sm">
                     {extraColumn && <><dt className="text-muted-foreground">{extraColumn.label}</dt><dd>{extraColumn.value(p)}</dd></>}
                     {columns.filter((k) => cell(p.attributes?.[k]) !== '—').map((k) => (

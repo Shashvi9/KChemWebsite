@@ -1,22 +1,23 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { SearchBar } from "@/components/search/SearchBar";
+import { useCatalogOverview } from "@/lib/catalog";
+import { staticSeo, useSeo } from "@/lib/seo";
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
+  useSeo(staticSeo["/404"]);
+  const { data } = useCatalogOverview();
   return (
-    <div className="flex min-h-screen items-center justify-center bg-secondary">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary">
-          Return to Home
-        </a>
-      </div>
+    <div className="container py-16 md:py-24">
+      <p className="font-mono text-sm text-muted-foreground">404</p>
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight">This page doesn't exist</h1>
+      <p className="mt-3 max-w-xl text-muted-foreground">It may have moved. Search by product name or CAS number, or pick a range.</p>
+      <div className="mt-6 max-w-md"><SearchBar className="flex" /></div>
+      <ul className="mt-8 flex flex-wrap gap-2">
+        {(data ?? []).map((c) => (
+          <li key={c.id}><Link to={`/category/${c.slug}`} className="inline-block rounded-sm border bg-card px-3 py-1.5 text-sm hover:border-primary hover:text-primary">{c.name}</Link></li>
+        ))}
+        <li><Link to="/" className="inline-block rounded-sm border bg-card px-3 py-1.5 text-sm hover:border-primary hover:text-primary">Home</Link></li>
+      </ul>
     </div>
   );
 };

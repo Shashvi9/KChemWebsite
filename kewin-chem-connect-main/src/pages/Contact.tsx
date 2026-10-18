@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Factory } from "lucide-react";
 import { API_BASE } from '@/lib/apiConfig';
 import { CONTACT_EMAIL, CONTACT_PHONE, COUNTRIES, WHATSAPP_URL, errorMessage } from '@/lib/contact';
+import { staticSeo, useSeo } from '@/lib/seo';
 
 const offices = [
   {
@@ -75,6 +76,7 @@ const offices = [
 const EMPTY = { name: "", email: "", company: "", country: "", phone: "", subject: "", message: "", website: "" };
 
 const Contact = () => {
+  useSeo(staticSeo['/contact']);
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({ ...EMPTY, subject: searchParams.get("subject") || "" });
 

@@ -40,12 +40,14 @@ with eng.begin() as c:
     c.execute(text("INSERT INTO products (id, name, slug, subcategory_id, category_id) "
                    "SELECT g, 'Acid Test ' || g, 'acid-test-' || g, 10, 1 FROM generate_series(1, 150) g"))
     c.execute(text("UPDATE products SET name = 'Acid Red 18', cas_number = '2611-82-7', "
-                   "ci_name = 'Acid Red 18', synonyms = '{Ponceau 4R}', specs = '{\"strength\": [\"100%\", \"150%\"]}' "
+                   "ci_name = 'Acid Red 18', synonyms = '{Ponceau 4R}', specs = '{\"strength\": [\"100%\", \"150%\"], \"_sources\": {\"strength\": \"x\"}}' "
                    "WHERE id = 1"))
     c.execute(text("INSERT INTO cas_aliases (product_id, cas_number) VALUES (1, '12345-67-8')"))
     c.execute(text("INSERT INTO applications (id, name, slug) VALUES (1, 'Wool Dyeing', 'wool-dyeing')"))
     c.execute(text("INSERT INTO product_applications (product_id, application_id) VALUES (1, 1)"))
     c.execute(text("UPDATE products SET is_active = false WHERE id = 2"))
+    c.execute(text("UPDATE products SET cas_number = '53026-69-9' WHERE id = 3"))  # fails the check digit
+    c.execute(text("UPDATE products SET name = 'Product Name' WHERE id = 4"))      # spreadsheet header row
     c.execute(text("INSERT INTO product_subcategories (product_id, subcategory_id) SELECT id, 10 FROM products"))
     c.execute(text("INSERT INTO product_subcategories (product_id, subcategory_id) VALUES (1, 11)"))
 
@@ -67,6 +69,19 @@ assert lev[0]["attributes"] == {"cas": "2611-82-7 / 12345-67-8", "also_known_as"
 for q in ["ponceau", "2611-82-7", "12345-67-8", "acid red 18", "red 18"]:
     assert [p["id"] for p in cl.get(f"{api}/products/search", params={"q": q}).json()] == [1], q
 assert cl.get(f"{api}/products/search", params={"q": "%_"}).json() == []  # LIKE wildcards are escaped
+
+# Product pages
+d = cl.get(f"{api}/products/by-slug/acid-test-1").json()
+assert d["name"] == "Acid Red 18" and d["indexable"] is True, d
+assert [r["slug"] for r in d["ranges"]] == ["acid-dyes", "levelling-dyes"], d["ranges"]  # primary range first
+assert len(d["related"]) == 12 and d["related"][0]["slug"] == "acid-test-3", d["related"][:2]  # nearest neighbours
+assert "acid-test-2" not in [r["slug"] for r in d["related"]]  # inactive excluded
+assert cl.get(f"{api}/products/by-slug/acid-test-2").status_code == 404  # inactive
+assert cl.get(f"{api}/products/by-slug/nope").status_code == 404
+assert cl.get(f"{api}/products/by-slug/acid-test-3").json()["indexable"] is False  # bad CAS -> noindex
+assert cl.get(f"{api}/products/by-slug/acid-test-4").json()["indexable"] is False  # header row -> noindex
+exp = cl.get(f"{api}/products/static-export").json()
+assert len(exp) == 149 and sum(not x["indexable"] for x in exp) == 2, (len(exp), sum(not x["indexable"] for x in exp))
 
 # Forms
 H = {"x-forwarded-for": "1.1.1.1"}

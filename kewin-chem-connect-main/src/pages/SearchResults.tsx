@@ -3,8 +3,10 @@ import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { ProductTable } from '@/components/catalog/ProductTable';
 import { findSubcategory, useCatalogOverview, useProductSearch } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
+import { staticSeo, useSeo } from '@/lib/seo';
 
 const SearchResults = () => {
+  useSeo(staticSeo['/search']);
   const [params] = useSearchParams();
   const q = (params.get('q') ?? '').trim();
   const { data: overview } = useCatalogOverview();

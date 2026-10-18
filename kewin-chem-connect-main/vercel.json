@@ -1,12 +1,81 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/products",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dyes-intermediates",
+      "destination": "/category/dyes-intermediates",
+      "permanent": true
+    },
+    {
+      "source": "/food-pharma",
+      "destination": "/category/food-pharma-colors",
+      "permanent": true
+    },
+    {
+      "source": "/shades-pigments",
+      "destination": "/category/pigments",
+      "permanent": true
+    },
+    {
+      "source": "/category/shades-pigments",
+      "destination": "/category/pigments",
+      "permanent": true
+    },
+    {
+      "source": "/varieties-cosmetics",
+      "destination": "/contact?subject=Cosmetic%20colors",
+      "permanent": false
+    },
+    {
+      "source": "/category/varieties-cosmetics",
+      "destination": "/contact?subject=Cosmetic%20colors",
+      "permanent": false
+    },
+    {
+      "source": "/category/:category/:sub/:form",
+      "destination": "/category/:category/:sub",
+      "permanent": true
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/leads",
+      "permanent": false
+    },
+    {
+      "source": "/admin/requests",
+      "destination": "/admin/leads",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/:path*",
       "destination": "https://kewinchem-backend.onrender.com/api/:path*"
     },
     {
-      "source": "/((?!api).*)",
-      "destination": "/index.html"
+      "source": "/search",
+      "destination": "/spa.html"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/spa.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

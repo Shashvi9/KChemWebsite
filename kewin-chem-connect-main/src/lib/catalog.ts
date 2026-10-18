@@ -4,18 +4,29 @@ import { apiGet } from '@/lib/apiConfig';
 export type SubcategorySummary = { id: number; name: string; slug: string; category_id: number; product_count: number };
 export type CategorySummary = { id: number; name: string; slug: string; product_count: number; subcategories: SubcategorySummary[] };
 export type Product = { id: number; name: string; slug?: string | null; attributes: Record<string, string | number> | null; subcategory_id: number };
+export type RangeRef = { name: string; slug: string; category_slug: string; category_name: string };
+export type ProductDetail = Product & {
+  slug: string;
+  product_type: string | null;
+  ranges: RangeRef[];
+  related: { name: string; slug: string; cas: string | null }[];
+  documents: { type: string; url: string }[];
+  indexable: boolean;
+  updated_at: string | null;
+};
 
 const HOUR = 60 * 60 * 1000;
 
 // ponytail: display order lives here until categories.sort_order is set in the DB (admin), then drop this.
 const CATEGORY_ORDER = ['dyes-intermediates', 'food-pharma-colors', 'pigments', 'pharmaceutical-products'];
 const rank = (slug: string) => (CATEGORY_ORDER.indexOf(slug) + 1 || 99);
+export const sortOverview = (cats: CategorySummary[]) => [...cats].sort((a, b) => rank(a.slug) - rank(b.slug));
 
 /** Categories with subcategories and counts. Cached for the session: one cold-start hit, then instant menus. */
 export function useCatalogOverview() {
   return useQuery({
     queryKey: ['catalog-overview'],
-    queryFn: async () => (await apiGet<CategorySummary[]>('/categories/overview')).sort((a, b) => rank(a.slug) - rank(b.slug)),
+    queryFn: async () => sortOverview(await apiGet<CategorySummary[]>('/categories/overview')),
     staleTime: HOUR,
   });
 }
@@ -31,6 +42,17 @@ export function useProducts(categorySlug?: string, subcategorySlug?: string) {
     staleTime: HOUR,
   });
 }
+
+export function useProductDetail(slug?: string) {
+  return useQuery({
+    queryKey: ['product', slug],
+    queryFn: () => apiGet<ProductDetail>(`/products/by-slug/${encodeURIComponent(slug!)}`),
+    enabled: !!slug,
+    staleTime: HOUR,
+  });
+}
+
+export const productPath = (slug?: string | null) => (slug ? `/products/${slug}` : undefined);
 
 export function useProductSearch(q: string) {
   const term = q.trim();
@@ -81,7 +103,19 @@ const LABELS: Record<string, string> = {
   therapeutic_segment: 'Therapeutic segment',
   molecular_formula: 'Formula',
   molecular_weight: 'Mol. weight',
+  chemical_class: 'Chemical class',
+  appearance: 'Physical appearance',
+  hue: 'Hue',
+  solubility: 'Solubility',
+  dye_content: 'Dye content (typical)',
+  light_fastness: 'Light fastness (typical)',
+  wash_fastness: 'Wash fastness (typical)',
 };
+
+/** Data-sheet fields: shown on product pages, kept out of range tables to keep those scannable. */
+export const DETAIL_ONLY = new Set(['chemical_class', 'appearance', 'hue', 'solubility', 'dye_content', 'light_fastness', 'wash_fastness', 'description', 'shade_hex']);
+/** Used for visuals only, never shown as a data row. */
+export const NOT_A_SPEC = new Set(['shade_hex']);
 
 export const columnLabel = (key: string) => LABELS[key] ?? key.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 
@@ -89,7 +123,8 @@ export const columnLabel = (key: string) => LABELS[key] ?? key.replace(/_/g, ' '
 export const isCodeColumn = (key: string) => ['cas', 'ci_number', 'e_number', 'molecular_formula'].includes(key);
 
 // Columns shown first, in this order; anything else follows alphabetically.
-const ORDER = ['cas', 'ci_name', 'ci_number', 'e_number', 'also_known_as', 'applications', 'chemical_family', 'strength'];
+const ORDER = ['cas', 'ci_name', 'ci_number', 'chemical_class', 'appearance', 'hue', 'solubility', 'dye_content', 'light_fastness',
+  'wash_fastness', 'e_number', 'also_known_as', 'applications', 'chemical_family', 'strength'];
 export function orderColumns(keys: string[]) {
   return [...keys].sort((a, b) => {
     const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b);

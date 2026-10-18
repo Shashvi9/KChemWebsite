@@ -79,3 +79,9 @@ class ProductDetail(Product):
     documents: List[ProductDocumentOut] = []
     indexable: bool = True             # False: kept on the site but out of search until reviewed
     updated_at: Optional[str] = None
+
+
+class ApplicationSummary(BaseModel):
+    name: str
+    slug: str
+    product_count: int

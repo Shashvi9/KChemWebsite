@@ -6,7 +6,8 @@ import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { Swatch } from '@/components/catalog/Swatch';
 import { columnLabel, displayName, isCodeColumn, NOT_A_SPEC, orderColumns, productPath, useProductDetail, type ProductDetail } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
-import { productSeo, useSeo } from '@/lib/seo';
+import { LOCATION, productSeo, useSeo } from '@/lib/seo';
+import { industryForApplication, industryPath } from '@/lib/industries';
 
 const KIND: Record<string, string> = {
   dye: 'dye', intermediate: 'dye intermediate', food_color: 'food colour', pigment: 'pigment', pharma: 'pharmaceutical product',
@@ -21,7 +22,7 @@ function aboutText(p: ProductDetail) {
   const ids = [a.cas && `CAS number ${String(a.cas).replace(/ \/ /g, ' or ')}`, a.ci_number && `Colour Index number ${a.ci_number}`, a.e_number && `E-number ${a.e_number}`]
     .filter(Boolean);
   const kind = range ? range.name.replace(/s(\s|$)/, '$1').toLowerCase() : KIND[p.product_type ?? ''] ?? 'product';
-  const parts = [`${name} is a${/^[aeiou]/i.test(kind) ? 'n' : ''} ${kind} manufactured and exported by Kewin Chemicals from Gujarat, India.`];
+  const parts = [`${name} is a${/^[aeiou]/i.test(kind) ? 'n' : ''} ${kind} from Kewin Chemicals, a manufacturer, supplier and exporter based in ${LOCATION}.`];
   if (ids.length) parts.push(`It is identified by ${ids.join(', ')}.`);
   const form = [a.chemical_class && `a ${String(a.chemical_class).toLowerCase()} dye`, a.appearance && `supplied as a ${String(a.appearance).toLowerCase()}`]
     .filter(Boolean).join(', ');
@@ -43,6 +44,24 @@ function faqs(p: ProductDetail) {
     a.also_known_as && { q: `What are other names for ${name}?`, a: `${name} is also sold as ${a.also_known_as}.` },
     { q: `Can I get a sample of ${name}?`, a: 'Yes. Request a sample with the form on this page and our export team will reply by email or WhatsApp with availability, documents and shipping terms.' },
   ].filter(Boolean) as { q: string; a: string }[];
+}
+
+/** Applications, each linked to its industry page when there is one. */
+function Applications({ value }: { value: string }) {
+  const items = value.split(',').map((x) => x.trim()).filter(Boolean);
+  return (
+    <>
+      {items.map((app, i) => {
+        const ind = industryForApplication(app);
+        return (
+          <span key={app}>
+            {i > 0 && ', '}
+            {ind ? <Link to={industryPath(ind)} className="text-primary hover:underline">{app}</Link> : app}
+          </span>
+        );
+      })}
+    </>
+  );
 }
 
 function Body({ p }: { p: ProductDetail }) {
@@ -71,6 +90,7 @@ function Body({ p }: { p: ProductDetail }) {
               <p className="text-sm font-medium text-muted-foreground">{range?.name ?? KIND[p.product_type ?? '']}</p>
               <h1 className="mt-1 text-3xl font-semibold tracking-tight md:text-4xl">{name}</h1>
               {a.cas && <p className="mt-2 font-mono text-muted-foreground">CAS {a.cas}</p>}
+              <p className="mt-2 text-sm text-muted-foreground">{name} manufacturer, supplier and exporter in {LOCATION}</p>
             </div>
             {p.product_type !== 'pharma' && p.product_type !== 'intermediate' && (
               <div className="hidden w-28 shrink-0 sm:block"><Swatch hex={a.shade_hex as string | undefined} hue={a.hue as string | undefined} name={name} /></div>
@@ -85,7 +105,9 @@ function Body({ p }: { p: ProductDetail }) {
                 {rows.map((k) => (
                   <tr key={k} className="border-b last:border-0">
                     <th scope="row" className="w-1/3 bg-secondary/50 px-4 py-2.5 text-left font-medium">{columnLabel(k)}</th>
-                    <td className={isCodeColumn(k) ? 'px-4 py-2.5 font-mono' : 'px-4 py-2.5'}>{String(a[k])}</td>
+                    <td className={isCodeColumn(k) ? 'px-4 py-2.5 font-mono' : 'px-4 py-2.5'}>
+                      {k === 'applications' ? <Applications value={String(a[k])} /> : String(a[k])}
+                    </td>
                   </tr>
                 ))}
                 {p.ranges.length > 0 && (

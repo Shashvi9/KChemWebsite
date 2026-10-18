@@ -54,7 +54,7 @@ export function Swatch({ hex, hue, name }: { hex?: string | null; hue?: string |
   if (!colour) return null;
   return (
     <figure className="w-full max-w-[12rem]">
-      <div className="aspect-square rounded-md ring-1 ring-black/5" style={{ background: colour }} role="img" aria-label={`Indicative colour of ${name}`} />
+      <div className="aspect-square rounded-md ring-1 ring-black/5" style={{ background: colour }} role="img" aria-label={`${name} shade (indicative colour)`} />
       <figcaption className="mt-1.5 text-xs text-muted-foreground">Indicative colour. Actual shade depends on grade, substrate and process.</figcaption>
     </figure>
   );

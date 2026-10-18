@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { plural, useCatalogOverview } from '@/lib/catalog';
 import { FACILITIES, HEAD_OFFICE, WHATSAPP_URL } from '@/lib/contact';
 import { homeSeo, useSeo } from '@/lib/seo';
+import { INDUSTRIES, industryPath } from '@/lib/industries';
 
 const YEAR_FOUNDED = 1999;
 
@@ -31,7 +32,11 @@ const CATEGORY_BLURB: Record<string, string> = {
   'pharmaceutical-products': 'Human and veterinary formulations and nutraceutical ingredients.',
 };
 
-const INDUSTRIES = ['Textiles', 'Leather', 'Paper', 'Printing inks', 'Wood stains', 'Aluminium anodising', 'Food & beverages', 'Pharmaceuticals'];
+// Industries without their own page link to the matching product category.
+const MORE_INDUSTRIES = [
+  { name: 'Food & beverages', to: '/category/food-pharma-colors' },
+  { name: 'Pharmaceuticals', to: '/category/pharmaceutical-products' },
+];
 
 function Hero() {
   const [q, setQ] = useState('');
@@ -45,7 +50,7 @@ function Hero() {
             Manufacturer &amp; exporter · Ahmedabad, India · since {YEAR_FOUNDED}
           </p>
           <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl">
-            Dyes, intermediates and food colours, made in Gujarat for buyers worldwide.
+            Dyes, dye intermediates and food colours: manufacturer and exporter in Gujarat, India.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Search our catalogue by product name or CAS number, request a free sample, and get a quote from our export team.
@@ -163,7 +168,9 @@ function Industries() {
       <div className="container flex flex-col gap-4 md:flex-row md:items-baseline md:gap-10">
         <h2 className="shrink-0 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Industries we supply</h2>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-lg">
-          {INDUSTRIES.map((i) => <li key={i}>{i}</li>)}
+          {[...INDUSTRIES.map((i) => ({ name: i.name, to: industryPath(i) })), ...MORE_INDUSTRIES].map((i) => (
+            <li key={i.name}><Link to={i.to} className="underline decoration-border underline-offset-4 hover:text-primary hover:decoration-primary">{i.name}</Link></li>
+          ))}
         </ul>
       </div>
     </section>

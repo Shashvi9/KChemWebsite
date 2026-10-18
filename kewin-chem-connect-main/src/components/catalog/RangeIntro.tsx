@@ -11,7 +11,7 @@ export function rangeIntro(rangeName: string, products: Product[]) {
   const examples = products.slice(0, 4).map((p) => displayName(p.name));
   const lower = rangeName.toLowerCase();
   return [
-    `Kewin Chemicals manufactures and exports ${products.length} ${lower} from Gujarat, India${withCas ? `, ${withCas === products.length ? 'each' : `${withCas}`} listed with its CAS number` : ''}.`,
+    `Kewin Chemicals manufactures and exports ${lower} from Gujarat, India${withCas === products.length ? ', each listed with its CAS number' : withCas ? ', listed with their CAS numbers' : ''}.`,
     topUses.length ? `They are used mainly for ${topUses.join(', ')}.` : '',
     examples.length ? `The range includes ${examples.join(', ')}${products.length > examples.length ? ' and more' : ''}.` : '',
     'Select products below to request samples or an export quote.',

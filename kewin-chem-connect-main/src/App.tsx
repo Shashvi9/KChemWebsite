@@ -22,6 +22,7 @@ import Contact from "./pages/Contact";
 import CategoryPage from "./pages/dynamic/CategoryPage";
 import SubcategoryPage from "./pages/dynamic/SubcategoryPage";
 import ProductPage from "./pages/ProductPage";
+import IndustryPage from "./pages/IndustryPage";
 
 // Admin pages: loaded only when visited, so public visitors don't download them
 const AdminLogin = lazy(() => import("@/pages/admin/AdminLogin"));
@@ -57,6 +58,7 @@ const App = ({ queryClient }: { queryClient: QueryClient }) => {
             <Route path="/category/:categorySlug" element={<CategoryPage />} />
             <Route path="/category/:categorySlug/:subcategorySlug" element={<SubcategoryPage />} />
             <Route path="/products/:slug" element={<ProductPage />} />
+            <Route path="/industries/:slug" element={<IndustryPage />} />
             {/* Forms (powder/liquid) are separate subcategories now; old form URLs go up a level */}
             <Route path="/category/:categorySlug/:subcategorySlug/:formSlug" element={<Navigate to=".." relative="path" replace />} />
 

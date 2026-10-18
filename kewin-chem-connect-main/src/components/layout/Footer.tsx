@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCatalogOverview } from '@/lib/catalog';
+import { INDUSTRIES, industryPath } from '@/lib/industries';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, HEAD_OFFICE, WHATSAPP_URL } from '@/lib/contact';
 import logoWhite from '@/assets/logoWhite.png';
 
@@ -11,18 +12,24 @@ export const Footer = () => {
   return (
     <footer className="bg-foreground text-white">
       <div className="container grid gap-10 py-14 md:grid-cols-12">
-        <div className="md:col-span-4">
+        <div className="md:col-span-3">
           <img src={logoWhite} alt="Kewin Chemicals Pvt. Ltd." width={160} height={57} className="h-12 w-auto" loading="lazy" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
             Manufacturer and exporter of dyes, dye intermediates, food colours and pigments since 1999.
           </p>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-2">
           <p className={heading}>Products</p>
           <ul className="space-y-2">
             {(data ?? []).map((c) => (
               <li key={c.id}><Link to={`/category/${c.slug}`} className={link}>{c.name}</Link></li>
             ))}
+          </ul>
+        </div>
+        <div className="md:col-span-2">
+          <p className={heading}>Industries</p>
+          <ul className="space-y-2">
+            {INDUSTRIES.map((i) => <li key={i.slug}><Link to={industryPath(i)} className={link}>{i.name}</Link></li>)}
           </ul>
         </div>
         <div className="md:col-span-2">

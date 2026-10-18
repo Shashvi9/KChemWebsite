@@ -17,7 +17,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const API = (process.env.PRERENDER_API || 'https://kewinchem-backend.onrender.com/api/v1').replace(/\/$/, '');
 
-const { render, seo, sortOverview } = await import(path.join(root, 'dist-server', 'entry-server.js'));
+const { render, seo, sortOverview, INDUSTRIES } = await import(path.join(root, 'dist-server', 'entry-server.js'));
 
 async function getJson(url, tries = 4) {
   for (let i = 1; ; i++) {
@@ -86,6 +86,18 @@ for (const c of overview) {
     await write(sPath, page(sPath, [...base, [['products', c.slug, s.slug], rows]], meta));
     sitemap.push({ path: sPath });
   }
+}
+
+// Industry pages: products whose applications include any of the industry's applications (API order: id).
+const appName = (slug) => slug.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' '); // wool-dyeing -> Wool Dyeing
+for (const ind of INDUSTRIES) {
+  const names = new Set(ind.applications.map(appName));
+  const rows = products
+    .filter((p) => String(p.attributes?.applications ?? '').split(',').some((a) => names.has(a.trim())))
+    .map(toRow);
+  const iPath = `/industries/${ind.slug}`;
+  await write(iPath, page(iPath, [...base, [['industry', ind.slug], rows]], seo.industrySeo(ind, rows.length)));
+  sitemap.push({ path: iPath });
 }
 
 let noindex = 0;

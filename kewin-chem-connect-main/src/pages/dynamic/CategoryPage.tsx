@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { findCategory, plural, slugTitle, useCatalogOverview } from '@/lib/catalog';
-import { categorySeo, useSeo } from '@/lib/seo';
+import { categorySeo, LOCATION, useSeo } from '@/lib/seo';
 
 const CategoryPage = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -15,7 +15,10 @@ const CategoryPage = () => {
     <div className="container py-10 md:py-14">
       <Breadcrumbs items={[{ label: title }]} />
       <header className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
+          <p className="mt-1 text-sm font-medium text-muted-foreground">Manufacturer, exporter and supplier in {LOCATION}</p>
+        </div>
         {category && <p className="font-mono text-sm text-muted-foreground">{plural(category.product_count, 'product')} · {plural(category.subcategories.length, 'range')}</p>}
       </header>
 

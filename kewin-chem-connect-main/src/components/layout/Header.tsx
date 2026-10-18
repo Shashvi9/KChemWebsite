@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { SearchBar } from '@/components/search/SearchBar';
 import { useCatalogOverview } from '@/lib/catalog';
+import { INDUSTRIES, industryPath } from '@/lib/industries';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, WHATSAPP_URL } from '@/lib/contact';
 import { cn } from '@/lib/utils';
 import logo from '@/assets/logo.png';
@@ -14,8 +15,8 @@ const QUOTE_URL = '/contact?subject=Quote%20request';
 const navLink = ({ isActive }: { isActive: boolean }) =>
   cn('text-sm font-medium transition-colors hover:text-primary', isActive ? 'text-primary' : 'text-foreground');
 
-function ProductsMenu() {
-  const { data } = useCatalogOverview();
+/** Header dropdown: opens on hover or click; closes on Escape, outside click, mouse leave or navigation. */
+function NavMenu({ label, active, children }: { label: string; active: boolean; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const location = useLocation();
@@ -42,36 +43,59 @@ function ProductsMenu() {
         aria-haspopup="true"
         onClick={() => setOpen(true)} /* hover already opens it; a toggle here would close it on the same gesture */
         onMouseEnter={() => setOpen(true)}
-        className={cn('flex items-center gap-1 text-sm font-medium hover:text-primary',
-          location.pathname.startsWith('/category') ? 'text-primary' : 'text-foreground')}
+        className={cn('flex items-center gap-1 text-sm font-medium hover:text-primary', active ? 'text-primary' : 'text-foreground')}
       >
-        Products <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} aria-hidden />
+        {label} <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} aria-hidden />
       </button>
-      {open && (
-        <div className="absolute -left-6 top-full z-50 pt-3">
-          <div className="grid w-[44rem] grid-cols-2 gap-x-8 gap-y-6 rounded-md border bg-card p-6 shadow-hover">
-            {(data ?? []).map((c) => (
-              <div key={c.id}>
-                <Link to={`/category/${c.slug}`} className="flex items-baseline justify-between border-b pb-2 font-semibold hover:text-primary">
-                  {c.name} <span className="font-mono text-xs font-normal text-muted-foreground">{c.product_count}</span>
-                </Link>
-                <ul className="mt-2 space-y-1">
-                  {c.subcategories.slice(0, 6).map((s) => (
-                    <li key={s.id}>
-                      <Link to={`/category/${c.slug}/${s.slug}`} className="text-sm text-muted-foreground hover:text-primary">{s.name}</Link>
-                    </li>
-                  ))}
-                  {c.subcategories.length > 6 && (
-                    <li><Link to={`/category/${c.slug}`} className="text-sm font-medium text-primary">All {c.subcategories.length} ranges →</Link></li>
-                  )}
-                </ul>
-              </div>
-            ))}
-            {!data && <p className="col-span-2 text-sm text-muted-foreground">Loading product ranges…</p>}
-          </div>
-        </div>
-      )}
+      {open && <div className="absolute -left-6 top-full z-50 pt-3">{children}</div>}
     </div>
+  );
+}
+
+function ProductsMenu() {
+  const { data } = useCatalogOverview();
+  const location = useLocation();
+  return (
+    <NavMenu label="Products" active={location.pathname.startsWith('/category') || location.pathname.startsWith('/products')}>
+      <div className="grid w-[44rem] grid-cols-2 gap-x-8 gap-y-6 rounded-md border bg-card p-6 shadow-hover">
+        {(data ?? []).map((c) => (
+          <div key={c.id}>
+            <Link to={`/category/${c.slug}`} className="flex items-baseline justify-between border-b pb-2 font-semibold hover:text-primary">
+              {c.name} <span className="font-mono text-xs font-normal text-muted-foreground">{c.product_count}</span>
+            </Link>
+            <ul className="mt-2 space-y-1">
+              {c.subcategories.slice(0, 6).map((s) => (
+                <li key={s.id}>
+                  <Link to={`/category/${c.slug}/${s.slug}`} className="text-sm text-muted-foreground hover:text-primary">{s.name}</Link>
+                </li>
+              ))}
+              {c.subcategories.length > 6 && (
+                <li><Link to={`/category/${c.slug}`} className="text-sm font-medium text-primary">All {c.subcategories.length} ranges →</Link></li>
+              )}
+            </ul>
+          </div>
+        ))}
+        {!data && <p className="col-span-2 text-sm text-muted-foreground">Loading product ranges…</p>}
+      </div>
+    </NavMenu>
+  );
+}
+
+function IndustriesMenu() {
+  const location = useLocation();
+  return (
+    <NavMenu label="Industries" active={location.pathname.startsWith('/industries')}>
+      <ul className="w-80 rounded-md border bg-card p-2 shadow-hover">
+        {INDUSTRIES.map((i) => (
+          <li key={i.slug}>
+            <Link to={industryPath(i)} className="block rounded-sm px-3 py-2 hover:bg-secondary/60">
+              <span className="block text-sm font-medium">{i.name}</span>
+              <span className="block text-xs text-muted-foreground">For {i.uses}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </NavMenu>
   );
 }
 
@@ -105,6 +129,12 @@ function MobileMenu() {
                 ))}
               </ul>
             </div>
+            <div className="border-t pt-5">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Industries</p>
+              <ul className="space-y-2">
+                {INDUSTRIES.map((i) => <li key={i.slug}><Link to={industryPath(i)} className="block font-medium">{i.name}</Link></li>)}
+              </ul>
+            </div>
             <div className="space-y-2 border-t pt-5">
               <Link to="/about" className="block font-medium">About</Link>
               <Link to="/contact" className="block font-medium">Contact</Link>
@@ -135,6 +165,7 @@ export const Header = () => (
       </Link>
       <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
         <ProductsMenu />
+        <IndustriesMenu />
         <NavLink to="/about" className={navLink}>About</NavLink>
         <NavLink to="/contact" className={navLink}>Contact</NavLink>
       </nav>

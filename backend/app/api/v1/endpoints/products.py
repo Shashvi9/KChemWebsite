@@ -8,7 +8,7 @@ from typing import List, Optional
 
 from app.db.session import get_db
 from app.core import cas
-from app.db.models import CasAlias, Product, Category, Subcategory, product_subcategories
+from app.db.models import Application, CasAlias, Product, ProductApplication, Category, Subcategory, product_subcategories
 from app.schemas import schemas
 
 router = APIRouter()
@@ -95,6 +95,30 @@ def search_products(
         .limit(limit)
         .all()
     )
+    return [_product_to_api(p) for p in products]
+
+
+@router.get("/applications", response_model=List[schemas.ApplicationSummary])
+def applications(db: Session = Depends(get_db)):
+    """End uses with their number of active products (industry pages, menus)."""
+    n = func.count(Product.id)
+    rows = (db.query(Application, n)
+            .join(ProductApplication, ProductApplication.application_id == Application.id)
+            .join(Product, (Product.id == ProductApplication.product_id) & Product.is_active.is_(True))
+            .group_by(Application.id).having(n > 0).order_by(n.desc()).all())
+    return [schemas.ApplicationSummary(name=a.name, slug=a.slug, product_count=c) for a, c in rows]
+
+
+@router.get("/by-application", response_model=List[schemas.Product])
+def products_by_application(slugs: str = Query(..., max_length=500), db: Session = Depends(get_db)):
+    """Active products used in any of the given applications (comma-separated slugs), catalogue order."""
+    wanted = [x.strip() for x in slugs.split(",") if x.strip()][:20]
+    used_in = (db.query(ProductApplication.product_id)
+               .join(Application, Application.id == ProductApplication.application_id)
+               .filter(Application.slug.in_(wanted)))
+    products = (db.query(Product).options(*_LOAD)
+                .filter(Product.is_active.is_(True), Product.id.in_(used_in))
+                .order_by(Product.id).all())
     return [_product_to_api(p) for p in products]
 
 

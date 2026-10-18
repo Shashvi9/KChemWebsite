@@ -4,6 +4,7 @@
  */
 import { useEffect } from 'react';
 import { columnLabel, displayName, type CategorySummary, type ProductDetail, type SubcategorySummary } from '@/lib/catalog';
+import type { Industry } from '@/lib/industries';
 import { CONTACT_EMAIL, CONTACT_PHONE_TEL, HEAD_OFFICE } from '@/lib/contact';
 
 export const SITE = 'https://kewinchem.com';
@@ -46,8 +47,8 @@ const withContext = (nodes: object[]) => nodes.map((n) => ({ '@context': 'https:
 
 export function homeSeo(): Seo {
   return {
-    title: 'Dyes, Dye Intermediates & Food Colours Manufacturer, Ahmedabad | Kewin Chemicals',
-    description: 'Manufacturer and exporter of acid, reactive, direct, basic and solvent dyes, dye intermediates, food colours and pigments since 1999. Search by CAS number and request samples.',
+    title: 'Dyes Manufacturer & Exporter in India | Kewin Chemicals',
+    description: 'Manufacturer, exporter and supplier of acid, reactive, direct, basic and solvent dyes, intermediates and food colours from Ahmedabad, Gujarat, India.',
     path: '',
     jsonLd: withContext([{ ...organization }, { '@type': 'WebSite', url: SITE, name: BRAND,
       potentialAction: { '@type': 'SearchAction', target: `${SITE}/search?q={q}`, 'query-input': 'required name=q' } }]),
@@ -56,8 +57,8 @@ export function homeSeo(): Seo {
 
 export function categorySeo(c: CategorySummary): Seo {
   return {
-    title: `${c.name} Manufacturer & Exporter in India | ${BRAND}`,
-    description: clip(`${c.product_count} ${c.name.toLowerCase()} from Kewin Chemicals, Ahmedabad: ${list(c.subcategories.map((s) => s.name))}. Request samples and export quotes.`, 158),
+    title: hubTitle(c.name),
+    description: clip(`${c.product_count} ${c.name.toLowerCase()} from Kewin Chemicals, ${LOCATION}: ${list(c.subcategories.map((s) => s.name))}. Request samples and export quotes.`, 158),
     path: `/category/${c.slug}`,
     jsonLd: withContext([breadcrumbs([{ name: c.name, path: `/category/${c.slug}` }])]),
   };
@@ -66,24 +67,37 @@ export function categorySeo(c: CategorySummary): Seo {
 export function subcategorySeo(c: CategorySummary, s: SubcategorySummary, examples: string[]): Seo {
   const path = `/category/${c.slug}/${s.slug}`;
   return {
-    title: `${s.name} Manufacturer & Exporter, Ahmedabad, India | ${BRAND}`,
-    description: clip(`${s.product_count} ${s.name.toLowerCase()} with CAS numbers${examples.length ? `, including ${list(examples, 3)}` : ''}. Manufactured in Gujarat, India. Request a sample or quote.`, 158),
+    title: hubTitle(s.name),
+    description: clip(`${s.product_count} ${s.name.toLowerCase()} with CAS numbers${examples.length ? `, including ${list(examples, 3)}` : ''}. Manufacturer, exporter and supplier in ${LOCATION}.`, 158),
     path,
     jsonLd: withContext([breadcrumbs([{ name: c.name, path: `/category/${c.slug}` }, { name: s.name, path }])]),
   };
 }
 
-/** Longest title that fits ~65 chars, dropping words in order of least value (never cutting the brand). */
+/** First option that fits ~65 characters: options go from fullest keyword pattern to plainest; the brand is never cut. */
+const fit = (...options: string[]) => options.find((t) => t.length <= 65) ?? clip(options[options.length - 1], 65);
+
 function fitTitle(name: string, casNo: string) {
   const cas = casNo ? ` (CAS ${casNo})` : '';
-  const options = [
+  return fit(
+    `${name}${cas} Manufacturer & Exporter, India | ${BRAND}`,
     `${name}${cas} Manufacturer & Exporter | ${BRAND}`,
     `${name}${cas} Manufacturer | ${BRAND}`,
     `${name}${cas} | ${BRAND}`,
     `${name} | ${BRAND}`,
-  ];
-  return options.find((t) => t.length <= 65) ?? clip(name, 65);
+  );
 }
+
+/** "Manufacturers, Exporters & Suppliers in India" pattern for hub pages, shortened to fit. */
+const hubTitle = (subject: string) => fit(
+  `${subject} Manufacturers, Exporters & Suppliers in India | ${BRAND}`,
+  `${subject} Manufacturers & Exporters in India | ${BRAND}`,
+  `${subject} Manufacturer & Exporter, India | ${BRAND}`,
+  `${subject} Manufacturer, India | ${BRAND}`,
+  `${subject} | ${BRAND}`,
+);
+
+export const LOCATION = 'Ahmedabad, Gujarat, India';
 
 const TYPE_LABEL: Record<string, string> = {
   dye: 'dye', intermediate: 'dye intermediate', food_color: 'food colour', pigment: 'pigment', pharma: 'pharmaceutical product',
@@ -100,7 +114,7 @@ export function productSeo(p: ProductDetail): Seo {
   const facts = [casNo && `CAS ${casNo}`, a.ci_number && `C.I. ${a.ci_number}`, a.e_number && String(a.e_number)].filter(Boolean).join(', ');
   return {
     title: fitTitle(name, casNo),
-    description: clip(`${name}${facts ? ` (${facts})` : ''}, ${kind}${uses.length ? ` for ${list(uses.map((u) => u.toLowerCase()), 3)}` : ''}. Made in Gujarat, India. Request a sample, TDS or export quote.`, 158),
+    description: clip(`${name}${facts ? ` (${facts})` : ''}, ${kind}${uses.length ? ` for ${list(uses.map((u) => u.toLowerCase()), 3)}` : ''}. Manufacturer, supplier and exporter in ${LOCATION} since 1999.`, 158),
     path,
     noindex: !p.indexable,
     jsonLd: withContext([
@@ -123,6 +137,16 @@ export function productSeo(p: ProductDetail): Seo {
         { name, path },
       ]),
     ]),
+  };
+}
+
+export function industrySeo(ind: Industry, count: number): Seo {
+  const path = `/industries/${ind.slug}`;
+  return {
+    title: hubTitle(ind.keyword),
+    description: clip(`${count} ${ind.name.toLowerCase()} for ${ind.uses}, each with its CAS number. Manufacturer, exporter and supplier in ${LOCATION}. Request samples and quotes.`, 158),
+    path,
+    jsonLd: withContext([breadcrumbs([{ name: ind.name, path }])]),
   };
 }
 

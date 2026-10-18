@@ -6,6 +6,7 @@ import { dehydrate } from "@tanstack/react-query";
 import App, { createQueryClient } from "./App";
 
 export { sortOverview } from "@/lib/catalog";
+export { INDUSTRIES } from "@/lib/industries";
 export * as seo from "@/lib/seo";
 
 /** Render one URL with the given query-cache entries; returns markup and the state to hydrate. */

@@ -83,6 +83,12 @@ assert cl.get(f"{api}/products/by-slug/acid-test-4").json()["indexable"] is Fals
 exp = cl.get(f"{api}/products/static-export").json()
 assert len(exp) == 149 and sum(not x["indexable"] for x in exp) == 2, (len(exp), sum(not x["indexable"] for x in exp))
 
+# Industry pages
+apps = cl.get(f"{api}/products/applications").json()
+assert apps == [{"name": "Wool Dyeing", "slug": "wool-dyeing", "product_count": 1}], apps
+assert [p["name"] for p in cl.get(f"{api}/products/by-application", params={"slugs": "wool-dyeing,nope"}).json()] == ["Acid Red 18"]
+assert cl.get(f"{api}/products/by-application", params={"slugs": "nope"}).json() == []
+
 # Forms
 H = {"x-forwarded-for": "1.1.1.1"}
 inq = {"name": "Ana", "email": "ana@example.com", "subject": "Price", "message": "Need 500 kg Acid Red 18", "country": "Brazil"}

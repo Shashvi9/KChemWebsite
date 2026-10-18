@@ -3,7 +3,7 @@ import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { ProductTable } from '@/components/catalog/ProductTable';
 import { RangeIntro } from '@/components/catalog/RangeIntro';
 import { displayName, findCategory, slugTitle, useCatalogOverview, useProducts } from '@/lib/catalog';
-import { subcategorySeo, useSeo } from '@/lib/seo';
+import { LOCATION, subcategorySeo, useSeo } from '@/lib/seo';
 
 const SubcategoryPage = () => {
   const { categorySlug = '', subcategorySlug = '' } = useParams<{ categorySlug: string; subcategorySlug: string }>();
@@ -19,6 +19,7 @@ const SubcategoryPage = () => {
       <Breadcrumbs items={[{ label: category?.name ?? slugTitle(categorySlug), to: `/category/${categorySlug}` }, { label: title }]} />
       <header className="mb-6">
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
+        <p className="mt-1 text-sm font-medium text-muted-foreground">Manufacturer, exporter and supplier in {LOCATION}</p>
         {products.data && <RangeIntro rangeName={title} products={products.data} />}
       </header>
       <CatalogStatus loading={products.isLoading} error={products.error} onRetry={() => products.refetch()} />

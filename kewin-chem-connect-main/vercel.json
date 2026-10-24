@@ -13,6 +13,16 @@
       "permanent": true
     },
     {
+      "source": "/category/dyes-intermediates/dye-intermediates",
+      "destination": "/category/dye-intermediates",
+      "permanent": true
+    },
+    {
+      "source": "/products/27-di-hydroxy-naphthalene",
+      "destination": "/products/27-dihydroxy-naphthalene",
+      "permanent": true
+    },
+    {
       "source": "/food-pharma",
       "destination": "/category/food-pharma-colors",
       "permanent": true

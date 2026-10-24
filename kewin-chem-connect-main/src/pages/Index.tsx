@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { plural, useCatalogOverview } from '@/lib/catalog';
+import { plural, useCatalogOverview, type CategorySummary } from '@/lib/catalog';
 import { FACILITIES, HEAD_OFFICE, WHATSAPP_URL } from '@/lib/contact';
 import { homeSeo, useSeo } from '@/lib/seo';
 import { INDUSTRIES, industryPath } from '@/lib/industries';
@@ -26,7 +26,8 @@ const SHADES = [
 ];
 
 const CATEGORY_BLURB: Record<string, string> = {
-  'dyes-intermediates': 'Acid, basic, reactive, direct and solvent dyes, plus intermediates, for textiles, leather, paper and inks.',
+  'dyes-intermediates': 'Acid, basic, reactive, direct and solvent dyes for textiles, leather, paper and inks.',
+  'dye-intermediates': 'Naphthalene, aniline, phenol, pyrazolone and other intermediates for dye and pigment manufacturing.',
   'food-pharma-colors': 'FD&C, D&C, lake and blended colours for food, beverages, pharmaceuticals and cosmetics.',
   pigments: 'Organic toner and fanal pigments.',
   'pharmaceutical-products': 'Human and veterinary formulations and nutraceutical ingredients.',
@@ -122,8 +123,37 @@ function Facts({ total }: { total?: number }) {
   );
 }
 
+function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: string }) {
+  return (
+    <div className={`flex flex-col bg-card p-6 md:p-8 ${className}`}>
+      <div className="flex items-baseline justify-between gap-4">
+        <h3 className="text-xl font-semibold">
+          <Link to={`/category/${c.slug}`} className="hover:text-primary">{c.name}</Link>
+        </h3>
+        <span className="shrink-0 font-mono text-sm text-muted-foreground">{plural(c.product_count, 'product')}</span>
+      </div>
+      {CATEGORY_BLURB[c.slug] && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CATEGORY_BLURB[c.slug]}</p>}
+      <ul className="mt-5 flex flex-wrap gap-2">
+        {c.subcategories.slice(0, 8).map((s) => (
+          <li key={s.id}>
+            <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-background px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
+              {s.name} <span className="font-mono text-xs text-muted-foreground">{s.product_count}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <Link to={`/category/${c.slug}`} className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium text-primary hover:underline">
+        {c.subcategories.length === 1 ? 'View range' : `View all ${c.subcategories.length} ranges`} <ArrowRight className="h-4 w-4" aria-hidden />
+      </Link>
+    </div>
+  );
+}
+
 function Families() {
   const { data, isLoading } = useCatalogOverview();
+  const cats = data ?? [];
+  const last = cats.length % 2 ? cats[cats.length - 1] : null;
+  const paired = last ? cats.slice(0, -1) : cats;
   return (
     <section id="products" className="scroll-mt-24 py-16 md:py-20">
       <div className="container">
@@ -131,32 +161,11 @@ function Families() {
           <h2 className="text-3xl font-semibold tracking-tight">Product ranges</h2>
           <p className="mt-3 text-muted-foreground">Every product is listed with its CAS number. Pick a range to see the full list and request samples.</p>
         </div>
-        <div className="grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2">
-          {(data ?? []).map((c) => (
-            <div key={c.id} className="flex flex-col bg-card p-6 md:p-8">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-xl font-semibold">
-                  <Link to={`/category/${c.slug}`} className="hover:text-primary">{c.name}</Link>
-                </h3>
-                <span className="shrink-0 font-mono text-sm text-muted-foreground">{plural(c.product_count, 'product')}</span>
-              </div>
-              {CATEGORY_BLURB[c.slug] && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CATEGORY_BLURB[c.slug]}</p>}
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {c.subcategories.slice(0, 8).map((s) => (
-                  <li key={s.id}>
-                    <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-background px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
-                      {s.name} <span className="font-mono text-xs text-muted-foreground">{s.product_count}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <Link to={`/category/${c.slug}`} className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium text-primary hover:underline">
-                {c.subcategories.length === 1 ? 'View range' : `View all ${c.subcategories.length} ranges`} <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-            </div>
-          ))}
+        <div className={`grid gap-px overflow-hidden rounded-md border bg-border md:grid-cols-2 ${last ? 'rounded-b-none' : ''}`}>
+          {paired.map((c) => <FamilyCard key={c.id} c={c} />)}
           {isLoading && Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-56 animate-pulse bg-card" />)}
         </div>
+        {last && <FamilyCard c={last} className="-mt-px rounded-b-md border md:mx-auto md:w-1/2" />}
       </div>
     </section>
   );

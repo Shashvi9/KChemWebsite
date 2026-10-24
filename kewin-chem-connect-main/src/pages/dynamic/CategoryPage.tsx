@@ -30,13 +30,13 @@ const CategoryPage = () => {
       )}
 
       {category && (
-        <ul className="divide-y overflow-hidden rounded-md border bg-card">
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {category.subcategories.map((s) => (
             <li key={s.id}>
-              <Link to={`/category/${category.slug}/${s.slug}`} className="group flex items-center justify-between gap-4 px-5 py-4 hover:bg-secondary/40">
-                <span className="font-medium group-hover:text-primary">{s.name}</span>
-                <span className="flex items-center gap-4">
-                  <span className="font-mono text-sm text-muted-foreground">{s.product_count}</span>
+              <Link to={`/category/${category.slug}/${s.slug}`} className="group flex h-full items-center justify-between gap-3 rounded-md border bg-card px-4 py-3 transition-colors hover:border-primary hover:bg-primary/5">
+                <span className="text-sm font-medium leading-snug group-hover:text-primary">{s.name}</span>
+                <span className="flex shrink-0 items-center gap-2">
+                  <span className="rounded-sm bg-secondary px-1.5 py-0.5 font-mono text-xs text-muted-foreground">{s.product_count}</span>
                   <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary" aria-hidden />
                 </span>
               </Link>

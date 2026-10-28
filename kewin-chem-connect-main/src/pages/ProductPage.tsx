@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import RequestSampleDialog from '@/components/RequestSampleDialog';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { Swatch } from '@/components/catalog/Swatch';
-import { columnLabel, displayName, isCodeColumn, NOT_A_SPEC, orderColumns, productPath, useProductDetail, type ProductDetail } from '@/lib/catalog';
+import { columnLabel, displayName, isCodeColumn, NOT_A_SPEC, orderColumns, useProductDetail, type ProductDetail } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
 import { LOCATION, productSeo, useSeo } from '@/lib/seo';
 import { industryForApplication, industryPath } from '@/lib/industries';
@@ -33,17 +33,6 @@ function aboutText(p: ProductDetail) {
   if (a.strength) parts.push(`Available strength: ${a.strength}.`);
   if (a.dosage_form || a.presentation) parts.push(`Supplied as ${[a.dosage_form, a.presentation && `in ${a.presentation}`].filter(Boolean).join(' ')}.`);
   return parts.join(' ');
-}
-
-function faqs(p: ProductDetail) {
-  const name = displayName(p.name);
-  const a = p.attributes ?? {};
-  return [
-    a.cas && { q: `What is the CAS number of ${name}?`, a: `The CAS number of ${name} is ${String(a.cas).replace(/ \/ /g, ', also listed as ')}.` },
-    a.applications && { q: `What is ${name} used for?`, a: `${name} is used in ${String(a.applications).toLowerCase()}.` },
-    a.also_known_as && { q: `What are other names for ${name}?`, a: `${name} is also sold as ${a.also_known_as}.` },
-    { q: `Can I get a sample of ${name}?`, a: 'Yes. Request a sample with the form on this page and our export team will reply by email or WhatsApp with availability, documents and shipping terms.' },
-  ].filter(Boolean) as { q: string; a: string }[];
 }
 
 /** Applications, each linked to its industry page when there is one. */
@@ -129,18 +118,6 @@ function Body({ p }: { p: ProductDetail }) {
             <h2 id="about" className="text-lg font-semibold">About {name}</h2>
             <p className="mt-3 max-w-prose leading-relaxed text-muted-foreground">{aboutText(p)}</p>
           </section>
-
-          <section aria-labelledby="faq" className="mt-10">
-            <h2 id="faq" className="text-lg font-semibold">Questions</h2>
-            <dl className="mt-3 divide-y rounded-md border bg-card">
-              {faqs(p).map((f) => (
-                <div key={f.q} className="px-4 py-3">
-                  <dt className="font-medium">{f.q}</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">{f.a}</dd>
-                </div>
-              ))}
-            </dl>
-          </section>
         </div>
 
         <aside className="space-y-6 lg:col-span-4">
@@ -167,21 +144,6 @@ function Body({ p }: { p: ProductDetail }) {
               <p className="mt-2 text-sm text-muted-foreground">TDS, MSDS and COA are available on request.</p>
             )}
           </div>
-
-          {p.related.length > 0 && (
-            <nav aria-labelledby="related" className="rounded-md border bg-card p-5">
-              <p id="related" className="font-semibold">Related products</p>
-              <ul className="mt-3 space-y-1.5 text-sm">
-                {p.related.map((r) => (
-                  <li key={r.slug} className="flex items-baseline justify-between gap-3">
-                    <Link to={productPath(r.slug)!} className="hover:text-primary">{displayName(r.name)}</Link>
-                    {r.cas && <span className="shrink-0 font-mono text-xs text-muted-foreground">{r.cas}</span>}
-                  </li>
-                ))}
-              </ul>
-              {range && <Link to={`/category/${range.category_slug}/${range.slug}`} className="mt-4 inline-block text-sm font-medium text-primary hover:underline">All {range.name.toLowerCase()} →</Link>}
-            </nav>
-          )}
         </aside>
       </div>
     </article>

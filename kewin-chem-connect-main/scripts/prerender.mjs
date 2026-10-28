@@ -68,7 +68,7 @@ const started = Date.now();
 
 await write('/', page('/', base, seo.homeSeo()));
 sitemap.push({ path: '' });
-for (const p of ['/about', '/contact']) {
+for (const p of ['/about', '/contact', '/faq']) {
   await write(p, page(p, base, seo.staticSeo[p]));
   sitemap.push({ path: p });
 }
@@ -116,5 +116,6 @@ ${sitemap.map((u) => `  <url><loc>${seo.SITE}${u.path || '/'}</loc>${u.lastmod ?
 </urlset>
 `;
 await fs.writeFile(path.join(dist, 'sitemap.xml'), xml);
+await fs.writeFile(path.join(dist, 'llms.txt'), seo.llmsTxt(overview, INDUSTRIES));
 
 console.log(`prerender: ${sitemap.length} indexable pages, ${noindex} noindex product pages, sitemap.xml written (${((Date.now() - started) / 1000).toFixed(1)}s)`);

@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 36 45% 97%;        /* warm paper #FBF8F3 */
+    --background: 0 0% 100%;         /* white */
     --foreground: 30 8% 11%;         /* ink #1D1B19 */
 
     --card: 0 0% 100%;

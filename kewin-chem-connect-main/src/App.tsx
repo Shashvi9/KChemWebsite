@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 import SearchResults from "./pages/SearchResults";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import FaqPage from "./pages/FaqPage";
 
 // Dynamic pages for fully dynamic routing
 import CategoryPage from "./pages/dynamic/CategoryPage";
@@ -53,6 +54,7 @@ const App = ({ queryClient }: { queryClient: QueryClient }) => {
             <Route path="/search" element={<SearchResults />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FaqPage />} />
 
             {/* Fully dynamic routes - 3 level hierarchy */}
             <Route path="/category/:categorySlug" element={<CategoryPage />} />

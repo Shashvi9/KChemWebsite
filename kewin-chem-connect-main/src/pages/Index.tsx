@@ -173,7 +173,7 @@ function Families() {
 
 function Industries() {
   return (
-    <section className="border-y bg-secondary/50 py-12">
+    <section className="border-y bg-background py-12">
       <div className="container flex flex-col gap-4 md:flex-row md:items-baseline md:gap-10">
         <h2 className="shrink-0 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Industries we supply</h2>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-lg">

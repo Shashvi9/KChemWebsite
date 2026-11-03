@@ -4,6 +4,9 @@ export const CONTACT_PHONE = '+91 9879563306';
 export const CONTACT_PHONE_TEL = '+919879563306';
 export const WHATSAPP_URL = 'https://wa.me/919879563306';
 
+/** Official profiles (LinkedIn, IndiaMART, TradeIndia...), published as Organization sameAs. Only add URLs that are Kewin's own. */
+export const PROFILE_URLS: string[] = [];
+
 // Suggestions for the country field (buyers can still type any country).
 export const COUNTRIES = [
   'Bangladesh', 'Brazil', 'China', 'Egypt', 'Ethiopia', 'Germany', 'India', 'Indonesia', 'Iran', 'Italy',

@@ -149,7 +149,7 @@ function MobileMenu() {
 
 export const Header = () => (
   <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
-    <div className="hidden border-b bg-secondary/60 text-xs text-muted-foreground md:block">
+    <div className="hidden border-b bg-background text-xs text-muted-foreground md:block">
       <div className="container flex h-8 items-center justify-between">
         <span>Export enquiries welcome · replies by email and WhatsApp</span>
         <div className="flex items-center gap-5">

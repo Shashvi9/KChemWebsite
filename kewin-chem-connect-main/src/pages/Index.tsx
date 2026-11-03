@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { plural, useCatalogOverview, type CategorySummary } from '@/lib/catalog';
+import { groupColumns, groupId, groupRanges, plural, useCatalogOverview, type CategorySummary } from '@/lib/catalog';
 import { FACILITIES, HEAD_OFFICE, WHATSAPP_URL } from '@/lib/contact';
 import { homeSeo, useSeo } from '@/lib/seo';
 import { INDUSTRIES, industryPath } from '@/lib/industries';
@@ -124,6 +124,8 @@ function Facts({ total }: { total?: number }) {
 }
 
 function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: string }) {
+  const groups = groupRanges(c.slug, c.subcategories);
+  const columns = groupColumns(groups);
   return (
     <div className={`flex flex-col bg-card p-6 md:p-8 ${className}`}>
       <div className="flex items-baseline justify-between gap-4">
@@ -133,15 +135,40 @@ function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: str
         <span className="shrink-0 font-mono text-sm text-muted-foreground">{plural(c.product_count, 'product')}</span>
       </div>
       {CATEGORY_BLURB[c.slug] && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CATEGORY_BLURB[c.slug]}</p>}
-      <ul className="mt-5 flex flex-wrap gap-2">
-        {c.subcategories.slice(0, 8).map((s) => (
-          <li key={s.id}>
-            <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-background px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
-              {s.name} <span className="font-mono text-xs text-muted-foreground">{s.product_count}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {groups[0].title ? (
+        <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3">
+          {columns.map((col) => (
+            <div key={col[0].title} className="space-y-5">
+              {col.map((g) => (
+                <div key={g.title}>
+                  <Link to={`/category/${c.slug}#${groupId(g.title!)}`} className="text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary">
+                    {g.title}
+                  </Link>
+                  <ul className="mt-2 space-y-1.5">
+                    {g.ranges.map((s) => (
+                      <li key={s.id}>
+                        <Link to={`/category/${c.slug}/${s.slug}`} className="text-sm hover:text-primary">
+                          {s.name.replace(/ Dyes\b/, '')} <span className="whitespace-nowrap font-mono text-xs text-muted-foreground">{s.product_count}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <ul className="mt-5 flex flex-wrap gap-2">
+          {c.subcategories.map((s) => (
+            <li key={s.id}>
+              <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-background px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
+                {s.name} <span className="font-mono text-xs text-muted-foreground">{s.product_count}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
       <Link to={`/category/${c.slug}`} className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium text-primary hover:underline">
         {c.subcategories.length === 1 ? 'View range' : `View all ${c.subcategories.length} ranges`} <ArrowRight className="h-4 w-4" aria-hidden />
       </Link>

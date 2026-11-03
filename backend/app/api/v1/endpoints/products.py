@@ -1,4 +1,5 @@
 import re
+from decimal import Decimal
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
@@ -42,8 +43,9 @@ def _product_to_api(product: Product) -> schemas.Product:
             continue
         attributes[k] = ", ".join(map(str, v)) if isinstance(v, list) else v
     for col in ["molecular_formula", "molecular_weight", "appearance", "description"]:
-        if getattr(product, col) is not None and getattr(product, col) != "":
-            attributes[col] = str(getattr(product, col))
+        value = getattr(product, col)
+        if value is not None and value != "":
+            attributes[col] = format(value.normalize(), "f") if isinstance(value, Decimal) else str(value)
 
     return schemas.Product(
         id=product.id,

@@ -1,7 +1,7 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { ProductTable } from '@/components/catalog/ProductTable';
-import { findSubcategory, useCatalogOverview, useProductSearch } from '@/lib/catalog';
+import { findSubcategory, useCatalogOverview, useProductSearch, type Product } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
 import { staticSeo, useSeo } from '@/lib/seo';
 
@@ -12,6 +12,17 @@ const SearchResults = () => {
   const { data: overview } = useCatalogOverview();
   const search = useProductSearch(q);
 
+  const groups: { slug: string; name: string; products: Product[] }[] = [];
+  for (const p of search.data ?? []) {
+    const category = findSubcategory(overview, p.subcategory_id)?.category;
+    const slug = category?.slug ?? 'other';
+    let g = groups.find((x) => x.slug === slug);
+    if (!g) groups.push((g = { slug, name: category?.name ?? 'Other', products: [] }));
+    g.products.push(p);
+  }
+  const order = (overview ?? []).map((c) => c.slug);
+  groups.sort((a, b) => (order.indexOf(a.slug) + 1 || 99) - (order.indexOf(b.slug) + 1 || 99));
+
   return (
     <div className="container py-10 md:py-14">
       <Breadcrumbs items={[{ label: 'Search' }]} />
@@ -20,20 +31,25 @@ const SearchResults = () => {
       </h1>
       {q.length < 2 && <p className="text-muted-foreground">Enter at least 2 characters: a product name, C.I. name or CAS number.</p>}
       <CatalogStatus loading={search.isLoading} error={search.error} onRetry={() => search.refetch()} />
-      {search.data && search.data.length > 0 && (
-        <ProductTable
-          products={search.data}
-          categorySlug="search"
-          subcategorySlug="search"
-          extraColumn={{
-            label: 'Range',
-            value: (p) => {
-              const hit = findSubcategory(overview, p.subcategory_id);
-              return hit ? <Link to={`/category/${hit.category.slug}/${hit.subcategory.slug}`} className="hover:text-primary">{hit.subcategory.name}</Link> : '—';
-            },
-          }}
-        />
-      )}
+      {groups.map((g) => (
+        <section key={g.slug} className="mb-10">
+          {groups.length > 1 && (
+            <h2 className="mb-3 text-xl font-semibold">{g.name}</h2>
+          )}
+          <ProductTable
+            products={g.products}
+            categorySlug="search"
+            subcategorySlug="search"
+            extraColumn={{
+              label: 'Range',
+              value: (p) => {
+                const hit = findSubcategory(overview, p.subcategory_id);
+                return hit ? <Link to={`/category/${hit.category.slug}/${hit.subcategory.slug}`} className="hover:text-primary">{hit.subcategory.name}</Link> : '—';
+              },
+            }}
+          />
+        </section>
+      ))}
       {search.data && search.data.length === 0 && (
         <div className="rounded-md border bg-card p-8 text-center">
           <p className="font-medium">Nothing matches “{q}”.</p>

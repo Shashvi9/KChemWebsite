@@ -10,7 +10,7 @@ type Props = {
   products: Product[];
   categorySlug: string;
   subcategorySlug: string;
-  /** Extra leading column, e.g. the range each search result belongs to. */
+  /** Extra detail shown under each product name, e.g. the range each search result belongs to. */
   extraColumn?: { label: string; value: (p: Product) => React.ReactNode };
 };
 
@@ -101,7 +101,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
       )}
 
       {/* Desktop / tablet: table with a sticky product column */}
-      <div className="mt-4 hidden overflow-x-auto rounded-md border bg-card md:block">
+      <div className="mt-4 hidden overflow-x-auto rounded-md border bg-card lg:block">
         <table className="w-full text-sm">
           <thead className="border-b bg-secondary/60 text-left">
             <tr>
@@ -109,7 +109,6 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
                 <input type="checkbox" aria-label="Select all shown" checked={allVisibleSelected} onChange={toggleAll} className="h-4 w-4 accent-[hsl(var(--primary))]" />
               </th>
               <th scope="col" className="sticky left-10 z-10 bg-secondary px-3 py-2.5 font-medium">Product</th>
-              {extraColumn && <th scope="col" className="px-3 py-2.5 font-medium">{extraColumn.label}</th>}
               {columns.map((k) => <th key={k} scope="col" className="whitespace-nowrap px-3 py-2.5 font-medium">{columnLabel(k)}</th>)}
               <th scope="col" className="px-3 py-2.5"><span className="sr-only">Actions</span></th>
             </tr>
@@ -122,12 +121,12 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
                   <td className={cn('sticky left-0 px-3 py-2.5', on ? 'bg-[hsl(23_86%_97%)]' : 'bg-card')}>
                     <input type="checkbox" aria-label={`Select ${displayName(p.name)}`} checked={on} onChange={() => toggle(p.id)} className="h-4 w-4 accent-[hsl(var(--primary))]" />
                   </td>
-                  <th scope="row" className={cn('sticky left-10 min-w-[11rem] max-w-[20rem] px-3 py-2.5 text-left font-medium', on ? 'bg-[hsl(23_86%_97%)]' : 'bg-card')}>
+                  <th scope="row" className={cn('sticky left-10 min-w-[11rem] max-w-[20rem] px-3 py-2.5 text-left font-medium [overflow-wrap:anywhere]', on ? 'bg-[hsl(23_86%_97%)]' : 'bg-card')}>
                     {p.slug ? <Link to={productPath(p.slug)!} className="hover:text-primary hover:underline">{displayName(p.name)}</Link> : displayName(p.name)}
+                    {extraColumn && <div className="mt-0.5 text-xs font-normal text-muted-foreground">{extraColumn.value(p)}</div>}
                   </th>
-                  {extraColumn && <td className="whitespace-nowrap px-3 py-2.5 text-muted-foreground">{extraColumn.value(p)}</td>}
                   {columns.map((k) => (
-                    <td key={k} className={cn('px-3 py-2.5 align-top', isCodeColumn(k) ? 'whitespace-nowrap font-mono text-[13px]' : 'min-w-[10rem] text-muted-foreground')}>
+                    <td key={k} className={cn('px-3 py-2.5 align-top', isCodeColumn(k) ? 'whitespace-nowrap font-mono text-[13px]' : 'min-w-[7rem] text-muted-foreground [overflow-wrap:anywhere]')}>
                       {cell(p.attributes?.[k])}
                     </td>
                   ))}
@@ -145,7 +144,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
       </div>
 
       {/* Mobile: one card per product, nothing hidden off-screen */}
-      <ul className="mt-4 space-y-2 md:hidden">
+      <ul className="mt-4 space-y-2 lg:hidden">
         {rows.map((p) => {
           const on = selected.has(p.id);
           return (

@@ -22,6 +22,36 @@ const CATEGORY_ORDER = ['dyes-intermediates', 'dye-intermediates', 'food-pharma-
 const rank = (slug: string) => (CATEGORY_ORDER.indexOf(slug) + 1 || 99);
 export const sortOverview = (cats: CategorySummary[]) => [...cats].sort((a, b) => rank(a.slug) - rank(b.slug));
 
+const RANGE_GROUPS: Record<string, [string, string[]][]> = {
+  'dyes-intermediates': [
+    ['Acid', ['acid-dyes', 'levelling-dyes', 'metal-complex-11-dyes', 'metal-complex-12-dyes', 'milling-dyes']],
+    ['Basic', ['basic-dyes-liquid', 'basic-dyes-powder']],
+    ['Reactive', ['reactive-dyes-he', 'reactive-dyes-hot-brand', 'reactive-dyes-me', 'reactive-printing-dyes', 'vinyl-sulphone-base-dyes']],
+    ['Direct', ['direct-dyes']],
+    ['Solvent', ['solvent-dyes']],
+  ],
+};
+
+export const groupId = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+/** A category's ranges under headings; ranges not listed in RANGE_GROUPS fall under "Other". */
+export function groupRanges<T extends { slug: string }>(categorySlug: string, ranges: T[]): { title: string | null; ranges: T[] }[] {
+  const groups = RANGE_GROUPS[categorySlug];
+  if (!groups) return [{ title: null, ranges }];
+  const out = groups.map(([title, slugs]) => ({ title, ranges: slugs.map((s) => ranges.find((r) => r.slug === s)).filter((r): r is T => !!r) }));
+  const listed = new Set(groups.flatMap(([, slugs]) => slugs));
+  out.push({ title: 'Other', ranges: ranges.filter((r) => !listed.has(r.slug)) });
+  return out.filter((g) => g.ranges.length > 0);
+}
+
+/** Groups laid out as columns: each large group alone, the small ones (two ranges or fewer) stacked together second. */
+export function groupColumns<G extends { ranges: unknown[] }>(groups: G[]): G[][] {
+  const small = groups.filter((g) => g.ranges.length <= 2);
+  const columns = groups.filter((g) => g.ranges.length > 2).map((g) => [g]);
+  if (small.length) columns.splice(1, 0, small);
+  return columns;
+}
+
 /** Categories with subcategories and counts. Cached for the session: one cold-start hit, then instant menus. */
 export function useCatalogOverview() {
   return useQuery({
@@ -120,7 +150,7 @@ export const NOT_A_SPEC = new Set(['shade_hex']);
 export const columnLabel = (key: string) => LABELS[key] ?? key.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 
 /** Identifier-like columns read best in monospace. */
-export const isCodeColumn = (key: string) => ['cas', 'ci_number', 'e_number', 'molecular_formula'].includes(key);
+export const isCodeColumn = (key: string) => ['cas', 'ci_number', 'e_number', 'molecular_formula', 'molecular_weight'].includes(key);
 
 // Columns shown first, in this order; anything else follows alphabetically.
 const ORDER = ['cas', 'ci_name', 'ci_number', 'chemical_class', 'appearance', 'hue', 'solubility', 'dye_content', 'light_fastness',

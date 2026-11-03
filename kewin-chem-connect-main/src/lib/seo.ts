@@ -3,7 +3,7 @@
  * (useSeo), so crawlers and visitors always get the same title, canonical and structured data.
  */
 import { useEffect } from 'react';
-import { columnLabel, displayName, type CategorySummary, type ProductDetail, type SubcategorySummary } from '@/lib/catalog';
+import { columnLabel, titleName, type CategorySummary, type ProductDetail, type SubcategorySummary } from '@/lib/catalog';
 import type { Industry } from '@/lib/industries';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FACILITIES, HEAD_OFFICE, PROFILE_URLS, WHATSAPP_URL } from '@/lib/contact';
 import { FAQS } from '@/content/faq';
@@ -115,7 +115,7 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 export function productSeo(p: ProductDetail): Seo {
-  const name = displayName(p.name);
+  const name = titleName(p);
   const a = p.attributes ?? {};
   const casNo = String(a.cas ?? '').split(' / ')[0];
   const range = p.ranges[0];

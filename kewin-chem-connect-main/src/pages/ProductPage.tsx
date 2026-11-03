@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import RequestSampleDialog from '@/components/RequestSampleDialog';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { Swatch } from '@/components/catalog/Swatch';
-import { columnLabel, displayName, isCodeColumn, NOT_A_SPEC, orderColumns, useProductDetail, type ProductDetail } from '@/lib/catalog';
+import { columnLabel, displayName, isCodeColumn, titleName, NOT_A_SPEC, orderColumns, useProductDetail, type ProductDetail } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
 import { LOCATION, productSeo, useSeo } from '@/lib/seo';
 import { industryForApplication, industryPath } from '@/lib/industries';
@@ -77,7 +77,7 @@ function Body({ p }: { p: ProductDetail }) {
           <div className="flex items-start justify-between gap-6">
             <div>
               <p className="text-sm font-medium text-muted-foreground">{range?.name ?? KIND[p.product_type ?? '']}</p>
-              <h1 className="mt-1 text-3xl font-semibold tracking-tight md:text-4xl">{name}</h1>
+              <h1 className="mt-1 text-3xl font-semibold tracking-tight md:text-4xl">{titleName(p)}</h1>
               {a.cas && <p className="mt-2 font-mono text-muted-foreground">CAS {a.cas}</p>}
               <p className="mt-2 text-sm text-muted-foreground">{name} manufacturer, supplier and exporter in {LOCATION}</p>
             </div>

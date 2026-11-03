@@ -121,6 +121,19 @@ export function displayName(name: string) {
     .join('');
 }
 
+/** The trade abbreviation buyers search by ("PNTOSA"), from synonyms; skipped when the name already contains it. */
+export function shortName(p: Product) {
+  const words = String(p.attributes?.also_known_as ?? '').split(', ');
+  const short = words.find((w) => /^[A-Z0-9,-]{2,10}$/.test(w) && (w.match(/[A-Z]/g) ?? []).length >= 2 && !/AMINO|NITRO|CHLORO|METHYL|ACID/.test(w));
+  return short && !p.name.toUpperCase().includes(short) ? short : undefined;
+}
+
+/** "Para Nitro Toluene Ortho Sulfonic Acid (PNTOSA)": display name with the short name, for titles and headings. */
+export const titleName = (p: Product) => {
+  const short = shortName(p);
+  return short ? `${displayName(p.name)} (${short})` : displayName(p.name);
+};
+
 const LABELS: Record<string, string> = {
   cas: 'CAS No.',
   ci_name: 'C.I. Name',

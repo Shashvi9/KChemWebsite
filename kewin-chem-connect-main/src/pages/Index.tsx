@@ -162,7 +162,7 @@ function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: str
         <ul className="mt-5 flex flex-wrap gap-2">
           {c.subcategories.map((s) => (
             <li key={s.id}>
-              <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-background px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
+              <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-[hsl(36_45%_97%)] px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
                 {s.name} <span className="font-mono text-xs text-muted-foreground">{s.product_count}</span>
               </Link>
             </li>

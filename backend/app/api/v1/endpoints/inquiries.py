@@ -46,7 +46,8 @@ def _notify(inquiry_id: int, req: InquiryRequest):
       </div>
     </div>"""
     to = os.environ.get("INQUIRY_TO", os.environ.get("SAMPLE_REQUEST_TO", email.DEFAULT_TO))
-    sent = email.send(to, f"[Website Inquiry] {req.subject} – from {req.name} ({req.country or '-'})", html, str(req.email))
+    sent = email.send(to, f"[Website Inquiry] {req.subject} – from {req.name} ({req.country or '-'})", html, str(req.email),
+                      on_behalf_of=f"{req.name} ({req.company})" if req.company else req.name)
     if sent:
         with SessionLocal() as db:
             db.query(Lead).filter(Lead.id == inquiry_id).update({"email_sent": True})

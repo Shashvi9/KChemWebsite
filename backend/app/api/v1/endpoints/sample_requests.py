@@ -77,7 +77,7 @@ def _send_sample_email(lead_id: int, req: SampleRequest):
     </div>
     """
 
-    if not email.send(to_email, subject, html, reply_to=str(req.email)):
+    if not email.send(to_email, subject, html, reply_to=str(req.email), on_behalf_of=f"{req.name} ({req.company})"):
         return
     with SessionLocal() as db:
         db.query(Lead).filter(Lead.id == lead_id).update({"email_sent": True})

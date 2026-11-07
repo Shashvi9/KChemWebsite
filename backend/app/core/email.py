@@ -1,5 +1,6 @@
 import logging
 import os
+from email.utils import formataddr, parseaddr
 
 import resend
 
@@ -17,7 +18,13 @@ def one_line(s: str) -> str:
     return " ".join(str(s).split())[:150]
 
 
-def send(to: str, subject: str, html: str, reply_to: str | None = None) -> bool:
+def sender(on_behalf_of: str | None = None) -> str:
+    """Our sending address; with a customer name, shown as "Mukesh (Manthand Dye Chem) via Kewin website"."""
+    name, addr = parseaddr(os.environ.get("RESEND_FROM", "Kewin Chemicals <onboarding@resend.dev>"))
+    return formataddr((f"{one_line(on_behalf_of)[:80]} via Kewin website" if on_behalf_of else name, addr))
+
+
+def send(to: str, subject: str, html: str, reply_to: str | None = None, on_behalf_of: str | None = None) -> bool:
     """Send via Resend. Never raises: returns False and logs, so callers can record the failure."""
     api_key = os.environ.get("RESEND_API_KEY")
     if not api_key:
@@ -25,7 +32,7 @@ def send(to: str, subject: str, html: str, reply_to: str | None = None) -> bool:
         return False
     resend.api_key = api_key
     payload = {
-        "from": os.environ.get("RESEND_FROM", "Kewin Chemicals <onboarding@resend.dev>"),
+        "from": sender(on_behalf_of),
         "to": [to],
         "subject": one_line(subject),
         "html": html,

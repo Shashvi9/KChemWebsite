@@ -33,7 +33,7 @@ def send(to: str, subject: str, html: str, reply_to: str | None = None, on_behal
     resend.api_key = api_key
     payload = {
         "from": sender(on_behalf_of),
-        "to": [to],
+        "to": [t.strip() for t in to.split(",") if t.strip()],
         "subject": one_line(subject),
         "html": html,
     }

@@ -14,25 +14,23 @@ const KIND: Record<string, string> = {
 };
 const DOC_LABEL: Record<string, string> = { msds: 'Safety data sheet (MSDS)', tds: 'Technical data sheet (TDS)', coa: 'Certificate of analysis (COA)' };
 
-/** Plain-language facts built only from this product's data; no generic filler. */
+const EXPORT_MARKETS = 'Europe, the Far East, China, South Korea, Taiwan, Thailand, Indonesia, Malaysia, Singapore, Vietnam, Russia, Spain, '
+  + 'Italy, Bangladesh, Turkey, Japan, Afghanistan, the United States, Egypt, Sri Lanka, Argentina, Mexico and Peru';
+
+/** Product paragraph from this product's data (sentences without data are left out), then the company paragraph. */
 function aboutText(p: ProductDetail) {
   const name = displayName(p.name);
   const a = p.attributes ?? {};
-  const range = p.ranges[0];
-  const ids = [a.cas && `CAS number ${String(a.cas).replace(/ \/ /g, ' or ')}`, a.ci_number && `Colour Index number ${a.ci_number}`, a.e_number && `E-number ${a.e_number}`]
-    .filter(Boolean);
-  const kind = range ? range.name.replace(/s(\s|$)/, '$1').toLowerCase() : KIND[p.product_type ?? ''] ?? 'product';
-  const parts = [`${name} is a${/^[aeiou]/i.test(kind) ? 'n' : ''} ${kind} from Kewin Chemicals, a manufacturer, supplier and exporter based in ${LOCATION}.`];
-  if (ids.length) parts.push(`It is identified by ${ids.join(', ')}.`);
-  const form = [a.chemical_class && `a ${String(a.chemical_class).toLowerCase()} dye`, a.appearance && `supplied as a ${String(a.appearance).toLowerCase()}`]
-    .filter(Boolean).join(', ');
-  if (form) parts.push(`Chemically it is ${form}${a.hue ? ` with a ${String(a.hue).toLowerCase()} hue` : ''}.`);
-  if (a.solubility) parts.push(`Solubility: ${String(a.solubility).toLowerCase()}.`);
-  if (a.also_known_as) parts.push(`It is also known as ${a.also_known_as}.`);
-  if (a.applications) parts.push(`Typical applications: ${String(a.applications).toLowerCase()}.`);
-  if (a.strength) parts.push(`Available strength: ${a.strength}.`);
-  if (a.dosage_form || a.presentation) parts.push(`Supplied as ${[a.dosage_form, a.presentation && `in ${a.presentation}`].filter(Boolean).join(' ')}.`);
-  return parts.join(' ');
+  const range = p.ranges[0]?.name.toLowerCase() ?? `${KIND[p.product_type ?? ''] ?? 'product'}s`;
+  const cas = a.cas ? ` (CAS ${String(a.cas).replace(/ \/ /g, ' or ')})` : '';
+  const product = [`${name}${cas} is produced by Kewin Chemicals Pvt. Ltd., a manufacturer, supplier and exporter of ${range} based in ${LOCATION}.`];
+  if (a.chemical_class) product.push(`Chemical class: ${String(a.chemical_class).toLowerCase()}.`);
+  if (a.chemical_family) product.push(`Chemical family: ${String(a.chemical_family).toLowerCase()}.`);
+  if (a.applications) product.push(`Industrial applications: ${String(a.applications).toLowerCase()}.`);
+  return [
+    product.join(' '),
+    `Kewin Chemicals has two factories for dyestuffs and dye intermediates and is known for consistent, stable product quality. It exports to ${EXPORT_MARKETS}.`,
+  ];
 }
 
 /** Applications, each linked to its industry page when there is one. */
@@ -116,7 +114,7 @@ function Body({ p }: { p: ProductDetail }) {
 
           <section aria-labelledby="about" className="mt-10">
             <h2 id="about" className="text-lg font-semibold">About {name}</h2>
-            <p className="mt-3 max-w-prose leading-relaxed text-muted-foreground">{aboutText(p)}</p>
+            {aboutText(p).map((t) => <p key={t} className="mt-3 max-w-prose leading-relaxed text-muted-foreground">{t}</p>)}
           </section>
         </div>
 

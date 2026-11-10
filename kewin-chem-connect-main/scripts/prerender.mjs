@@ -82,7 +82,7 @@ for (const c of overview) {
   for (const s of c.subcategories) {
     const rows = products.filter((p) => p.ranges.some((r) => r.slug === s.slug && r.category_slug === c.slug)).map(toRow);
     const sPath = `${cPath}/${s.slug}`;
-    const meta = seo.subcategorySeo(c, s, rows.slice(0, 3).map((r) => r.name));
+    const meta = seo.subcategorySeo(c, s, rows);
     await write(sPath, page(sPath, [...base, [['products', c.slug, s.slug], rows]], meta));
     sitemap.push({ path: sPath });
   }
@@ -96,7 +96,7 @@ for (const ind of INDUSTRIES) {
     .filter((p) => String(p.attributes?.applications ?? '').split(',').some((a) => names.has(a.trim())))
     .map(toRow);
   const iPath = `/industries/${ind.slug}`;
-  await write(iPath, page(iPath, [...base, [['industry', ind.slug], rows]], seo.industrySeo(ind, rows.length)));
+  await write(iPath, page(iPath, [...base, [['industry', ind.slug], rows]], seo.industrySeo(ind)));
   sitemap.push({ path: iPath });
 }
 

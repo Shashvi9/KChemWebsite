@@ -9,7 +9,7 @@ from typing import List, Optional
 
 from app.db.session import get_db
 from app.core import cas
-from app.db.models import Application, CasAlias, Product, ProductApplication, Category, Subcategory, product_subcategories
+from app.db.models import Application, CasAlias, ChemicalProperties, Product, ProductApplication, Category, Subcategory, product_subcategories
 from app.schemas import schemas
 
 router = APIRouter()
@@ -169,6 +169,16 @@ def is_indexable(p: Product) -> bool:
     return not raw or bool(cas.normalize(p.cas_number))
 
 
+def _chemistry(c: ChemicalProperties | None) -> schemas.ChemistryOut | None:
+    """Only data whose PubChem record lists this product's CAS, so nothing shown belongs to another compound."""
+    if c is None or not c.cas_confirmed:
+        return None
+    return schemas.ChemistryOut(
+        iupac_name=c.iupac_name,
+        exact_mass=format(c.exact_mass.normalize(), "f") if c.exact_mass is not None else None,
+        properties=c.properties)
+
+
 def _detail(p: Product, ranges: list[schemas.RangeRef], related: list[Product]) -> schemas.ProductDetail:
     base = _product_to_api(p)
     return schemas.ProductDetail(
@@ -178,6 +188,7 @@ def _detail(p: Product, ranges: list[schemas.RangeRef], related: list[Product]) 
         related=[schemas.ProductRef(name=r.name, slug=r.slug, cas=r.cas_number) for r in related],
         documents=[schemas.ProductDocumentOut(type=d.document_type, url=d.file_url) for d in p.documents],
         indexable=is_indexable(p),
+        chemistry=_chemistry(p.chemistry),
         updated_at=p.updated_at.isoformat() if p.updated_at else None,
     )
 
@@ -208,7 +219,7 @@ def _related(siblings: list[Product], p: Product, n: int = 12) -> list[Product]:
     return sorted(others, key=lambda s: abs(s.id - p.id))[:n]
 
 
-_DETAIL_LOAD = _LOAD + (selectinload(Product.documents), selectinload(Product.subcategory))
+_DETAIL_LOAD = _LOAD + (selectinload(Product.documents), selectinload(Product.subcategory), selectinload(Product.chemistry))
 
 
 @router.get("/by-slug/{slug}", response_model=schemas.ProductDetail)

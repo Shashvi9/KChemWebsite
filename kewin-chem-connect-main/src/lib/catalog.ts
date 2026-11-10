@@ -5,6 +5,11 @@ export type SubcategorySummary = { id: number; name: string; slug: string; categ
 export type CategorySummary = { id: number; name: string; slug: string; product_count: number; subcategories: SubcategorySummary[] };
 export type Product = { id: number; name: string; slug?: string | null; attributes: Record<string, string | number> | null; subcategory_id: number };
 export type RangeRef = { name: string; slug: string; category_slug: string; category_name: string };
+export type Chemistry = {
+  iupac_name: string | null;
+  exact_mass: string | null;
+  properties: Record<string, string>;
+};
 export type ProductDetail = Product & {
   slug: string;
   product_type: string | null;
@@ -12,6 +17,7 @@ export type ProductDetail = Product & {
   related: { name: string; slug: string; cas: string | null }[];
   documents: { type: string; url: string }[];
   indexable: boolean;
+  chemistry?: Chemistry | null;
   updated_at: string | null;
 };
 
@@ -61,7 +67,15 @@ export function useCatalogOverview() {
   });
 }
 
-export const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
+/** Applications across products with how many products list each, most common first. */
+export function topUses(products: Product[], n: number): [string, number][] {
+  const uses = new Map<string, number>();
+  products.forEach((p) => String(p.attributes?.applications ?? '').split(',').map((s) => s.trim()).filter(Boolean)
+    .forEach((u) => uses.set(u, (uses.get(u) ?? 0) + 1)));
+  return [...uses.entries()].sort((a, b) => b[1] - a[1]).slice(0, n);
+}
+
+export const plural =(n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 
 export function useProducts(categorySlug?: string, subcategorySlug?: string) {
   return useQuery({

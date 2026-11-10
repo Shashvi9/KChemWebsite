@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import RequestSampleDialog from '@/components/RequestSampleDialog';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { Swatch } from '@/components/catalog/Swatch';
+import { ChemicalProperties } from '@/components/catalog/ChemicalProperties';
 import { columnLabel, displayName, isCodeColumn, titleName, NOT_A_SPEC, orderColumns, useProductDetail, type ProductDetail } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
 import { LOCATION, productSeo, useSeo } from '@/lib/seo';
@@ -31,6 +32,21 @@ function aboutText(p: ProductDetail) {
     product.join(' '),
     `Kewin Chemicals has two factories for dyestuffs and dye intermediates and is known for consistent, stable product quality. It exports to ${EXPORT_MARKETS}.`,
   ];
+}
+
+/** Synonyms: the first few inline, the rest behind "Show more". */
+function Synonyms({ value }: { value: string }) {
+  const names = value.split(', ');
+  if (names.length <= 10) return <>{value}</>;
+  return (
+    <>
+      {names.slice(0, 10).join(', ')}
+      <details className="mt-1">
+        <summary className="cursor-pointer text-sm text-primary hover:underline">Show {names.length - 10} more</summary>
+        <p className="mt-1">{names.slice(10).join(', ')}</p>
+      </details>
+    </>
+  );
 }
 
 /** Applications, each linked to its industry page when there is one. */
@@ -93,7 +109,7 @@ function Body({ p }: { p: ProductDetail }) {
                   <tr key={k} className="border-b last:border-0">
                     <th scope="row" className="w-1/3 bg-secondary/50 px-4 py-2.5 text-left font-medium">{columnLabel(k)}</th>
                     <td className={isCodeColumn(k) ? 'px-4 py-2.5 font-mono' : 'px-4 py-2.5'}>
-                      {k === 'applications' ? <Applications value={String(a[k])} /> : String(a[k])}
+                      {k === 'applications' ? <Applications value={String(a[k])} /> : k === 'also_known_as' ? <Synonyms value={String(a[k])} /> : String(a[k])}
                     </td>
                   </tr>
                 ))}
@@ -111,6 +127,8 @@ function Body({ p }: { p: ProductDetail }) {
                 : 'Specifications vary by grade. Ask for the TDS of the grade you need.'}
             </p>
           </section>
+
+          {p.chemistry && <ChemicalProperties c={p.chemistry} />}
 
           <section aria-labelledby="about" className="mt-10">
             <h2 id="about" className="text-lg font-semibold">About {name}</h2>

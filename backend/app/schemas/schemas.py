@@ -71,6 +71,13 @@ class ProductDocumentOut(BaseModel):
     url: str
 
 
+class ChemistryOut(BaseModel):
+    """Reference chemistry shown on product pages."""
+    iupac_name: Optional[str] = None
+    exact_mass: Optional[str] = None
+    properties: Dict[str, str] = {}
+
+
 class ProductDetail(Product):
     """Everything a product page needs in one response."""
     product_type: Optional[str] = None
@@ -78,6 +85,7 @@ class ProductDetail(Product):
     related: List[ProductRef] = []
     documents: List[ProductDocumentOut] = []
     indexable: bool = True             # False: kept on the site but out of search until reviewed
+    chemistry: Optional[ChemistryOut] = None
     updated_at: Optional[str] = None
 
 

@@ -56,7 +56,7 @@ function Guide({ sections }: { sections: GuideSection[] }) {
 function Body({ ind }: { ind: Industry }) {
   const { data: overview } = useCatalogOverview();
   const q = useIndustryProducts(ind);
-  useSeo(q.data ? industrySeo(ind, q.data.length) : null);
+  useSeo(q.data ? industrySeo(ind) : null);
 
   return (
     <div className="container py-10 md:py-14">

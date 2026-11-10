@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { ProductTable } from '@/components/catalog/ProductTable';
-import { RangeIntro } from '@/components/catalog/RangeIntro';
-import { displayName, findCategory, slugTitle, useCatalogOverview, useProducts } from '@/lib/catalog';
+import { RangeIntro, RangeSupply } from '@/components/catalog/RangeIntro';
+import { supplyFor } from '@/content/rangeSupply';
+import { findCategory, slugTitle, useCatalogOverview, useProducts } from '@/lib/catalog';
 import { LOCATION, subcategorySeo, useSeo } from '@/lib/seo';
 
 const SubcategoryPage = () => {
@@ -12,7 +13,8 @@ const SubcategoryPage = () => {
   const category = findCategory(overview, categorySlug);
   const sub = category?.subcategories.find((s) => s.slug === subcategorySlug);
   const title = sub?.name ?? slugTitle(subcategorySlug);
-  useSeo(category && sub ? subcategorySeo(category, sub, (products.data ?? []).slice(0, 3).map((p) => displayName(p.name))) : null);
+  const supply = supplyFor(categorySlug, subcategorySlug);
+  useSeo(category && sub ? subcategorySeo(category, sub, products.data ?? []) : null);
 
   return (
     <div className="container py-10 md:py-14">
@@ -26,6 +28,7 @@ const SubcategoryPage = () => {
       {products.data && (
         <ProductTable products={products.data} categorySlug={categorySlug} subcategorySlug={subcategorySlug} />
       )}
+      {supply && <RangeSupply rangeName={title} supply={supply} />}
     </div>
   );
 };

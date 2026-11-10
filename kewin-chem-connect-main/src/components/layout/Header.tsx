@@ -61,7 +61,7 @@ function ProductsMenu() {
         {(data ?? []).map((c) => (
           <div key={c.id}>
             <Link to={`/category/${c.slug}`} className="flex items-baseline justify-between border-b pb-2 font-semibold hover:text-primary">
-              {c.name} <span className="font-mono text-xs font-normal text-muted-foreground">{c.product_count}</span>
+              {c.name}
             </Link>
             <ul className="mt-2 space-y-1">
               {c.subcategories.slice(0, 6).map((s) => (
@@ -123,7 +123,7 @@ function MobileMenu() {
                 {(data ?? []).map((c) => (
                   <li key={c.id}>
                     <Link to={`/category/${c.slug}`} className="flex justify-between font-medium">
-                      {c.name} <span className="font-mono text-sm text-muted-foreground">{c.product_count}</span>
+                      {c.name}
                     </Link>
                   </li>
                 ))}

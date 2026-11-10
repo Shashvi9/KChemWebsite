@@ -3,10 +3,11 @@
  * (useSeo), so crawlers and visitors always get the same title, canonical and structured data.
  */
 import { useEffect } from 'react';
-import { columnLabel, titleName, type CategorySummary, type ProductDetail, type SubcategorySummary } from '@/lib/catalog';
+import { columnLabel, titleName, topUses, type CategorySummary, type Product, type ProductDetail, type SubcategorySummary } from '@/lib/catalog';
 import type { Industry } from '@/lib/industries';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FACILITIES, HEAD_OFFICE, PROFILE_URLS, WHATSAPP_URL } from '@/lib/contact';
 import { FAQS } from '@/content/faq';
+import { rangeFaqs, supplyFor } from '@/content/rangeSupply';
 
 export const SITE = 'https://kewinchem.com';
 const BRAND = 'Kewin Chemicals';
@@ -69,19 +70,24 @@ export function homeSeo(): Seo {
 export function categorySeo(c: CategorySummary): Seo {
   return {
     title: hubTitle(c.name),
-    description: clip(`${c.product_count} ${c.name.toLowerCase()} from Kewin Chemicals, ${LOCATION}: ${list(c.subcategories.map((s) => s.name))}. Request samples and export quotes.`, 158),
+    description: clip(`${c.name} from Kewin Chemicals, ${LOCATION}: ${list(c.subcategories.map((s) => s.name))}. Request samples and export quotes.`, 158),
     path: `/category/${c.slug}`,
     jsonLd: withContext([breadcrumbs([{ name: c.name, path: `/category/${c.slug}` }])]),
   };
 }
 
-export function subcategorySeo(c: CategorySummary, s: SubcategorySummary, examples: string[]): Seo {
+export function subcategorySeo(c: CategorySummary, s: SubcategorySummary, products: Pick<Product, 'name' | 'attributes'>[]): Seo {
   const path = `/category/${c.slug}/${s.slug}`;
+  const uses = topUses(products as Product[], 3).map(([u]) => u.replace(/ (Dyeing|Manufacturing)$/, '').toLowerCase());
+  const supply = supplyFor(c.slug, s.slug);
   return {
     title: hubTitle(s.name),
-    description: clip(`${s.product_count} ${s.name.toLowerCase()} with CAS numbers${examples.length ? `, including ${list(examples, 3)}` : ''}. Manufacturer, exporter and supplier in ${LOCATION}.`, 158),
+    description: clip(`${s.name}${uses.length ? ` for ${list(uses, 3)}` : ''}, with CAS numbers. Manufacturer and exporter in ${LOCATION}.`, 158),
     path,
-    jsonLd: withContext([breadcrumbs([{ name: c.name, path: `/category/${c.slug}` }, { name: s.name, path }])]),
+    jsonLd: withContext([
+      breadcrumbs([{ name: c.name, path: `/category/${c.slug}` }, { name: s.name, path }]),
+      ...(supply ? [{ '@type': 'FAQPage', mainEntity: rangeFaqs(s.name, supply).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+    ]),
   };
 }
 
@@ -114,6 +120,12 @@ const TYPE_LABEL: Record<string, string> = {
   dye: 'dye', intermediate: 'dye intermediate', food_color: 'food colour', pigment: 'pigment', pharma: 'pharmaceutical product',
 };
 
+/** The product's synonyms, without repeats; capped so the markup stays readable. */
+const alternateNames = (p: ProductDetail) => {
+  const names = String(p.attributes?.also_known_as ?? '').split(', ').map((x) => x.trim()).filter(Boolean);
+  return [...new Map(names.map((n) => [n.toLowerCase(), n])).values()].slice(0, 20);
+};
+
 export function productSeo(p: ProductDetail): Seo {
   const name = titleName(p);
   const a = p.attributes ?? {};
@@ -136,7 +148,7 @@ export function productSeo(p: ProductDetail): Seo {
         description,
         url: `${SITE}${path}`,
         category: range?.name,
-        ...(a.also_known_as ? { alternateName: String(a.also_known_as).split(',').map((x) => x.trim()) } : {}),
+        ...(alternateNames(p).length ? { alternateName: alternateNames(p) } : {}),
         ...(casNo ? { identifier: { '@type': 'PropertyValue', propertyID: 'CAS', value: casNo } } : {}),
         additionalProperty: Object.entries(a)
           .filter(([k]) => k !== 'cas')
@@ -153,11 +165,11 @@ export function productSeo(p: ProductDetail): Seo {
   };
 }
 
-export function industrySeo(ind: Industry, count: number): Seo {
+export function industrySeo(ind: Industry): Seo {
   const path = `/industries/${ind.slug}`;
   return {
     title: hubTitle(ind.keyword),
-    description: clip(`${count} ${ind.name.toLowerCase()} for ${ind.uses}, each with its CAS number. Manufacturer, exporter and supplier in ${LOCATION}. Request samples and quotes.`, 158),
+    description: clip(`${ind.name} for ${ind.uses}, each with its CAS number. Manufacturer, exporter and supplier in ${LOCATION}. Request samples and quotes.`, 158),
     path,
     jsonLd: withContext([breadcrumbs([{ name: ind.name, path }])]),
   };
@@ -199,8 +211,8 @@ export function llmsTxt(categories: CategorySummary[], industries: Industry[]): 
     '',
   ];
   for (const c of categories) {
-    lines.push(`- [${c.name}](${SITE}/category/${c.slug}): ${c.product_count} products`);
-    for (const s of c.subcategories) lines.push(`  - [${s.name}](${SITE}/category/${c.slug}/${s.slug}): ${s.product_count} products`);
+    lines.push(`- [${c.name}](${SITE}/category/${c.slug})`);
+    for (const s of c.subcategories) lines.push(`  - [${s.name}](${SITE}/category/${c.slug}/${s.slug})`);
   }
   lines.push('', '## Industries', '');
   for (const i of industries) lines.push(`- [${i.name}](${SITE}/industries/${i.slug}): dyes for ${i.uses}`);
@@ -236,7 +248,7 @@ export function headTags(seo: Seo): string {
 
 /** Keeps <head> in step during client-side navigation (crawlers get the pre-rendered tags). */
 export function useSeo(seo: Seo | null) {
-  const key = seo ? `${seo.path}|${seo.title}|${seo.noindex}` : '';
+  const key = seo ? `${seo.path}|${seo.title}|${seo.description}|${seo.noindex}` : '';
   useEffect(() => {
     if (!seo) return;
     document.title = seo.title;

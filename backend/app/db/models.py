@@ -124,6 +124,7 @@ class Product(Base):
     applications = relationship("Application", secondary="product_applications", order_by="Application.id",
                                 viewonly=True)
     documents = relationship("ProductDocument", viewonly=True)
+    chemistry = relationship("ChemicalProperties", uselist=False, viewonly=True)
 
 
 class Application(Base):
@@ -161,6 +162,24 @@ class CasAlias(Base):
     product_id = Column(Integer, ForeignKey("products.id", ondelete="CASCADE",
                                             name="cas_aliases_product_id_products_id_fk"), nullable=False)
     cas_number = Column(String(50), nullable=False)
+
+
+class ChemicalProperties(Base):
+    """PubChem reference data per product (added in 0006); loaded by review/chem-db/load_pubchem.py."""
+    __tablename__ = "chemical_properties"
+
+    product_id = Column(Integer, ForeignKey("products.id", ondelete="CASCADE"), primary_key=True)
+    cas_number = Column(String(64), nullable=False)
+    pubchem_cid = Column(Integer, nullable=False)
+    cas_confirmed = Column(Boolean, nullable=False)
+    pubchem_title = Column(Text)
+    iupac_name = Column(Text)
+    molecular_formula = Column(String(128))
+    molecular_weight = Column(Numeric(12, 4))
+    exact_mass = Column(Numeric(14, 6))
+    xlogp = Column(Numeric(6, 2))
+    properties = Column(JSONB, nullable=False, server_default="{}")
+    fetched_at = _ts()
 
 
 class ProductDocument(Base):

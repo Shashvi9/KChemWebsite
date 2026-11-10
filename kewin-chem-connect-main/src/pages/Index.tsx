@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPin, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { groupColumns, groupId, groupRanges, plural, useCatalogOverview, type CategorySummary } from '@/lib/catalog';
+import { groupColumns, groupId, groupRanges, useCatalogOverview, type CategorySummary } from '@/lib/catalog';
 import { FACILITIES, HEAD_OFFICE, WHATSAPP_URL } from '@/lib/contact';
 import { homeSeo, useSeo } from '@/lib/seo';
 import { INDUSTRIES, industryPath } from '@/lib/industries';
@@ -102,16 +102,15 @@ function Hero() {
   );
 }
 
-function Facts({ total }: { total?: number }) {
+function Facts() {
   const facts = [
     { value: `${new Date().getFullYear() - YEAR_FOUNDED}+`, label: 'years manufacturing' },
     { value: '2', label: 'manufacturing units in India' },
-    { value: total ? total.toLocaleString() : '1,400+', label: 'products in the catalogue' },
     { value: '20+', label: 'export countries' },
   ];
   return (
     <section className="border-b bg-card">
-      <dl className="container grid grid-cols-2 divide-border md:grid-cols-4 md:divide-x">
+      <dl className="container grid grid-cols-3 divide-border md:divide-x">
         {facts.map((f) => (
           <div key={f.label} className="flex flex-col py-6 md:px-6 md:first:pl-0">
             <dt className="text-sm text-muted-foreground">{f.label}</dt>
@@ -132,7 +131,6 @@ function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: str
         <h3 className="text-xl font-semibold">
           <Link to={`/category/${c.slug}`} className="hover:text-primary">{c.name}</Link>
         </h3>
-        <span className="shrink-0 font-mono text-sm text-muted-foreground">{plural(c.product_count, 'product')}</span>
       </div>
       {CATEGORY_BLURB[c.slug] && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CATEGORY_BLURB[c.slug]}</p>}
       {groups[0].title ? (
@@ -148,7 +146,7 @@ function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: str
                     {g.ranges.map((s) => (
                       <li key={s.id}>
                         <Link to={`/category/${c.slug}/${s.slug}`} className="text-sm hover:text-primary">
-                          {s.name.replace(/ Dyes\b/, '')} <span className="whitespace-nowrap font-mono text-xs text-muted-foreground">{s.product_count}</span>
+                          {s.name.replace(/ Dyes\b/, '')}
                         </Link>
                       </li>
                     ))}
@@ -163,7 +161,7 @@ function FamilyCard({ c, className = '' }: { c: CategorySummary; className?: str
           {c.subcategories.map((s) => (
             <li key={s.id}>
               <Link to={`/category/${c.slug}/${s.slug}`} className="inline-flex items-center gap-1.5 rounded-sm border bg-[hsl(36_45%_97%)] px-2.5 py-1 text-sm hover:border-primary hover:text-primary">
-                {s.name} <span className="font-mono text-xs text-muted-foreground">{s.product_count}</span>
+                {s.name}
               </Link>
             </li>
           ))}
@@ -286,7 +284,7 @@ const Index = () => {
   return (
     <>
       <Hero />
-      <Facts total={data?.reduce((n, c) => n + c.product_count, 0)} />
+      <Facts />
       <Families />
       <Industries />
       <HowToOrder />

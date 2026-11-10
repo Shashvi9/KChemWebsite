@@ -1,12 +1,11 @@
 import React from "react";
-import { Award, Users, Globe, Zap, BookOpen, Eye, Target, Star } from "lucide-react";
+import { Award, Users, Globe, BookOpen, Eye, Target, Star } from "lucide-react";
 import { staticSeo, useSeo } from '@/lib/seo';
 
 const stats = [
   { icon: Award, label: "Years of Excellence", value: "25+" },
   { icon: Users, label: "Global Clients", value: "500+" },
   { icon: Globe, label: "Countries Served", value: "20+" },
-  { icon: Zap, label: "Product Range", value: "1000+" },
 ];
 
 const sections = [
@@ -69,7 +68,7 @@ const About = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 text-center">
+        <div className="grid grid-cols-3 gap-8 mb-16 text-center">
           {stats.map((stat, index) => (
             <div
               key={stat.label}

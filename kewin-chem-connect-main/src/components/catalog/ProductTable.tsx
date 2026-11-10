@@ -15,6 +15,13 @@ type Props = {
 };
 
 const cell = (v: unknown) => (v === undefined || v === null || v === '' || v === '-' ? '—' : String(v));
+/** Long synonym lists cut to the first three in tables; the filter still searches all of them. */
+const shown = (k: string, v: unknown) => {
+  const text = cell(v);
+  if (k !== 'also_known_as') return text;
+  const names = text.split(', ');
+  return names.length > 3 ? `${names.slice(0, 3).join(', ')} +${names.length - 3} more` : text;
+};
 
 export function ProductTable({ products, categorySlug, subcategorySlug, extraColumn }: Props) {
   const [filter, setFilter] = useState('');
@@ -79,7 +86,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
           />
         </div>
         <p className="text-sm text-muted-foreground" aria-live="polite">
-          {rows.length === products.length ? `${products.length} products` : `${rows.length} of ${products.length} products`}
+          {rows.length !== products.length && `${rows.length} of ${products.length} products`}
         </p>
       </div>
 
@@ -127,7 +134,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
                   </th>
                   {columns.map((k) => (
                     <td key={k} className={cn('px-3 py-2.5 align-top', isCodeColumn(k) ? 'whitespace-nowrap font-mono text-[13px]' : 'min-w-[7rem] text-muted-foreground [overflow-wrap:anywhere]')}>
-                      {cell(p.attributes?.[k])}
+                      {shown(k, p.attributes?.[k])}
                     </td>
                   ))}
                   <td className="whitespace-nowrap px-3 py-2 text-right">
@@ -158,7 +165,7 @@ export function ProductTable({ products, categorySlug, subcategorySlug, extraCol
                     {columns.filter((k) => cell(p.attributes?.[k]) !== '—').map((k) => (
                       <div key={k} className="contents">
                         <dt className="text-muted-foreground">{columnLabel(k)}</dt>
-                        <dd className={cn('min-w-0 break-words', isCodeColumn(k) && 'font-mono text-[13px]')}>{cell(p.attributes?.[k])}</dd>
+                        <dd className={cn('min-w-0 break-words', isCodeColumn(k) && 'font-mono text-[13px]')}>{shown(k, p.attributes?.[k])}</dd>
                       </div>
                     ))}
                   </dl>

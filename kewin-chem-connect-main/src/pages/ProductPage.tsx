@@ -5,6 +5,8 @@ import RequestSampleDialog from '@/components/RequestSampleDialog';
 import { Breadcrumbs, CatalogStatus } from '@/components/catalog/CatalogStatus';
 import { Swatch } from '@/components/catalog/Swatch';
 import { ChemicalProperties } from '@/components/catalog/ChemicalProperties';
+import { SupplyCard } from '@/components/catalog/SupplyDetails';
+import { supplyFor } from '@/content/rangeSupply';
 import { columnLabel, displayName, isCodeColumn, titleName, NOT_A_SPEC, orderColumns, useProductDetail, type ProductDetail } from '@/lib/catalog';
 import { WHATSAPP_URL } from '@/lib/contact';
 import { LOCATION, productSeo, useSeo } from '@/lib/seo';
@@ -72,6 +74,7 @@ function Body({ p }: { p: ProductDetail }) {
   const a = p.attributes ?? {};
   const rows = orderColumns(Object.keys(a)).filter((k) => !NOT_A_SPEC.has(k) && a[k] !== '' && a[k] !== '-');
   const range = p.ranges[0];
+  const supply = range && supplyFor(range.category_slug, range.slug);
   const sample = (label: string, variant?: 'outline') => (
     <RequestSampleDialog
       trigger={<Button size="lg" variant={variant}>{label}</Button>}
@@ -160,6 +163,7 @@ function Body({ p }: { p: ProductDetail }) {
               <p className="mt-2 text-sm text-muted-foreground">TDS, MSDS and COA are available on request.</p>
             )}
           </div>
+          {supply && <SupplyCard supply={supply} />}
         </aside>
       </div>
     </article>

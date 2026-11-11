@@ -7,7 +7,6 @@ import { columnLabel, titleName, topUses, type CategorySummary, type Product, ty
 import type { Industry } from '@/lib/industries';
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL, FACILITIES, HEAD_OFFICE, PROFILE_URLS, WHATSAPP_URL } from '@/lib/contact';
 import { FAQS } from '@/content/faq';
-import { rangeFaqs, supplyFor } from '@/content/rangeSupply';
 
 export const SITE = 'https://kewinchem.com';
 const BRAND = 'Kewin Chemicals';
@@ -79,14 +78,12 @@ export function categorySeo(c: CategorySummary): Seo {
 export function subcategorySeo(c: CategorySummary, s: SubcategorySummary, products: Pick<Product, 'name' | 'attributes'>[]): Seo {
   const path = `/category/${c.slug}/${s.slug}`;
   const uses = topUses(products as Product[], 3).map(([u]) => u.replace(/ (Dyeing|Manufacturing)$/, '').toLowerCase());
-  const supply = supplyFor(c.slug, s.slug);
   return {
     title: hubTitle(s.name),
     description: clip(`${s.name}${uses.length ? ` for ${list(uses, 3)}` : ''}, with CAS numbers. Manufacturer and exporter in ${LOCATION}.`, 158),
     path,
     jsonLd: withContext([
       breadcrumbs([{ name: c.name, path: `/category/${c.slug}` }, { name: s.name, path }]),
-      ...(supply ? [{ '@type': 'FAQPage', mainEntity: rangeFaqs(s.name, supply).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
     ]),
   };
 }

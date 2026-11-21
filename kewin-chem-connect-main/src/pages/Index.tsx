@@ -30,6 +30,9 @@ const CATEGORY_BLURB: Record<string, string> = {
   'dye-intermediates': 'Naphthalene, aniline, phenol, pyrazolone and other intermediates for dye and pigment manufacturing.',
   'food-pharma-colors': 'FD&C, D&C, lake and blended colours for food, beverages, pharmaceuticals and cosmetics.',
   pigments: 'Organic toner and fanal pigments.',
+  'surfactants-emulsifiers': 'Ethoxylates, non-ionic surfactants, sorbitan and glycerol esters and fatty acid esters for industry.',
+  'cosmetic-ingredients': 'Emulsifiers, surfactants, emollients, solubilizers and pearlizers for skin, hair and personal care.',
+  'food-emulsifiers': 'Mono and diglycerides, sorbitan esters, polysorbates and polyglycerol esters for food.',
   'pharmaceutical-products': 'Human and veterinary formulations and nutraceutical ingredients.',
 };
 

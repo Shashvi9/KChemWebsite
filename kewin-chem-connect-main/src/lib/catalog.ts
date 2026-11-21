@@ -24,7 +24,8 @@ export type ProductDetail = Product & {
 const HOUR = 60 * 60 * 1000;
 
 // ponytail: display order lives here until categories.sort_order is set in the DB (admin), then drop this.
-const CATEGORY_ORDER = ['dyes-intermediates', 'dye-intermediates', 'food-pharma-colors', 'pigments', 'pharmaceutical-products'];
+const CATEGORY_ORDER = ['dyes-intermediates', 'dye-intermediates', 'food-pharma-colors', 'pigments', 'surfactants-emulsifiers', 'cosmetic-ingredients',
+  'food-emulsifiers', 'pharmaceutical-products'];
 const rank = (slug: string) => (CATEGORY_ORDER.indexOf(slug) + 1 || 99);
 export const sortOverview = (cats: CategorySummary[]) => [...cats].sort((a, b) => rank(a.slug) - rank(b.slug));
 

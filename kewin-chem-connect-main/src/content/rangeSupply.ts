@@ -1,4 +1,4 @@
-/** Supply terms shown in the sidebar of every dye, intermediate, colour and pigment product page. */
+/** Supply terms shown in the sidebar of every dye, intermediate, colour, pigment and speciality chemical product page. */
 export type Supply = {
   forms: string;
   strength?: string;
@@ -36,8 +36,11 @@ const INTERMEDIATES: Supply = {
   shipping: 'FOB / CIF from Mundra or Nhava Sheva',
 };
 
+const SPECIALITY: Supply = { ...INTERMEDIATES, forms: 'Liquid, paste, flakes or powder, as listed in the TDS' };
+
 const BY_CATEGORY: Record<string, Supply> = {
   'dyes-intermediates': DYES, 'dye-intermediates': INTERMEDIATES, 'food-pharma-colors': DYES, pigments: DYES,
+  'surfactants-emulsifiers': SPECIALITY, 'cosmetic-ingredients': SPECIALITY, 'food-emulsifiers': SPECIALITY,
 };
 
 const BY_RANGE: Record<string, Partial<Supply>> = {
@@ -47,7 +50,7 @@ const BY_RANGE: Record<string, Partial<Supply>> = {
 };
 
 export function supplyFor(categorySlug: string, rangeSlug: string): Supply | undefined {
-  const base = BY_CATEGORY[categorySlug];
+  const base = rangeSlug === 'pharmaceutical-excipients' ? SPECIALITY : BY_CATEGORY[categorySlug];
   return base && { ...base, ...BY_RANGE[rangeSlug] };
 }
 

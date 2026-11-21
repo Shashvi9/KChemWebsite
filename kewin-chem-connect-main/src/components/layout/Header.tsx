@@ -57,25 +57,25 @@ function ProductsMenu() {
   const location = useLocation();
   return (
     <NavMenu label="Products" active={location.pathname.startsWith('/category') || location.pathname.startsWith('/products')}>
-      <div className="grid w-[44rem] grid-cols-2 gap-x-8 gap-y-6 rounded-md border bg-card p-6 shadow-hover">
+      <div className="grid max-h-[calc(100vh-7rem)] w-[48rem] grid-cols-3 gap-x-6 gap-y-5 overflow-y-auto rounded-md border bg-card p-5 shadow-hover">
         {(data ?? []).map((c) => (
           <div key={c.id}>
-            <Link to={`/category/${c.slug}`} className="flex items-baseline justify-between border-b pb-2 font-semibold hover:text-primary">
+            <Link to={`/category/${c.slug}`} className="flex items-baseline justify-between border-b pb-2 text-sm font-semibold hover:text-primary">
               {c.name}
             </Link>
             <ul className="mt-2 space-y-1">
-              {c.subcategories.slice(0, 6).map((s) => (
+              {c.subcategories.slice(0, 4).map((s) => (
                 <li key={s.id}>
                   <Link to={`/category/${c.slug}/${s.slug}`} className="text-sm text-muted-foreground hover:text-primary">{s.name}</Link>
                 </li>
               ))}
-              {c.subcategories.length > 6 && (
+              {c.subcategories.length > 4 && (
                 <li><Link to={`/category/${c.slug}`} className="text-sm font-medium text-primary">All {c.subcategories.length} ranges →</Link></li>
               )}
             </ul>
           </div>
         ))}
-        {!data && <p className="col-span-2 text-sm text-muted-foreground">Loading product ranges…</p>}
+        {!data && <p className="col-span-3 text-sm text-muted-foreground">Loading product ranges…</p>}
       </div>
     </NavMenu>
   );
